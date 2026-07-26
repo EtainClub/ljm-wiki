@@ -22,6 +22,7 @@ import {
   deleteDraft,
   dropItem,
   getEvent,
+  kstDateString,
   loadEventItems,
   loadSources,
   parseKst,
@@ -104,7 +105,13 @@ async function cmdSet(slug: string, field: string, value: string): Promise<void>
     await updateEvent(slug, { summary: value });
   } else if (field === "occurredAt") {
     // 지연 시간의 기준점이라 바꾸면 기존 coverage 의 delayMinutes 가 어긋난다.
-    await updateEvent(slug, { occurredAt: Timestamp.fromDate(parseKst(value)) });
+    // date 도 함께 옮긴다 — 날짜가 바뀌는 수정(07-25 저녁 → 07-24 저녁)에서
+    // date 만 남으면 위키와 사이트가 틀린 날짜를 표시한다.
+    const at = parseKst(value);
+    await updateEvent(slug, {
+      occurredAt: Timestamp.fromDate(at),
+      date: kstDateString(at),
+    });
     console.log("⚠ 발생 시각을 바꿨습니다. coverage 를 다시 실행해야 지연 시간이 맞습니다.");
   } else if (field === "title") {
     await updateEvent(slug, { title: value });

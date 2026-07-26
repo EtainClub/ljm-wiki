@@ -12,7 +12,9 @@ import { usePathname } from "next/navigation";
 const TABS = [
   { href: "/", label: "오늘", icon: BarsIcon, match: (p: string) => p === "/" || p.startsWith("/e/") },
   { href: "/archive", label: "지난", icon: ClockIcon },
-  { href: "/sources", label: "매체", icon: ListIcon },
+  // 매체 목록은 /w 와 /method 양쪽에서 닿는다. 탭은 위키에 내준다 —
+  // 누적되는 기록이 이 제품의 깊이이고, 매체 목록은 참고 문서다.
+  { href: "/w", label: "위키", icon: ListIcon },
   { href: "/method", label: "방법", icon: InfoIcon },
 ] as const;
 

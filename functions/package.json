@@ -1,0 +1,35 @@
+{
+  "name": "new-ljm-functions",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "probe": "tsc && node lib/scripts/probe-sources.js",
+    "seed": "tsc && node lib/scripts/seed-sources.js",
+    "collect:dry": "tsc && node lib/scripts/collect-dry.js",
+    "collect:once": "tsc && node lib/scripts/collect-once.js",
+    "inspect": "tsc && node lib/scripts/inspect.js",
+    "coverage": "tsc && node lib/scripts/coverage-check.js",
+    "curate": "tsc && node lib/scripts/curate.js",
+    "export:sources": "tsc && node lib/scripts/export-sources.js",
+    "wiki:outlets": "tsc && node lib/scripts/wiki-outlets.js",
+    "frames:dry": "tsc && node lib/scripts/draft-frames-dry.js",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "deploy": "firebase deploy --only functions"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
+    "fast-xml-parser": "^4.5.1",
+    "firebase-admin": "^13.0.2",
+    "firebase-functions": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5.7.3"
+  }
+}

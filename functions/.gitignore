@@ -1,0 +1,6 @@
+# 루트 .gitignore 의 /node_modules 는 최상위에만 걸린다.
+node_modules/
+
+# tsc 산출물 — 소스만 추적한다
+lib/
+*.tsbuildinfo

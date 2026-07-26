@@ -1,22 +1,24 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getPublishedEvents } from "@/lib/events-source";
 import { formatLongDate } from "@/lib/kst";
 
-/** 홈은 최근 7건까지만 보여준다. 전체는 /archive. */
-const HOME_LIMIT = 7;
+export const metadata: Metadata = {
+  title: "지난 사건",
+  description: "지금까지 기록한 사건 전체 목록.",
+};
 
-export default async function Home() {
-  const events = (await getPublishedEvents()).slice(0, HOME_LIMIT);
+export default async function ArchivePage() {
+  const events = await getPublishedEvents();
 
   return (
-    <div className="space-y-8">
-      <section className="space-y-3">
-        <h1 className="text-2xl font-bold tracking-tight">오늘의 사건</h1>
+    <div className="space-y-6">
+      <header className="space-y-2">
+        <h1 className="text-2xl font-bold tracking-tight">지난 사건</h1>
         <p className="text-[15px] leading-7 text-zinc-600 dark:text-zinc-400">
-          하나의 사건에 언론과 채널이 어떤 제목을 달았는지, 그리고 어디가
-          다루지 않았는지 그대로 모아 놓습니다. 판단은 보시는 분이 합니다.
+          지금까지 기록한 사건 {events.length}건입니다.
         </p>
-      </section>
+      </header>
 
       <ul className="space-y-3">
         {events.map(({ event }) => {

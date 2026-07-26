@@ -1,0 +1,16 @@
+rules_version = '2';
+
+// v1 은 클라이언트가 Firestore 를 전혀 읽지 않는다.
+//
+// 공개 사이트는 정적 export 이고, 데이터는 빌드 타임에 Admin SDK 로 읽어
+// HTML 에 구워 넣는다. 큐레이션도 서비스 계정을 쓰는 로컬 CLI 로 한다.
+// 따라서 열어 둘 이유가 없고, 닫아 두면 공격 표면이 사라진다.
+//
+// 나중에 사용자 기여 기능이 생기면 그때 해당 컬렉션만 화이트리스트로 연다.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

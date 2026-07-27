@@ -98,6 +98,16 @@ export interface CoverageEntry {
   status: CoverageStatus;
   /** 이 판단이 유효한 시각. 화면에 반드시 노출한다. */
   checkedAt: Timestamp;
+  /**
+   * status 가 "none" 인 이유. 둘은 전혀 다른 주장이다.
+   *
+   *  - `not_found` : 질의어로 검색했는데 이 매체의 기사가 없었다
+   *  - `dropped`   : 기사는 찾았는데 사람이 보고 '이 사건 기사가 아니다' 라고 뺐다
+   *
+   * 구분하지 않으면 `compare` 가 운영자의 판단을 '잘못된 미보도' 로 되짚어
+   * 계속 되살리라고 한다. 실제로 그렇게 오작동했다.
+   */
+  reason?: "not_found" | "dropped";
   itemId?: string;
   /** occurredAt 대비 보도 지연(분). covered 일 때만. */
   delayMinutes?: number;

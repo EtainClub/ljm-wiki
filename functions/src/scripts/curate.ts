@@ -19,9 +19,11 @@ import type { EventDoc, ItemDoc } from "../domain";
 import {
   applyCoverage,
   attachItem,
+  compareQueries,
   createEvent,
   deleteDraft,
   dropItem,
+  findSilentCandidates,
   getEvent,
   kstDateString,
   loadEventItems,
@@ -284,6 +286,119 @@ async function cmdPending(slug: string): Promise<void> {
   }
 }
 
+/* ── 판정 신뢰도 ─────────────────────────────────────────── */
+
+/**
+ * 미보도로 찍힌 매체의 기사가 우리 저장소에 있는지 훑는다.
+ *
+ * 붙이지는 않는다 — 제목이 겹친다고 같은 사건이라는 보장이 없다.
+ * 사람이 보고 `curate attach` 로 붙인다.
+ */
+async function cmdSilent(slug: string, hoursRaw?: string): Promise<void> {
+  const hours = Number(hoursRaw ?? "48");
+  const { candidates, silentCount, query } = await findSilentCandidates(slug, hours);
+
+  console.log(`질의어 "${query}" · 미보도 ${silentCount}곳 · 창 ${hours}시간\n`);
+
+  if (silentCount === 0) {
+    console.log("미보도 매체가 없습니다.");
+    return;
+  }
+  if (candidates.length === 0) {
+    console.log(
+      "저장소에도 후보가 없습니다. '보도하지 않음' 을 뒤집을 근거가 우리 손에 없습니다.",
+    );
+    return;
+  }
+
+  console.log(`저장소에서 찾은 후보 ${candidates.length}건 — 검색이 놓쳤을 수 있습니다.\n`);
+  for (const c of candidates) {
+    console.log(
+      `${c.itemId.slice(0, 8)}  ${hhmm(c.publishedAt)}  낱말 ${c.hits}개  ` +
+        `${c.sourceName.padEnd(6)}  ${c.title}`,
+    );
+    // 호스트를 반드시 같이 찍는다. 매체 id 만 보고 붙였다가 MBN 기사를
+    // 매일경제로 기록한 적이 있다.
+    console.log(`          ${c.host}`);
+  }
+  console.log(
+    `\n붙이기 전에 위 호스트와 제목이 이 사건 기사가 맞는지 확인하세요.\n` +
+      `  curate -- attach ${slug} <항목>`,
+  );
+}
+
+/**
+ * 질의어를 바꿔 가며 보도 여부가 흔들리는 매체를 찾는다. 아무것도 쓰지 않는다.
+ */
+async function cmdCompare(
+  slug: string,
+  queries: string[],
+  hoursRaw?: string,
+): Promise<void> {
+  const hours = Number(hoursRaw ?? "48");
+  const creds = {
+    clientId: requireEnv("NAVER_CLIENT_ID"),
+    clientSecret: requireEnv("NAVER_CLIENT_SECRET"),
+  };
+  const sources = await loadSources();
+  const names = new Map(sources.map((s) => [s.id, s.name] as const));
+
+  console.log(`질의어 ${queries.length}개 · 창 ${hours}시간\n`);
+  const r = await compareQueries(slug, queries, creds, hours);
+
+  const best = Math.max(...r.byQuery.map((q) => q.covered.size));
+  for (const q of r.byQuery) {
+    // 아무것도 못 잡는 질의어는 매체가 흔들린다는 신호가 아니라 질의어가 틀렸다는 신호다.
+    const weak = q.covered.size === 0 || q.covered.size * 2 < best;
+    console.log(
+      `  "${q.query}"  → 보도 ${q.covered.size}곳 (조회 ${q.scanned}건)` +
+        (weak ? "  ⚠ 너무 좁습니다" : ""),
+    );
+  }
+  console.log();
+
+  if (r.truncated) {
+    console.error("⚠ 한 질의어 이상에서 시간창을 다 훑지 못했습니다. 결과를 믿을 수 없습니다.");
+    process.exit(1);
+  }
+
+  // 검사 대상은 '보도하지 않음' 뿐이다. '보도했다' 는 우리가 주장하는 사실이 아니라
+  // 관측이므로, 어떤 질의어가 놓쳤다고 해서 틀린 기록이 되지 않는다.
+  console.log(`지금 '보도하지 않음' 으로 기록된 곳 ${r.storedSilent.length}곳`);
+  console.log(
+    `  ${r.storedSilent.map((id) => names.get(id) ?? id).join(", ") || "(없음)"}`,
+  );
+  if (r.dropped.length > 0) {
+    console.log(
+      `  그중 ${r.dropped.length}곳은 사람이 '이 사건 기사가 아니다' 라고 뺀 것입니다 — 검사하지 않습니다.\n` +
+        `  (${r.dropped.map((id) => names.get(id) ?? id).join(", ")})`,
+    );
+  }
+  console.log();
+
+  if (r.falseSilent.length === 0) {
+    console.log("■ 뒤집힌 곳 없음");
+    console.log(
+      "  어느 질의어로도 이 매체들의 기사를 찾지 못했습니다.\n" +
+        "  '보도하지 않음' 판정이 질의어를 바꿔도 버팁니다.",
+    );
+    return;
+  }
+
+  console.log(`■ 잘못된 '보도하지 않음' ${r.falseSilent.length}곳`);
+  for (const u of r.falseSilent) {
+    console.log(
+      `  ${(names.get(u.sourceId) ?? u.sourceId).padEnd(6)} — 이 질의어에서는 보도로 잡힘: ` +
+        u.coveredIn.map((q) => `"${q}"`).join(", "),
+    );
+  }
+  console.log(
+    `\n사이트에 실린 사실이 틀렸다는 뜻입니다. 둘 중 하나를 하세요.\n` +
+      `  - 더 넓은 질의어로 coverage 를 다시 돌린다\n` +
+      `  - curate -- silent 로 저장소의 기사를 찾아 attach 한다`,
+  );
+}
+
 /* ── show / publish ──────────────────────────────────────── */
 
 async function cmdShow(slug: string): Promise<void> {
@@ -392,6 +507,8 @@ const USAGE = `사용법:
   curate -- frame <id> <키> "<라벨>" <항목...>  프레임 직접 지정
   curate -- drop <id> <항목>                  이 사건 기사가 아닌 항목 빼기
   curate -- attach <id> <항목>                검색이 놓친 기사를 보도로 붙이기
+  curate -- silent <id> [시간=48]             미보도 매체의 기사가 저장소에 있는지 훑기
+  curate -- compare <id> "<질의어1>" "<질의어2>" [...]  질의어에 따라 갈리는 매체 찾기
   curate -- show <id>
   curate -- publish <id>
   curate -- delete <id>                      초안 삭제 (발행분은 불가)`;
@@ -455,6 +572,18 @@ async function main(): Promise<void> {
           `coverage 를 다시 돌리면 지워집니다. frame 으로 배정하세요.`,
       );
       return;
+    }
+    case "silent":
+      if (!args[0]) throw new Error(USAGE);
+      return cmdSilent(args[0], args[1]);
+    case "compare": {
+      if (!args[0] || !args[1] || !args[2]) throw new Error(USAGE);
+      // 마지막 인자가 숫자면 시간창이다. 아니면 전부 질의어다.
+      const rest = args.slice(1);
+      const last = rest[rest.length - 1]!;
+      const hours = /^\d+$/.test(last) ? rest.pop() : undefined;
+      if (rest.length < 2) throw new Error("질의어를 2개 이상 주세요.");
+      return cmdCompare(args[0], rest, hours);
     }
     case "delete":
       if (!args[0]) throw new Error(USAGE);

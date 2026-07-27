@@ -203,7 +203,7 @@ export async function applyCoverage(
     }
 
     if (!chosen) {
-      coverage[source.id] = { status: "none", checkedAt: now };
+      coverage[source.id] = { status: "none", checkedAt: now, reason: "not_found" };
       continue;
     }
 
@@ -285,7 +285,11 @@ export async function dropItem(slug: string, itemId: string): Promise<string> {
   const [sourceId] = entry;
 
   const coverage = { ...event.coverage };
-  coverage[sourceId] = { status: "none", checkedAt: Timestamp.now() };
+  coverage[sourceId] = {
+    status: "none",
+    checkedAt: Timestamp.now(),
+    reason: "dropped",
+  };
 
   const frames = event.frames
     .map((f) => ({ ...f, itemIds: f.itemIds.filter((id) => id !== itemId) }))
@@ -346,6 +350,198 @@ export async function attachItem(
   await ref.update({ eventId: slug });
 
   return { sourceId: item.sourceId, title: item.title, delayMinutes };
+}
+
+export interface QueryComparison {
+  /** 질의어별로 보도로 판정된 매체 */
+  byQuery: Array<{ query: string; covered: Set<string>; scanned: number; calls: number }>;
+  /** 지금 이 사건에 '보도하지 않음' 으로 저장돼 있는 매체 */
+  storedSilent: string[];
+  /**
+   * 그중 다른 질의어에서는 보도로 잡힌 매체. **이것이 이 명령의 요점이다** —
+   * 사이트에 실린 '보도하지 않음' 이 사실이 아니라는 뜻이기 때문이다.
+   */
+  falseSilent: Array<{ sourceId: string; coveredIn: string[] }>;
+  /** 어느 질의어로도 안 잡힌 매체. 미보도 판정이 버틴다. */
+  confirmedSilent: string[];
+  /** 사람이 '이 사건 기사가 아니다' 라고 뺀 매체. 검사 대상이 아니다. */
+  dropped: string[];
+  truncated: boolean;
+}
+
+/**
+ * 같은 사건·같은 시간창에 질의어만 바꿔 보도 여부를 견준다.
+ *
+ * 왜 필요한가 — 2026-07-24 보완수사권 당론 사건에서 질의어를 바꾸자 미보도가
+ * 6곳에서 0곳이 됐다. '보도하지 않음' 은 실존 매체에 대한 사실 주장으로
+ * 사이트에 실리는데, 그 값이 우리가 고른 문자열에 좌우된다는 뜻이다.
+ *
+ * 아무것도 쓰지 않는다. 어느 매체의 판정이 흔들리는지 보여줄 뿐이다 —
+ * 흔들리는 매체를 발행 전에 사람이 알아야 한다.
+ */
+export async function compareQueries(
+  slug: string,
+  queries: string[],
+  creds: NaverCredentials,
+  windowHours: number,
+): Promise<QueryComparison> {
+  const event = await getEvent(slug);
+  const sources = await loadSources();
+  const occurredAt = event.occurredAt.toDate();
+  const since = new Date(occurredAt.getTime() - 2 * 3_600_000);
+  const until = new Date(occurredAt.getTime() + windowHours * 3_600_000);
+
+  const targets: CoverageTarget[] = sources
+    .filter((s) => s.domain)
+    .map((s) => ({
+      sourceId: s.id,
+      domain: s.domain!,
+      ...(s.excludeHosts ? { excludeHosts: s.excludeHosts } : {}),
+    }));
+
+  const byQuery: QueryComparison["byQuery"] = [];
+  let truncated = false;
+
+  for (const query of queries) {
+    const outcome = await checkCoverage(targets, query, creds, since);
+    if (outcome.truncated) truncated = true;
+
+    const covered = new Set<string>();
+    for (const [sourceId, hits] of outcome.covered) {
+      if (hits.some((h) => h.publishedAt <= until)) covered.add(sourceId);
+    }
+    byQuery.push({
+      query,
+      covered,
+      scanned: outcome.scanned,
+      calls: outcome.calls,
+    });
+  }
+
+  // '보도했다' 가 질의어에 따라 흔들리는 것은 문제가 아니다 — 우리는 그 매체가
+  // 보도하지 않았다고 주장하지 않기 때문이다. 위험한 것은 반대 방향뿐이다:
+  // 지금 '보도하지 않음' 이라고 사이트에 적혀 있는데 다른 질의어로는 잡히는 경우.
+  const storedSilent = Object.entries(event.coverage)
+    .filter(([, c]) => c.status === "none")
+    .map(([id]) => id);
+
+  const falseSilent: QueryComparison["falseSilent"] = [];
+  const confirmedSilent: string[] = [];
+  const dropped: string[] = [];
+
+  for (const sourceId of storedSilent) {
+    // 사람이 보고 뺀 것은 검사 대상이 아니다. 검색이 다시 찾아내는 건 당연하고,
+    // 그걸 '잘못된 미보도' 라고 하면 운영자의 판단을 매번 뒤집으라고 하는 셈이다.
+    if (event.coverage[sourceId]?.reason === "dropped") {
+      dropped.push(sourceId);
+      continue;
+    }
+    const coveredIn = byQuery.filter((q) => q.covered.has(sourceId)).map((q) => q.query);
+    if (coveredIn.length > 0) falseSilent.push({ sourceId, coveredIn });
+    else confirmedSilent.push(sourceId);
+  }
+
+  return { byQuery, storedSilent, falseSilent, confirmedSilent, dropped, truncated };
+}
+
+/**
+ * '보도하지 않음' 으로 찍힌 매체에 대해, **우리 저장소 안에** 후보 기사가 있는지 찾는다.
+ *
+ * coverage 는 네이버 검색만 본다. 그런데 RSS 로 따로 수집해 둔 기사가 검색에
+ * 안 잡히는 경우가 실재한다 — 동아일보의 당론 추인 기사가 그랬다. 그때는
+ * 우리 손에 반증이 있는데도 '보도하지 않음' 이 사이트에 사실로 실린다.
+ *
+ * 자동으로 붙이지 않는다. 제목이 겹친다고 같은 사건이라는 보장이 없기 때문이다.
+ * 사람이 보고 `curate attach` 로 붙인다 — 이 함수는 '눈치채야만 잡히던' 것을
+ * '목록으로 들이미는' 것으로 바꿀 뿐이다.
+ */
+export interface SilentCandidate {
+  sourceId: string;
+  sourceName: string;
+  itemId: string;
+  title: string;
+  /** 사람이 눈으로 확인할 수 있게 호스트를 같이 준다 */
+  host: string;
+  publishedAt: Date;
+  /** 질의어와 겹친 낱말 수 */
+  hits: number;
+}
+
+/** 질의어를 낱말로 쪼갠다. 한 글자짜리는 아무 데나 걸리므로 뺀다. */
+function queryTokens(query: string): string[] {
+  return [...new Set(query.split(/\s+/).filter((t) => t.length >= 2))];
+}
+
+function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+export async function findSilentCandidates(
+  slug: string,
+  windowHours: number,
+): Promise<{ candidates: SilentCandidate[]; silentCount: number; query: string }> {
+  const event = await getEvent(slug);
+  const query = event.coverageQuery ?? "";
+  const tokens = queryTokens(query);
+
+  const silent = Object.entries(event.coverage)
+    .filter(([, c]) => c.status === "none")
+    .map(([id]) => id);
+
+  if (silent.length === 0 || tokens.length === 0) {
+    return { candidates: [], silentCount: silent.length, query };
+  }
+
+  const occurredAt = event.occurredAt.toDate();
+  const from = Timestamp.fromDate(new Date(occurredAt.getTime() - 2 * 3_600_000));
+  const to = Timestamp.fromDate(
+    new Date(occurredAt.getTime() + windowHours * 3_600_000),
+  );
+
+  const sources = await loadSources();
+  const names = new Map(sources.map((s) => [s.id, s.name] as const));
+  const excluded = new Map(sources.map((s) => [s.id, s.excludeHosts ?? []] as const));
+
+  const snap = await db
+    .collection(ITEMS)
+    .where("publishedAt", ">=", from)
+    .where("publishedAt", "<=", to)
+    .get();
+
+  const out: SilentCandidate[] = [];
+  for (const doc of snap.docs) {
+    const item = doc.data() as ItemDoc;
+    if (!silent.includes(item.sourceId)) continue;
+    if (item.eventId) continue; // 이미 다른 사건 것이다
+
+    // 매체 id 는 붙어 있지만 실제로는 다른 매체인 기사가 후보 풀에 남아 있다.
+    // excludeHosts 가 생기기 전에 수집된 MBN 기사가 매일경제 id 를 달고 있다.
+    // 여기서 거르지 않으면 이 도구가 그 오류를 다시 붙이라고 권한다 — 실제로 그랬다.
+    const host = hostOf(item.url);
+    const bad = excluded.get(item.sourceId) ?? [];
+    if (bad.some((h) => host === h || host.endsWith(`.${h}`))) continue;
+
+    const hits = tokens.filter((t) => item.title.includes(t)).length;
+    if (hits === 0) continue;
+
+    out.push({
+      sourceId: item.sourceId,
+      sourceName: names.get(item.sourceId) ?? item.sourceId,
+      itemId: doc.id,
+      title: item.title,
+      host,
+      publishedAt: item.publishedAt.toDate(),
+      hits,
+    });
+  }
+
+  // 많이 겹친 것부터, 같으면 이른 것부터.
+  out.sort((a, b) => b.hits - a.hits || a.publishedAt.getTime() - b.publishedAt.getTime());
+  return { candidates: out, silentCount: silent.length, query };
 }
 
 /** 사건에 배정된 항목을 매체 이름과 함께 읽는다. */

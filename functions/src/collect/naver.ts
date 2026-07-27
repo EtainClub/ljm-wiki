@@ -212,8 +212,16 @@ export async function checkCoverage(
     covered.set(target.sourceId, list);
   }
 
+  // 시각이 같으면 URL 로 가른다.
+  //
+  // 매체당 '가장 이른 한 건' 을 대표로 쓰는데, 같은 분에 여러 건을 낸 매체가
+  // 실재한다(연합뉴스·뉴시스). 시각만으로 정렬하면 검색 결과가 오는 순서에
+  // 따라 대표가 바뀌고, 다시 돌릴 때마다 프레임 배정이 풀리고 지연 시간도 달라진다.
   for (const list of covered.values()) {
-    list.sort((a, b) => a.publishedAt.getTime() - b.publishedAt.getTime());
+    list.sort(
+      (a, b) =>
+        a.publishedAt.getTime() - b.publishedAt.getTime() || a.url.localeCompare(b.url),
+    );
   }
 
   return { covered, unmatched, scanned: results.length, truncated, calls };

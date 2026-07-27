@@ -17,9 +17,14 @@ ingest 이력은 [wiki/log.md](../wiki/log.md) 에 있다. 이 문서는 **무�
 | 정적 페이지 | 62개 |
 | 프레임 완전 일치 군집 | 2개. 최대 근거는 JTBC ↔ 세계일보 3/3 |
 
-**아직 아무 데도 배포되지 않았다.** 도메인이 없고, `NEXT_PUBLIC_SITE_URL` 은
-`https://example.com` 으로 떨어지며, 수집 함수 `collectSources` 는 코드만 있고
-배포돼 있지 않다. 수집은 지금까지 전부 로컬에서 수동으로 돌렸다.
+**아직 아무 데도 배포되지 않았다.** 빌드·설정은 준비됐다 —
+`npm run deploy` 한 줄이면 되고, 도메인은 `https://new-ljm.web.app` 이다.
+수집 함수 `collectSources` 도 시크릿 없이 배포 가능하다(발굴은 RSS 만 쓴다).
+아직 아무도 그 명령을 실행하지 않았을 뿐이다. 수집은 지금까지 전부 로컬에서 수동으로 돌렸다.
+
+**브라우저는 Firebase 를 건드리지 않는다.** 클라이언트 SDK 를 초기화하지 않기로 했다 —
+정적 export 에 빌드 타임 Admin SDK 읽기, `firestore.rules` 전면 deny 라 붙일 이유가 없다.
+읽는 환경변수의 정본은 `.env.example` 이다.
 
 ## 이번 검토에서 고친 것
 
@@ -66,12 +71,18 @@ ingest 이력은 [wiki/log.md](../wiki/log.md) 에 있다. 이 문서는 **무�
 지금까지 만든 것을 아무도 볼 수 없다. 이전 위키가 사용자 확보에 실패한 원인을 따지기
 전에, 일단 볼 수 있어야 한다.
 
-- [ ] Firebase Hosting 배포, `NEXT_PUBLIC_SITE_URL` 실제 도메인으로 설정
-- [ ] `collectSources` 스케줄 함수 배포 (Cloud Scheduler)
-- [ ] `/method` 에 **'보도하지 않음' 은 질의어에 달린 값**이라는 설명을 넣는다.
-      이건 배포의 전제 조건이다 — 실존 매체에 대한 사실 주장을 각주 없이 내보낼 수 없다.
+- [x] 사이트 주소를 `.firebaserc` 에서 끌어오게 했다. 지금까지 OG·공유 카드 URL 이
+      전부 `example.com` 이었다.
+- [x] `/method` 와 사건 페이지에 **'보도하지 않음' 은 검색어에 달린 값**임을 실측 수치와
+      함께 적었다. 이건 배포의 전제 조건이었다 — 실존 매체에 대한 사실 주장을 근거 없이
+      내보낼 수 없다.
+- [x] 배포 스크립트 (`npm run deploy`, `deploy:functions`, `deploy:rules`)
+- [ ] **`npm run deploy` 실행** (사람이 해야 한다 — 외부로 나가는 작업이다)
+- [ ] `npm run deploy:rules` — Firestore 규칙(전면 deny)을 실제로 반영
+- [ ] `npm --prefix functions run deploy` — `collectSources` 스케줄 함수
 
-**완료 조건** 도메인에서 사건 3건과 위키가 보이고, 수집이 사람 손 없이 하루 단위로 돈다.
+**완료 조건** `https://new-ljm.web.app` 에서 사건 3건과 위키가 보이고,
+수집이 사람 손 없이 하루 4회 돈다.
 
 ## M2 — 판정 신뢰도
 

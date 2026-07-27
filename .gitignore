@@ -32,6 +32,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# 예시 파일은 비밀값이 없다. 이 저장소가 실제로 읽는 변수의 정본이다.
+!.env.example
 
 # vercel
 .vercel

@@ -70,3 +70,46 @@ npm --prefix functions run collect:dry
 ```bash
 npm run build
 ```
+
+## 6. 함수 배포가 403 으로 실패할 때 — ⚠ 직접 하셔야 합니다
+
+첫 함수 배포에서 이 에러가 난다:
+
+```
+Could not create Cloud Run service collectsources.
+Permission 'iam.serviceaccounts.actAs' denied on service account
+<번호>-compute@developer.gserviceaccount.com (or it may not exist).
+```
+
+**원인은 Compute Engine API 가 꺼져 있는 것이다.** 메시지가 권한 이야기를 하지만
+실제로는 뒤쪽 괄호 — "or it may not exist" — 가 맞다.
+
+Cloud Functions v2 는 Cloud Run 위에서 돌고, 런타임 서비스 계정으로
+기본 compute 서비스 계정을 쓴다. 이 계정은 IAM 목록에는 보이지만
+Compute Engine API 가 켜져 있어야 실제로 쓸 수 있다. Firebase 프로젝트를
+만들 때 이 API 는 자동으로 켜지지 않는다.
+
+배포하는 사람이 Owner 여도 난다 — 권한 문제가 아니기 때문이다.
+
+```bash
+gcloud services enable compute.googleapis.com --project=new-ljm
+```
+
+VM 이 만들어지지 않으므로 이것만으로 요금이 붙지 않는다.
+1~2분 기다렸다가 다시 배포한다.
+
+```bash
+npm --prefix functions run deploy
+```
+
+**막히기 전에 확인하려면** — 아래 명령의 결과에 `compute.googleapis.com` 이 있어야 한다.
+
+```bash
+gcloud services list --enabled --project=new-ljm | grep compute
+```
+
+런타임 계정의 역할도 함께 본다. `roles/editor` 가 없으면 배포는 되고 실행이 실패한다.
+
+```bash
+gcloud projects get-iam-policy new-ljm --flatten="bindings[].members" --format="table(bindings.members,bindings.role)" --filter="bindings.members:compute"
+```

@@ -1,8 +1,8 @@
 # 마일스톤
 
-설계는 [DESIGN.md](DESIGN.md), 기록 규칙은 [wiki/schema.md](../wiki/schema.md),
-ingest 이력은 [wiki/log.md](../wiki/log.md) 에 있다. 이 문서는 **무엇이 아직 안 됐고
-다음에 무엇을 하는가**만 적는다.
+구조와 실행 순서는 [ARCHITECTURE.md](ARCHITECTURE.md), 설계 배경은 [DESIGN.md](DESIGN.md),
+기록 규칙은 [wiki/schema.md](../wiki/schema.md), ingest 이력은 [wiki/log.md](../wiki/log.md)
+에 있다. 이 문서는 **무엇이 아직 안 됐고 다음에 무엇을 하는가**만 적는다.
 
 기준일 2026-07-27.
 

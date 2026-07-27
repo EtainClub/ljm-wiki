@@ -1,0 +1,383 @@
+[debug] [2026-07-27T09:07:41.972Z] ----------------------------------------------------------------------
+[debug] [2026-07-27T09:07:41.973Z] Command:       /Users/etain/.nvm/versions/node/v22.20.0/bin/node /Users/etain/.nvm/versions/node/v22.20.0/bin/firebase deploy --only functions
+[debug] [2026-07-27T09:07:41.974Z] CLI Version:   14.23.0
+[debug] [2026-07-27T09:07:41.974Z] Platform:      darwin
+[debug] [2026-07-27T09:07:41.974Z] Node Version:  v22.20.0
+[debug] [2026-07-27T09:07:41.974Z] Time:          Mon Jul 27 2026 18:07:41 GMT+0900 (Korean Standard Time)
+[debug] [2026-07-27T09:07:41.974Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-27T09:07:42.087Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-27T09:07:42.087Z] > authorizing via signed-in user (etainclub@gmail.com)
+[debug] [2026-07-27T09:07:42.087Z] [iam] checking project new-ljm for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-07-27T09:07:42.088Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:42.088Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:42.088Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions [none]
+[debug] [2026-07-27T09:07:42.088Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:07:42.088Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-07-27T09:07:42.342Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions 200
+[debug] [2026-07-27T09:07:42.342Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-07-27T09:07:42.343Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:42.343Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:42.343Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/new-ljm/serviceAccounts/new-ljm@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-07-27T09:07:42.343Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/new-ljm/serviceAccounts/new-ljm@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-07-27T09:07:43.373Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/new-ljm/serviceAccounts/new-ljm@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2026-07-27T09:07:43.373Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/new-ljm/serviceAccounts/new-ljm@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2026-07-27T09:07:43.374Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/new-ljm/serviceAccounts/new-ljm@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/new-ljm/serviceAccounts/new-ljm@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'new-ljm'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2026-07-27T09:07:44.924Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:44.924Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:44.924Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm [none]
+[debug] [2026-07-27T09:07:45.119Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm 200
+[debug] [2026-07-27T09:07:45.120Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm {"projectNumber":"242400003686","projectId":"new-ljm","lifecycleState":"ACTIVE","name":"new-ljm","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-07-26T09:08:45.385Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2026-07-27T09:07:45.121Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:45.121Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:45.121Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:45.121Z] Checked if tokens are valid: true, expires at: 1785146818759
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2026-07-27T09:07:45.122Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:45.122Z] Checked if tokens are valid: true, expires at: 1785146818759
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-07-27T09:07:45.122Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:45.122Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:45.122Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-07-27T09:07:45.122Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:07:45.125Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/runtimeconfig.googleapis.com [none]
+[debug] [2026-07-27T09:07:45.125Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:07:45.125Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudbuild.googleapis.com [none]
+[debug] [2026-07-27T09:07:45.126Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudbuild.googleapis.com x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:07:45.126Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/artifactregistry.googleapis.com [none]
+[debug] [2026-07-27T09:07:45.126Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/artifactregistry.googleapis.com x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:07:46.270Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudfunctions.googleapis.com 200
+[debug] [2026-07-27T09:07:46.270Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudfunctions.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API cloudfunctions.googleapis.com. Enabling now... 
+[debug] [2026-07-27T09:07:46.271Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:46.271Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:46.271Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2026-07-27T09:07:46.271Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:07:46.277Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/runtimeconfig.googleapis.com 200
+[debug] [2026-07-27T09:07:46.277Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2026-07-27T09:07:46.291Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/artifactregistry.googleapis.com 200
+[debug] [2026-07-27T09:07:46.291Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/artifactregistry.googleapis.com [omitted]
+[warn] ⚠  artifactregistry: missing required API artifactregistry.googleapis.com. Enabling now... 
+[debug] [2026-07-27T09:07:46.292Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:46.292Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:46.293Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/artifactregistry.googleapis.com:enable [none]
+[debug] [2026-07-27T09:07:46.293Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/artifactregistry.googleapis.com:enable x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:07:46.298Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudbuild.googleapis.com 200
+[debug] [2026-07-27T09:07:46.298Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudbuild.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2026-07-27T09:07:46.299Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:46.299Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:46.299Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudbuild.googleapis.com:enable [none]
+[debug] [2026-07-27T09:07:46.299Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudbuild.googleapis.com:enable x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:07:47.388Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/artifactregistry.googleapis.com:enable 200
+[debug] [2026-07-27T09:07:47.388Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/artifactregistry.googleapis.com:enable [omitted]
+[debug] [2026-07-27T09:07:47.519Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2026-07-27T09:07:47.519Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2026-07-27T09:07:47.713Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudbuild.googleapis.com:enable 200
+[debug] [2026-07-27T09:07:47.714Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/cloudbuild.googleapis.com:enable [omitted]
+[debug] [2026-07-27T09:07:57.726Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:57.726Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:57.727Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/new-ljm/adminSdkConfig [none]
+[debug] [2026-07-27T09:07:58.172Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/new-ljm/adminSdkConfig 200
+[debug] [2026-07-27T09:07:58.173Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/new-ljm/adminSdkConfig {"projectId":"new-ljm","storageBucket":"new-ljm.firebasestorage.app"}
+[debug] [2026-07-27T09:07:58.173Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:58.174Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:07:58.174Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/new-ljm/configs [none]
+[debug] [2026-07-27T09:07:58.801Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/new-ljm/configs 200
+[debug] [2026-07-27T09:07:58.801Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/new-ljm/configs {}
+[debug] [2026-07-27T09:07:58.803Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-07-27T09:07:59.630Z] > [functions] package.json contents: {
+  "name": "new-ljm-functions",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "probe": "tsc && node lib/scripts/probe-sources.js",
+    "seed": "tsc && node lib/scripts/seed-sources.js",
+    "collect:dry": "tsc && node lib/scripts/collect-dry.js",
+    "collect:once": "tsc && node lib/scripts/collect-once.js",
+    "inspect": "tsc && node lib/scripts/inspect.js",
+    "coverage": "tsc && node lib/scripts/coverage-check.js",
+    "curate": "tsc && node lib/scripts/curate.js",
+    "export:sources": "tsc && node lib/scripts/export-sources.js",
+    "wiki:outlets": "tsc && node lib/scripts/wiki-outlets.js",
+    "wiki:lint": "tsc && node lib/scripts/wiki-lint.js",
+    "frames:dry": "tsc && node lib/scripts/draft-frames-dry.js",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "deploy": "firebase deploy --only functions"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
+    "fast-xml-parser": "^4.5.1",
+    "firebase-admin": "^13.0.2",
+    "firebase-functions": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5.7.3"
+  }
+}
+[debug] [2026-07-27T09:07:59.631Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2026-07-27T09:07:59.632Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-07-27T09:07:59.640Z] Found firebase-functions binary at '/Users/etain/devel-src/apps/new-ljm/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8471
+
+[debug] [2026-07-27T09:08:00.214Z] Got response from /__/functions.yaml {"endpoints":{"collectSources":{"availableMemoryMb":512,"timeoutSeconds":540,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","region":["asia-northeast3"],"labels":{},"scheduleTrigger":{"schedule":"0 7,12,18,22 * * *","retryConfig":{"retryCount":1},"timeZone":"Asia/Seoul"},"entryPoint":"collectSources"}},"specVersion":"v1alpha1","requiredAPIs":[{"api":"cloudscheduler.googleapis.com","reason":"Needed for scheduled functions."}],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2026-07-27T09:08:04.250Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:04.251Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:04.251Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/firebaseextensions.googleapis.com [none]
+[debug] [2026-07-27T09:08:04.251Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:08:05.377Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/firebaseextensions.googleapis.com 200
+[debug] [2026-07-27T09:08:05.378Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/new-ljm/services/firebaseextensions.googleapis.com [omitted]
+[warn] ⚠  extensions: missing required API firebaseextensions.googleapis.com. Enabling now... 
+[debug] [2026-07-27T09:08:05.378Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:05.378Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:05.378Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/firebaseextensions.googleapis.com:enable [none]
+[debug] [2026-07-27T09:08:05.378Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/firebaseextensions.googleapis.com:enable x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:08:05.966Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/firebaseextensions.googleapis.com:enable 200
+[debug] [2026-07-27T09:08:05.967Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/new-ljm/services/firebaseextensions.googleapis.com:enable [omitted]
+[debug] [2026-07-27T09:08:15.983Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-27T09:08:15.984Z] > authorizing via signed-in user (etainclub@gmail.com)
+[debug] [2026-07-27T09:08:15.984Z] [iam] checking project new-ljm for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2026-07-27T09:08:15.984Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:15.984Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:15.985Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions [none]
+[debug] [2026-07-27T09:08:15.985Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions x-goog-quota-user=projects/new-ljm
+[debug] [2026-07-27T09:08:15.985Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-07-27T09:08:16.222Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions 200
+[debug] [2026-07-27T09:08:16.223Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-07-27T09:08:16.224Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:16.224Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:16.225Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/new-ljm/instances pageSize=100&pageToken=
+[debug] [2026-07-27T09:08:18.243Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/new-ljm/instances 200
+[debug] [2026-07-27T09:08:18.243Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/new-ljm/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/etain/devel-src/apps/new-ljm/functions (183.78 KB) for uploading 
+[debug] [2026-07-27T09:08:18.336Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:18.336Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:18.336Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/new-ljm/locations/-/functions [none]
+[debug] [2026-07-27T09:08:19.179Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/new-ljm/locations/-/functions 200
+[debug] [2026-07-27T09:08:19.179Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/new-ljm/locations/-/functions {}
+[debug] [2026-07-27T09:08:19.180Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:19.180Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:19.181Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-07-27T09:08:20.610Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/-/functions 200
+[debug] [2026-07-27T09:08:20.610Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/-/functions {}
+[info] i  functions: ensuring required API cloudscheduler.googleapis.com is enabled... 
+[debug] [2026-07-27T09:08:20.618Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:20.618Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:20.618Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/cloudscheduler.googleapis.com [none]
+[debug] [2026-07-27T09:08:20.618Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/cloudscheduler.googleapis.com x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:21.762Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/cloudscheduler.googleapis.com 200
+[debug] [2026-07-27T09:08:21.762Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/cloudscheduler.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API cloudscheduler.googleapis.com. Enabling now... 
+[debug] [2026-07-27T09:08:21.763Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:21.763Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:21.765Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/cloudscheduler.googleapis.com:enable [none]
+[debug] [2026-07-27T09:08:21.765Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/cloudscheduler.googleapis.com:enable x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:23.015Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/cloudscheduler.googleapis.com:enable 200
+[debug] [2026-07-27T09:08:23.016Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/cloudscheduler.googleapis.com:enable [omitted]
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2026-07-27T09:08:33.031Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:33.032Z] Checked if tokens are valid: true, expires at: 1785146818759
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2026-07-27T09:08:33.032Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:33.032Z] Checked if tokens are valid: true, expires at: 1785146818759
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2026-07-27T09:08:33.033Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:33.033Z] Checked if tokens are valid: true, expires at: 1785146818759
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2026-07-27T09:08:33.033Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:33.033Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:33.033Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/run.googleapis.com [none]
+[debug] [2026-07-27T09:08:33.033Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/run.googleapis.com x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:33.035Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/eventarc.googleapis.com [none]
+[debug] [2026-07-27T09:08:33.036Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/eventarc.googleapis.com x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:33.037Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/pubsub.googleapis.com [none]
+[debug] [2026-07-27T09:08:33.037Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/pubsub.googleapis.com x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:33.040Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/storage.googleapis.com [none]
+[debug] [2026-07-27T09:08:33.040Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/storage.googleapis.com x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:34.085Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/pubsub.googleapis.com 200
+[debug] [2026-07-27T09:08:34.085Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/pubsub.googleapis.com [omitted]
+[info] ✔  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2026-07-27T09:08:34.141Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/run.googleapis.com 200
+[debug] [2026-07-27T09:08:34.141Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/run.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API run.googleapis.com. Enabling now... 
+[debug] [2026-07-27T09:08:34.142Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:34.142Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:34.142Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/run.googleapis.com:enable [none]
+[debug] [2026-07-27T09:08:34.142Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/run.googleapis.com:enable x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:34.170Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/eventarc.googleapis.com 200
+[debug] [2026-07-27T09:08:34.171Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/eventarc.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API eventarc.googleapis.com. Enabling now... 
+[debug] [2026-07-27T09:08:34.172Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:34.172Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:34.173Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/eventarc.googleapis.com:enable [none]
+[debug] [2026-07-27T09:08:34.173Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/eventarc.googleapis.com:enable x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:34.186Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/storage.googleapis.com 200
+[debug] [2026-07-27T09:08:34.186Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/242400003686/services/storage.googleapis.com [omitted]
+[info] ✔  functions: required API storage.googleapis.com is enabled 
+[debug] [2026-07-27T09:08:34.644Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/run.googleapis.com:enable 200
+[debug] [2026-07-27T09:08:34.644Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/run.googleapis.com:enable [omitted]
+[debug] [2026-07-27T09:08:34.654Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/eventarc.googleapis.com:enable 200
+[debug] [2026-07-27T09:08:34.654Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/242400003686/services/eventarc.googleapis.com:enable [omitted]
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2026-07-27T09:08:44.666Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:44.666Z] Checked if tokens are valid: true, expires at: 1785146818759
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2026-07-27T09:08:44.667Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:44.667Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:44.667Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2026-07-27T09:08:44.667Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/pubsub.googleapis.com:generateServiceIdentity x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:44.667Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/pubsub.googleapis.com:generateServiceIdentity {}
+[debug] [2026-07-27T09:08:44.669Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2026-07-27T09:08:44.669Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/eventarc.googleapis.com:generateServiceIdentity x-goog-quota-user=projects/242400003686
+[debug] [2026-07-27T09:08:44.669Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/eventarc.googleapis.com:generateServiceIdentity {}
+[debug] [2026-07-27T09:08:46.273Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2026-07-27T09:08:46.273Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-242400003686@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"108442964701207125574"}}
+[debug] [2026-07-27T09:08:46.307Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2026-07-27T09:08:46.307Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/242400003686/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-242400003686@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"107244509946384321703"}}
+[debug] [2026-07-27T09:08:46.312Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:46.313Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:46.313Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm [none]
+[debug] [2026-07-27T09:08:46.599Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm 200
+[debug] [2026-07-27T09:08:46.600Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/new-ljm {"projectNumber":"242400003686","projectId":"new-ljm","lifecycleState":"ACTIVE","name":"new-ljm","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-07-26T09:08:45.385Z"}
+[debug] [2026-07-27T09:08:46.600Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:46.601Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:46.601Z] >>> [apiv2][query] GET https://compute.googleapis.com/compute/v1/projects/242400003686 [none]
+[debug] [2026-07-27T09:08:46.930Z] <<< [apiv2][status] GET https://compute.googleapis.com/compute/v1/projects/242400003686 403
+[debug] [2026-07-27T09:08:46.931Z] <<< [apiv2][body] GET https://compute.googleapis.com/compute/v1/projects/242400003686 {"error":{"code":403,"message":"Compute Engine API has not been used in project 242400003686 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 242400003686 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686","service":"compute.googleapis.com","consumer":"projects/242400003686","serviceTitle":"Compute Engine API","containerInfo":"242400003686"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 242400003686 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686"}]}]}}
+[debug] [2026-07-27T09:08:46.931Z] unable to look up default compute service account. Falling back to 242400003686-compute@developer.gserviceaccount.com. Error: {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"Compute Engine API has not been used in project 242400003686 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 242400003686 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686","service":"compute.googleapis.com","consumer":"projects/242400003686","serviceTitle":"Compute Engine API","containerInfo":"242400003686"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 242400003686 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686"}]}]}},"response":{"statusCode":403}},"exit":1,"message":"Request to https://compute.googleapis.com/compute/v1/projects/242400003686 had HTTP Error: 403, Compute Engine API has not been used in project 242400003686 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=242400003686 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","status":403}
+[debug] [2026-07-27T09:08:46.933Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:46.933Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:46.933Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/new-ljm/billingInfo [none]
+[debug] [2026-07-27T09:08:47.341Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/new-ljm/billingInfo 200
+[debug] [2026-07-27T09:08:47.342Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/new-ljm/billingInfo {"name":"projects/new-ljm/billingInfo","projectId":"new-ljm","billingAccountName":"billingAccounts/012BFA-D10A74-9B6201","billingEnabled":true}
+[debug] [2026-07-27T09:08:47.346Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:47.346Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:47.346Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions:generateUploadUrl [none]
+[debug] [2026-07-27T09:08:49.590Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions:generateUploadUrl 200
+[debug] [2026-07-27T09:08:49.590Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-242400003686.asia-northeast3.cloudfunctions.appspot.com/9716c5dd-95ae-4463-94d2-99411b486dca.zip?GoogleAccessId=service-242400003686@gcf-admin-robot.iam.gserviceaccount.com&Expires=1785145129&Signature=mavQx9w7O6WrximbV2cvxryp%2FbztnSnm2gT14XTFZY%2B5dNW8SABBNugSuWwya7lUBY0nG6sdgZZ3rWq9fe1IRiU8zexDY2p4al%2B27bZToe2p13UVuOEVl5UuFM475X7pXX5FWsBa%2BQeLKMa%2Bo%2FvlgdRtuH04ra8tCPsgRXfmTTTsRRfayqFZ4ybLk9aQzWRzja0u%2BzVQi9fHcRnpO2%2B3WQ0hVmGOIbZvk1WxnWWjUR1sOFRCPxsE9G0tEJYNLQipMQcDbj03KiOLrvCIrox1zkThpLukwatDw%2BoknN8o2jE68cGOPrXzzP1FddA6FRTqaZrijc28C%2Fc8SzDWDwlvDw%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-242400003686.asia-northeast3.cloudfunctions.appspot.com","object":"9716c5dd-95ae-4463-94d2-99411b486dca.zip"}}
+[debug] [2026-07-27T09:08:49.591Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-242400003686.asia-northeast3.cloudfunctions.appspot.com/9716c5dd-95ae-4463-94d2-99411b486dca.zip GoogleAccessId=service-242400003686%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1785145129&Signature=mavQx9w7O6WrximbV2cvxryp%2FbztnSnm2gT14XTFZY%2B5dNW8SABBNugSuWwya7lUBY0nG6sdgZZ3rWq9fe1IRiU8zexDY2p4al%2B27bZToe2p13UVuOEVl5UuFM475X7pXX5FWsBa%2BQeLKMa%2Bo%2FvlgdRtuH04ra8tCPsgRXfmTTTsRRfayqFZ4ybLk9aQzWRzja0u%2BzVQi9fHcRnpO2%2B3WQ0hVmGOIbZvk1WxnWWjUR1sOFRCPxsE9G0tEJYNLQipMQcDbj03KiOLrvCIrox1zkThpLukwatDw%2BoknN8o2jE68cGOPrXzzP1FddA6FRTqaZrijc28C%2Fc8SzDWDwlvDw%3D%3D
+[debug] [2026-07-27T09:08:49.591Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-242400003686.asia-northeast3.cloudfunctions.appspot.com/9716c5dd-95ae-4463-94d2-99411b486dca.zip [stream]
+[debug] [2026-07-27T09:08:50.115Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-242400003686.asia-northeast3.cloudfunctions.appspot.com/9716c5dd-95ae-4463-94d2-99411b486dca.zip 200
+[debug] [2026-07-27T09:08:50.115Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-242400003686.asia-northeast3.cloudfunctions.appspot.com/9716c5dd-95ae-4463-94d2-99411b486dca.zip [omitted]
+[info] ✔  functions: functions source uploaded successfully 
+[info] i  functions: creating Node.js 22 (2nd Gen) function collectSources(asia-northeast3)... 
+[debug] [2026-07-27T09:08:50.121Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:50.121Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:50.121Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions functionId=collectSources
+[debug] [2026-07-27T09:08:50.122Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions {"name":"projects/new-ljm/locations/asia-northeast3/functions/collectSources","buildConfig":{"runtime":"nodejs22","entryPoint":"collectSources","source":{"storageSource":{"bucket":"gcf-v2-uploads-242400003686.asia-northeast3.cloudfunctions.appspot.com","object":"9716c5dd-95ae-4463-94d2-99411b486dca.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"new-ljm\",\"storageBucket\":\"new-ljm.firebasestorage.app\"}","GCLOUD_PROJECT":"new-ljm","EVENTARC_CLOUD_EVENT_SOURCE":"projects/new-ljm/locations/asia-northeast3/services/collectSources","FUNCTION_TARGET":"collectSources","LOG_EXECUTION_ID":"true"},"ingressSettings":null,"timeoutSeconds":540,"serviceAccountEmail":null,"availableMemory":"512Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true","firebase-functions-hash":"ec7b744fb70c7a5fd9bcaba82cf8e570a00e71bf"}}
+[debug] [2026-07-27T09:08:58.913Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions 403
+[debug] [2026-07-27T09:08:58.913Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions {"error":{"code":403,"message":"Could not create Cloud Run service collectsources. Permission 'iam.serviceaccounts.actAs' denied on service account 242400003686-compute@developer.gserviceaccount.com (or it may not exist).","status":"PERMISSION_DENIED"}}
+[warn] ⚠  functions: Request to https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions?functionId=collectSources had HTTP Error: 403, Could not create Cloud Run service collectsources. Permission 'iam.serviceaccounts.actAs' denied on service account 242400003686-compute@developer.gserviceaccount.com (or it may not exist). 
+[warn] ⚠  functions:  failed to create function projects/new-ljm/locations/asia-northeast3/functions/collectSources 
+[error] Failed to create function projects/new-ljm/locations/asia-northeast3/functions/collectSources
+[debug] [2026-07-27T09:08:58.916Z] Total Function Deployment time: 8795
+[debug] [2026-07-27T09:08:58.916Z] 1 Functions Deployed
+[debug] [2026-07-27T09:08:58.916Z] 1 Functions Errored
+[debug] [2026-07-27T09:08:58.917Z] 0 Function Deployments Aborted
+[debug] [2026-07-27T09:08:58.917Z] Average Function Deployment time: 8795
+[info] 
+[info] Functions deploy had errors with the following functions:
+	collectSources(asia-northeast3)
+[debug] [2026-07-27T09:08:58.920Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:58.920Z] Checked if tokens are valid: true, expires at: 1785146818759
+[debug] [2026-07-27T09:08:58.920Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/new-ljm/locations/asia-northeast3/repositories/gcf-artifacts [none]
+[debug] [2026-07-27T09:08:59.427Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/new-ljm/locations/asia-northeast3/repositories/gcf-artifacts 404
+[debug] [2026-07-27T09:08:59.429Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/new-ljm/locations/asia-northeast3/repositories/gcf-artifacts {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2026-07-27T09:08:59.430Z] Failed to check artifact cleanup policy for region asia-northeast3: Request to https://artifactregistry.googleapis.com/v1/projects/new-ljm/locations/asia-northeast3/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://artifactregistry.googleapis.com/v1/projects/new-ljm/locations/asia-northeast3/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found.","status":404}
+[debug] [2026-07-27T09:08:59.431Z] Functions deploy failed.
+[debug] [2026-07-27T09:08:59.431Z] {
+  "endpoint": {
+    "id": "collectSources",
+    "project": "new-ljm",
+    "region": "asia-northeast3",
+    "entryPoint": "collectSources",
+    "platform": "gcfv2",
+    "runtime": "nodejs22",
+    "scheduleTrigger": {
+      "schedule": "0 7,12,18,22 * * *",
+      "timeZone": "Asia/Seoul",
+      "retryConfig": {
+        "retryCount": 1
+      }
+    },
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "serviceAccount": null,
+    "ingressSettings": null,
+    "availableMemoryMb": 512,
+    "timeoutSeconds": 540,
+    "maxInstances": null,
+    "minInstances": null,
+    "concurrency": 80,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"new-ljm\",\"storageBucket\":\"new-ljm.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "new-ljm",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/new-ljm/locations/asia-northeast3/services/collectSources"
+    },
+    "codebase": "default",
+    "cpu": 1,
+    "targetedByOnly": false,
+    "hash": "ec7b744fb70c7a5fd9bcaba82cf8e570a00e71bf"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "context": {
+      "function": "projects/new-ljm/locations/asia-northeast3/functions/collectSources"
+    },
+    "exit": 1,
+    "message": "Failed to create function projects/new-ljm/locations/asia-northeast3/functions/collectSources",
+    "original": {
+      "name": "FirebaseError",
+      "children": [],
+      "context": {
+        "body": {
+          "error": {
+            "code": 403,
+            "message": "Could not create Cloud Run service collectsources. Permission 'iam.serviceaccounts.actAs' denied on service account 242400003686-compute@developer.gserviceaccount.com (or it may not exist).",
+            "status": "PERMISSION_DENIED"
+          }
+        },
+        "response": {
+          "statusCode": 403
+        }
+      },
+      "exit": 1,
+      "message": "Request to https://cloudfunctions.googleapis.com/v2/projects/new-ljm/locations/asia-northeast3/functions?functionId=collectSources had HTTP Error: 403, Could not create Cloud Run service collectsources. Permission 'iam.serviceaccounts.actAs' denied on service account 242400003686-compute@developer.gserviceaccount.com (or it may not exist).",
+      "status": 403
+    },
+    "status": 403,
+    "code": 403
+  }
+}
+[debug] [2026-07-27T09:08:59.434Z] Error: Failed to create function collectSources in region asia-northeast3
+    at /Users/etain/.nvm/versions/node/v22.20.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:306:27
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Fabricator.createV2Function (/Users/etain/.nvm/versions/node/v22.20.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:290:30)
+    at async Fabricator.createEndpoint (/Users/etain/.nvm/versions/node/v22.20.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:137:13)
+    at async handle (/Users/etain/.nvm/versions/node/v22.20.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:89:17)
+[error] 
+[error] Error: There was an error deploying functions

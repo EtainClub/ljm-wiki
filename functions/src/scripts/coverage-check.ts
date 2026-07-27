@@ -47,6 +47,7 @@ async function main(): Promise<void> {
   const targets: CoverageTarget[] = PRESS_SOURCES.filter((s) => s.domain).map((s) => ({
     sourceId: s.id,
     domain: s.domain!,
+    ...(s.excludeHosts ? { excludeHosts: s.excludeHosts } : {}),
   }));
   const names = new Map(PRESS_SOURCES.map((s) => [s.id, s.name] as const));
 

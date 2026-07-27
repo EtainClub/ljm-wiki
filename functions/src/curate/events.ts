@@ -144,7 +144,11 @@ export async function applyCoverage(
 
   const targets: CoverageTarget[] = sources
     .filter((s) => s.domain)
-    .map((s) => ({ sourceId: s.id, domain: s.domain! }));
+    .map((s) => ({
+      sourceId: s.id,
+      domain: s.domain!,
+      ...(s.excludeHosts ? { excludeHosts: s.excludeHosts } : {}),
+    }));
 
   const outcome = await checkCoverage(targets, query, creds, since);
 
@@ -181,19 +185,33 @@ export async function applyCoverage(
     const hits = (outcome.covered.get(source.id) ?? []).filter(
       (h) => h.publishedAt <= until,
     );
-    const first = hits[0];
 
-    if (!first) {
+    // 이른 것부터 보되, 이미 다른 사건의 기사인 것은 건너뛴다.
+    //
+    // 한 기사는 한 사건에만 속한다. 그냥 덮어쓰면 앞선 사건에서 그 기사가
+    // 빠져나가고, 그쪽 coverage 는 여전히 '보도' 라고 말하는데 실제 항목은
+    // 사라진 상태가 된다 — 실제로 사건 1이 이렇게 3건을 잃었다.
+    let chosen: { hit: (typeof hits)[number]; itemId: string; exists: boolean } | null =
+      null;
+    for (const hit of hits) {
+      const itemId = itemIdFor(hit.url);
+      const snap = await db.collection(ITEMS).doc(itemId).get();
+      const owner = snap.exists ? (snap.data() as ItemDoc).eventId : null;
+      if (owner && owner !== slug) continue; // 다른 사건 소유
+      chosen = { hit, itemId, exists: snap.exists };
+      break;
+    }
+
+    if (!chosen) {
       coverage[source.id] = { status: "none", checkedAt: now };
       continue;
     }
 
-    // 발굴로 이미 들어온 기사면 그대로 쓰고, 없으면 지금 만든다.
-    const itemId = itemIdFor(first.url);
+    const { hit: first, itemId } = chosen;
     const ref = db.collection(ITEMS).doc(itemId);
-    const snap = await ref.get();
 
-    if (!snap.exists) {
+    // 발굴로 이미 들어온 기사면 그대로 쓰고, 없으면 지금 만든다.
+    if (!chosen.exists) {
       const doc: ItemDoc = {
         sourceId: source.id,
         title: first.title,
@@ -276,6 +294,58 @@ export async function dropItem(slug: string, itemId: string): Promise<string> {
   await updateEvent(slug, { coverage, frames });
   await db.collection(ITEMS).doc(itemId).update({ eventId: null, frameKey: null });
   return sourceId;
+}
+
+/**
+ * 이미 수집해 둔 항목을 이 사건의 보도로 직접 붙인다.
+ *
+ * 왜 필요한가 — coverage 는 네이버 검색만 본다. 그런데 우리는 RSS 로 따로
+ * 수집한 기사를 이미 갖고 있고, 네이버 검색이 그걸 돌려주지 않는 경우가 있다.
+ * 실제로 동아일보의 「與, 보완수사권 폐지 당론 채택…」 기사가 그랬다 —
+ * 저장소에 있는데도 검색에는 안 잡혀 '보도하지 않음' 으로 찍혔다.
+ *
+ * '보도하지 않음' 은 사이트에 사실로 실린다. 우리 손에 반증이 있는데 그대로
+ * 두는 것은 틀린 기록이므로, 사람이 보고 붙일 수 있어야 한다.
+ *
+ * coverage 를 다시 돌리면 이 배정은 지워진다 — 붙인 뒤에는 다시 돌리지 않는다.
+ */
+export async function attachItem(
+  slug: string,
+  itemId: string,
+): Promise<{ sourceId: string; title: string; delayMinutes: number }> {
+  const event = await getEvent(slug);
+  const ref = db.collection(ITEMS).doc(itemId);
+  const snap = await ref.get();
+  if (!snap.exists) throw new Error(`없는 항목입니다: ${itemId}`);
+
+  const item = snap.data() as ItemDoc;
+  if (item.eventId && item.eventId !== slug) {
+    throw new Error(`이미 다른 사건에 붙어 있습니다: ${item.eventId}`);
+  }
+
+  const existing = event.coverage[item.sourceId];
+  if (existing?.status === "covered" && existing.itemId !== itemId) {
+    throw new Error(
+      `${item.sourceId} 는 이미 다른 기사로 보도 처리돼 있습니다: ${existing.itemId}`,
+    );
+  }
+
+  const delayMinutes = Math.round(
+    (item.publishedAt.toDate().getTime() - event.occurredAt.toDate().getTime()) / 60_000,
+  );
+
+  const coverage = { ...event.coverage };
+  coverage[item.sourceId] = {
+    status: "covered",
+    checkedAt: Timestamp.now(),
+    itemId,
+    delayMinutes,
+  };
+
+  await updateEvent(slug, { coverage });
+  await ref.update({ eventId: slug });
+
+  return { sourceId: item.sourceId, title: item.title, delayMinutes };
 }
 
 /** 사건에 배정된 항목을 매체 이름과 함께 읽는다. */

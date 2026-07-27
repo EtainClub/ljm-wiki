@@ -35,12 +35,20 @@ function walk(dir: string): string[] {
 
 const pageId = (file: string) => relative(WIKI, file).replace(/\.md$/, "");
 
+/**
+ * `[[people/정성호]]` 또는 `[[outlets/chosun|조선일보]]`.
+ *
+ * 별칭은 표 안에서 필요하다 — 매체 id 가 아니라 이름이 보여야 한다.
+ * 대상 이름에는 공백이 들 수 있으므로 공백으로 끊지 않는다.
+ */
+const WIKI_LINK = /\[\[([^\]|]+?)(?:\|[^\]]+)?\]\]/g;
+
 /** "- [[people/한동훈]] 2건" 에서 대상과 건수를 뽑는다. */
 function parseMentions(text: string): Map<string, number | null> {
   const section = /## 함께 언급된 인물([\s\S]*?)(?=\n## |$)/.exec(text)?.[1] ?? "";
   const out = new Map<string, number | null>();
   for (const line of section.split("\n")) {
-    const target = /\[\[(people\/[^\]]+)\]\]/.exec(line)?.[1];
+    const target = /\[\[(people\/[^\]|]+?)(?:\|[^\]]+)?\]\]/.exec(line)?.[1]?.trim();
     if (!target) continue;
     const count = /(\d+)\s*건/.exec(line)?.[1];
     out.set(target, count ? Number(count) : null);
@@ -61,8 +69,9 @@ function main(): void {
   for (const [id, body] of text) {
     if (META_PAGES.has(id)) continue;
 
-    for (const m of body.matchAll(/\[\[([^\]\s]+)\]\]/g)) {
-      const target = m[1]!;
+    // [[대상]] 과 [[대상|표시이름]] 둘 다 받는다. 링크 검사는 대상만 본다.
+    for (const m of body.matchAll(WIKI_LINK)) {
+      const target = m[1]!.trim();
       if (!linkedFrom.has(target)) linkedFrom.set(target, []);
       linkedFrom.get(target)!.push(id);
       if (!pages.has(target)) broken.push(`${id} → [[${target}]]`);

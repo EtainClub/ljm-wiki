@@ -27,6 +27,14 @@ export interface SourceDoc {
   rssUrl?: string;
   /** 네이버 검색 결과에서 이 매체를 골라내기 위한 도메인 (예: "khan.co.kr") */
   domain?: string;
+  /**
+   * 하위 도메인이지만 다른 매체인 호스트.
+   *
+   * `mbn.mk.co.kr` 은 MBN(매일방송)이지 매일경제가 아니다. 그런데 도메인을
+   * 하위 까지 매칭하면 MBN 기사가 매일경제 이름으로 기록된다 — 실존 매체에
+   * 다른 매체의 보도를 붙이는 것이므로 명시적으로 제외한다.
+   */
+  excludeHosts?: string[];
 
   /** youtube 전용 */
   channelId?: string;

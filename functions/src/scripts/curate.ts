@@ -18,6 +18,7 @@ import { ITEMS, db } from "../firebase";
 import type { EventDoc, ItemDoc } from "../domain";
 import {
   applyCoverage,
+  attachItem,
   createEvent,
   deleteDraft,
   dropItem,
@@ -30,7 +31,7 @@ import {
   validateForPublish,
 } from "../curate/events";
 import { draftFrames } from "../frames/draft";
-import { Timestamp } from "firebase-admin/firestore";
+import { FieldPath, Timestamp } from "firebase-admin/firestore";
 
 loadLocalEnv();
 
@@ -351,6 +352,25 @@ async function cmdPublish(slug: string): Promise<void> {
   console.log(`  FIREBASE_PROJECT_ID=new-ljm npm run build`);
 }
 
+/**
+ * 후보 풀 전체에서 항목 id 앞자리로 하나를 찾는다.
+ *
+ * drop 은 사건에 붙은 항목만 보면 되지만 attach 는 아직 안 붙은 것을 찾아야 한다.
+ * 문서 id 범위 질의로 접두사를 훑는다.
+ */
+async function resolvePoolItem(prefix: string): Promise<{ id: string; item: ItemDoc }> {
+  const snap = await db
+    .collection(ITEMS)
+    .where(FieldPath.documentId(), ">=", prefix)
+    .where(FieldPath.documentId(), "<", `${prefix}`)
+    .limit(5)
+    .get();
+
+  if (snap.empty) throw new Error(`없는 항목입니다: ${prefix}`);
+  if (snap.size > 1) throw new Error(`앞자리가 겹칩니다: ${prefix} (${snap.size}건)`);
+  return { id: snap.docs[0]!.id, item: snap.docs[0]!.data() as ItemDoc };
+}
+
 /* ── dispatch ────────────────────────────────────────────── */
 
 const USAGE = `사용법:
@@ -362,6 +382,7 @@ const USAGE = `사용법:
   curate -- pending <id>                     프레임 미배정 항목 보기
   curate -- frame <id> <키> "<라벨>" <항목...>  프레임 직접 지정
   curate -- drop <id> <항목>                  이 사건 기사가 아닌 항목 빼기
+  curate -- attach <id> <항목>                검색이 놓친 기사를 보도로 붙이기
   curate -- show <id>
   curate -- publish <id>
   curate -- delete <id>                      초안 삭제 (발행분은 불가)`;
@@ -412,6 +433,17 @@ async function main(): Promise<void> {
         `뺐습니다: ${matches[0]!.sourceName} — ${matches[0]!.item.title}\n` +
           `${sourceId} 는 '보도하지 않음' 으로 바뀝니다. ` +
           `coverage 를 다시 돌리면 되살아납니다.`,
+      );
+      return;
+    }
+    case "attach": {
+      if (!args[0] || !args[1]) throw new Error(USAGE);
+      const { id, item } = await resolvePoolItem(args[1]);
+      const r = await attachItem(args[0], id);
+      console.log(
+        `붙였습니다: ${r.sourceId} — ${item.title}\n` +
+          `  ${formatDelay(r.delayMinutes)} · 항목 ${id.slice(0, 8)}\n` +
+          `coverage 를 다시 돌리면 지워집니다. frame 으로 배정하세요.`,
       );
       return;
     }

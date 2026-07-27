@@ -38,14 +38,18 @@ function walk(dir: string): string[] {
 }
 
 /**
- * `[[people/정성호]]` → 링크.
+ * `[[people/정성호]]` → 링크. `[[outlets/chosun|조선일보]]` 처럼 표시 이름을 줄 수 있다.
+ *
+ * 별칭이 필요한 곳은 매체 표다 — 링크 글자가 `chosun` 이면 읽을 수 없다.
+ * 마크다운 표 안에서도 안전하다: 이 치환이 표 파싱보다 먼저 돌아 `|` 가 사라진다.
  *
  * 존재하지 않는 대상은 링크로 만들지 않는다. 죽은 링크를 눌러 404 를 보는 것보다
  * 링크가 아닌 편이 낫고, 어차피 wiki:lint 가 깨진 링크를 따로 잡는다.
  */
 function resolveWikiLinks(md: string, known: Set<string>): string {
-  return md.replace(/\[\[([^\]\s]+)\]\]/g, (_, target: string) => {
-    const label = target.split("/").pop() ?? target;
+  return md.replace(/\[\[([^\]|]+?)(?:\|([^\]]+))?\]\]/g, (_, raw: string, alias?: string) => {
+    const target = raw.trim();
+    const label = alias?.trim() || target.split("/").pop() || target;
     if (!known.has(target)) return label;
     const href = `/w/${target.split("/").map(encodeURIComponent).join("/")}`;
     return `[${label}](${href})`;

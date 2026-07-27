@@ -21,6 +21,7 @@ const press = (
   domain: string,
   rssUrl: string | null,
   displayOrder: number,
+  excludeHosts?: string[],
 ): SourceDoc => ({
   id,
   name,
@@ -28,6 +29,7 @@ const press = (
   active: true,
   displayOrder,
   domain,
+  ...(excludeHosts ? { excludeHosts } : {}),
   ...(rssUrl ? { strategy: "rss" as const, rssUrl } : { strategy: "naver" as const }),
 });
 
@@ -65,7 +67,11 @@ export const PRESS_SOURCES: SourceDoc[] = [
 
   // 경제지
   press("hankyung", "한국경제", "hankyung.com", "https://www.hankyung.com/feed/all-news", 40),
-  press("mk", "매일경제", "mk.co.kr", "https://www.mk.co.kr/rss/30000001/", 41),
+  // mbn.mk.co.kr 은 MBN(매일방송)이다. 하위 도메인까지 매칭하면 MBN 보도가
+  // 매일경제 이름으로 기록된다 — 실측에서 두 사건 모두 그렇게 잘못 잡혔다.
+  press("mk", "매일경제", "mk.co.kr", "https://www.mk.co.kr/rss/30000001/", 41, [
+    "mbn.mk.co.kr",
+  ]),
   // https 는 TLS 협상이 깨진다. fetchFeed 가 http 로 폴백한다.
   press("edaily", "이데일리", "edaily.co.kr", "https://rss.edaily.co.kr/edaily_news.xml", 42),
   press("mt", "머니투데이", "mt.co.kr", "https://rss.mt.co.kr/mt_news.xml", 43),

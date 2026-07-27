@@ -13,6 +13,8 @@ export default function WikiIndex() {
   const events = getWikiPagesByKind("events");
   const outlets = getWikiPagesByKind("outlets");
   const hasSchema = Boolean(getWikiPage(["schema"]));
+  // 매체 페이지에 흩어져 있는 프레임 일치를 한 장으로 모은 생성 페이지.
+  const clusters = getWikiPage(["프레임-군집"]);
 
   return (
     <div className="space-y-8">
@@ -31,6 +33,18 @@ export default function WikiIndex() {
           </p>
         )}
       </header>
+
+      {clusters && (
+        <Link
+          href={`/w/${encodeURIComponent("프레임-군집")}`}
+          className="block rounded-lg border border-zinc-200 bg-white px-4 py-3 transition hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
+        >
+          <span className="text-[15px] font-medium">같은 프레임에 반복해 묶인 매체</span>
+          <span className="mt-1 block text-sm text-zinc-600 dark:text-zinc-400">
+            여러 사건에서 같은 제목 축을 고른 매체를 센 것입니다. 관계도가 아닙니다.
+          </span>
+        </Link>
+      )}
 
       <Section title="인물" pages={people} />
       <Section title="사건" pages={events} />

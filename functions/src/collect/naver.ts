@@ -65,8 +65,14 @@ function hostOf(url: string): string {
   }
 }
 
-/** host 가 domain 자신이거나 그 하위 도메인인가 */
-function matchesDomain(host: string, domain: string): boolean {
+/**
+ * host 가 domain 자신이거나 그 하위 도메인인가.
+ *
+ * 제외 목록을 먼저 본다. 같은 그룹이 다른 매체를 하위 도메인으로 두는 경우가
+ * 있고(mbn.mk.co.kr — MBN), 그걸 놓치면 다른 매체의 보도가 이 매체 이름으로 남는다.
+ */
+function matchesDomain(host: string, domain: string, exclude?: string[]): boolean {
+  if (exclude?.some((h) => host === h || host.endsWith(`.${h}`))) return false;
   return host === domain || host.endsWith(`.${domain}`);
 }
 
@@ -140,6 +146,8 @@ export async function searchNews(
 export interface CoverageTarget {
   sourceId: string;
   domain: string;
+  /** 이 매체의 하위 도메인이지만 다른 매체인 호스트 (mbn.mk.co.kr) */
+  excludeHosts?: string[];
 }
 
 export interface CoverageOutcome {
@@ -187,7 +195,7 @@ export async function checkCoverage(
   let unmatched = 0;
 
   for (const r of results) {
-    const target = targets.find((t) => matchesDomain(r.host, t.domain));
+    const target = targets.find((t) => matchesDomain(r.host, t.domain, t.excludeHosts));
     if (!target) {
       unmatched++;
       continue;

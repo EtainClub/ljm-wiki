@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "serve:out": "npx serve out",
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:rules": "firebase deploy --only firestore:rules,firestore:indexes"
   },
   "dependencies": {
     "marked": "^18.0.7",

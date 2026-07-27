@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ShareBar from "@/components/ShareBar";
 import type { EventBundle, Frame, Item } from "@/lib/event-types";
@@ -136,6 +137,7 @@ export default async function EventPage({
         sourceIds={silentIds}
         sources={sources}
         checkedAt={checkedAt}
+        {...(event.coverageQuery ? { query: event.coverageQuery } : {})}
       />
 
       {changed.length > 0 && (
@@ -282,10 +284,13 @@ function SilentBlock({
   sourceIds,
   sources,
   checkedAt,
+  query,
 }: {
   sourceIds: string[];
   sources: EventBundle["sources"];
   checkedAt: string;
+  /** 이 판정에 쓴 검색어. 판정이 여기 달려 있으므로 감추지 않는다. */
+  query?: string;
 }) {
   return (
     <section className="rounded-xl border border-dashed border-zinc-300 p-5 dark:border-zinc-700">
@@ -309,6 +314,15 @@ function SilentBlock({
         {formatLongDate(checkedAt)} {formatTime(checkedAt)} 기준입니다. 이후
         보도되면 이 목록에서 빠지고 보도 지연 시간으로 바뀝니다.
       </p>
+      {query && (
+        <p className="mt-2 text-xs leading-5 text-zinc-500">
+          검색어 <code className="rounded bg-zinc-200/70 px-1 py-0.5 dark:bg-zinc-800">{query}</code>{" "}
+          — 이 판정은 검색어에 달려 있습니다. 다른 표현으로 쓴 기사는 걸리지 않습니다.{" "}
+          <Link href="/method" className="underline underline-offset-2">
+            자세히
+          </Link>
+        </p>
+      )}
     </section>
   );
 }

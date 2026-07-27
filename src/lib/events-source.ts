@@ -1,6 +1,7 @@
 import "server-only";
 
 import type { EventBundle, Frame, Item, Source } from "./event-types";
+import { firebaseProjectId } from "./firebase-project";
 import { SAMPLE_EVENTS } from "./sample-event";
 
 /**
@@ -44,8 +45,8 @@ function toIso(value: unknown): string | null {
 }
 
 async function connect(): Promise<FirestoreLike | null> {
-  const projectId =
-    process.env.FIREBASE_PROJECT_ID ?? process.env.GOOGLE_CLOUD_PROJECT;
+  // .firebaserc 가 기본값이다 — 환경변수 없이 clone 해서 빌드해도 진짜 데이터가 나온다.
+  const projectId = firebaseProjectId();
   if (!projectId) return null;
 
   try {
@@ -89,9 +90,14 @@ function buildBundle(
       .map((t) => Date.parse(t));
     return times.length > 0 ? Math.min(...times) : Number.POSITIVE_INFINITY;
   };
-  const frames = [...((eventDoc["frames"] as Frame[] | undefined) ?? [])].sort(
-    (a, b) => b.itemIds.length - a.itemIds.length || earliest(a) - earliest(b),
-  );
+  const at = (id: string): number => {
+    const t = items[id]?.publishedAt;
+    return t ? Date.parse(t) : Number.POSITIVE_INFINITY;
+  };
+  const frames = [...((eventDoc["frames"] as Frame[] | undefined) ?? [])]
+    // 묶음 안에서도 이른 기사가 먼저다. 배열 순서는 큐레이션에서 적어 넣은 순서일 뿐이다.
+    .map((f) => ({ ...f, itemIds: [...f.itemIds].sort((x, y) => at(x) - at(y)) }))
+    .sort((a, b) => b.itemIds.length - a.itemIds.length || earliest(a) - earliest(b));
 
   // coverage 의 checkedAt 도 Timestamp 다.
   const rawCoverage = (eventDoc["coverage"] ?? {}) as Record<
@@ -122,6 +128,9 @@ function buildBundle(
       publishedAt,
       frames,
       coverage,
+      ...(typeof eventDoc["coverageQuery"] === "string"
+        ? { coverageQuery: eventDoc["coverageQuery"] }
+        : {}),
     },
     sources,
     items,
@@ -148,7 +157,8 @@ export async function getPublishedEvents(): Promise<EventBundle[]> {
   const db = await connect();
   if (!db) {
     console.warn(
-      "[events-source] FIREBASE_PROJECT_ID 가 없습니다 — 샘플 데이터로 빌드합니다.",
+      "[events-source] 프로젝트 id 를 찾지 못했습니다 (.firebaserc 도, FIREBASE_PROJECT_ID 도)" +
+        " — 샘플 데이터로 빌드합니다.",
     );
     cache = SAMPLE_EVENTS;
     return cache;

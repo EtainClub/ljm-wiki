@@ -60,6 +60,14 @@ export interface EventDoc {
   frames: Frame[];
   coverage: Record<string, CoverageEntry>;
   publishedAt: string;
+  /**
+   * 보도 여부를 판정할 때 쓴 검색어.
+   *
+   * 화면에 노출한다. '보도하지 않음' 은 이 문자열에 달린 값이기 때문이다 —
+   * 실측에서 검색어를 바꾸자 같은 사건·같은 시간창인데 미보도가 6곳에서 0곳이 됐다.
+   * 근거를 감춘 채로 실존 매체가 다루지 않았다고 적을 수는 없다.
+   */
+  coverageQuery?: string;
   /** 개발 중 샘플 데이터 표시. 실제 발행분은 false. */
   isSample?: boolean;
 }

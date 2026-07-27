@@ -467,9 +467,21 @@ export interface SilentCandidate {
   hits: number;
 }
 
-/** 질의어를 낱말로 쪼갠다. 한 글자짜리는 아무 데나 걸리므로 뺀다. */
+/**
+ * 질의어를 낱말로 쪼갠다. 한 글자짜리는 아무 데나 걸리므로 뺀다.
+ *
+ * NFC 로 정규화한다 — 같은 「李」가 U+674E 와 U+F9E1 두 가지로 오고,
+ * 한국 언론사 절반이 호환 한자(U+F9E1)를 쓴다. 정규화하지 않으면 조용히 놓친다.
+ */
 function queryTokens(query: string): string[] {
-  return [...new Set(query.split(/\s+/).filter((t) => t.length >= 2))];
+  return [
+    ...new Set(
+      query
+        .normalize("NFC")
+        .split(/\s+/)
+        .filter((t) => t.length >= 2),
+    ),
+  ];
 }
 
 function hostOf(url: string): string {
@@ -525,7 +537,8 @@ export async function findSilentCandidates(
     const bad = excluded.get(item.sourceId) ?? [];
     if (bad.some((h) => host === h || host.endsWith(`.${h}`))) continue;
 
-    const hits = tokens.filter((t) => item.title.includes(t)).length;
+    const title = item.title.normalize("NFC");
+    const hits = tokens.filter((t) => title.includes(t)).length;
     if (hits === 0) continue;
 
     out.push({

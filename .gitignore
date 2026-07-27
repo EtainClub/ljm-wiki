@@ -35,6 +35,12 @@ yarn-error.log*
 # 예시 파일은 비밀값이 없다. 이 저장소가 실제로 읽는 변수의 정본이다.
 !.env.example
 
+# firebase CLI 산출물 — 배포 캐시와 디버그 로그. 기계마다 다르고 재생성된다.
+.firebase/
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
 # vercel
 .vercel
 

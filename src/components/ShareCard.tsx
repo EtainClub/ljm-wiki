@@ -1,3 +1,4 @@
+import { BRAND } from "@/lib/brand";
 import type { EventBundle } from "@/lib/event-types";
 import { formatLongDate, formatTime } from "@/lib/kst";
 
@@ -44,7 +45,7 @@ export function buildShareCard(bundle: EventBundle, siteLabel: string) {
       }}
     >
       <div style={{ display: "flex", fontSize: 29, color: "#a1a1aa" }}>
-        같은 사건, 다른 제목
+        {BRAND.name}
       </div>
 
       <div
@@ -220,7 +221,7 @@ export function buildOgCard(bundle: EventBundle) {
       }}
     >
       <div style={{ display: "flex", fontSize: 26, color: "#a1a1aa" }}>
-        같은 사건, 다른 제목 · {formatLongDate(event.occurredAt)}
+        {BRAND.name} · {formatLongDate(event.occurredAt)}
       </div>
 
       <div

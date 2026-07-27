@@ -19,9 +19,12 @@ const BARS = [
  * @param maskable 마스커블 아이콘은 바깥 20% 가 잘릴 수 있어 안쪽으로 더 밀어 넣는다
  */
 export function buildAppIcon(size: number, maskable = false) {
-  const pad = maskable ? size * 0.26 : size * 0.17;
-  const barHeight = size * 0.1;
-  const gap = size * 0.062;
+  // 32px 짜리 탭 아이콘은 여백을 그대로 두면 막대가 1~2px 이 되어 뭉갠다.
+  // 작은 크기에서는 여백을 줄이고 막대를 두껍게 잡아 네 개가 세어지게 한다.
+  const tiny = size <= 48;
+  const pad = maskable ? size * 0.26 : size * (tiny ? 0.09 : 0.17);
+  const barHeight = size * (tiny ? 0.15 : 0.1);
+  const gap = size * (tiny ? 0.08 : 0.062);
   const inner = size - pad * 2;
 
   return (

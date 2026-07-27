@@ -13,6 +13,13 @@
     "cleanUrls": false,
     "trailingSlash": true,
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "redirects": [
+      {
+        "source": "/favicon.ico",
+        "destination": "/icon-32.png",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "/_next/static/**",

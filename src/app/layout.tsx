@@ -2,29 +2,54 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import { BRAND } from "@/lib/brand";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "같은 사건, 다른 제목",
-    template: "%s · 같은 사건, 다른 제목",
+    default: `${BRAND.name} — ${BRAND.tagline}`,
+    template: `%s · ${BRAND.name}`,
   },
-  description:
-    "하나의 사건에 언론과 채널이 어떤 제목을 달았는지, 그리고 어디가 다루지 않았는지 그대로 모아 봅니다.",
-  applicationName: "같은 사건, 다른 제목",
+  description: BRAND.description,
+  applicationName: BRAND.name,
   appleWebApp: {
     capable: true,
-    title: "같은사건",
+    title: BRAND.shortName,
     statusBarStyle: "black-translucent",
   },
   icons: {
+    // 32px 를 먼저 둔다 — 브라우저 탭은 작게 그린다.
     icon: [
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [{ url: "/apple-icon-180.png", sizes: "180x180", type: "image/png" }],
+  },
+  // 사건 페이지는 자기 og.png 로 덮어쓴다. 여기 것은 홈·위키·방법 등 나머지 전부에 쓰인다.
+  openGraph: {
+    type: "website",
+    siteName: BRAND.name,
+    locale: "ko_KR",
+    url: SITE_URL,
+    title: `${BRAND.name} — ${BRAND.tagline}`,
+    description: BRAND.description,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${BRAND.name} — ${BRAND.short}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${BRAND.name} — ${BRAND.tagline}`,
+    description: BRAND.description,
+    images: ["/og.png"],
   },
 };
 
@@ -55,10 +80,10 @@ export default function RootLayout({
         >
           <div className="mx-auto flex w-full max-w-2xl items-baseline gap-3 px-5 py-3.5">
             <Link href="/" className="text-[15px] font-semibold tracking-tight">
-              같은 사건, 다른 제목
+              {BRAND.name}
             </Link>
             <span className="hidden text-xs text-zinc-400 sm:inline">
-              제목을 그대로 모아 놓습니다
+              {BRAND.tagline}
             </span>
           </div>
         </header>

@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
+import { BRAND } from "@/lib/brand";
 
 export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "같은 사건, 다른 제목",
-    short_name: "같은사건",
-    description:
-      "하나의 사건에 언론과 채널이 어떤 제목을 달았는지, 그리고 어디가 다루지 않았는지 그대로 모아 봅니다.",
+    name: BRAND.name,
+    short_name: BRAND.shortName,
+    description: BRAND.description,
     start_url: "/",
     scope: "/",
     display: "standalone",

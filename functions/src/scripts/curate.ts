@@ -353,6 +353,15 @@ async function cmdPublish(slug: string): Promise<void> {
 }
 
 /**
+ * 접두사 범위 질의의 끝. 사용자 영역 최상단 코드포인트(U+F8FF)라
+ * 같은 접두사를 가진 어느 id 보다도 뒤에 온다.
+ *
+ * 문자를 그대로 박지 않는다 — 화면에 아무것도 보이지 않아
+ * `>= p` AND `< p` 라는 빈 범위로 오해하기 딱 좋다. 눈에 보이게 적는다.
+ */
+const ID_RANGE_END = String.fromCharCode(0xf8ff);
+
+/**
  * 후보 풀 전체에서 항목 id 앞자리로 하나를 찾는다.
  *
  * drop 은 사건에 붙은 항목만 보면 되지만 attach 는 아직 안 붙은 것을 찾아야 한다.
@@ -362,7 +371,7 @@ async function resolvePoolItem(prefix: string): Promise<{ id: string; item: Item
   const snap = await db
     .collection(ITEMS)
     .where(FieldPath.documentId(), ">=", prefix)
-    .where(FieldPath.documentId(), "<", `${prefix}`)
+    .where(FieldPath.documentId(), "<", prefix + ID_RANGE_END)
     .limit(5)
     .get();
 

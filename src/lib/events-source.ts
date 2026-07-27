@@ -79,7 +79,19 @@ function buildBundle(
   const publishedAt = toIso(eventDoc["publishedAt"]);
   if (!occurredAt || !publishedAt) return null;
 
-  const frames = (eventDoc["frames"] as Frame[] | undefined) ?? [];
+  // Firestore 배열은 큐레이션에서 프레임을 만든 순서다. 그대로 내보내면
+  // 3건짜리가 9건짜리보다 앞에 오는 일이 생긴다(실제로 정성호 사의 사건이 그랬다).
+  // 큰 묶음부터, 같으면 먼저 나온 기사가 있는 쪽부터 — 화면의 비율 막대와 같은 순서다.
+  const earliest = (f: Frame): number => {
+    const times = f.itemIds
+      .map((id) => items[id]?.publishedAt)
+      .filter((t): t is string => Boolean(t))
+      .map((t) => Date.parse(t));
+    return times.length > 0 ? Math.min(...times) : Number.POSITIVE_INFINITY;
+  };
+  const frames = [...((eventDoc["frames"] as Frame[] | undefined) ?? [])].sort(
+    (a, b) => b.itemIds.length - a.itemIds.length || earliest(a) - earliest(b),
+  );
 
   // coverage 의 checkedAt 도 Timestamp 다.
   const rawCoverage = (eventDoc["coverage"] ?? {}) as Record<

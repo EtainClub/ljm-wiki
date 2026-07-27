@@ -307,7 +307,9 @@ function renderClusters(
 async function main(): Promise<void> {
   const [sources, eventsSnap, itemsSnap] = await Promise.all([
     loadSources(),
-    db.collection(EVENTS).get(),
+    // 발행분만 본다. 초안은 아직 사람이 검토하지 않은 판정이라 위키에 나가면 안 된다 —
+    // 사이트(src/lib/events-source.ts)도 같은 조건으로 읽는다.
+    db.collection(EVENTS).where("status", "==", "published").get(),
     db.collection(ITEMS).get(),
   ]);
 

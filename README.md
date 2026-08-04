@@ -66,8 +66,9 @@ npm run deploy
 
 ## 원칙
 
-**커밋은 항상 사람이 한다.** 실존 인물·매체에 대한 기록이므로, 사람이 눈으로 보지
-않은 문장이 발행되면 안 된다. `git diff` 가 유일한 검토 관문이다.
+**일일 갱신은 자동화 검사를 통과한 경우 `main`에 직접 반영된다.** GitHub Actions의
+Codex 작업이 사건을 최대 1건 처리하고, 허용 경로 검사·위키 lint·typecheck·build가
+모두 성공해야 봇 커밋과 Firebase Hosting 배포가 진행된다. 불확실한 사건은 건너뛴다.
 
 **브라우저는 Firestore 를 읽지 않는다.** 정적 export 이고, 데이터는 빌드 시
 Admin SDK 로 읽어 HTML 에 구워 넣는다. `firestore.rules` 는 전면 deny 다.

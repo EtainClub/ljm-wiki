@@ -10,9 +10,11 @@
     "serve:out": "npx serve out",
     "deploy": "npm run build && firebase deploy --only hosting",
     "deploy:functions": "firebase deploy --only functions",
-    "deploy:rules": "firebase deploy --only firestore:rules,firestore:indexes"
+    "deploy:rules": "firebase deploy --only firestore:rules,firestore:indexes",
+    "automation:validate-diff": "bash scripts/validate-automation-diff.sh"
   },
   "dependencies": {
+    "@openai/codex": "^0.146.0",
     "marked": "^18.0.7",
     "next": "16.2.12",
     "react": "19.2.4",

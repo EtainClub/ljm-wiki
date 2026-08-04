@@ -88,23 +88,20 @@ diff 가 잡음으로 뒤덮여 사람이 검토할 수 없다. **변하는 것�
 **판단이 들어가는 페이지만 사람(에이전트)이 쓴다.** 매체 페이지는 전부 산수라서
 손으로 쓰면 계산을 틀리고 매체가 늘수록 어긋나기만 한다. 그래서 스크립트로 내렸다.
 
-### 로컬 스크립트 — 사람이 명령을 칠 때만 돈다
+### 로컬 스크립트 — 사람 또는 예약 큐레이터가 실행한다
 
 전부 `functions/` 안에 있고 서비스 계정 자격증명(ADC)으로 Firestore 에 붙는다.
-**자동으로 도는 것은 하나도 없다.**
+대화형으로도 실행하며, 일일 GitHub Actions에서는 Codex 큐레이터가 같은 명령을 사용한다.
 
 ### Cloud Function — 유일한 자동 실행
 
 `collectSources` 하나뿐이다. RSS 를 읽어 `items` 에 넣는다.
 네이버 검색은 부르지 않는다 — 보도 여부 판정은 사건이 정해진 뒤 사람이 로컬에서 한다.
 
-### GitHub — 원격 보관만 하고 CI는 하지 않는다
+### GitHub — 예약 큐레이션과 자동 배포
 
-원격은 `git@github.com:EtainClub/ljm-wiki.git` 로 설정돼 있지만
-작성 시점의 로컬 `main`이 `origin/main`보다 12커밋 앞서 있고 `.github/`가 없어 CI도 없다.
-
-현재 작업 흐름에서는 **PR이 만들어지지 않는다.**
-지금 검토 관문은 GitHub 가 아니라 **로컬의 `git diff` 와 커밋**이다.
+원격은 `git@github.com:EtainClub/ljm-wiki.git` 이다. 예약 workflow가 PR 없이
+`main`에 직접 반영하며, 허용 경로 검사와 lint·typecheck·build가 자동 검토 관문이다.
 7 절에 이걸 어떻게 바꿀 수 있는지 적었다.
 
 ---
@@ -359,15 +356,22 @@ npm --prefix functions run deploy
 
 ---
 
-## 7. GitHub PR·CI를 쓰려면 (아직 안 함)
+## 7. GitHub Actions 자동 발행
 
-지금은 로컬 커밋이 검토 관문이다. 검토한 커밋을 원격에 올리려면:
+`.github/workflows/daily-wiki.yml`은 매일 22:30 KST에 사건을 최대 1건 처리한다.
+Codex가 Firestore 큐레이션과 위키 ingest를 마치면 workflow가 허용 경로, lint,
+typecheck, build를 검사하고 성공한 결과만 `main`에 직접 커밋한 뒤 Hosting에 배포한다.
+
+필요한 GitHub Actions secrets는 `OPENAI_API_KEY`, `NAVER_CLIENT_ID`,
+`NAVER_CLIENT_SECRET`, `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_SERVICE_ACCOUNT`다.
+
+로컬에서 검토한 커밋을 원격에 올리려면:
 
 ```bash
 git push origin main
 ```
 
-**PR 흐름을 만들려면** 지금의 "로컬에서 main 에 직접 커밋" 을 바꿔야 한다.
+PR 흐름으로 되돌리려면 현재의 `main` 직접 커밋을 바꿔야 한다.
 자연스러운 모양은 이렇다 — ingest 한 건이 브랜치 하나, PR 하나:
 
 ```bash
@@ -389,5 +393,4 @@ gh pr create
 저장소를 공개로 두면 그 기록이 사이트보다 먼저, 그리고 정정 이력 없이 노출된다.
 공개 전환은 별도로 판단할 문제다.
 
-병합 후 배포까지 자동화하는 것은 그다음 이야기다. 지금은 **배포도 사람이 친다.**
-이건 게으름이 아니라, 검토 관문을 하나로 유지하려는 선택이다.
+예약 작업의 배포는 자동이며, 일반 로컬 변경의 배포는 여전히 사람이 실행한다.

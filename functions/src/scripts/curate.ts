@@ -14,7 +14,7 @@
  */
 
 import { loadLocalEnv, requireEnv } from "../env";
-import { ITEMS, db } from "../firebase";
+import { EVENTS, ITEMS, db } from "../firebase";
 import type { EventDoc, ItemDoc } from "../domain";
 import {
   applyCoverage,
@@ -60,6 +60,21 @@ const hhmm = (d: Date) =>
   }).format(d);
 
 /* ── list ────────────────────────────────────────────────── */
+
+async function cmdDrafts(): Promise<void> {
+  const snap = await db.collection(EVENTS).where("status", "==", "draft").get();
+  const rows = snap.docs
+    .map((d) => d.data() as EventDoc)
+    .sort((a, b) => a.createdAt.toMillis() - b.createdAt.toMillis());
+
+  console.log(`미완료 초안 ${rows.length}건\n`);
+  for (const event of rows) {
+    console.log(
+      `${event.slug}  ${kst(event.occurredAt.toDate())}  ${event.title}` +
+        (event.coverageQuery ? `  [${event.coverageQuery}]` : ""),
+    );
+  }
+}
 
 async function cmdList(keyword?: string): Promise<void> {
   const [snap, sources] = await Promise.all([
@@ -498,6 +513,7 @@ async function resolvePoolItem(prefix: string): Promise<{ id: string; item: Item
 /* ── dispatch ────────────────────────────────────────────── */
 
 const USAGE = `사용법:
+  curate -- drafts                          미완료 사건 초안 목록
   curate -- list [키워드]
   curate -- new "<제목>" "<발생시각 KST, 예: 2026-07-26 10:00>"
   curate -- set <id> <summary|occurredAt|title> "<값>"
@@ -517,6 +533,8 @@ async function main(): Promise<void> {
   const [cmd, ...args] = process.argv.slice(2);
 
   switch (cmd) {
+    case "drafts":
+      return cmdDrafts();
     case "list":
       return cmdList(args[0]);
     case "new":

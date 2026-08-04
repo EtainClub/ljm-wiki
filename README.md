@@ -16,6 +16,7 @@
 | | |
 |---|---|
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | **여기서 시작한다.** 무엇이 어디에 있고 언제 움직이는가 — Firestore·저장소·스크립트의 역할, 사건 하나를 기록하는 전체 순서, 배포 |
+| [docs/AUTOMATION.md](docs/AUTOMATION.md) | 클라우드 자동 운영 — Hermes Agent 방식, 무에이전트 배치, 인증·검토 관문·실패 처리 |
 | [docs/DESIGN.md](docs/DESIGN.md) | 왜 이렇게 만들었는가. 실측으로 확인한 것들 (RSS 실태, 네이버 페이지네이션, PWA) |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | 남아 있는 결함과 마일스톤 |
 | [wiki/schema.md](wiki/schema.md) | 위키 기록 규칙. **ingest 전에 반드시 읽는다** |

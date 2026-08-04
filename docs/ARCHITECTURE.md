@@ -1,10 +1,11 @@
 # 무엇이 어디에 있고, 언제 움직이는가
 
 설계 배경은 [DESIGN.md](DESIGN.md), 남은 일은 [ROADMAP.md](ROADMAP.md),
-기록 규칙은 [wiki/schema.md](../wiki/schema.md) 에 있다.
+클라우드 자동 운영은 [AUTOMATION.md](AUTOMATION.md), 기록 규칙은
+[wiki/schema.md](../wiki/schema.md) 에 있다.
 이 문서는 **저장소·Firestore·스크립트가 각각 무슨 역할이고 언제 실행되는가**만 다룬다.
 
-기준일 2026-07-27.
+기준일 2026-07-28.
 
 ---
 
@@ -97,12 +98,12 @@ diff 가 잡음으로 뒤덮여 사람이 검토할 수 없다. **변하는 것�
 `collectSources` 하나뿐이다. RSS 를 읽어 `items` 에 넣는다.
 네이버 검색은 부르지 않는다 — 보도 여부 판정은 사건이 정해진 뒤 사람이 로컬에서 한다.
 
-### GitHub — **지금은 아무 역할도 하지 않는다**
+### GitHub — 원격 보관만 하고 CI는 하지 않는다
 
 원격은 `git@github.com:EtainClub/ljm-wiki.git` 로 설정돼 있지만
-**한 번도 푸시된 적이 없고**(`main` 이 6커밋 앞서 있다), `.github/` 가 없어 CI 도 없다.
+작성 시점의 로컬 `main`이 `origin/main`보다 12커밋 앞서 있고 `.github/`가 없어 CI도 없다.
 
-그러니 이 질문에 대한 정직한 답은 이렇다 — **PR 은 만들어지지 않는다.**
+현재 작업 흐름에서는 **PR이 만들어지지 않는다.**
 지금 검토 관문은 GitHub 가 아니라 **로컬의 `git diff` 와 커밋**이다.
 7 절에 이걸 어떻게 바꿀 수 있는지 적었다.
 
@@ -116,8 +117,8 @@ diff 가 잡음으로 뒤덮여 사람이 검토할 수 없다. **변하는 것�
 |---|---|---|
 | 07 · 12 · 18 · 22시 | `collectSources` | Firestore `items` 신규 기사, 제목 변경 이력, `sources.health` |
 
-배포돼 있어야 돈다. **아직 배포되지 않았다** — 지금까지 수집은 전부 로컬에서
-`npm --prefix functions run collect:once` 로 수동으로 돌렸다.
+`collectSources` 함수와 Scheduler 잡이 배포돼 있으며 잡 상태는 `ENABLED`다.
+수동 재수집이나 점검이 필요할 때만 `npm --prefix functions run collect:once`를 쓴다.
 
 ### 수동 — 사건 하나를 기록하는 전체 흐름
 
@@ -358,12 +359,12 @@ npm --prefix functions run deploy
 
 ---
 
-## 7. GitHub 를 쓰려면 (아직 안 함)
+## 7. GitHub PR·CI를 쓰려면 (아직 안 함)
 
-지금은 로컬 커밋이 전부다. 원격에 올리려면:
+지금은 로컬 커밋이 검토 관문이다. 검토한 커밋을 원격에 올리려면:
 
 ```bash
-git push -u origin main
+git push origin main
 ```
 
 **PR 흐름을 만들려면** 지금의 "로컬에서 main 에 직접 커밋" 을 바꿔야 한다.

@@ -49,8 +49,14 @@ jobs:
           test "${#markers[@]}" -gt 0
 
           for marker in "${markers[@]}"; do
-            event_id="$(node -e 'const fs=require("fs"); const p=process.argv[1]; const x=JSON.parse(fs.readFileSync(p,"utf8")); if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-f0-9]{6}$/.test(x.eventId)) process.exit(2); process.stdout.write(x.eventId)' "$marker")"
-            npm --prefix functions run curate -- publish "$event_id"
+            payload="$(node -e 'const fs=require("fs"); const p=process.argv[1]; const x=JSON.parse(fs.readFileSync(p,"utf8")); const action=x.version===1 ? "publish" : x.action; if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-f0-9]{6}$/.test(x.eventId) || !["publish","youtube-correction"].includes(action)) process.exit(2); process.stdout.write(action+":"+x.eventId)' "$marker")"
+            action="${payload%%:*}"
+            event_id="${payload#*:}"
+            if [ "$action" = "publish" ]; then
+              npm --prefix functions run curate -- publish "$event_id"
+            else
+              npm --prefix functions run curate -- apply-youtube-correction "$event_id"
+            fi
             npm --prefix functions run export:sources -- --event "$event_id"
             rm "$marker"
           done

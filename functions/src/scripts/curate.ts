@@ -17,6 +17,7 @@ import { loadLocalEnv, requireEnv } from "../env";
 import { EVENTS, ITEMS, db } from "../firebase";
 import type { EventDoc, ItemDoc } from "../domain";
 import {
+  applyYouTubeCorrection,
   applyCoverage,
   attachItem,
   compareQueries,
@@ -30,6 +31,7 @@ import {
   loadSources,
   markEventReady,
   parseKst,
+  prepareYouTubeCorrection,
   updateEvent,
   validateForPublish,
 } from "../curate/events";
@@ -513,6 +515,39 @@ async function cmdReady(slug: string): Promise<void> {
   console.log("이 상태는 공개 사이트에 보이지 않습니다. 승인 잡만 publish 할 수 있습니다.");
 }
 
+/* ── 발행 사건 유튜브 정정 ───────────────────────────────── */
+
+async function cmdCorrectYouTube(slug: string): Promise<void> {
+  const plan = await prepareYouTubeCorrection(slug);
+  const items = await Promise.all(
+    plan.itemIds.map(async (id) => {
+      const snap = await db.collection(ITEMS).doc(id).get();
+      return { id, item: snap.data() as ItemDoc | undefined };
+    }),
+  );
+
+  console.log(
+    `${plan.existing ? "기존" : "새"} 유튜브 정정 계획: ${slug}\n` +
+      `  제목 핵심어 ${plan.match.terms.map((term) => `‘${term}’`).join(", ")} 중 ` +
+      `${plan.match.minimumMatches}개 이상 · 필수 ${plan.match.requiredTerms.map((term) => `‘${term}’`).join(", ")} · 발생 ${plan.match.windowBeforeHours}시간 전~` +
+      `${plan.match.windowAfterHours}시간 후\n` +
+      `  연결 영상 ${plan.itemIds.length}건`,
+  );
+  for (const { id, item } of items) {
+    if (item) console.log(`  ${id.slice(0, 8)}  ${item.sourceId}  ${item.title}`);
+  }
+  if (plan.itemIds.length === 0) {
+    console.log("\n연결 기준에 맞는 영상이 없습니다. 승인 대기열은 만들지 않습니다.");
+    return;
+  }
+  console.log(`\n다음: queue:approval -- correction ${slug}`);
+}
+
+async function cmdApplyYouTubeCorrection(slug: string): Promise<void> {
+  const result = await applyYouTubeCorrection(slug);
+  console.log(`유튜브 정정 적용: ${slug} · 영상 ${result.attached}건 · 제${result.revision}판`);
+}
+
 /**
  * 접두사 범위 질의의 끝. 사용자 영역 최상단 코드포인트(U+F8FF)라
  * 같은 접두사를 가진 어느 id 보다도 뒤에 온다.
@@ -556,6 +591,8 @@ const USAGE = `사용법:
   curate -- attach <id> <항목>                검색이 놓친 기사를 보도로 붙이기
   curate -- silent <id> [시간=48]             미보도 매체의 기사가 저장소에 있는지 훑기
   curate -- compare <id> "<질의어1>" "<질의어2>" [...]  질의어에 따라 갈리는 매체 찾기
+  curate -- correct-youtube <id>              발행 사건의 제목 일치 영상 정정 계획 만들기
+  curate -- apply-youtube-correction <id>     승인 workflow 전용: 정정 계획 적용
   curate -- show <id>
   curate -- ready <id>                       자동 검증 통과 → 승인 대기
   curate -- publish <id>
@@ -638,6 +675,12 @@ async function main(): Promise<void> {
       if (rest.length < 2) throw new Error("질의어를 2개 이상 주세요.");
       return cmdCompare(args[0], rest, hours);
     }
+    case "correct-youtube":
+      if (!args[0]) throw new Error(USAGE);
+      return cmdCorrectYouTube(args[0]);
+    case "apply-youtube-correction":
+      if (!args[0]) throw new Error(USAGE);
+      return cmdApplyYouTubeCorrection(args[0]);
     case "delete":
       if (!args[0]) throw new Error(USAGE);
       await deleteDraft(args[0]);

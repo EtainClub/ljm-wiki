@@ -50,6 +50,16 @@ export interface CoverageEntry {
   delayMinutes?: number;
 }
 
+/** 제목 기반 유튜브 연결의 재현 가능한 조건. 내용·의도 판정은 하지 않는다. */
+export interface YouTubeTitleMatch {
+  terms: string[];
+  requiredTerms: string[];
+  minimumMatches: number;
+  windowBeforeHours: number;
+  windowAfterHours: number;
+  matchedAt: string;
+}
+
 export interface EventDoc {
   slug: string;
   date: string; // "2026-07-26" (KST)
@@ -60,6 +70,9 @@ export interface EventDoc {
   frames: Frame[];
   coverage: Record<string, CoverageEntry>;
   publishedAt: string;
+  revision?: number;
+  revisedAt?: string;
+  youtubeTitleMatch?: YouTubeTitleMatch;
   /**
    * 보도 여부를 판정할 때 쓴 검색어.
    *

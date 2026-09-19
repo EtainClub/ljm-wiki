@@ -113,6 +113,32 @@ export interface CoverageEntry {
   delayMinutes?: number;
 }
 
+/**
+ * 유튜브에는 검색 기반 '미보도' 판정을 하지 않는다. 이 값은 영상 제목을
+ * 사건에 연결한 기계적 조건을 남긴다. 영상의 내용·의도에 대한 판정은 아니다.
+ */
+export interface YouTubeTitleMatch {
+  terms: string[];
+  /** 사건을 구분하는 제목의 마지막 핵심어는 반드시 포함돼야 한다. */
+  requiredTerms: string[];
+  minimumMatches: number;
+  windowBeforeHours: number;
+  windowAfterHours: number;
+  matchedAt: Timestamp;
+}
+
+export interface YouTubeCorrectionDoc {
+  eventId: string;
+  /** 정정 준비 후 원 사건이 달라지면 낡은 계획으로 덮어쓰지 않는다. */
+  baseRevision: number;
+  status: "ready" | "applied";
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
+  appliedAt?: Timestamp | null;
+  match: YouTubeTitleMatch;
+  itemIds: string[];
+}
+
 export interface EventDoc {
   slug: string;
   /** "2026-07-26" (KST) */
@@ -134,6 +160,10 @@ export interface EventDoc {
   /** ready 상태가 된 시각. 승인 대기열과 실행 이력을 연결하는 근거다. */
   readyAt?: Timestamp | null;
   publishedAt: Timestamp | null;
+  /** 공개 주소는 유지하되, 승인된 정정이 적용된 횟수와 시각을 남긴다. */
+  revision?: number;
+  revisedAt?: Timestamp | null;
+  youtubeTitleMatch?: YouTubeTitleMatch;
   createdAt: Timestamp;
   updatedAt: Timestamp;
 

@@ -43,6 +43,12 @@ const pageId = (file: string) => relative(WIKI, file).replace(/\.md$/, "");
  */
 const WIKI_LINK = /\[\[([^\]|]+?)(?:\|[^\]]+)?\]\]/g;
 
+/** 사건은 Firestore에서 읽어 `/e/[slug]`로 정적 생성되는 동적 페이지다. */
+const isVirtualEventPage = (id: string) => id.startsWith("events/");
+
+/** 아직 어떤 사건에도 배정되지 않은 YouTube 채널의 집계 페이지는 고아가 정상이다. */
+const isExpectedOrphan = (id: string) => id.startsWith("outlets/yt_");
+
 /** "- [[people/한동훈]] 2건" 에서 대상과 건수를 뽑는다. */
 function parseMentions(text: string): Map<string, number | null> {
   const section = /## 함께 언급된 인물([\s\S]*?)(?=\n## |$)/.exec(text)?.[1] ?? "";
@@ -74,7 +80,9 @@ function main(): void {
       const target = m[1]!.trim();
       if (!linkedFrom.has(target)) linkedFrom.set(target, []);
       linkedFrom.get(target)!.push(id);
-      if (!pages.has(target)) broken.push(`${id} → [[${target}]]`);
+      if (!pages.has(target) && !isVirtualEventPage(target)) {
+        broken.push(`${id} → [[${target}]]`);
+      }
     }
 
     const lines = body.split("\n");
@@ -99,7 +107,7 @@ function main(): void {
   }
 
   const orphan = [...pages].filter(
-    (p) => !META_PAGES.has(p) && !linkedFrom.has(p),
+    (p) => !META_PAGES.has(p) && !isExpectedOrphan(p) && !linkedFrom.has(p),
   );
 
   // '함께 언급' 은 대칭이어야 한다. 존재뿐 아니라 건수까지 맞아야 한다 —

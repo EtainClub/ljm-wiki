@@ -477,6 +477,13 @@ async function cmdShow(slug: string): Promise<void> {
 
 async function cmdPublish(slug: string): Promise<void> {
   const event = await getEvent(slug);
+  // GitHub Actions는 발행 뒤의 위키 생성·정적 빌드·배포에서 실패할 수 있다.
+  // 승인 표식은 아직 main에 남아 있으므로, 재실행 때는 이미 끝난 Firestore
+  // 상태를 실패로 취급하지 않고 나머지 단계를 이어간다.
+  if (event.status === "published") {
+    console.log(`이미 발행됨: ${slug} — 후속 생성·배포 단계를 계속합니다.`);
+    return;
+  }
   if (event.status !== "ready") {
     throw new Error(
       `승인 대기 상태인 사건만 발행할 수 있습니다: ${slug} (${event.status})\n` +

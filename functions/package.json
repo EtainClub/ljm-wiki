@@ -13,6 +13,8 @@
     "seed": "tsc && node lib/scripts/seed-sources.js",
     "collect:dry": "tsc && node lib/scripts/collect-dry.js",
     "collect:once": "tsc && node lib/scripts/collect-once.js",
+    "youtube:add": "tsc && node lib/scripts/add-youtube-source.js",
+    "queue:approval": "tsc && node lib/scripts/queue-approval.js",
     "inspect": "tsc && node lib/scripts/inspect.js",
     "coverage": "tsc && node lib/scripts/coverage-check.js",
     "curate": "tsc && node lib/scripts/curate.js",

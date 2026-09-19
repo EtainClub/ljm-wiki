@@ -100,8 +100,9 @@ diff 가 잡음으로 뒤덮여 사람이 검토할 수 없다. **변하는 것�
 
 ### GitHub — 예약 큐레이션과 자동 배포
 
-원격은 `git@github.com:EtainClub/ljm-wiki.git` 이다. 예약 workflow가 PR 없이
-`main`에 직접 반영하며, 허용 경로 검사와 lint·typecheck·build가 자동 검토 관문이다.
+원격은 `git@github.com:EtainClub/ljm-wiki.git` 이다. 예약 Codex 작업은 승인 대기 PR을
+만들고, 사용자의 병합만 `main`에 반영한다. 그 뒤 발행 workflow가 lint·typecheck·build를
+통과한 결과만 Hosting에 배포한다.
 7 절에 이걸 어떻게 바꿀 수 있는지 적었다.
 
 ---
@@ -358,12 +359,15 @@ npm --prefix functions run deploy
 
 ## 7. GitHub Actions 자동 발행
 
-`.github/workflows/daily-wiki.yml`은 매일 22:30 KST에 사건을 최대 1건 처리한다.
-Codex가 Firestore 큐레이션과 위키 ingest를 마치면 workflow가 허용 경로, lint,
-typecheck, build를 검사하고 성공한 결과만 `main`에 직접 커밋한 뒤 Hosting에 배포한다.
+ChatGPT 데스크톱 앱의 Codex 예약 작업은 매일 22:30 KST에 사건을 최대 1건 처리해
+`ready` 상태와 승인 대기 PR만 만든다. 사용자가 이 PR을 병합하면
+`.github/workflows/publish-ready.yml`이 `ready` 상태를 다시 검증하고 `published`로
+전환한 뒤, 원본·집계·lint·build·Hosting 배포를 수행한다.
 
-필요한 GitHub Actions secrets는 `OPENAI_API_KEY`, `NAVER_CLIENT_ID`,
-`NAVER_CLIENT_SECRET`, `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_SERVICE_ACCOUNT`다.
+발행 workflow에 필요한 GitHub Actions secrets는
+`GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_SERVICE_ACCOUNT`다. Codex 예약 작업은 구독으로
+로컬에서 실행하며 OpenAI API 키를 쓰지 않는다. 네이버 키는 로컬 예약 작업의
+`.env.local`에만 둔다.
 
 로컬에서 검토한 커밋을 원격에 올리려면:
 
@@ -371,18 +375,17 @@ typecheck, build를 검사하고 성공한 결과만 `main`에 직접 커밋한 
 git push origin main
 ```
 
-PR 흐름으로 되돌리려면 현재의 `main` 직접 커밋을 바꿔야 한다.
-자연스러운 모양은 이렇다 — ingest 한 건이 브랜치 하나, PR 하나:
+승인 흐름은 ingest 한 건에 브랜치 하나, PR 하나다:
 
 ```bash
 git switch -c ingest/2026-07-27-브라질-국빈방문
-# ... 에이전트가 wiki/ 를 쓰고, wiki:outlets 을 돌리고 ...
+# ... 에이전트가 wiki/를 쓰고, curate -- ready와 queue:approval을 실행하고 ...
 npm --prefix functions run wiki:lint
-git add wiki sources && git commit
+git add wiki sources .automation && git commit
 gh pr create
 ```
 
-이때 PR 이 실제로 값을 하려면 CI 가 있어야 한다. `.github/workflows/` 에 넣을 것:
+PR의 사전 검증도 CI로 추가할 수 있다. `.github/workflows/` 에 넣을 것:
 
 - `wiki:lint` — 깨진 링크·평가어·교차참조 어긋남
 - `tsc --noEmit` 양쪽 + `eslint`

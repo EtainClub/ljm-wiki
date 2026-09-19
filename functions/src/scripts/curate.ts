@@ -28,6 +28,7 @@ import {
   kstDateString,
   loadEventItems,
   loadSources,
+  markEventReady,
   parseKst,
   updateEvent,
   validateForPublish,
@@ -62,15 +63,19 @@ const hhmm = (d: Date) =>
 /* ── list ────────────────────────────────────────────────── */
 
 async function cmdDrafts(): Promise<void> {
-  const snap = await db.collection(EVENTS).where("status", "==", "draft").get();
-  const rows = snap.docs
+  const [drafts, ready] = await Promise.all([
+    db.collection(EVENTS).where("status", "==", "draft").get(),
+    db.collection(EVENTS).where("status", "==", "ready").get(),
+  ]);
+  const rows = [...drafts.docs, ...ready.docs]
     .map((d) => d.data() as EventDoc)
     .sort((a, b) => a.createdAt.toMillis() - b.createdAt.toMillis());
 
-  console.log(`미완료 초안 ${rows.length}건\n`);
+  console.log(`미완료 ${rows.length}건 (초안 ${drafts.size} · 승인 대기 ${ready.size})\n`);
   for (const event of rows) {
     console.log(
-      `${event.slug}  ${kst(event.occurredAt.toDate())}  ${event.title}` +
+      `[${event.status === "ready" ? "승인 대기" : "초안"}] ${event.slug}  ` +
+        `${kst(event.occurredAt.toDate())}  ${event.title}` +
         (event.coverageQuery ? `  [${event.coverageQuery}]` : ""),
     );
   }
@@ -78,22 +83,24 @@ async function cmdDrafts(): Promise<void> {
 
 async function cmdList(keyword?: string): Promise<void> {
   const [snap, sources] = await Promise.all([
-    db.collection(ITEMS).where("eventId", "==", null).get(),
+    // 전체 후보 풀은 빠르게 커진다. 여기서 전량을 읽고 클라이언트에서 제목을
+    // 거르면 매일 큐레이션이 수십 초~수분으로 늘어난다. 사건 후보는 최신성이
+    // 핵심이므로, 단일 필드 인덱스로 최근 항목만 가져온 뒤 미배정 항목을 고른다.
+    db.collection(ITEMS).orderBy("publishedAt", "desc").limit(500).get(),
     loadSources(),
   ]);
   const names = new Map(sources.map((s) => [s.id, s.name] as const));
 
-  let rows = snap.docs
+  const unassigned = snap.docs
     .map((d) => ({ id: d.id, item: d.data() as ItemDoc }))
-    .sort(
-      (a, b) =>
-        b.item.publishedAt.toDate().getTime() - a.item.publishedAt.toDate().getTime(),
-    );
+    .filter((r) => r.item.eventId === null);
+  let rows = unassigned;
 
   if (keyword) rows = rows.filter((r) => r.item.title.includes(keyword));
 
   console.log(
-    `미배정 ${snap.size}건` + (keyword ? ` · "${keyword}" 포함 ${rows.length}건` : ""),
+    `최근 ${snap.size}건 중 미배정 ${unassigned.length}건` +
+      (keyword ? ` · "${keyword}" 포함 ${rows.length}건` : ""),
   );
   console.log(`(최근 40건)\n`);
 
@@ -457,7 +464,11 @@ async function cmdShow(slug: string): Promise<void> {
   const problems = await validateForPublish(slug);
   console.log();
   if (problems.length === 0) {
-    console.log(`✓ 발행 가능: curate -- publish ${slug}`);
+    if (event.status === "ready") {
+      console.log(`✓ 승인 대기 중: 승인 잡에서 curate -- publish ${slug}`);
+    } else {
+      console.log(`✓ 승인 대기열에 넣을 수 있음: curate -- ready ${slug}`);
+    }
   } else {
     console.log(`발행 전 해결할 것 ${problems.length}건`);
     for (const p of problems) console.log(`  - ${p}`);
@@ -465,6 +476,13 @@ async function cmdShow(slug: string): Promise<void> {
 }
 
 async function cmdPublish(slug: string): Promise<void> {
+  const event = await getEvent(slug);
+  if (event.status !== "ready") {
+    throw new Error(
+      `승인 대기 상태인 사건만 발행할 수 있습니다: ${slug} (${event.status})\n` +
+        `먼저 curate -- ready ${slug} 를 실행하세요.`,
+    );
+  }
   const problems = await validateForPublish(slug);
   if (problems.length > 0) {
     console.error(`발행할 수 없습니다:`);
@@ -480,6 +498,12 @@ async function cmdPublish(slug: string): Promise<void> {
   console.log(`발행했습니다: ${slug}`);
   console.log(`\n정적 사이트는 재빌드해야 반영됩니다:`);
   console.log(`  FIREBASE_PROJECT_ID=new-ljm npm run build`);
+}
+
+async function cmdReady(slug: string): Promise<void> {
+  await markEventReady(slug);
+  console.log(`승인 대기열에 넣었습니다: ${slug}`);
+  console.log("이 상태는 공개 사이트에 보이지 않습니다. 승인 잡만 publish 할 수 있습니다.");
 }
 
 /**
@@ -526,6 +550,7 @@ const USAGE = `사용법:
   curate -- silent <id> [시간=48]             미보도 매체의 기사가 저장소에 있는지 훑기
   curate -- compare <id> "<질의어1>" "<질의어2>" [...]  질의어에 따라 갈리는 매체 찾기
   curate -- show <id>
+  curate -- ready <id>                       자동 검증 통과 → 승인 대기
   curate -- publish <id>
   curate -- delete <id>                      초안 삭제 (발행분은 불가)`;
 
@@ -558,6 +583,9 @@ async function main(): Promise<void> {
     case "show":
       if (!args[0]) throw new Error(USAGE);
       return cmdShow(args[0]);
+    case "ready":
+      if (!args[0]) throw new Error(USAGE);
+      return cmdReady(args[0]);
     case "publish":
       if (!args[0]) throw new Error(USAGE);
       return cmdPublish(args[0]);

@@ -1,0 +1,77 @@
+name: Publish approved event
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".automation/ready-events/*.json"
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: publish-approved-event
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      # 장기 서비스 계정 키 대신 GitHub OIDC로 짧은 자격증명을 받는다.
+      - id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          create_credentials_file: true
+          export_environment_variables: true
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm --prefix functions ci
+
+      - name: Publish ready events and generate derived pages
+        shell: bash
+        run: |
+          shopt -s nullglob
+          markers=(.automation/ready-events/*.json)
+          test "${#markers[@]}" -gt 0
+
+          for marker in "${markers[@]}"; do
+            event_id="$(node -e 'const fs=require("fs"); const p=process.argv[1]; const x=JSON.parse(fs.readFileSync(p,"utf8")); if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-f0-9]{6}$/.test(x.eventId)) process.exit(2); process.stdout.write(x.eventId)' "$marker")"
+            npm --prefix functions run curate -- publish "$event_id"
+            npm --prefix functions run export:sources -- --event "$event_id"
+            rm "$marker"
+          done
+
+          npm --prefix functions run wiki:people
+          npm --prefix functions run wiki:outlets
+          npm --prefix functions run wiki:lint
+
+      - name: Validate and build static site
+        run: |
+          npm --prefix functions run typecheck
+          npm run lint
+          npm run build
+
+      - name: Commit generated records
+        run: |
+          git config user.name "new-ljm publish bot"
+          git config user.email "new-ljm-publish-bot@users.noreply.github.com"
+          git add .automation sources wiki
+          git diff --cached --quiet || git commit -m "publish: approved event"
+          git push
+
+      - name: Deploy hosting
+        run: npx --yes firebase-tools@latest deploy --only hosting --project new-ljm

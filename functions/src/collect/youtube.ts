@@ -30,6 +30,12 @@ interface PlaylistItemsResponse {
   }>;
 }
 
+export interface ResolvedYouTubeChannel {
+  channelId: string;
+  uploadsPlaylistId: string;
+  title: string;
+}
+
 async function call<T>(path: string, params: Record<string, string>, apiKey: string): Promise<T> {
   const qs = new URLSearchParams({ ...params, key: apiKey });
   const res = await fetch(`${API}/${path}?${qs}`);
@@ -39,20 +45,76 @@ async function call<T>(path: string, params: Record<string, string>, apiKey: str
   return (await res.json()) as T;
 }
 
+async function resolveChannel(
+  params: Record<string, string>,
+  displayReference: string,
+  apiKey: string,
+): Promise<ResolvedYouTubeChannel> {
+  const data = await call<ChannelsResponse>(
+    "channels",
+    { part: "snippet,contentDetails", ...params },
+    apiKey,
+  );
+  const channel = data.items?.[0];
+  const uploads = channel?.contentDetails?.relatedPlaylists?.uploads;
+  if (!uploads || !channel?.id) throw new Error(`채널을 찾지 못했습니다: ${displayReference}`);
+  return {
+    channelId: channel.id,
+    uploadsPlaylistId: uploads,
+    title: channel?.snippet?.title ?? channel.id,
+  };
+}
+
 /** 채널 ID → uploads 플레이리스트 ID. 시드 때 1회만 부른다. */
 export async function resolveUploadsPlaylist(
   channelId: string,
   apiKey: string,
 ): Promise<{ uploadsPlaylistId: string; title: string }> {
-  const data = await call<ChannelsResponse>(
-    "channels",
-    { part: "snippet,contentDetails", id: channelId },
-    apiKey,
-  );
-  const channel = data.items?.[0];
-  const uploads = channel?.contentDetails?.relatedPlaylists?.uploads;
-  if (!uploads) throw new Error(`채널을 찾지 못했습니다: ${channelId}`);
-  return { uploadsPlaylistId: uploads, title: channel?.snippet?.title ?? channelId };
+  const resolved = await resolveChannel({ id: channelId }, channelId, apiKey);
+  return {
+    uploadsPlaylistId: resolved.uploadsPlaylistId,
+    title: resolved.title,
+  };
+}
+
+/**
+ * 사람이 복사한 @핸들, 채널 URL, 또는 UC 채널 ID를 API의 영구 채널 ID로 해석한다.
+ * 등록 시 한 번만 호출하며 이후 수집은 uploads 플레이리스트만 사용한다.
+ */
+export async function resolveChannelReference(
+  rawReference: string,
+  apiKey: string,
+): Promise<ResolvedYouTubeChannel> {
+  const reference = rawReference.trim();
+  if (/^UC[\w-]{20,}$/.test(reference)) {
+    return resolveChannel({ id: reference }, reference, apiKey);
+  }
+
+  let handle = reference;
+  try {
+    const url = new URL(reference);
+    if (!/(^|\.)youtube\.com$/i.test(url.hostname)) {
+      throw new Error("YouTube 주소가 아닙니다.");
+    }
+    const channelMatch = url.pathname.match(/^\/channel\/(UC[\w-]{20,})\/?$/);
+    const channelId = channelMatch?.[1];
+    if (channelId) return resolveChannel({ id: channelId }, reference, apiKey);
+    const handleMatch = url.pathname.match(/^\/(@[^/]+)\/?$/);
+    const urlHandle = handleMatch?.[1];
+    if (!urlHandle) throw new Error("@핸들이 포함된 채널 주소여야 합니다.");
+    handle = urlHandle;
+  } catch (error) {
+    if (reference.startsWith("http")) {
+      throw new Error(
+        `채널 주소를 해석하지 못했습니다: ${error instanceof Error ? error.message : reference}`,
+      );
+    }
+  }
+
+  if (!/^@[^\s/]+$/.test(handle)) {
+    throw new Error("UC 채널 ID, @핸들, 또는 https://www.youtube.com/@핸들을 입력하세요.");
+  }
+  return resolveChannel({ forHandle: handle }, reference, apiKey);
 }
 
 export async function fetchUploads(

@@ -82,6 +82,7 @@ export async function createEvent(title: string, occurredAt: Date): Promise<stri
     frames: [],
     coverage: {},
     status: "draft",
+    readyAt: null,
     publishedAt: null,
     createdAt: now,
     updatedAt: now,
@@ -97,10 +98,32 @@ export async function getEvent(slug: string): Promise<EventDoc> {
 }
 
 export async function updateEvent(slug: string, patch: Partial<EventDoc>): Promise<void> {
+  const event = await getEvent(slug);
+  if (event.status === "published") {
+    throw new Error(`발행된 사건은 수정할 수 없습니다: ${slug}`);
+  }
+
+  // ready 는 "이 내용으로 승인해도 된다"는 약속이다. 초안 내용을 바꾸면
+  // 반드시 다시 검증하게 만들어, 예전 검증 결과로 다른 내용을 발행하지 못하게 한다.
+  const changesDraft = [
+    "title",
+    "summary",
+    "occurredAt",
+    "frames",
+    "coverage",
+    "coverageQuery",
+    "wikiSlug",
+  ].some((key) => key in patch);
+  const resetReady = event.status === "ready" && changesDraft && patch.status !== "published";
+
   await db
     .collection(EVENTS)
     .doc(slug)
-    .update({ ...patch, updatedAt: Timestamp.now() });
+    .update({
+      ...patch,
+      ...(resetReady ? { status: "draft", readyAt: null } : {}),
+      updatedAt: Timestamp.now(),
+    });
 }
 
 export async function loadSources(): Promise<SourceDoc[]> {
@@ -181,7 +204,10 @@ export async function applyCoverage(
   let createdItems = 0;
   let attachedItems = 0;
 
-  for (const source of sources) {
+  // 네이버 기사 검색으로 검증할 수 있는 공식 언론사만 coverage 에 넣는다.
+  // YouTube 채널은 제목 수집 결과가 사건에 직접 붙었을 때만 프레임에 나타나야
+  // 한다. 검색 대상이 아니라는 이유로 '보도하지 않음'이라고 쓰면 안 된다.
+  for (const source of sources.filter((s) => s.domain)) {
     const hits = (outcome.covered.get(source.id) ?? []).filter(
       (h) => h.publishedAt <= until,
     );
@@ -630,4 +656,22 @@ export async function validateForPublish(slug: string): Promise<string[]> {
   }
 
   return problems;
+}
+
+/**
+ * 자동 작업이 만들 수 있는 최종 상태. 이 함수는 공개·배포를 하지 않는다.
+ * 사람이 PR을 병합하거나 승인 잡을 실행하기 전에는 사이트에 노출되지 않는다.
+ */
+export async function markEventReady(slug: string): Promise<void> {
+  const event = await getEvent(slug);
+  if (event.status === "published") {
+    throw new Error(`이미 발행된 사건입니다: ${slug}`);
+  }
+
+  const problems = await validateForPublish(slug);
+  if (problems.length > 0) {
+    throw new Error(`승인 대기열에 넣을 수 없습니다:\n${problems.map((p) => `- ${p}`).join("\n")}`);
+  }
+
+  await updateEvent(slug, { status: "ready", readyAt: Timestamp.now() });
 }

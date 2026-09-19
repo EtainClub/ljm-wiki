@@ -1,6 +1,9 @@
 import { onSchedule } from "firebase-functions/v2/scheduler";
 import { logger } from "firebase-functions";
+import { defineSecret } from "firebase-functions/params";
 import { runCollection } from "./collect/run";
+
+const youtubeApiKey = defineSecret("YOUTUBE_API_KEY");
 
 /**
  * 수집 스케줄.
@@ -9,10 +12,8 @@ import { runCollection } from "./collect/run";
  * 제목 변경은 별도 잡이 아니라 이 수집 과정에서 자연히 감지된다 —
  * 같은 URL 을 다시 만났을 때 제목이 다르면 이력에 덧붙는다.
  *
- * 유튜브는 아직 대상 채널이 없어 시크릿을 걸지 않았다. defineSecret 으로
- * 선언하면 그 시크릿이 실제로 존재해야 배포가 되므로, 채널을 추가할 때
- * YOUTUBE_API_KEY 시크릿을 만들고 secrets 배열과 runCollection 인자를
- * 함께 되살린다.
+ * YouTube Data API는 모델 API가 아니다. 키는 Secret Manager에만 두고,
+ * 등록된 채널의 uploads 플레이리스트만 읽는다.
  */
 
 export const collectSources = onSchedule(
@@ -23,9 +24,10 @@ export const collectSources = onSchedule(
     timeoutSeconds: 540,
     memory: "512MiB",
     retryCount: 1,
+    secrets: [youtubeApiKey],
   },
   async () => {
-    const summary = await runCollection();
+    const summary = await runCollection(youtubeApiKey.value());
 
     logger.info("수집 완료", summary);
 

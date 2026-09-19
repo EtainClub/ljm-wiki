@@ -218,6 +218,12 @@ function FrameBlock({
   accent: (typeof ACCENTS)[number];
   bundle: EventBundle;
 }) {
+  const rows = frame.itemIds
+    .map((id) => bundle.items[id])
+    .filter((item): item is Item => Boolean(item));
+  const press = rows.filter((item) => bundle.sources[item.sourceId]?.type === "press");
+  const videos = rows.filter((item) => bundle.sources[item.sourceId]?.type === "youtube");
+
   return (
     <section className={`border-l-2 pl-4 ${accent.rule}`}>
       <div className="mb-3">
@@ -230,13 +236,34 @@ function FrameBlock({
         {frame.note && (
           <p className="mt-1 text-xs leading-5 text-zinc-500">{frame.note}</p>
         )}
+        {videos.length > 0 && (
+          <p className="mt-1 text-xs text-zinc-500">
+            이 프레임: 언론 기사 {press.length} · 유튜브 영상 {videos.length}
+          </p>
+        )}
       </div>
-      <ul className="space-y-3">
-        {frame.itemIds.map((id) => (
-          <ItemRow key={id} item={bundle.items[id]} bundle={bundle} />
-        ))}
-      </ul>
+      {press.length > 0 && <ItemList label={videos.length > 0 ? "언론 기사" : undefined} items={press} bundle={bundle} />}
+      {videos.length > 0 && <ItemList label="유튜브 영상" items={videos} bundle={bundle} />}
     </section>
+  );
+}
+
+function ItemList({
+  label,
+  items,
+  bundle,
+}: {
+  label?: string;
+  items: Item[];
+  bundle: EventBundle;
+}) {
+  return (
+    <div className={label ? "mt-4 first:mt-0" : undefined}>
+      {label && <h4 className="mb-2 text-xs font-semibold text-zinc-500">{label}</h4>}
+      <ul className="space-y-3">
+        {items.map((item) => <ItemRow key={item.id} item={item} bundle={bundle} />)}
+      </ul>
+    </div>
   );
 }
 
@@ -249,11 +276,11 @@ function ItemRow({ item, bundle }: { item: Item; bundle: EventBundle }) {
     <li>
       <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-zinc-500">
         <span className="font-medium text-zinc-700 dark:text-zinc-300">
-          {source.name}
+          {source?.name ?? item.sourceId}
         </span>
-        {source.type === "youtube" && (
+        {source?.type === "youtube" && (
           <span className="rounded bg-zinc-200 px-1.5 py-0.5 text-[10px] font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
-            영상
+            유튜브 영상
           </span>
         )}
         <span className="tabular-nums">{formatTime(item.publishedAt)}</span>

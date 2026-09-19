@@ -102,6 +102,7 @@ async function main(): Promise<void> {
       `id: ${id}`,
       `outlet: ${item.sourceId}`,
       `outletName: ${names.get(item.sourceId) ?? item.sourceId}`,
+      `kind: ${item.kind}`,
       `publishedAt: ${kstIso(published)}`,
       `url: ${item.url}`,
       ...(item.eventId ? [`event: ${item.eventId}`] : []),

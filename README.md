@@ -17,6 +17,8 @@
 |---|---|
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | **여기서 시작한다.** 무엇이 어디에 있고 언제 움직이는가 — Firestore·저장소·스크립트의 역할, 사건 하나를 기록하는 전체 순서, 배포 |
 | [docs/AUTOMATION.md](docs/AUTOMATION.md) | 클라우드 자동 운영 — Hermes Agent 방식, 무에이전트 배치, 인증·검토 관문·실패 처리 |
+| [docs/CODEX-SCHEDULED-TASK.md](docs/CODEX-SCHEDULED-TASK.md) | Codex 구독 예약 작업이 승인 대기 PR을 만드는 방법 |
+| [docs/YOUTUBE.md](docs/YOUTUBE.md) | YouTube 채널의 명시적 등록·수집 범위와 분석 한계 |
 | [docs/DESIGN.md](docs/DESIGN.md) | 왜 이렇게 만들었는가. 실측으로 확인한 것들 (RSS 실태, 네이버 페이지네이션, PWA) |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | 남아 있는 결함과 마일스톤 |
 | [wiki/schema.md](wiki/schema.md) | 위키 기록 규칙. **ingest 전에 반드시 읽는다** |
@@ -66,9 +68,9 @@ npm run deploy
 
 ## 원칙
 
-**일일 갱신은 자동화 검사를 통과한 경우 `main`에 직접 반영된다.** GitHub Actions의
-Codex 작업이 사건을 최대 1건 처리하고, 허용 경로 검사·위키 lint·typecheck·build가
-모두 성공해야 봇 커밋과 Firebase Hosting 배포가 진행된다. 불확실한 사건은 건너뛴다.
+**일일 갱신은 승인 대기 PR을 먼저 만든다.** Codex 구독 예약 작업은 사건을 최대 1건
+`ready` 상태와 PR로만 만들고, 사용자가 PR을 병합해야 GitHub Actions가 발행·빌드·
+Firebase Hosting 배포를 진행한다. 불확실한 사건은 PR도 만들지 않고 건너뛴다.
 
 **브라우저는 Firestore 를 읽지 않는다.** 정적 export 이고, 데이터는 빌드 시
 Admin SDK 로 읽어 HTML 에 구워 넣는다. `firestore.rules` 는 전면 deny 다.

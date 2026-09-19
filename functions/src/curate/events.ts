@@ -208,8 +208,12 @@ export async function applyCoverage(
   // YouTube 채널은 제목 수집 결과가 사건에 직접 붙었을 때만 프레임에 나타나야
   // 한다. 검색 대상이 아니라는 이유로 '보도하지 않음'이라고 쓰면 안 된다.
   for (const source of sources.filter((s) => s.domain)) {
+    // 사건 발생 전의 예고·일정 기사가 실제 발언 보도보다 먼저 검색되는 경우가
+    // 있다. coverage 는 사건 뒤의 보도 여부를 기록하므로, 발생 시각 이후 기사만
+    // 후보로 남긴다. (발생 전 보도까지 기록할 사건은 발생 시각을 그 예고 시점으로
+    // 별도로 잡아야 한다.)
     const hits = (outcome.covered.get(source.id) ?? []).filter(
-      (h) => h.publishedAt <= until,
+      (h) => h.publishedAt >= occurredAt && h.publishedAt <= until,
     );
 
     // 이른 것부터 보되, 이미 다른 사건의 기사인 것은 건너뛴다.
@@ -254,7 +258,13 @@ export async function applyCoverage(
       await ref.set(doc);
       createdItems++;
     } else {
-      await ref.update({ eventId: slug });
+      // RSS의 날짜 문자열에 표준 시간대가 빠진 경우 수집 시각이 KST에서 어긋날
+      // 수 있다. 같은 URL을 네이버 기사 검색이 다시 확인한 지금은 그 발행 시각을
+      // 쓴다. 그래야 화면의 시각과 coverage의 보도 지연 시간이 일치한다.
+      await ref.update({
+        eventId: slug,
+        publishedAt: Timestamp.fromDate(first.publishedAt),
+      });
     }
     attachedItems++;
 

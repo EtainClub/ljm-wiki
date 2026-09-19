@@ -9,10 +9,9 @@ runConfig:
 
 # Environment variables and secrets.
 env:
-  # App Hosting 기본 URL. metadataBase·OG 이미지·공유 카드가 같은 주소를 쓴다.
-  # 커스텀 도메인을 연결할 때 이 값만 새 주소로 바꾼다.
+  # App Hosting의 정식 공개 주소. metadataBase·OG 이미지·공유 카드가 같은 주소를 쓴다.
   - variable: NEXT_PUBLIC_SITE_URL
-    value: https://ljm-wiki--new-ljm.asia-east1.hosted.app
+    value: https://news.jamtong.kr
     availability:
       - BUILD
       - RUNTIME

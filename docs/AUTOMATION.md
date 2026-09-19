@@ -252,7 +252,7 @@ Hermes cron에는 사전 스크립트가 마지막 줄에 `{"wakeAgent": false}`
 - 배포된 `collectSources`의 하루 4회 RSS 수집.
 - 이미 사람이 발행한 사건에 대한 원본 export와 집계 페이지 재생성.
 - `wiki:people`, `wiki:outlets`, `wiki:lint`, typecheck, build.
-- 검토·승인된 commit을 Firebase Hosting에 배포.
+- 검토·승인된 `main` commit의 App Hosting 자동 롤아웃.
 - 수집 건강 상태와 공개 사이트 점검.
 
 즉 **이미 정의되고 승인된 사건 이후의 기계적 단계**는 shell/systemd, GitHub Actions,
@@ -376,12 +376,12 @@ gateway 중복 실행은 lock 경합과 지연을 만들 수 있으므로 하나
 
 배포가 성공해도 다음을 별도로 확인한다.
 
-- `https://new-ljm.web.app`이 200을 반환하는가.
+- `https://ljm-wiki--new-ljm.asia-east1.hosted.app`이 200을 반환하는가.
 - 새 사건 제목과 날짜가 색인에 보이는가.
 - 사건 페이지의 매체 수와 프레임 수가 `curate show` 결과와 같은가.
 - 위키 링크가 모두 정적 페이지로 열리는가.
 
-검사 실패 시 추가 배포를 멈추고 마지막 정상 Firebase Hosting release로 되돌린다.
+검사 실패 시 추가 배포를 멈추고 App Hosting 콘솔에서 마지막 정상 롤아웃으로 되돌린다.
 현재 `curate delete`는 발행 사건 삭제를 거부하므로 잘못 발행한 사건을 자동 삭제하는
 방식을 rollback으로 삼지 않는다. 정정 절차를 별도로 둔다.
 

@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 /**
- * Firebase 프로젝트 id 와 기본 호스팅 도메인.
+ * Firebase 프로젝트 id 와 기본 사이트 도메인.
  *
  * `.firebaserc` 를 정본으로 삼는다. firebase CLI 가 읽는 바로 그 파일이고
  * 저장소에 커밋돼 있다. 같은 값을 `.env.local` 에 또 적으면
@@ -33,8 +33,9 @@ export function firebaseProjectId(): string | undefined {
 }
 
 /**
- * 배포 도메인. Firebase Hosting 은 프로젝트마다 `<id>.web.app` 를 기본으로 준다.
- * 커스텀 도메인을 붙이면 `NEXT_PUBLIC_SITE_URL` 로 덮어쓴다.
+ * 배포 도메인. App Hosting은 `apphosting.yaml`에서 `NEXT_PUBLIC_SITE_URL`을
+ * 빌드·런타임에 주입한다. 커스텀 도메인을 붙일 때도 같은 값을 바꾸면 된다.
+ * 환경변수가 없는 로컬/레거시 Hosting 환경만 `<id>.web.app`을 기본값으로 쓴다.
  */
 export function siteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;

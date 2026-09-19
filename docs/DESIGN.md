@@ -16,14 +16,15 @@
 
 | 항목 | 결정 | 근거 |
 |---|---|---|
-| 호스팅 | Firebase Hosting (정적) | App Hosting 미사용 지시. 일반 Hosting의 Next.js 프레임워크 지원은 신규 참여 중단됨 |
-| 렌더링 | `output: "export"` — 전량 SSG | 위 제약. 하루 1~3건 발행이라 SSR 불필요 |
+| 호스팅 | Firebase App Hosting (`ljm-wiki`) | GitHub `main` 연결로 자동 롤아웃, Next 서버 실행 |
+| 렌더링 | 사건 화면 SSR, 위키 정적 생성 | 새 사건 slug·프레임·공유 이미지를 요청 시 최신 Firestore로 제공 |
 | 백엔드 | Cloud Functions + Firestore | 수집·분류·발행 트리거 |
-| 콘텐츠 갱신 | **발행 = 재빌드 + 재배포** | 정적 export의 필연. 하루 4~6회 빌드로 충분 |
+| 콘텐츠 갱신 | **승인 PR 병합 = 자동 롤아웃**, 사건 데이터는 요청 시 읽기 | 수동 Hosting 배포와 오래된 정적 HTML을 없앰 |
 | 클라이언트 DB 접근 | **없음** | v1은 로그인·기여 없음 → Firestore는 Admin SDK 전용, rules 전면 deny |
 | 저장 대상 | **제목 + 링크 + 매체명만** | 본문 저장은 저작권 위험. 기사 제목은 저작물성이 낮음 |
 
-핵심 결과: **공개 웹앱은 순수 정적 HTML/PNG 덩어리**다. 공격 표면이 거의 없고, CDN 캐시만으로 트래픽 급증을 견딘다.
+핵심 결과: **브라우저는 Firestore에 접근하지 않고, App Hosting 서버만 Admin SDK를 쓴다.**
+사건 화면은 `no-store` SSR로 최신성을 우선하고, 인스턴스는 0개까지 축소해 유휴 비용을 낮춘다.
 
 ---
 
@@ -51,13 +52,14 @@
  [Function: onPublish]  ──▶ GitHub Actions repository_dispatch
                                   │
                                   ▼
-                          next build (Admin SDK로 Firestore 읽기)
+                          App Hosting GitHub build
                                   │
                                   ▼
-                          firebase deploy --only hosting
+                          App Hosting SSR (Admin SDK로 Firestore 읽기)
 ```
 
-빌드 타임에 Server Component가 Firestore를 직접 읽는다. 정적 export에서 Server Component는 `next build` 중 실행되므로 그대로 동작한다.
+App Hosting의 Server Component와 Route Handler가 Firestore를 직접 읽는다. 브라우저에는
+Firestore 권한을 주지 않으며, 새 사건·OG 이미지·공유 카드는 요청 시 동적으로 만든다.
 
 ---
 
@@ -237,7 +239,7 @@ X / Threads. API 비용이 크고, 계정 단위 데이터는 개인정보·명�
 
 ---
 
-## 5. 프론트엔드 (App Router, static export)
+## 5. 프론트엔드 (App Router, App Hosting SSR)
 
 ```
 src/app/

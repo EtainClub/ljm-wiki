@@ -26,7 +26,7 @@ flowchart TB
     GEN[wiki/outlets · 프레임-군집<br/>집계뿐이다]
     GIT[git commit<br/>사람의 유일한 검토 관문]
     BUILD[npm run build]
-    HOST[Firebase Hosting]
+    HOST[Firebase App Hosting]
     USER((브라우저))
 
     RSS --> CF
@@ -43,13 +43,13 @@ flowchart TB
     GEN --> GIT
     SRC --> GIT
     GIT --> BUILD
-    FS -. 발행분만 읽기 .-> BUILD
+    FS -. 발행분만 서버에서 읽기 .-> HOST
     BUILD --> HOST
     HOST --> USER
     USER -.->|rules 전면 deny · 닿지 못한다| FS
 ```
 
-핵심 한 줄: **Firestore 는 작업대이고, git 저장소는 발행물이다.**
+핵심 한 줄: **Firestore는 발행 사건의 최신 원본이고, git 저장소는 코드·파생 기록이다.**
 브라우저는 Firestore 를 절대 읽지 않는다.
 
 ---
@@ -83,7 +83,7 @@ diff 가 잡음으로 뒤덮여 사람이 검토할 수 없다. **변하는 것�
 | `wiki/프레임-군집.md` | 매체 간 프레임 일치 | `wiki:outlets` 스크립트 | **아니오** |
 | `wiki/index.md` `log.md` `schema.md` | 색인·이력·규칙 | 손으로 | 예 |
 | `src/` `functions/` | 코드 | 손으로 | 예 |
-| `out/` | 빌드 산출물 | `npm run build` | gitignore |
+| `.next/` | Next 빌드 산출물 | App Hosting GitHub 빌드 | gitignore |
 
 **판단이 들어가는 페이지만 사람(에이전트)이 쓴다.** 매체 페이지는 전부 산수라서
 손으로 쓰면 계산을 틀리고 매체가 늘수록 어긋나기만 한다. 그래서 스크립트로 내렸다.
@@ -102,7 +102,7 @@ diff 가 잡음으로 뒤덮여 사람이 검토할 수 없다. **변하는 것�
 
 원격은 `git@github.com:EtainClub/ljm-wiki.git` 이다. 예약 Codex 작업은 승인 대기 PR을
 만들고, 사용자의 병합만 `main`에 반영한다. 그 뒤 발행 workflow가 lint·typecheck·build를
-통과한 결과만 Hosting에 배포한다.
+통과시키고, `main` push를 감지한 App Hosting이 자동 롤아웃한다.
 7 절에 이걸 어떻게 바꿀 수 있는지 적었다.
 
 ---
@@ -193,9 +193,9 @@ git add . && git commit
 실존 인물·매체에 대한 기록이므로, 사람이 눈으로 보지 않은 문장이 발행되면 안 된다.
 
 ```
-npm run build && npm run deploy
+npm run build && npm start
 ```
-빌드가 Firestore(발행분)와 `wiki/*.md` 를 읽어 정적 HTML 을 만들고 호스팅에 올린다.
+이 명령은 배포 전 SSR 확인용이다. 운영 배포는 `main` 병합 뒤 App Hosting이 한다.
 
 ### 어쩌다 한 번
 
@@ -314,8 +314,8 @@ npm run deploy:rules
 ```bash
 npm run deploy
 ```
-`npm run build` 후 `out/` 을 Firebase Hosting 에 올린다.
-정적 파일이라 이게 사이트 전체다. 배포 후 `https://new-ljm.web.app`.
+평소에는 쓰지 않는 비상용 수동 App Hosting 롤아웃이다. 정상 흐름은 GitHub `main` push이며,
+배포 주소는 `https://ljm-wiki--new-ljm.asia-east1.hosted.app`이다.
 
 ```bash
 npm --prefix functions run deploy
@@ -327,16 +327,15 @@ npm --prefix functions run deploy
 
 | 바뀐 것 | 다시 해야 하는 것 |
 |---|---|
-| 사건을 발행했다 (`curate publish`) | `npm run deploy` |
-| 위키 마크다운을 고쳤다 | `npm run deploy` |
-| 코드(`src/`)를 고쳤다 | `npm run deploy` |
+| 사건을 발행했다 (`curate publish`) | `main`에 파생 기록 commit push → App Hosting 자동 롤아웃 |
+| 위키 마크다운을 고쳤다 | `main` push → App Hosting 자동 롤아웃 |
+| 코드(`src/`)를 고쳤다 | `main` push → App Hosting 자동 롤아웃 |
 | 수집기(`functions/src/collect/`)를 고쳤다 | `npm --prefix functions run deploy` |
 | `firestore.rules` 를 고쳤다 | `npm run deploy:rules` |
 | 큐레이션 스크립트만 고쳤다 | **아무것도 안 해도 된다** (로컬에서만 돈다) |
 
-**정적 사이트라 발행이 자동으로 반영되지 않는다.** Firestore 에 `published` 로 바꿔 놓아도
-빌드를 다시 하지 않으면 사이트는 그대로다. 이건 버그가 아니라 선택이다 —
-사람이 커밋하고 배포하는 단계가 한 번 더 있어야 검토되지 않은 것이 나가지 않는다.
+**사건 화면은 동적 SSR이다.** `published` 상태는 App Hosting 서버가 다음 요청에서 Firestore로
+읽는다. 승인 workflow가 원본·위키 이력을 commit한 뒤 `main`을 push하므로 배포 이력도 남는다.
 
 ---
 

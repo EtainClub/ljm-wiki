@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { OG_SIZE, buildOgCard } from "@/components/ShareCard";
 import { loadCardFonts } from "@/lib/og-font";
-import { getEventBySlug, getPublishedEvents } from "@/lib/events-source";
+import { getEventBySlug } from "@/lib/events-source";
 
 /**
  * 링크 미리보기 이미지.
@@ -11,12 +11,8 @@ import { getEventBySlug, getPublishedEvents } from "@/lib/events-source";
  * 확장자로 Content-Type 을 정하므로 image/png 로 안 나가고 크롤러가 거부한다.
  */
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const events = await getPublishedEvents();
-  return events.map((b) => ({ slug: b.event.slug }));
-}
+// 새 사건의 링크 미리보기 이미지도 요청 시점에 생성한다.
+export const dynamic = "force-dynamic";
 
 export async function GET(
   _request: Request,

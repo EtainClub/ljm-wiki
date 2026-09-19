@@ -36,11 +36,10 @@ npm install && npm --prefix functions install
 `.firebaserc` 에서 온다.
 
 ```bash
-npm run build && npm run serve:out
+npm run dev
 ```
 
-> ⚠ `npm run dev` 로는 위키 페이지(`/w`)를 볼 수 없다. 한글 경로를
-> `generateStaticParams()` 와 대조하지 못해 실패한다. 빌드 후 정적 서버로 띄운다.
+배포 서버와 같은 방식으로 확인하려면 `npm run build && npm start`를 쓴다.
 
 ## 자주 쓰는 명령
 
@@ -62,7 +61,8 @@ npm --prefix functions run wiki:outlets
 ```bash
 npm run deploy
 ```
-빌드 후 Firebase Hosting 에 올린다.
+비상시 `ljm-wiki` App Hosting 백엔드에 수동 롤아웃한다. 평소에는 실행하지 않는다.
+`main`에 병합되면 연결된 GitHub 배포가 자동으로 롤아웃한다.
 
 전체 흐름은 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) 2절에 순서대로 있다.
 
@@ -70,10 +70,10 @@ npm run deploy
 
 **일일 갱신은 승인 대기 PR을 먼저 만든다.** Codex 구독 예약 작업은 사건을 최대 1건
 `ready` 상태와 PR로만 만들고, 사용자가 PR을 병합해야 GitHub Actions가 발행·빌드·
-Firebase Hosting 배포를 진행한다. 불확실한 사건은 PR도 만들지 않고 건너뛴다.
+App Hosting 롤아웃을 진행한다. 불확실한 사건은 PR도 만들지 않고 건너뛴다.
 
-**브라우저는 Firestore 를 읽지 않는다.** 정적 export 이고, 데이터는 빌드 시
-Admin SDK 로 읽어 HTML 에 구워 넣는다. `firestore.rules` 는 전면 deny 다.
+**브라우저는 Firestore 를 읽지 않는다.** App Hosting 서버만 Admin SDK로 최신 발행
+데이터를 읽고, `firestore.rules` 는 전면 deny 다.
 
 **'보도하지 않음' 은 검색어에 달린 값이다.** 실측에서 검색어를 바꾸자 같은 사건·같은
 시간창인데 미보도가 6곳에서 0곳이 됐다. 그래서 사건 페이지마다 사용한 검색어를 함께 싣는다.

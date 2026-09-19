@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "serve:out": "npx serve out",
-    "deploy": "npm run build && firebase deploy --only hosting",
+    "deploy": "firebase deploy --only apphosting:ljm-wiki",
     "deploy:functions": "firebase deploy --only functions",
     "deploy:rules": "firebase deploy --only firestore:rules,firestore:indexes",
     "automation:validate-diff": "bash scripts/validate-automation-diff.sh"

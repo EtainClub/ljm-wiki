@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: "지금까지 기록한 사건 전체 목록.",
 };
 
+// 새 발행 사건을 App Hosting 인스턴스와 CDN 캐시에 고정하지 않는다.
+export const dynamic = "force-dynamic";
+
 export default async function ArchivePage() {
   const events = await getPublishedEvents();
 

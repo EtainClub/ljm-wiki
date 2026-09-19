@@ -5,14 +5,12 @@ import { firebaseProjectId } from "./firebase-project";
 import { SAMPLE_EVENTS } from "./sample-event";
 
 /**
- * 빌드 타임 데이터 소스.
+ * 서버 데이터 소스.
  *
- * 정적 export 라 Server Component 가 `next build` 중에 실행된다. 그때
- * Admin SDK 로 Firestore 를 읽어 HTML 에 구워 넣는다. 브라우저는 Firestore 에
- * 접근하지 않는다 (firestore.rules 는 전면 deny).
+ * App Hosting의 Server Component/Route Handler가 Admin SDK로 Firestore를 읽는다.
+ * 브라우저는 Firestore에 접근하지 않는다 (firestore.rules 는 전면 deny).
  *
- * 자격증명이 없거나 발행된 사건이 아직 없으면 샘플로 떨어진다. 조용히 빈
- * 사이트를 내보내는 것보다, 무엇이 왜 빠졌는지 빌드 로그에 남기는 편이 낫다.
+ * 로컬 개발에서 자격증명이 없거나 발행된 사건이 아직 없으면 샘플로 떨어진다.
  */
 
 type FirestoreLike = {
@@ -50,7 +48,7 @@ async function connect(): Promise<FirestoreLike | null> {
   if (!projectId) return null;
 
   try {
-    // 정적 페이지 생성 시점에만 필요하다. 클라이언트 번들과 무관하도록 동적 import 한다.
+    // 클라이언트 번들과 무관하도록 동적 import 한다.
     const { getApps, initializeApp, applicationDefault } = await import(
       "firebase-admin/app"
     );
@@ -138,30 +136,17 @@ function buildBundle(
 }
 
 /**
- * 빌드 중 여러 페이지가 호출하므로 모듈 안에서 한 번만 읽는다.
- *
- * 다만 Next 는 정적 생성을 워커 여러 개로 나눠 돌리고 워커마다 모듈이 따로
- * 로드되므로, 실제로는 워커 수만큼 읽는다(빌드 로그에 경고가 여러 번 찍히는 이유).
- * 사건 수가 적어 문제되지 않지만, 데이터가 커지면 빌드 전에 한 번 덤프해
- * 파일로 넘기는 편이 낫다.
- */
-let cache: EventBundle[] | null = null;
-
-/**
- * 발행된 사건 전체. 빌드 중 여러 페이지가 호출하므로 한 번만 읽는다.
- * 최신순 정렬.
+ * 발행된 사건 전체. App Hosting 요청마다 최신 Firestore 값을 읽어 최신순으로 반환한다.
+ * 발행 직후에도 오래된 메모리 캐시가 남지 않도록 모듈 전역 캐시는 두지 않는다.
  */
 export async function getPublishedEvents(): Promise<EventBundle[]> {
-  if (cache) return cache;
-
   const db = await connect();
   if (!db) {
     console.warn(
       "[events-source] 프로젝트 id 를 찾지 못했습니다 (.firebaserc 도, FIREBASE_PROJECT_ID 도)" +
         " — 샘플 데이터로 빌드합니다.",
     );
-    cache = SAMPLE_EVENTS;
-    return cache;
+    return SAMPLE_EVENTS;
   }
 
   try {
@@ -174,8 +159,7 @@ export async function getPublishedEvents(): Promise<EventBundle[]> {
       console.warn(
         "[events-source] 발행된 사건이 없습니다 — 샘플 데이터로 빌드합니다.",
       );
-      cache = SAMPLE_EVENTS;
-      return cache;
+      return SAMPLE_EVENTS;
     }
 
     const sources: Record<string, Source> = {};
@@ -231,16 +215,14 @@ export async function getPublishedEvents(): Promise<EventBundle[]> {
 
     bundles.sort((a, b) => b.event.date.localeCompare(a.event.date));
     console.log(`[events-source] Firestore 에서 사건 ${bundles.length}건을 읽었습니다.`);
-    cache = bundles;
-    return cache;
+    return bundles;
   } catch (e) {
     console.warn(
       `[events-source] Firestore 읽기 실패 — 샘플 데이터로 빌드합니다: ${
         e instanceof Error ? e.message : e
       }`,
     );
-    cache = SAMPLE_EVENTS;
-    return cache;
+    return SAMPLE_EVENTS;
   }
 }
 

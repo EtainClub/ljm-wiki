@@ -3,16 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ShareBar from "@/components/ShareBar";
 import type { EventBundle, Frame, Item } from "@/lib/event-types";
-import { getEventBySlug, getPublishedEvents } from "@/lib/events-source";
+import { getEventBySlug } from "@/lib/events-source";
 import { formatDelay, formatLongDate, formatTime } from "@/lib/kst";
 
-// 정적 export: 모든 경로를 빌드 시 확정해야 한다.
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const events = await getPublishedEvents();
-  return events.map((b) => ({ slug: b.event.slug }));
-}
+// 승인 후 생성된 새 slug도 재배포 대기 없이 요청 시점에 제공한다.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

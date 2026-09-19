@@ -6,6 +6,9 @@ import { getWikiPagesByKind } from "@/lib/wiki";
 /** 홈은 최근 7건까지만 보여준다. 전체는 /archive. */
 const HOME_LIMIT = 7;
 
+// 새 발행 사건을 App Hosting 인스턴스와 CDN 캐시에 고정하지 않는다.
+export const dynamic = "force-dynamic";
+
 /**
  * 첫 화면.
  *

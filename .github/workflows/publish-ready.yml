@@ -59,7 +59,7 @@ jobs:
           npm --prefix functions run wiki:outlets
           npm --prefix functions run wiki:lint
 
-      - name: Validate and build static site
+      - name: Validate and build App Hosting app
         run: |
           npm --prefix functions run typecheck
           npm run lint
@@ -72,6 +72,3 @@ jobs:
           git add .automation sources wiki
           git diff --cached --quiet || git commit -m "publish: approved event"
           git push
-
-      - name: Deploy hosting
-        run: npx --yes firebase-tools@latest deploy --only hosting --project new-ljm

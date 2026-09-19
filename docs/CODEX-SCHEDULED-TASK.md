@@ -11,8 +11,8 @@
    컴퓨터와 앱이 켜져 있도록 한다.
 3. GitHub Actions용 Workload Identity Federation을 구성해
    `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_SERVICE_ACCOUNT` secrets를 저장한다.
-   `.github/workflows/publish-ready.yml`은 이 짧은 자격증명으로만 Firestore와 Hosting에
-   접근한다.
+   `.github/workflows/publish-ready.yml`은 이 짧은 자격증명으로만 Firestore에
+   접근한다. `main`의 GitHub push는 연결된 App Hosting 백엔드가 자동 롤아웃한다.
 
 ## 예약 작업 프롬프트
 
@@ -37,4 +37,5 @@ PR 제목에는 [승인 대기]와 event slug를 포함한다. PR 설명에는 �
 ```
 
 사용자는 이 PR의 **Merge 버튼 한 번**으로 발행을 허락한다. 병합 뒤 workflow가 `ready`
-상태를 다시 검증해 `published`로 바꾸고, 파생 위키·정적 사이트를 생성·배포한다.
+상태를 다시 검증해 `published`로 바꾸고 파생 위키를 생성한다. 이어 `main` push를 감지한
+`ljm-wiki` App Hosting 백엔드가 자동 롤아웃한다.

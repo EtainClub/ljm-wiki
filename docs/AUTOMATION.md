@@ -3,9 +3,10 @@
 이 문서는 수집된 기사에서 사건을 만들고, 보도 범위를 확인하고, 위키와 정적 사이트를
 갱신하는 작업을 클라우드에서 반복 실행하는 방법을 정리한다.
 
-기준일 2026-08-04. PR 없이 `main`에 직접 반영하는 GitHub Actions 일일 작업이
-`.github/workflows/daily-wiki.yml`에 있다. 이 문서의 Hermes 및 무에이전트 절은 대안과
-운영 배경으로 남겨 둔다.
+기준일 2026-09-19. Codex 구독 예약 작업이 승인 대기 PR을 만들고, 사용자가 병합하면
+`.github/workflows/publish-ready.yml`이 `ready` 사건을 발행·배포한다. 예약 작업 자체는
+`publish`, `deploy`, `main` push를 하지 않는다. 이 문서의 Hermes 및 무에이전트 절은
+대안과 운영 배경으로 남겨 둔다.
 
 ---
 
@@ -38,9 +39,9 @@ RSS를 읽어 Firestore `items`에 후보 기사를 쌓는다. 이것은 **사�
 | Hermes Agent + 영구 VM | 에이전트가 후보를 읽고 초안을 작성 | 현재 수동 절차에 가장 가깝다 | LLM 비용·오판 가능성, 검토 관문 필요 |
 | 무에이전트 배치 | 현재 코드로는 불가능 | 예측 가능하고 저렴하다 | 새 사건 자동 생성을 위한 별도 알고리즘과 CLI가 필요 |
 
-현재 선택한 운영 방식은 GitHub Actions에서 Codex가 하루 최대 사건 1건을 처리하고,
-검증 성공 시 `main` 직접 커밋과 Hosting 배포까지 수행하는 것이다. 불확실한 사건은
-발행하지 않고 정상적으로 건너뛴다.
+현재 선택한 운영 방식은 Codex 예약 작업이 하루 최대 사건 1건을 `ready`와 PR로 만들고,
+사용자의 병합을 발행 승인으로 삼는 것이다. 불확실한 사건은 PR을 만들지 않고 정상적으로
+건너뛴다.
 
 ---
 
@@ -100,9 +101,9 @@ npm ci
 npm --prefix functions ci
 ```
 
-작성 시점의 로컬 `main`은 `origin/main`보다 12커밋 앞서 있고 `.github/workflows/`가
-없다. 따라서 클라우드 자동화보다 먼저 현재 변경을 검토·커밋하고 원격을 최신 상태로
-만들어야 한다. 서버가 오래된 원격을 clone한 채 발행하면 로컬 작업이 빠진다.
+예약 작업과 발행 workflow는 같은 최신 `main`을 기준으로 움직여야 한다. 따라서 자동화를
+켜기 전에 현재 변경을 검토·push하고, 예약 작업은 매번 `git pull --ff-only`를 통과한
+경우에만 PR을 만들게 한다.
 
 ---
 
@@ -327,30 +328,25 @@ hermes cron create "30 22 * * *" \
 
 ## 6. 검토 관문을 자동화 구조에 맞게 고쳐야 한다
 
-현재 `events.status`는 `draft | published`뿐이다. 또한 `wiki:outlets`과 정적 빌드는
-발행 사건만 읽는다. 이 구조에서 PR을 만들기 위해 먼저 `publish`하면 Firestore는 사람의
-승인 전에 발행 상태가 되고, `publish`하지 않으면 최종 산출물을 온전히 미리 볼 수 없다.
+`events.status`는 `draft | ready | published`다. `wiki:outlets`과 정적 빌드는 발행 사건만
+읽는다. `ready`는 구조 검증을 통과했지만 사람의 승인 전인 상태이므로, 공개 사이트에는
+절대 노출되지 않는다.
 
-안전한 자동화를 위해 다음 중 하나를 먼저 구현한다.
-
-### 권장안: `ready` 상태 추가
+현재 구현은 다음 상태 전이를 쓴다.
 
 ```text
-draft → ready → approved → published
+draft → ready → published
 ```
 
-- `curate prepare`: 구조 검증 후 `ready`.
-- preview build: `ready` 사건까지 포함하되 운영 URL에는 배포하지 않는다.
-- PR 승인 또는 명시적 승인 명령: `approvedAt`, `approvedBy` 기록.
-- 배포 잡: 승인된 사건만 `published`로 전환하고 export, 집계, build, deploy.
+- `curate ready`: 구조 검증 후 `ready`. 공개·배포는 하지 않는다.
+- `queue:approval`: ready 사건의 식별자만 든 marker 파일을 만든다.
+- 예약 Codex 작업은 marker를 포함한 PR까지만 만든다.
+- 사용자의 PR 병합이 승인이다. `publish-ready.yml`이 marker의 event ID를 형식 검증하고
+  ready 상태를 다시 검증한 뒤에만 `published`로 전환한다.
 
-### 최소 변경안
-
-- `wiki:people`, `wiki:outlets`, build에 `--include-draft <event-id>` preview 옵션을 추가한다.
-- PR에서는 특정 draft 하나를 포함한 결과만 검사한다.
-- 병합 후 별도 잡이 `publish`와 운영 배포를 실행한다.
-
-둘 중 하나가 없으면 Hermes 자동화는 **draft 생성과 보고까지만** 허용하는 것이 맞다.
+ready 사건의 완전한 정적 미리보기는 아직 만들지 않는다. 현재 승인 화면은 PR의 원본·위키
+diff와 실행 로그다. 따라서 예약 작업은 lint·typecheck·build를 모두 통과하지 못하면
+marker와 PR을 만들지 않는다.
 
 ---
 

@@ -8,6 +8,9 @@
  */
 
 import { runCollection } from "../collect/run";
+import { loadLocalEnv } from "../env";
+
+loadLocalEnv();
 
 async function main(): Promise<void> {
   const started = Date.now();

@@ -126,7 +126,13 @@ export interface EventDoc {
   /** 관찰 목록 전체에 대한 보도 여부 */
   coverage: Record<string, CoverageEntry>;
 
-  status: "draft" | "published";
+  /**
+   * draft: 작성 중. ready: 자동 검증을 통과해 사람의 승인만 기다림.
+   * published: 승인 뒤 공개 빌드에 포함됨.
+   */
+  status: "draft" | "ready" | "published";
+  /** ready 상태가 된 시각. 승인 대기열과 실행 이력을 연결하는 근거다. */
+  readyAt?: Timestamp | null;
   publishedAt: Timestamp | null;
   createdAt: Timestamp;
   updatedAt: Timestamp;

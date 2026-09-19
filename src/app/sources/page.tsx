@@ -47,7 +47,7 @@ export default async function SourcesPage() {
         <ul className="list-disc space-y-2 pl-5 text-[15px] leading-7">
           <li>편집자의 인상이 아니라 외부에 공개된 지표로 기계적으로 정합니다</li>
           <li>언론은 발행부수·열독률·포털 제휴 여부 등을 봅니다</li>
-          <li>유튜브는 구독자 수와 정치·시사 분야 업로드 빈도를 봅니다</li>
+          <li>유튜브는 공개된 채널 ID, 구독자 수와 정치·시사 분야 업로드 빈도를 봅니다</li>
           <li>매체별 성향·등급은 기록하지 않습니다</li>
         </ul>
         <p className="text-[15px] leading-7">
@@ -84,16 +84,22 @@ function SourceGroup({ title, sources }: { title: string; sources: Source[] }) {
           {sources.length}
         </span>
       </h2>
-      <ul className="flex flex-wrap gap-1.5">
-        {sources.map((s) => (
-          <li
-            key={s.id}
-            className="rounded-md bg-zinc-200/70 px-2.5 py-1.5 text-sm text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-          >
-            {s.name}
-          </li>
-        ))}
-      </ul>
+      {sources.length > 0 ? (
+        <ul className="flex flex-wrap gap-1.5">
+          {sources.map((s) => (
+            <li
+              key={s.id}
+              className="rounded-md bg-zinc-200/70 px-2.5 py-1.5 text-sm text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+            >
+              {s.name}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-[15px] leading-7 text-zinc-600 dark:text-zinc-400">
+          아직 등록된 채널이 없습니다. 채널 ID를 확인한 뒤에만 추가합니다.
+        </p>
+      )}
     </section>
   );
 }

@@ -4,14 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 6건 중 6건 보도 · 미보도 0건
-- 평균 보도 지연 +40분 (0시간 40분)
+- 관찰 사건 7건 중 7건 보도 · 미보도 0건
+- 평균 보도 지연 +37분 (0시간 37분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
 - [[events/2026-09-19-e784b0]] — 사퇴 배경·정치적 후속 쟁점 (2026-09-19)
   10:59 (+14분) [「김승원 법무장관 후보자 사퇴... 李정부 2기 개각 두번째 낙마」](https://www.chosun.com/politics/assembly/2026/09/19/4XKHFWAQOJHCZD2CS2KBMTMAC4/)
+- [[events/2026-09-18-f37126]] — 연임·개헌 입장을 앞세움 (2026-09-18)
+  10:50 (+20분) [「李대통령 “연임할 생각 전혀 없어…헌법 개정 통한 연임은 불가능”」](https://biz.chosun.com/policy/politics/president_office/2026/09/18/UFTV3ITMOZAM7P6XD3O5IVDWU4/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-08-04-보완수사권-폐지-형소법-국무회의-의결]] — 검찰 수사권 폐지의 제도 변화를 강조 (2026-08-04)
   13:09 (+24분) [「‘검찰 수사권 전면폐지’ 형사소송법 개정안, 국무회의 통과」](https://www.chosun.com/politics/politics_general/2026/08/04/HVOIZ4QJ4VDG5EQTGDVKI62XGU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
 - [[events/2026-07-28-조정식-연임-개헌-발언]] — 현직 대통령 연임 가능성을 열어둔 것으로 해석 (2026-07-28)
@@ -25,12 +27,18 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 6건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 7건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/jtbc|JTBC]] | 2건 | 6건 |
-| [[outlets/mk|매일경제]] | 2건 | 5건 |
+| [[outlets/jtbc|JTBC]] | 3건 | 7건 |
+| [[outlets/mk|매일경제]] | 3건 | 6건 |
+| [[outlets/khan|경향신문]] | 2건 | 7건 |
+| [[outlets/kmib|국민일보]] | 2건 | 7건 |
+| [[outlets/donga|동아일보]] | 2건 | 7건 |
+| [[outlets/hankyung|한국경제]] | 2건 | 6건 |
+| [[outlets/hankookilbo|한국일보]] | 2건 | 6건 |
+| [[outlets/pressian|프레시안]] | 2건 | 5건 |
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

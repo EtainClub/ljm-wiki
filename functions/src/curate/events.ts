@@ -1,11 +1,13 @@
 import { createHash } from "node:crypto";
 import { Timestamp } from "firebase-admin/firestore";
-import { EVENTS, ITEMS, SOURCES, db } from "../firebase";
+import { EVENT_CORRECTIONS, EVENTS, ITEMS, SOURCES, db } from "../firebase";
 import type {
   CoverageEntry,
   EventDoc,
   ItemDoc,
   SourceDoc,
+  YouTubeCorrectionDoc,
+  YouTubeTitleMatch,
 } from "../domain";
 import { checkCoverage, type CoverageTarget, type NaverCredentials } from "../collect/naver";
 import { itemIdFor } from "../collect/item-id";
@@ -386,6 +388,225 @@ export async function attachItem(
   await ref.update({ eventId: slug });
 
   return { sourceId: item.sourceId, title: item.title, delayMinutes };
+}
+
+/* ── 유튜브 제목 자동 연결 · 발행분 정정 ─────────────────── */
+
+/** 한 사건 안에서 자동 연결한 유튜브 영상은 한 묶음으로만 보여 준다. */
+export const YOUTUBE_TITLE_FRAME_KEY = "youtube-title-match";
+export const YOUTUBE_TITLE_FRAME_LABEL = "유튜브 영상 제목에 나타난 사건 표현";
+
+const YOUTUBE_WINDOW_BEFORE_HOURS = 24;
+const YOUTUBE_WINDOW_AFTER_HOURS = 48;
+const YOUTUBE_MINIMUM_TERM_MATCHES = 2;
+
+/** 날짜·기호를 빼고 사건 제목에서 비교 가능한 낱말만 뽑는다. */
+function youtubeTerms(title: string): string[] {
+  return [
+    ...new Set(
+      title
+        .normalize("NFC")
+        .replace(/[0-9０-９]/g, " ")
+        .split(/[\s··,.:;!?()\[\]{}'"“”‘’/\\-]+/)
+        .map((term) => term.trim())
+        .filter((term) => term.length >= 2),
+    ),
+  ];
+}
+
+function titleMatchRule(event: EventDoc): YouTubeTitleMatch {
+  const terms = youtubeTerms(event.title);
+  if (terms.length < YOUTUBE_MINIMUM_TERM_MATCHES) {
+    throw new Error(
+      `유튜브 제목 자동 연결에 쓸 사건 핵심어가 부족합니다: ${event.title}`,
+    );
+  }
+  return {
+    terms,
+    requiredTerms: [terms[terms.length - 1]!],
+    minimumMatches: YOUTUBE_MINIMUM_TERM_MATCHES,
+    windowBeforeHours: YOUTUBE_WINDOW_BEFORE_HOURS,
+    windowAfterHours: YOUTUBE_WINDOW_AFTER_HOURS,
+    matchedAt: Timestamp.now(),
+  };
+}
+
+function matchesYouTubeTitle(title: string, rule: YouTubeTitleMatch): boolean {
+  const normalized = title.normalize("NFC");
+  if (!rule.requiredTerms.every((term) => normalized.includes(term))) return false;
+  const hits = rule.terms.filter((term) => normalized.includes(term)).length;
+  return hits >= rule.minimumMatches;
+}
+
+export interface YouTubeCorrectionPlan {
+  eventId: string;
+  itemIds: string[];
+  match: YouTubeTitleMatch;
+  existing: boolean;
+}
+
+/**
+ * 발행 사건은 여기서 직접 바꾸지 않는다. 제목·시각만으로 찾은 영상 목록을
+ * eventCorrections 에 고정해 PR 승인 전에는 공개 데이터가 전혀 달라지지 않게 한다.
+ */
+export async function prepareYouTubeCorrection(slug: string): Promise<YouTubeCorrectionPlan> {
+  const event = await getEvent(slug);
+  if (event.status !== "published") {
+    throw new Error(`발행된 사건만 유튜브 정정 대상으로 만들 수 있습니다: ${slug}`);
+  }
+
+  const correctionRef = db.collection(EVENT_CORRECTIONS).doc(slug);
+  const current = await correctionRef.get();
+  const revision = event.revision ?? 1;
+  if (current.exists) {
+    const previous = current.data() as YouTubeCorrectionDoc;
+    if (
+      previous.status === "ready" &&
+      previous.baseRevision === revision &&
+      Array.isArray(previous.match.requiredTerms)
+    ) {
+      return {
+        eventId: slug,
+        itemIds: previous.itemIds,
+        match: previous.match,
+        existing: true,
+      };
+    }
+  }
+
+  const match = titleMatchRule(event);
+  const occurredAt = event.occurredAt.toDate();
+  const from = new Date(occurredAt.getTime() - match.windowBeforeHours * 3_600_000);
+  const until = new Date(occurredAt.getTime() + match.windowAfterHours * 3_600_000);
+  const [itemsSnap, sources] = await Promise.all([
+    db.collection(ITEMS)
+      .where("publishedAt", ">=", Timestamp.fromDate(from))
+      .where("publishedAt", "<=", Timestamp.fromDate(until))
+      .get(),
+    loadSources(),
+  ]);
+  const youtubeIds = new Set(sources.filter((source) => source.type === "youtube").map((s) => s.id));
+
+  const itemIds = itemsSnap.docs
+    .filter((doc) => {
+      const item = doc.data() as ItemDoc;
+      return (
+        item.kind === "video" &&
+        youtubeIds.has(item.sourceId) &&
+        (item.eventId === null || item.eventId === slug) &&
+        matchesYouTubeTitle(item.title, match)
+      );
+    })
+    .sort(
+      (a, b) =>
+        (a.data() as ItemDoc).publishedAt.toMillis() -
+        (b.data() as ItemDoc).publishedAt.toMillis(),
+    )
+    .map((doc) => doc.id);
+
+  const now = Timestamp.now();
+  const correction: YouTubeCorrectionDoc = {
+    eventId: slug,
+    baseRevision: revision,
+    status: "ready",
+    createdAt: now,
+    updatedAt: now,
+    appliedAt: null,
+    match,
+    itemIds,
+  };
+  await correctionRef.set(correction);
+  return { eventId: slug, itemIds, match, existing: false };
+}
+
+/** 승인 대기 중인 유튜브 정정이 있는지 queue:approval 에서 확인한다. */
+export async function getReadyYouTubeCorrection(slug: string): Promise<YouTubeCorrectionDoc> {
+  const snap = await db.collection(EVENT_CORRECTIONS).doc(slug).get();
+  if (!snap.exists) throw new Error(`유튜브 정정 계획을 찾지 못했습니다: ${slug}`);
+  const correction = snap.data() as YouTubeCorrectionDoc;
+  if (correction.status !== "ready") {
+    throw new Error(`승인 대기 중인 유튜브 정정이 아닙니다: ${slug} (${correction.status})`);
+  }
+  return correction;
+}
+
+/**
+ * 승인 workflow 안에서만 실행한다. 동일한 공개 URL의 published 사건을 원자적으로
+ * 갱신하고, 어떤 제목·시간 규칙으로 연결했는지와 정정 시각을 남긴다.
+ */
+export async function applyYouTubeCorrection(slug: string): Promise<{ attached: number; revision: number }> {
+  const [event, correction] = await Promise.all([getEvent(slug), getReadyYouTubeCorrection(slug)]);
+  if (event.status !== "published") {
+    throw new Error(`발행된 사건만 정정할 수 있습니다: ${slug}`);
+  }
+  const revision = event.revision ?? 1;
+  if (correction.baseRevision !== revision) {
+    throw new Error(
+      `정정 계획이 낡았습니다: 계획 ${correction.baseRevision}판, 현재 ${revision}판. 다시 준비하세요.`,
+    );
+  }
+  if (correction.itemIds.length === 0) {
+    throw new Error("연결할 유튜브 영상이 없습니다. 빈 정정은 발행하지 않습니다.");
+  }
+  if (correction.itemIds.length > 300) {
+    throw new Error(`유튜브 정정 항목이 너무 많습니다: ${correction.itemIds.length}건`);
+  }
+
+  const refs = correction.itemIds.map((id) => db.collection(ITEMS).doc(id));
+  const snaps = await db.getAll(...refs);
+  for (const [index, snap] of snaps.entries()) {
+    const itemId = correction.itemIds[index]!;
+    if (!snap.exists) throw new Error(`정정할 영상이 사라졌습니다: ${itemId}`);
+    const item = snap.data() as ItemDoc;
+    if (item.kind !== "video") throw new Error(`유튜브 영상이 아닌 항목입니다: ${itemId}`);
+    if (item.eventId && item.eventId !== slug) {
+      throw new Error(`다른 사건에 이미 연결된 영상입니다: ${itemId} (${item.eventId})`);
+    }
+  }
+
+  const known = new Set(correction.itemIds);
+  const frames = event.frames.map((frame) => ({ ...frame, itemIds: [...frame.itemIds] }));
+  const existing = frames.find((frame) => frame.key === YOUTUBE_TITLE_FRAME_KEY);
+  if (existing) {
+    existing.label = YOUTUBE_TITLE_FRAME_LABEL;
+    existing.note = youtubeMatchNote(correction.match);
+    existing.itemIds = [...new Set([...existing.itemIds, ...correction.itemIds])];
+  } else {
+    frames.push({
+      key: YOUTUBE_TITLE_FRAME_KEY,
+      label: YOUTUBE_TITLE_FRAME_LABEL,
+      note: youtubeMatchNote(correction.match),
+      itemIds: [...known],
+    });
+  }
+
+  const now = Timestamp.now();
+  const batch = db.batch();
+  for (const ref of refs) {
+    batch.update(ref, { eventId: slug, frameKey: YOUTUBE_TITLE_FRAME_KEY });
+  }
+  batch.update(db.collection(EVENTS).doc(slug), {
+    frames,
+    youtubeTitleMatch: correction.match,
+    revision: revision + 1,
+    revisedAt: now,
+    updatedAt: now,
+  });
+  batch.update(db.collection(EVENT_CORRECTIONS).doc(slug), {
+    status: "applied",
+    appliedAt: now,
+    updatedAt: now,
+  });
+  await batch.commit();
+  return { attached: correction.itemIds.length, revision: revision + 1 };
+}
+
+function youtubeMatchNote(match: YouTubeTitleMatch): string {
+  return (
+    `자동 연결: 제목에 ‘${match.requiredTerms.join("’, ‘")}’ 필수 · ` +
+    `전체 핵심어 ‘${match.terms.join("’, ‘")}’ 중 ${match.minimumMatches}개 이상 포함 · ` +
+    `사건 ${match.windowBeforeHours}시간 전부터 ${match.windowAfterHours}시간 후까지`
+  );
 }
 
 export interface QueryComparison {

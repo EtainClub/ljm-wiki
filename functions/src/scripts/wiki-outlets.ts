@@ -44,6 +44,13 @@ interface Appearance {
   title?: string;
   url?: string;
   publishedAt?: Date;
+  /** 유튜브는 한 채널이 같은 사건에 영상을 여러 건 낼 수 있어 별도로 보존한다. */
+  videos?: Array<{
+    frameLabel?: string;
+    title: string;
+    url: string;
+    publishedAt: Date;
+  }>;
 }
 
 interface CoFrame {
@@ -111,6 +118,8 @@ function render(
   appearances: Appearance[],
   co: CoFrame[],
 ): string {
+  if (source.type === "youtube") return renderYouTube(source, appearances);
+
   const covered = appearances.filter((a) => a.covered);
   const delays = covered
     .map((a) => a.delayMinutes)
@@ -136,7 +145,7 @@ function render(
     );
   }
   lines.push(
-    `- 수집 방식 ${source.type === "youtube" ? "유튜브" : source.strategy === "rss" ? "RSS" : "네이버 검색"}`,
+    `- 수집 방식 ${source.strategy === "rss" ? "RSS" : "네이버 검색"}`,
     "",
     "## 사건별 프레임",
     "",
@@ -200,6 +209,49 @@ function render(
     );
   }
 
+  return lines.join("\n");
+}
+
+/**
+ * 유튜브에는 '보도하지 않음'이라는 주장을 하지 않는다. 제목·시간 조건에 맞아
+ * 사건에 연결된 영상만 기록하고, 한 채널의 여러 영상을 하나로 뭉개지 않는다.
+ */
+function renderYouTube(source: SourceDoc, appearances: Appearance[]): string {
+  const videoCount = appearances.reduce((sum, appearance) => sum + (appearance.videos?.length ?? 0), 0);
+  const lines: string[] = [
+    `# ${source.name}`,
+    "",
+    "<!-- 이 페이지는 wiki:outlets 스크립트가 생성한다. 직접 고치지 않는다. -->",
+    "",
+    "## 관찰 기록",
+    "",
+    `- 관찰 사건 ${appearances.length}건 · 연결 영상 ${videoCount}건`,
+    "- 수집 방식 유튜브",
+    "",
+    "## 사건별 연결 영상",
+    "",
+  ];
+
+  if (appearances.length === 0) {
+    lines.push("아직 제목·시간 조건에 맞아 연결된 사건이 없다.", "");
+  }
+  for (const appearance of appearances) {
+    lines.push(`- [[events/${appearance.eventSlug}]] (${appearance.eventDate})`);
+    for (const video of appearance.videos ?? []) {
+      lines.push(
+        `  ${video.frameLabel ? `${video.frameLabel} · ` : ""}${hhmm(video.publishedAt)} ` +
+          `[「${video.title}」](${video.url})`,
+      );
+    }
+  }
+
+  lines.push(
+    "",
+    "## 연결 기준",
+    "",
+    "사건 제목의 핵심어가 영상 제목에 일정 수 이상 포함되고 정해진 시간창 안에 게시된 경우만 자동 연결한다. 영상 내용이나 채널의 의도를 판정하지 않으며, 연결되지 않은 영상은 미보도로 간주하지 않는다.",
+    "",
+  );
   return lines.join("\n");
 }
 
@@ -324,6 +376,30 @@ async function main(): Promise<void> {
     const appearances: Appearance[] = [];
 
     for (const event of events) {
+      if (source.type === "youtube") {
+        const videos = event.frames.flatMap((frame) =>
+          frame.itemIds
+            .map((itemId) => [frame, items.get(itemId)] as const)
+            .filter(([, item]) => item?.sourceId === source.id)
+            .map(([frame, item]) => ({
+              frameLabel: frame.label,
+              title: item!.title,
+              url: item!.url,
+              publishedAt: item!.publishedAt.toDate(),
+            })),
+        );
+        if (videos.length > 0) {
+          appearances.push({
+            eventSlug: event.wikiSlug ?? event.slug,
+            eventTitle: event.title,
+            eventDate: event.date,
+            covered: true,
+            videos,
+          });
+        }
+        continue;
+      }
+
       const entry = event.coverage[source.id];
       if (!entry) continue; // 이 사건의 관찰 대상이 아니었다
 

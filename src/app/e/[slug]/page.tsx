@@ -81,6 +81,10 @@ export default async function EventPage({
     .filter(([, c]) => c.status === "none")
     .map(([sourceId]) => sourceId);
   const coveredCount = total - silentIds.length;
+  const videos = Object.values(items).filter(
+    (item) => sources[item.sourceId]?.type === "youtube",
+  );
+  const videoChannels = new Set(videos.map((item) => item.sourceId)).size;
   const changed = Object.values(items).filter(
     (it) => (it.titleHistory?.length ?? 0) > 1,
   );
@@ -104,9 +108,24 @@ export default async function EventPage({
           {event.summary}
         </p>
         <p className="text-xs text-zinc-500">
-          발표 {formatTime(event.occurredAt)} · 수집 매체 {total}곳 ·{" "}
+          발표 {formatTime(event.occurredAt)} · 수집 언론 {total}곳
+          {videos.length > 0 && ` · 유튜브 ${videoChannels}개 채널 영상 ${videos.length}건`}
+          {" · "}
           {formatTime(checkedAt)} 기준
         </p>
+        {event.revisedAt && (
+          <p className="text-xs text-zinc-500">
+            정정 {formatLongDate(event.revisedAt)} {formatTime(event.revisedAt)}
+            {event.revision ? ` · 제${event.revision}판` : ""}
+          </p>
+        )}
+        {event.youtubeTitleMatch && videos.length > 0 && (
+          <p className="text-xs leading-5 text-zinc-500">
+            유튜브 영상은 제목에 {event.youtubeTitleMatch.requiredTerms.map((term) => `‘${term}’`).join(", ")}이 반드시 포함되고, 전체 핵심어 중{" "}
+            {event.youtubeTitleMatch.minimumMatches}개 이상이 포함되며, 사건 {event.youtubeTitleMatch.windowBeforeHours}시간 전부터{" "}
+            {event.youtubeTitleMatch.windowAfterHours}시간 후까지 게시된 경우에만 자동 연결했습니다. 영상 내용이나 의도를 판정한 결과가 아닙니다.
+          </p>
+        )}
       </header>
 
       <ProportionBar
@@ -114,10 +133,11 @@ export default async function EventPage({
         coveredCount={coveredCount}
         silentCount={silentIds.length}
         total={total}
+        bundle={bundle}
       />
 
       <section className="space-y-6">
-        <SectionHeading label="보도한 곳" count={coveredCount} />
+        <SectionHeading label="언론 보도와 연결된 유튜브 영상" count={coveredCount + videos.length} />
         {event.frames.map((frame, i) => (
           <FrameBlock
             key={frame.key}
@@ -164,16 +184,29 @@ function ProportionBar({
   coveredCount,
   silentCount,
   total,
+  bundle,
 }: {
   frames: Frame[];
   coveredCount: number;
   silentCount: number;
   total: number;
+  bundle: EventBundle;
 }) {
+  // 막대와 '미보도' 분모는 네이버 검색으로 확인한 언론사뿐이다. 유튜브 영상을
+  // 섞으면 한 채널의 영상 여러 개가 언론사 수를 부풀리고, '미보도' 뜻도 흐려진다.
+  const pressFrames = frames
+    .map((frame) => ({
+      ...frame,
+      itemIds: frame.itemIds.filter(
+        (id) => bundle.sources[bundle.items[id]?.sourceId ?? ""]?.type === "press",
+      ),
+    }))
+    .filter((frame) => frame.itemIds.length > 0);
+
   return (
     <section aria-label="보도 분포">
       <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800">
-        {frames.map((frame, i) => (
+        {pressFrames.map((frame, i) => (
           <div
             key={frame.key}
             className={ACCENTS[i % ACCENTS.length].bar}
@@ -182,7 +215,7 @@ function ProportionBar({
         ))}
       </div>
       <dl className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs">
-        {frames.map((frame, i) => (
+        {pressFrames.map((frame, i) => (
           <div key={frame.key} className="flex items-center gap-1.5">
             <span
               className={`size-2 shrink-0 rounded-full ${ACCENTS[i % ACCENTS.length].dot}`}
@@ -198,7 +231,7 @@ function ProportionBar({
         </div>
       </dl>
       <p className="sr-only">
-        전체 {total}곳 중 {coveredCount}곳 보도, {silentCount}곳 미보도.
+        언론 {total}곳 중 {coveredCount}곳 보도, {silentCount}곳 미보도. 유튜브 영상은 별도로 표시한다.
       </p>
     </section>
   );
@@ -264,7 +297,9 @@ function ItemList({
 
 function ItemRow({ item, bundle }: { item: Item; bundle: EventBundle }) {
   const source = bundle.sources[item.sourceId];
-  const delay = bundle.event.coverage[item.sourceId]?.delayMinutes;
+  const delay = source?.type === "youtube"
+    ? Math.round((Date.parse(item.publishedAt) - Date.parse(bundle.event.occurredAt)) / 60_000)
+    : bundle.event.coverage[item.sourceId]?.delayMinutes;
   const wasChanged = (item.titleHistory?.length ?? 0) > 1;
 
   return (

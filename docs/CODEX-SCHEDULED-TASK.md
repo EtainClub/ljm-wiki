@@ -32,8 +32,14 @@
    queue:approval을 실행하고 허용된 sources/, wiki/, .automation/ 경로만 담은 PR을 만든다.
 8. publish, deploy, main push, force push, 임의 파일 삭제는 절대 하지 않는다.
 
+발행된 사건에서 뒤늦게 유튜브 영상이 발견되면 새 사건을 만들지 말고 다음만 실행한다.
+
+1. `curate correct-youtube <eventId>`로 제목·시간 기준 정정 계획을 만든다.
+2. 후보가 1건 이상일 때만 `queue:approval -- correction <eventId>`를 실행한다.
+3. 정정 marker만 담은 PR을 만든다. 사용자의 병합은 같은 사건 URL에 정정을 적용하는 승인이다.
+
 PR 제목에는 [승인 대기]와 event slug를 포함한다. PR 설명에는 사건명, coverage 검색어,
-기사/영상 수, 프레임, 자동 중단 조건을 쓴다.
+기사/영상 수, 프레임, 유튜브 제목 연결 조건, 자동 중단 조건을 쓴다.
 ```
 
 사용자는 이 PR의 **Merge 버튼 한 번**으로 발행을 허락한다. 병합 뒤 workflow가 `ready`

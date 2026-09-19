@@ -1,6 +1,6 @@
 import "server-only";
 
-import type { EventBundle, Frame, Item, Source } from "./event-types";
+import type { EventBundle, Frame, Item, Source, YouTubeTitleMatch } from "./event-types";
 import { firebaseProjectId } from "./firebase-project";
 import { SAMPLE_EVENTS } from "./sample-event";
 
@@ -116,6 +116,30 @@ function buildBundle(
     };
   }
 
+  const rawYouTubeMatch = eventDoc["youtubeTitleMatch"] as Record<string, unknown> | undefined;
+  const matchedAt = toIso(rawYouTubeMatch?.["matchedAt"]);
+  const youtubeTitleMatch: YouTubeTitleMatch | undefined =
+    rawYouTubeMatch &&
+    matchedAt &&
+    Array.isArray(rawYouTubeMatch["terms"]) &&
+    Array.isArray(rawYouTubeMatch["requiredTerms"]) &&
+    typeof rawYouTubeMatch["minimumMatches"] === "number" &&
+    typeof rawYouTubeMatch["windowBeforeHours"] === "number" &&
+    typeof rawYouTubeMatch["windowAfterHours"] === "number"
+      ? {
+          terms: rawYouTubeMatch["terms"].filter(
+            (term): term is string => typeof term === "string",
+          ),
+          requiredTerms: rawYouTubeMatch["requiredTerms"].filter(
+            (term): term is string => typeof term === "string",
+          ),
+          minimumMatches: rawYouTubeMatch["minimumMatches"],
+          windowBeforeHours: rawYouTubeMatch["windowBeforeHours"],
+          windowAfterHours: rawYouTubeMatch["windowAfterHours"],
+          matchedAt,
+        }
+      : undefined;
+
   return {
     event: {
       slug,
@@ -126,6 +150,9 @@ function buildBundle(
       publishedAt,
       frames,
       coverage,
+      ...(typeof eventDoc["revision"] === "number" ? { revision: eventDoc["revision"] } : {}),
+      ...(toIso(eventDoc["revisedAt"]) ? { revisedAt: toIso(eventDoc["revisedAt"])! } : {}),
+      ...(youtubeTitleMatch ? { youtubeTitleMatch } : {}),
       ...(typeof eventDoc["coverageQuery"] === "string"
         ? { coverageQuery: eventDoc["coverageQuery"] }
         : {}),

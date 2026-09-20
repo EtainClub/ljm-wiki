@@ -85,6 +85,16 @@ export default async function EventPage({
     (item) => sources[item.sourceId]?.type === "youtube",
   );
   const videoChannels = new Set(videos.map((item) => item.sourceId)).size;
+  // 유튜브는 언론 기사와 다른 기준(제목·게시 시각)으로 연결한다. 기사 프레임
+  // 끝에 섞으면 영상 묶음이 20여 개 기사 뒤로 밀려 실제로는 없는 것처럼 보인다.
+  const pressFrames = event.frames
+    .map((frame) => ({
+      ...frame,
+      itemIds: frame.itemIds.filter(
+        (id) => sources[items[id]?.sourceId ?? ""]?.type === "press",
+      ),
+    }))
+    .filter((frame) => frame.itemIds.length > 0);
   const changed = Object.values(items).filter(
     (it) => (it.titleHistory?.length ?? 0) > 1,
   );
@@ -136,9 +146,22 @@ export default async function EventPage({
         bundle={bundle}
       />
 
+      {videos.length > 0 && (
+        <section className="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <SectionHeading label="연결된 유튜브 영상" count={videos.length} />
+          <p className="mt-3 text-xs leading-5 text-zinc-500">
+            {videoChannels}개 채널에서 제목과 게시 시각 기준을 충족한 영상입니다. 언론 보도
+            여부나 영상 내용·의도를 판정한 결과는 아닙니다.
+          </p>
+          <div className="mt-4">
+            <ItemList items={videos} bundle={bundle} />
+          </div>
+        </section>
+      )}
+
       <section className="space-y-6">
-        <SectionHeading label="언론 보도와 연결된 유튜브 영상" count={coveredCount + videos.length} />
-        {event.frames.map((frame, i) => (
+        <SectionHeading label="언론 보도" count={coveredCount} />
+        {pressFrames.map((frame, i) => (
           <FrameBlock
             key={frame.key}
             frame={frame}

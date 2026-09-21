@@ -20,6 +20,7 @@ import {
   applyYouTubeCorrection,
   applyCoverage,
   attachItem,
+  attachYouTubeItems,
   compareQueries,
   createEvent,
   deleteDraft,
@@ -589,6 +590,7 @@ const USAGE = `사용법:
   curate -- frame <id> <키> "<라벨>" <항목...>  프레임 직접 지정
   curate -- drop <id> <항목>                  이 사건 기사가 아닌 항목 빼기
   curate -- attach <id> <항목>                검색이 놓친 기사를 보도로 붙이기
+  curate -- attach-youtube <id> <항목...>     수집된 유튜브 영상을 별도로 붙이기
   curate -- silent <id> [시간=48]             미보도 매체의 기사가 저장소에 있는지 훑기
   curate -- compare <id> "<질의어1>" "<질의어2>" [...]  질의어에 따라 갈리는 매체 찾기
   curate -- correct-youtube <id>              발행 사건의 제목 일치 영상 정정 계획 만들기
@@ -661,6 +663,18 @@ async function main(): Promise<void> {
           `  ${formatDelay(r.delayMinutes)} · 항목 ${id.slice(0, 8)}\n` +
           `coverage 를 다시 돌리면 지워집니다. frame 으로 배정하세요.`,
       );
+      return;
+    }
+    case "attach-youtube": {
+      if (!args[0] || args.length < 2) throw new Error(USAGE);
+      const resolved = await Promise.all(args.slice(1).map(resolvePoolItem));
+      const attached = await attachYouTubeItems(
+        args[0],
+        resolved.map((row) => row.id),
+      );
+      console.log(`유튜브 영상 ${attached.length}건을 붙였습니다.`);
+      for (const video of attached) console.log(`  ${video.sourceId} — ${video.title}`);
+      console.log("다음: curate -- frame <사건> <키> <라벨> <영상 항목...>");
       return;
     }
     case "silent":

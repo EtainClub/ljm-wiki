@@ -88,8 +88,11 @@ function main(): void {
     const lines = body.split("\n");
     for (const [i, line] of lines.entries()) {
       const trimmed = line.trim();
+      // 기사 제목은 불변 원문으로 인용해야 한다. 제목 속 금지어는 위키의 평가가
+      // 아니므로, 원문 링크 표기 안은 평가어 검사에서 제외한다.
+      const observation = trimmed.replace(/\[「.*?」\]\(https?:\/\/.*\)/g, "");
       for (const w of BANNED) {
-        if (trimmed.includes(w)) judgement.push(`${id}: "${w}" — ${trimmed.slice(0, 60)}`);
+        if (observation.includes(w)) judgement.push(`${id}: "${w}" — ${trimmed.slice(0, 60)}`);
       }
 
       // 발언을 인용한 항목에는 출처 링크가 있어야 한다.

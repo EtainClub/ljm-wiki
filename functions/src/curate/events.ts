@@ -390,6 +390,60 @@ export async function attachItem(
   return { sourceId: item.sourceId, title: item.title, delayMinutes };
 }
 
+/**
+ * 초안 사건에 수집된 유튜브 영상을 붙인다.
+ *
+ * 유튜브는 네이버 기사 검색의 보도 여부에 포함하지 않는다. 따라서 attachItem을
+ * 재사용하면 같은 채널의 두 번째 영상을 막거나, 채널을 '보도함'으로 잘못 세게 된다.
+ * 제목·URL·게시 시각만 확인한 뒤 프레임 배정은 호출자가 명시적으로 한다.
+ */
+export async function attachYouTubeItems(
+  slug: string,
+  itemIds: string[],
+): Promise<Array<{ sourceId: string; title: string }>> {
+  const event = await getEvent(slug);
+  if (event.status === "published") {
+    throw new Error(`발행된 사건에는 유튜브 영상을 직접 붙일 수 없습니다: ${slug}`);
+  }
+
+  const uniqueIds = [...new Set(itemIds)];
+  const [snaps, sources] = await Promise.all([
+    db.getAll(...uniqueIds.map((id) => db.collection(ITEMS).doc(id))),
+    loadSources(),
+  ]);
+  const sourceTypes = new Map(sources.map((source) => [source.id, source.type] as const));
+  const attached: Array<{ sourceId: string; title: string }> = [];
+
+  for (const [index, snap] of snaps.entries()) {
+    const itemId = uniqueIds[index]!;
+    if (!snap.exists) throw new Error(`없는 항목입니다: ${itemId}`);
+    const item = snap.data() as ItemDoc;
+    if (item.kind !== "video" || sourceTypes.get(item.sourceId) !== "youtube") {
+      throw new Error(`유튜브 영상이 아닌 항목입니다: ${itemId}`);
+    }
+    if (item.eventId && item.eventId !== slug) {
+      throw new Error(`이미 다른 사건에 붙은 영상입니다: ${itemId} (${item.eventId})`);
+    }
+    attached.push({ sourceId: item.sourceId, title: item.title });
+  }
+
+  const now = Timestamp.now();
+  const batch = db.batch();
+  for (const snap of snaps) {
+    const item = snap.data() as ItemDoc;
+    if (item.eventId !== slug) {
+      batch.update(snap.ref, { eventId: slug, frameKey: null });
+    }
+  }
+  batch.update(db.collection(EVENTS).doc(slug), {
+    updatedAt: now,
+    ...(event.status === "ready" ? { status: "draft", readyAt: null } : {}),
+  });
+  await batch.commit();
+
+  return attached;
+}
+
 /* ── 유튜브 제목 자동 연결 · 발행분 정정 ─────────────────── */
 
 /** 한 사건 안에서 자동 연결한 유튜브 영상은 한 묶음으로만 보여 준다. */

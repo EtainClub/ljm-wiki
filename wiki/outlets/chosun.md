@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 7건 중 7건 보도 · 미보도 0건
-- 평균 보도 지연 +37분 (0시간 37분)
+- 관찰 사건 9건 중 9건 보도 · 미보도 0건
+- 평균 보도 지연 +120분 (2시간 0분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-21-cf665d]] — 기자회견·인사 이슈와의 맥락을 앞세움 (2026-09-21)
+  09:47 (+107분) [「李대통령 기자회견 후 지지율 반등… 34.8%」](https://www.chosun.com/politics/opinion-poll/2026/09/21/N6XRBTXQ75CGBJ7SHEBFEMNPTA/)
+- [[events/2026-09-19-d64bdf]] — 인용 게시물 논란·유감을 앞세움 (2026-09-19)
+  09:33 (+713분) [「응원글 공유했다 삭제한 李대통령 “멸칭과 혐오로 갈등 키우면 안돼”」](https://biz.chosun.com/policy/politics/president_office/2026/09/20/OLCXRGNDKNENZDHIKJTK4VDYW4/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-09-19-e784b0]] — 사퇴 배경·정치적 후속 쟁점 (2026-09-19)
   10:59 (+14분) [「김승원 법무장관 후보자 사퇴... 李정부 2기 개각 두번째 낙마」](https://www.chosun.com/politics/assembly/2026/09/19/4XKHFWAQOJHCZD2CS2KBMTMAC4/)
 - [[events/2026-09-18-f37126]] — 연임·개헌 입장을 앞세움 (2026-09-18)
@@ -27,18 +31,22 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 7건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 9건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/jtbc|JTBC]] | 3건 | 7건 |
-| [[outlets/mk|매일경제]] | 3건 | 6건 |
-| [[outlets/khan|경향신문]] | 2건 | 7건 |
-| [[outlets/kmib|국민일보]] | 2건 | 7건 |
-| [[outlets/donga|동아일보]] | 2건 | 7건 |
-| [[outlets/hankyung|한국경제]] | 2건 | 6건 |
-| [[outlets/hankookilbo|한국일보]] | 2건 | 6건 |
-| [[outlets/pressian|프레시안]] | 2건 | 5건 |
+| [[outlets/khan|경향신문]] | 3건 | 9건 |
+| [[outlets/mk|매일경제]] | 3건 | 8건 |
+| [[outlets/hankookilbo|한국일보]] | 3건 | 8건 |
+| [[outlets/jtbc|JTBC]] | 3건 | 8건 |
+| [[outlets/pressian|프레시안]] | 3건 | 7건 |
+| [[outlets/munhwa|문화일보]] | 3건 | 6건 |
+| [[outlets/kmib|국민일보]] | 2건 | 9건 |
+| [[outlets/joongang|중앙일보]] | 2건 | 9건 |
+| [[outlets/news1|뉴스1]] | 2건 | 8건 |
+| [[outlets/donga|동아일보]] | 2건 | 8건 |
+
+이 밖에 2곳이 더 있다.
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

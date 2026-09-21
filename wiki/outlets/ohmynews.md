@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 7건 중 7건 보도 · 미보도 0건
-- 평균 보도 지연 +320분 (5시간 20분)
+- 관찰 사건 9건 중 9건 보도 · 미보도 0건
+- 평균 보도 지연 +346분 (5시간 46분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-21-cf665d]] — 34.8%와 10주 만의 반등을 앞세움 (2026-09-21)
+  10:01 (+121분) [「10주 만에 하락 멈췄다... 이 대통령 국정지지율 34.8%」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003269083&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-09-19-d64bdf]] — 혐오·멸칭 자제 요청을 앞세움 (2026-09-19)
+  10:16 (+756분) [「'대통령의 친구' 향한 이 대통령의 호소 "멸칭·폭언, 개혁의 장애물"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003268853&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-09-19-e784b0]] — 사퇴 배경·정치적 후속 쟁점 (2026-09-19)
   11:51 (+65분) [「'후보직 사퇴'한 김승원 "검찰 개혁 필요성 입증"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003268738&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-09-18-f37126]] — 기자회견의 전체 메시지·다른 쟁점을 앞세움 (2026-09-18)
@@ -27,15 +31,22 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 7건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 9건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/khan|경향신문]] | 3건 | 7건 |
-| [[outlets/mediatoday|미디어오늘]] | 3건 | 5건 |
-| [[outlets/segye|세계일보]] | 2건 | 7건 |
-| [[outlets/mbc|MBC]] | 2건 | 7건 |
-| [[outlets/mk|매일경제]] | 2건 | 6건 |
+| [[outlets/mediatoday|미디어오늘]] | 5건 | 7건 |
+| [[outlets/khan|경향신문]] | 4건 | 9건 |
+| [[outlets/mk|매일경제]] | 4건 | 8건 |
+| [[outlets/kmib|국민일보]] | 3건 | 9건 |
+| [[outlets/segye|세계일보]] | 3건 | 9건 |
+| [[outlets/mbc|MBC]] | 3건 | 9건 |
+| [[outlets/sbs|SBS]] | 3건 | 9건 |
+| [[outlets/hankyung|한국경제]] | 3건 | 8건 |
+| [[outlets/kbs|KBS]] | 3건 | 8건 |
+| [[outlets/edaily|이데일리]] | 2건 | 9건 |
+
+이 밖에 7곳이 더 있다.
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

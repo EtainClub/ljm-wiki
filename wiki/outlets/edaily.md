@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 7건 중 7건 보도 · 미보도 0건
-- 평균 보도 지연 +106분 (1시간 46분)
+- 관찰 사건 9건 중 9건 보도 · 미보도 0건
+- 평균 보도 지연 +164분 (2시간 44분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-21-cf665d]] — 34.8%와 10주 만의 반등을 앞세움 (2026-09-21)
+  08:23 (+23분) [「10주 만에 하락세 멈춘 李 지지율…34.8%로 반등[리얼미터]」](https://www.edaily.co.kr/News/Read?newsId=02030326645582416&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-09-19-d64bdf]] — 조국의 후속 발언을 앞세움 (2026-09-19)
+  09:34 (+714분) [「조국 "'친명, '문조털래유' 멸칭·갈라치기 즉각 중단해야"」](https://www.edaily.co.kr/News/Read?newsId=01246406645582088&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-19-e784b0]] — 사퇴 발표·공식 설명 (2026-09-19)
   11:01 (+15분) [「[속보]김승원 "법무장관 후보직 내려놓겠다"…지명 20일 만에 자진 사퇴」](https://www.edaily.co.kr/News/Read?newsId=01941766645581760&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-18-f37126]] — 연임·개헌 입장을 앞세움 (2026-09-18)
@@ -27,22 +31,22 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 7건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 9건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/seoul|서울신문]] | 5건 | 7건 |
-| [[outlets/mt|머니투데이]] | 4건 | 7건 |
-| [[outlets/sbs|SBS]] | 4건 | 7건 |
-| [[outlets/news1|뉴스1]] | 4건 | 6건 |
-| [[outlets/khan|경향신문]] | 3건 | 7건 |
-| [[outlets/jtbc|JTBC]] | 3건 | 7건 |
-| [[outlets/mbc|MBC]] | 3건 | 7건 |
-| [[outlets/hani|한겨레]] | 3건 | 6건 |
-| [[outlets/kbs|KBS]] | 3건 | 6건 |
-| [[outlets/newsis|뉴시스]] | 3건 | 5건 |
+| [[outlets/seoul|서울신문]] | 6건 | 8건 |
+| [[outlets/sbs|SBS]] | 5건 | 9건 |
+| [[outlets/mt|머니투데이]] | 4건 | 9건 |
+| [[outlets/mbc|MBC]] | 4건 | 9건 |
+| [[outlets/news1|뉴스1]] | 4건 | 8건 |
+| [[outlets/kbs|KBS]] | 4건 | 8건 |
+| [[outlets/newsis|뉴시스]] | 4건 | 7건 |
+| [[outlets/khan|경향신문]] | 3건 | 9건 |
+| [[outlets/joongang|중앙일보]] | 3건 | 9건 |
+| [[outlets/mk|매일경제]] | 3건 | 8건 |
 
-이 밖에 7곳이 더 있다.
+이 밖에 10곳이 더 있다.
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

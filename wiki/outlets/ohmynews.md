@@ -4,12 +4,14 @@
 
 ## 관찰 기록
 
-- 관찰 사건 9건 중 9건 보도 · 미보도 0건
-- 평균 보도 지연 +346분 (5시간 46분)
+- 관찰 사건 10건 중 10건 보도 · 미보도 0건
+- 평균 보도 지연 +321분 (5시간 21분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-21-cb89af]] — 순방 일정·유엔 기조연설을 앞세움 (2026-09-21)
+  11:31 (+91분) [「이재명 대통령, 유엔총회 기조연설·멕시코 국빈방문」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003269128&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-09-21-cf665d]] — 34.8%와 10주 만의 반등을 앞세움 (2026-09-21)
   10:01 (+121분) [「10주 만에 하락 멈췄다... 이 대통령 국정지지율 34.8%」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003269083&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-09-19-d64bdf]] — 혐오·멸칭 자제 요청을 앞세움 (2026-09-19)
@@ -31,22 +33,22 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 9건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 10건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
+| [[outlets/mk|매일경제]] | 5건 | 9건 |
 | [[outlets/mediatoday|미디어오늘]] | 5건 | 7건 |
-| [[outlets/khan|경향신문]] | 4건 | 9건 |
-| [[outlets/mk|매일경제]] | 4건 | 8건 |
-| [[outlets/kmib|국민일보]] | 3건 | 9건 |
-| [[outlets/segye|세계일보]] | 3건 | 9건 |
-| [[outlets/mbc|MBC]] | 3건 | 9건 |
-| [[outlets/sbs|SBS]] | 3건 | 9건 |
-| [[outlets/hankyung|한국경제]] | 3건 | 8건 |
-| [[outlets/kbs|KBS]] | 3건 | 8건 |
-| [[outlets/edaily|이데일리]] | 2건 | 9건 |
+| [[outlets/khan|경향신문]] | 4건 | 10건 |
+| [[outlets/segye|세계일보]] | 4건 | 10건 |
+| [[outlets/mbc|MBC]] | 4건 | 10건 |
+| [[outlets/sbs|SBS]] | 4건 | 10건 |
+| [[outlets/hankyung|한국경제]] | 4건 | 9건 |
+| [[outlets/kbs|KBS]] | 4건 | 9건 |
+| [[outlets/edaily|이데일리]] | 3건 | 10건 |
+| [[outlets/joongang|중앙일보]] | 3건 | 10건 |
 
-이 밖에 7곳이 더 있다.
+이 밖에 10곳이 더 있다.
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

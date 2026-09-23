@@ -4,12 +4,14 @@
 
 ## 관찰 기록
 
-- 관찰 사건 11건 중 11건 보도 · 미보도 0건
-- 평균 보도 지연 +174분 (2시간 54분)
+- 관찰 사건 12건 중 12건 보도 · 미보도 0건
+- 평균 보도 지연 +170분 (2시간 50분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-23-525c86]] — 핵잠·농축재처리·전작권 협력 (2026-09-23)
+  10:31 (+131분) [「李·트럼프, 한미 정상회담…“핵잠연료·농축 재처리·조선 협력 후속...」](https://www.edaily.co.kr/News/Read?newsId=03007766645583072&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-22-e66fc6]] — '비핵화·핵동결'을 앞세움 (2026-09-22)
   17:00 (+378분) [「李, ‘北 핵동결’ 전제로 美 제재완화 제안」](https://www.edaily.co.kr/News/Read?newsId=04467366645582744&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-21-cb89af]] — 순방 일정·유엔 기조연설을 앞세움 (2026-09-21)
@@ -35,22 +37,22 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 11건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 12건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/sbs|SBS]] | 6건 | 11건 |
-| [[outlets/kbs|KBS]] | 6건 | 10건 |
-| [[outlets/newsis|뉴시스]] | 6건 | 9건 |
-| [[outlets/seoul|서울신문]] | 6건 | 9건 |
-| [[outlets/mbc|MBC]] | 5건 | 11건 |
-| [[outlets/news1|뉴스1]] | 5건 | 10건 |
-| [[outlets/hankyung|한국경제]] | 5건 | 10건 |
-| [[outlets/hani|한겨레]] | 5건 | 9건 |
-| [[outlets/mt|머니투데이]] | 4건 | 11건 |
-| [[outlets/yna|연합뉴스]] | 4건 | 11건 |
+| [[outlets/newsis|뉴시스]] | 7건 | 10건 |
+| [[outlets/mbc|MBC]] | 6건 | 12건 |
+| [[outlets/sbs|SBS]] | 6건 | 12건 |
+| [[outlets/kbs|KBS]] | 6건 | 11건 |
+| [[outlets/seoul|서울신문]] | 6건 | 10건 |
+| [[outlets/news1|뉴스1]] | 5건 | 11건 |
+| [[outlets/hankyung|한국경제]] | 5건 | 11건 |
+| [[outlets/hani|한겨레]] | 5건 | 10건 |
+| [[outlets/mt|머니투데이]] | 4건 | 12건 |
+| [[outlets/yna|연합뉴스]] | 4건 | 12건 |
 
-이 밖에 12곳이 더 있다.
+이 밖에 13곳이 더 있다.
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

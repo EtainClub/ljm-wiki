@@ -147,29 +147,33 @@ export default async function EventPage({
       />
 
       {videos.length > 0 && (
-        <section className="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
-          <SectionHeading label="연결된 유튜브 영상" count={videos.length} />
-          <p className="mt-3 text-xs leading-5 text-zinc-500">
-            {videoChannels}개 채널에서 제목과 게시 시각 기준을 충족한 영상입니다. 언론 보도
-            여부나 영상 내용·의도를 판정한 결과는 아닙니다.
-          </p>
-          <div className="mt-4">
-            <ItemList items={videos} bundle={bundle} />
+        <details className="group rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <AccordionHeading label="연결된 유튜브 영상" count={videos.length} />
+          <div className="pt-3">
+            <p className="text-xs leading-5 text-zinc-500">
+              {videoChannels}개 채널에서 제목과 게시 시각 기준을 충족한 영상입니다. 언론 보도
+              여부나 영상 내용·의도를 판정한 결과는 아닙니다.
+            </p>
+            <div className="mt-4">
+              <ItemList items={videos} bundle={bundle} />
+            </div>
           </div>
-        </section>
+        </details>
       )}
 
-      <section className="space-y-6">
-        <SectionHeading label="언론 보도" count={coveredCount} />
-        {pressFrames.map((frame, i) => (
-          <FrameBlock
-            key={frame.key}
-            frame={frame}
-            accent={ACCENTS[i % ACCENTS.length]}
-            bundle={bundle}
-          />
-        ))}
-      </section>
+      <details className="group rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+        <AccordionHeading label="언론 보도" count={coveredCount} />
+        <div className="space-y-6 pt-6">
+          {pressFrames.map((frame, i) => (
+            <FrameBlock
+              key={frame.key}
+              frame={frame}
+              accent={ACCENTS[i % ACCENTS.length]}
+              bundle={bundle}
+            />
+          ))}
+        </div>
+      </details>
 
       <SilentBlock
         sourceIds={silentIds}
@@ -193,12 +197,17 @@ export default async function EventPage({
 
 /* ────────────────────────────────────────────────────────── */
 
-function SectionHeading({ label, count }: { label: string; count: number }) {
+function AccordionHeading({ label, count }: { label: string; count: number }) {
   return (
-    <h2 className="flex items-baseline gap-2 border-b border-zinc-200 pb-2 dark:border-zinc-800">
-      <span className="text-sm font-semibold">{label}</span>
-      <span className="text-sm tabular-nums text-zinc-500">{count}</span>
-    </h2>
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 border-b border-zinc-200 pb-2 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 [&::-webkit-details-marker]:hidden dark:border-zinc-800">
+      <h2 className="flex items-baseline gap-2">
+        <span className="text-sm font-semibold">{label}</span>
+        <span className="text-sm tabular-nums text-zinc-500">{count}</span>
+      </h2>
+      <svg aria-hidden="true" className="size-4 shrink-0 text-zinc-500 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="none">
+        <path d="m5 7.5 5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </summary>
   );
 }
 
@@ -415,9 +424,9 @@ function TitleChangeBlock({
   bundle: EventBundle;
 }) {
   return (
-    <section>
-      <SectionHeading label="제목을 수정함" count={items.length} />
-      <ul className="mt-4 space-y-4">
+    <details className="group rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+      <AccordionHeading label="제목을 수정함" count={items.length} />
+      <ul className="space-y-4 pt-4">
         {items.map((item) => {
           const history = item.titleHistory!;
           const first = history[0];
@@ -440,6 +449,6 @@ function TitleChangeBlock({
           );
         })}
       </ul>
-    </section>
+    </details>
   );
 }

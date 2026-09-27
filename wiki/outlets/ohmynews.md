@@ -4,12 +4,18 @@
 
 ## 관찰 기록
 
-- 관찰 사건 12건 중 11건 보도 · 미보도 1건
-- 평균 보도 지연 +293분 (4시간 53분)
+- 관찰 사건 16건 중 13건 보도 · 미보도 3건
+- 평균 보도 지연 +318분 (5시간 18분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-27-이재명-미국-멕시코-순방-귀국길]] — **보도하지 않음** (2026-09-27)
+- [[events/2026-09-27-오세훈-농지-전수조사-비판]] — **보도하지 않음** (2026-09-27)
+- [[events/2026-09-25-이재명-대통령-부부-추석-인사]] — '의견·생각 차이'를 앞세움 (2026-09-25)
+  09:06 (+246분) [「이 대통령, "어떠한 의견·생각 차이도 가리지 않고"... 한가위 인사」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003270319&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-09-24-북한군-포로-한국-송환-공개]] — '비공개 조치'의 타당성과 국익을 앞세움 (2026-09-24)
+  10:41 (+661분) [「이 대통령 "북한 포로 비공개 타당... 비난 옳지 않아"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003270330&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-09-23-525c86]] — **보도하지 않음** (2026-09-23)
 - [[events/2026-09-22-e66fc6]] — '맞바꿔야·맞교환'을 앞세움 (2026-09-22)
   10:56 (+14분) [「이 대통령 "북핵·미사일 개발 중단과 제재 맞교환, 상당한 가치 있다"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003269521&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
@@ -36,22 +42,22 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 11건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 13건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 6건 | 10건 |
-| [[outlets/khan|경향신문]] | 5건 | 11건 |
-| [[outlets/segye|세계일보]] | 5건 | 11건 |
-| [[outlets/sbs|SBS]] | 5건 | 11건 |
-| [[outlets/mediatoday|미디어오늘]] | 5건 | 7건 |
-| [[outlets/joongang|중앙일보]] | 4건 | 11건 |
-| [[outlets/mbc|MBC]] | 4건 | 11건 |
-| [[outlets/hankyung|한국경제]] | 4건 | 10건 |
-| [[outlets/kbs|KBS]] | 4건 | 10건 |
-| [[outlets/edaily|이데일리]] | 3건 | 11건 |
+| [[outlets/mk|매일경제]] | 7건 | 12건 |
+| [[outlets/segye|세계일보]] | 6건 | 13건 |
+| [[outlets/mediatoday|미디어오늘]] | 6건 | 9건 |
+| [[outlets/khan|경향신문]] | 5건 | 13건 |
+| [[outlets/mbc|MBC]] | 5건 | 13건 |
+| [[outlets/sbs|SBS]] | 5건 | 13건 |
+| [[outlets/edaily|이데일리]] | 4건 | 13건 |
+| [[outlets/chosun|조선일보]] | 4건 | 13건 |
+| [[outlets/joongang|중앙일보]] | 4건 | 13건 |
+| [[outlets/kmib|국민일보]] | 4건 | 12건 |
 
-이 밖에 12곳이 더 있다.
+이 밖에 13곳이 더 있다.
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

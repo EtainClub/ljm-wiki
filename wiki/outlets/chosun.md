@@ -4,12 +4,20 @@
 
 ## 관찰 기록
 
-- 관찰 사건 12건 중 12건 보도 · 미보도 0건
-- 평균 보도 지연 +104분 (1시간 44분)
+- 관찰 사건 16건 중 16건 보도 · 미보도 0건
+- 평균 보도 지연 +82분 (1시간 22분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-27-이재명-미국-멕시코-순방-귀국길]] — 순방 종료와 귀국길을 앞세움 (2026-09-27)
+  02:17 (+22분) [「李대통령, 미국·멕시코 순방 끝 귀국길」](https://biz.chosun.com/policy/politics/president_office/2026/09/27/P4IHFTSORBD27OFRX42QFUSNV4/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-09-27-오세훈-농지-전수조사-비판]] — '집·땅 가진 국민'을 앞세움 (2026-09-27)
+  09:53 (+28분) [「오세훈 “집·땅 가진 국민, 대통령이 ‘때려잡을 대상’ 아니다”」](https://biz.chosun.com/topics/topics_social/2026/09/27/ON7MKXFZDZCRZIH5EBM4PSKFKQ/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-09-25-이재명-대통령-부부-추석-인사]] — '의견·생각 차이'를 앞세움 (2026-09-25)
+  05:10 (+10분) [「李대통령 부부, 추석 명절 인사... “의견 달라도 국민 위해 힘껏 뛰겠...」](https://biz.chosun.com/policy/politics/president_office/2026/09/25/ONN7ZFHGCVCR3PVFHLSS6TSNJI/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-09-24-북한군-포로-한국-송환-공개]] — '비공개 합의 위반'과 '아쉬움'을 앞세움 (2026-09-24)
+  23:45 (+5분) [「李 "北포로 송환 공개하면 문제"…젤렌스키에 "합의 어겨 아쉽다" 직격」](http://weekly.chosun.com/news/articleView.html?idxno=55595)
 - [[events/2026-09-23-525c86]] — 30분 정상회담·북미 대화 의지 (2026-09-23)
   10:30 (+130분) [「李대통령·트럼프 정상회담... “美, 北과 대화 의지 재확인”」](https://www.chosun.com/politics/politics_general/2026/09/23/SZVMN7A3GNHDDKF4YVFK5YS6UQ/)
 - [[events/2026-09-22-e66fc6]] — '맞바꿔야·맞교환'을 앞세움 (2026-09-22)
@@ -37,22 +45,22 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 12건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 16건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 6건 | 11건 |
-| [[outlets/khan|경향신문]] | 5건 | 12건 |
-| [[outlets/joongang|중앙일보]] | 5건 | 12건 |
-| [[outlets/segye|세계일보]] | 4건 | 12건 |
-| [[outlets/sbs|SBS]] | 4건 | 12건 |
-| [[outlets/news1|뉴스1]] | 4건 | 11건 |
-| [[outlets/hankyung|한국경제]] | 4건 | 11건 |
-| [[outlets/hankookilbo|한국일보]] | 4건 | 11건 |
-| [[outlets/jtbc|JTBC]] | 4건 | 11건 |
-| [[outlets/pressian|프레시안]] | 4건 | 10건 |
+| [[outlets/mk|매일경제]] | 8건 | 14건 |
+| [[outlets/khan|경향신문]] | 6건 | 16건 |
+| [[outlets/joongang|중앙일보]] | 6건 | 16건 |
+| [[outlets/sbs|SBS]] | 6건 | 16건 |
+| [[outlets/newsis|뉴시스]] | 6건 | 14건 |
+| [[outlets/segye|세계일보]] | 5건 | 16건 |
+| [[outlets/yna|연합뉴스]] | 5건 | 16건 |
+| [[outlets/kmib|국민일보]] | 5건 | 15건 |
+| [[outlets/news1|뉴스1]] | 5건 | 14건 |
+| [[outlets/hankyung|한국경제]] | 5건 | 13건 |
 
-이 밖에 12곳이 더 있다.
+이 밖에 14곳이 더 있다.
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

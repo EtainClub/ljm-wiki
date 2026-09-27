@@ -97,6 +97,14 @@ function buildBundle(
     .map((f) => ({ ...f, itemIds: [...f.itemIds].sort((x, y) => at(x) - at(y)) }))
     .sort((a, b) => b.itemIds.length - a.itemIds.length || earliest(a) - earliest(b));
 
+  // 여러 사건의 항목을 한 번에 읽더라도 각 화면에는 이 사건이 참조한 항목만 전달한다.
+  const eventItems: Record<string, Item> = {};
+  for (const frame of frames) {
+    for (const id of frame.itemIds) {
+      if (items[id]) eventItems[id] = items[id];
+    }
+  }
+
   // coverage 의 checkedAt 도 Timestamp 다.
   const rawCoverage = (eventDoc["coverage"] ?? {}) as Record<
     string,
@@ -158,7 +166,7 @@ function buildBundle(
         : {}),
     },
     sources,
-    items,
+    items: eventItems,
   };
 }
 

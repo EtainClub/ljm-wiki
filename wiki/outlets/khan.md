@@ -4,8 +4,8 @@
 
 ## 관찰 기록
 
-- 관찰 사건 20건 중 18건 보도 · 미보도 2건
-- 평균 보도 지연 +175분 (2시간 55분)
+- 관찰 사건 21건 중 19건 보도 · 미보도 2건
+- 평균 보도 지연 +166분 (2시간 46분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
@@ -26,6 +26,8 @@
   02:13 (+153분) [「이 대통령, 북한 포로 송환에 “비공개 합의 어긴 우크라이나, 많이 아쉽다”」](https://www.khan.co.kr/article/202609250213001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=total_news)
 - [[events/2026-09-23-525c86]] — 30분 정상회담·북미 대화 의지 (2026-09-23)
   10:23 (+123분) [「[속보] 이 대통령, 트럼프와 30분 정상회담 “트럼프, 북미대화 의지 재확인”」](https://www.khan.co.kr/article/202609231023001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=total_news)
+- [[events/2026-09-23-이재명-트럼프-뉴욕-정상회담]] — '핵잠·전작권·조선' 의제를 앞세움 (2026-09-23)
+  10:30 (+18분) [「[속보]한·미 정상 “핵잠수함, 농축·재처리, 전작권 전환 협력 심화” 의지 확인」](https://www.khan.co.kr/article/202609231030001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=total_news)
 - [[events/2026-09-22-e66fc6]] — '맞바꿔야·맞교환'을 앞세움 (2026-09-22)
   15:51 (+309분) [「이 대통령 “한·미, 전제조건 없이 북한과 대화 의향…제재와 핵 중단 맞바꿀 가치 상당해”」](https://www.khan.co.kr/article/202609221551001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=total_news)
 - [[events/2026-09-21-cb89af]] — 트럼프 접촉·정상외교를 앞세움 (2026-09-21)
@@ -51,20 +53,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 18건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 19건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mt|머니투데이]] | 8건 | 17건 |
-| [[outlets/yna|연합뉴스]] | 7건 | 18건 |
-| [[outlets/joongang|중앙일보]] | 7건 | 17건 |
-| [[outlets/hankookilbo|한국일보]] | 7건 | 17건 |
-| [[outlets/sbs|SBS]] | 7건 | 17건 |
-| [[outlets/mk|매일경제]] | 7건 | 15건 |
-| [[outlets/chosun|조선일보]] | 6건 | 18건 |
-| [[outlets/hankyung|한국경제]] | 6건 | 15건 |
-| [[outlets/ohmynews|오마이뉴스]] | 6건 | 14건 |
-| [[outlets/hani|한겨레]] | 6건 | 14건 |
+| [[outlets/yna|연합뉴스]] | 8건 | 19건 |
+| [[outlets/mt|머니투데이]] | 8건 | 18건 |
+| [[outlets/joongang|중앙일보]] | 8건 | 18건 |
+| [[outlets/mk|매일경제]] | 8건 | 16건 |
+| [[outlets/hankookilbo|한국일보]] | 7건 | 18건 |
+| [[outlets/sbs|SBS]] | 7건 | 18건 |
+| [[outlets/chosun|조선일보]] | 6건 | 19건 |
+| [[outlets/donga|동아일보]] | 6건 | 17건 |
+| [[outlets/hankyung|한국경제]] | 6건 | 16건 |
+| [[outlets/ohmynews|오마이뉴스]] | 6건 | 15건 |
 
 이 밖에 14곳이 더 있다.
 

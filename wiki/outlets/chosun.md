@@ -4,8 +4,8 @@
 
 ## 관찰 기록
 
-- 관찰 사건 20건 중 19건 보도 · 미보도 1건
-- 평균 보도 지연 +83분 (1시간 23분)
+- 관찰 사건 21건 중 20건 보도 · 미보도 1건
+- 평균 보도 지연 +80분 (1시간 20분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
@@ -27,6 +27,8 @@
   23:45 (+5분) [「李 "北포로 송환 공개하면 문제"…젤렌스키에 "합의 어겨 아쉽다" 직격」](http://weekly.chosun.com/news/articleView.html?idxno=55595)
 - [[events/2026-09-23-525c86]] — 30분 정상회담·북미 대화 의지 (2026-09-23)
   10:30 (+130분) [「李대통령·트럼프 정상회담... “美, 北과 대화 의지 재확인”」](https://www.chosun.com/politics/politics_general/2026/09/23/SZVMN7A3GNHDDKF4YVFK5YS6UQ/)
+- [[events/2026-09-23-이재명-트럼프-뉴욕-정상회담]] — '30분'·'깜짝' 정상회담 자체를 앞세움 (2026-09-23)
+  10:32 (+20분) [「“李대통령, 트럼프 美 대통령과 30분간 정상회담"」](https://biz.chosun.com/policy/politics/president_office/2026/09/23/IEDZRMAVZVE3BK2K66JMJHVRTE/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-09-22-e66fc6]] — '맞바꿔야·맞교환'을 앞세움 (2026-09-22)
   10:43 (+1분) [「李 “北 핵무기·ICBM 개발 중단과 대북제재 맞바꿔야”」](https://www.chosun.com/politics/blue_house/2026/09/22/VQKT5RKM5VE7RHX2CJERSDLMME/)
 - [[events/2026-09-21-cb89af]] — 순방 일정·유엔 기조연설을 앞세움 (2026-09-21)
@@ -52,20 +54,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 19건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 20건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 8건 | 15건 |
-| [[outlets/newsis|뉴시스]] | 7건 | 17건 |
-| [[outlets/hankyung|한국경제]] | 7건 | 15건 |
-| [[outlets/yna|연합뉴스]] | 6건 | 19건 |
-| [[outlets/khan|경향신문]] | 6건 | 18건 |
-| [[outlets/joongang|중앙일보]] | 6건 | 18건 |
-| [[outlets/sbs|SBS]] | 6건 | 18건 |
+| [[outlets/newsis|뉴시스]] | 8건 | 18건 |
+| [[outlets/mk|매일경제]] | 8건 | 16건 |
+| [[outlets/sbs|SBS]] | 7건 | 19건 |
+| [[outlets/hankyung|한국경제]] | 7건 | 16건 |
+| [[outlets/yna|연합뉴스]] | 6건 | 20건 |
+| [[outlets/khan|경향신문]] | 6건 | 19건 |
+| [[outlets/joongang|중앙일보]] | 6건 | 19건 |
+| [[outlets/segye|세계일보]] | 6건 | 18건 |
+| [[outlets/kmib|국민일보]] | 6건 | 17건 |
 | [[outlets/pressian|프레시안]] | 6건 | 13건 |
-| [[outlets/hankookilbo|한국일보]] | 5건 | 18건 |
-| [[outlets/news1|뉴스1]] | 5건 | 17건 |
 
 이 밖에 14곳이 더 있다.
 

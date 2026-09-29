@@ -4,8 +4,8 @@
 
 ## 관찰 기록
 
-- 관찰 사건 20건 중 17건 보도 · 미보도 3건
-- 평균 보도 지연 +163분 (2시간 43분)
+- 관찰 사건 21건 중 18건 보도 · 미보도 3건
+- 평균 보도 지연 +154분 (2시간 34분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
@@ -25,6 +25,8 @@
   00:35 (+55분) [「이 대통령 “북 포로 송환 비공개 합의 어긴 우크라, 많이 아쉬워”」](https://www.edaily.co.kr/News/Read?newsId=01174246645583728&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-23-525c86]] — 핵잠·농축재처리·전작권 협력 (2026-09-23)
   10:31 (+131분) [「李·트럼프, 한미 정상회담…“핵잠연료·농축 재처리·조선 협력 후속...」](https://www.edaily.co.kr/News/Read?newsId=03007766645583072&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-09-23-이재명-트럼프-뉴욕-정상회담]] — '30분'·'깜짝' 정상회담 자체를 앞세움 (2026-09-23)
+  10:12 (+0분) [「[속보]위성락 "트럼프와 별도 정상회담 가졌다"」](https://www.edaily.co.kr/News/Read?newsId=02961846645583072&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-22-e66fc6]] — '비핵화·핵동결'을 앞세움 (2026-09-22)
   17:00 (+378분) [「李, ‘北 핵동결’ 전제로 美 제재완화 제안」](https://www.edaily.co.kr/News/Read?newsId=04467366645582744&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-21-cb89af]] — 순방 일정·유엔 기조연설을 앞세움 (2026-09-21)
@@ -50,20 +52,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 17건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 18건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 9건 | 15건 |
-| [[outlets/yna|연합뉴스]] | 8건 | 16건 |
-| [[outlets/mbc|MBC]] | 8건 | 16건 |
-| [[outlets/sbs|SBS]] | 8건 | 16건 |
-| [[outlets/news1|뉴스1]] | 8건 | 14건 |
-| [[outlets/hani|한겨레]] | 8건 | 14건 |
-| [[outlets/seoul|서울신문]] | 7건 | 14건 |
+| [[outlets/newsis|뉴시스]] | 10건 | 16건 |
+| [[outlets/sbs|SBS]] | 9건 | 17건 |
+| [[outlets/yna|연합뉴스]] | 8건 | 17건 |
+| [[outlets/mbc|MBC]] | 8건 | 17건 |
+| [[outlets/news1|뉴스1]] | 8건 | 15건 |
+| [[outlets/hani|한겨레]] | 8건 | 15건 |
+| [[outlets/seoul|서울신문]] | 7건 | 15건 |
 | [[outlets/munhwa|문화일보]] | 7건 | 13건 |
-| [[outlets/joongang|중앙일보]] | 6건 | 17건 |
-| [[outlets/mk|매일경제]] | 6건 | 15건 |
+| [[outlets/joongang|중앙일보]] | 6건 | 18건 |
+| [[outlets/mk|매일경제]] | 6건 | 16건 |
 
 이 밖에 14곳이 더 있다.
 

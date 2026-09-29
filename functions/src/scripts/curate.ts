@@ -26,6 +26,7 @@ import {
   deleteDraft,
   dropItem,
   findSilentCandidates,
+  findYouTubeCandidates,
   getEvent,
   kstDateString,
   loadEventItems,
@@ -35,6 +36,7 @@ import {
   prepareYouTubeCorrection,
   updateEvent,
   validateForPublish,
+  type YouTubeRuleOverride,
 } from "../curate/events";
 import { draftFrames } from "../frames/draft";
 import { FieldPath, Timestamp } from "firebase-admin/firestore";
@@ -519,8 +521,45 @@ async function cmdReady(slug: string): Promise<void> {
 
 /* ── 발행 사건 유튜브 정정 ───────────────────────────────── */
 
-async function cmdCorrectYouTube(slug: string): Promise<void> {
-  const plan = await prepareYouTubeCorrection(slug);
+/** "a,b" 형식의 쉼표 목록. 빈 칸은 버린다. */
+function splitTerms(raw: string | undefined): string[] {
+  return (raw ?? "").split(",").map((t) => t.trim()).filter(Boolean);
+}
+
+/** correct-youtube 의 선택 인자: "필수어,..." "핵심어,..." [최소개수=2]. */
+function parseRuleOverride(args: string[]): YouTubeRuleOverride | undefined {
+  if (args.length === 0) return undefined;
+  const requiredTerms = splitTerms(args[0]);
+  const terms = splitTerms(args[1]);
+  const minimumMatches = args[2] ? Number(args[2]) : 2;
+  if (requiredTerms.length === 0 || terms.length === 0 || !Number.isInteger(minimumMatches)) {
+    throw new Error(`규칙 형식: correct-youtube <id> "필수어,..." "핵심어,..." [최소개수]\n\n${USAGE}`);
+  }
+  return { requiredTerms, terms, minimumMatches };
+}
+
+async function cmdVideos(slug: string, keywordsRaw?: string): Promise<void> {
+  const rows = await findYouTubeCandidates(slug, splitTerms(keywordsRaw));
+  const sources = new Map((await loadSources()).map((s) => [s.id, s.name] as const));
+  console.log(`사건 창의 등록 채널 영상 중 키워드가 든 것 ${rows.length}건\n`);
+  for (const { id, item, hits } of rows) {
+    const attached = item.eventId === slug ? " [이미 연결]" : "";
+    console.log(
+      `${id.slice(0, 8)}  ${kst(item.publishedAt.toDate())}  ${sources.get(item.sourceId) ?? item.sourceId}` +
+        `${attached}  ${item.title}\n          ${hits.join("·")} · ${item.url}`,
+    );
+  }
+  if (rows.length > 0) {
+    console.log(
+      `\n제목이 이 사건을 직접 다루는 영상만 고른다.\n` +
+        `  발행 전: curate -- attach-youtube ${slug} <항목...> → frame\n` +
+        `  발행 후: curate -- correct-youtube ${slug} "필수어" "핵심어,..." [최소개수]`,
+    );
+  }
+}
+
+async function cmdCorrectYouTube(slug: string, override?: YouTubeRuleOverride): Promise<void> {
+  const plan = await prepareYouTubeCorrection(slug, override);
   const items = await Promise.all(
     plan.itemIds.map(async (id) => {
       const snap = await db.collection(ITEMS).doc(id).get();
@@ -594,7 +633,10 @@ const USAGE = `사용법:
   curate -- attach-youtube <id> <항목...>     수집된 유튜브 영상을 별도로 붙이기
   curate -- silent <id> [시간=48]             미보도 매체의 기사가 저장소에 있는지 훑기
   curate -- compare <id> "<질의어1>" "<질의어2>" [...]  질의어에 따라 갈리는 매체 찾기
-  curate -- correct-youtube <id>              발행 사건의 제목 일치 영상 정정 계획 만들기
+  curate -- videos <id> ["키워드,키워드"]      사건 창(24시간 전~48시간 후)의 등록 채널 영상 후보
+  curate -- correct-youtube <id> ["필수어,..." "핵심어,..." 최소개수]
+                                             발행 사건의 제목 일치 영상 정정 계획 만들기
+                                             (규칙을 주면 제목 마지막 낱말 대신 그 규칙을 쓴다)
   curate -- apply-youtube-correction <id>     승인 workflow 전용: 정정 계획 적용
   curate -- show <id>
   curate -- ready <id>                       자동 검증 통과 → 승인 대기
@@ -692,7 +734,10 @@ async function main(): Promise<void> {
     }
     case "correct-youtube":
       if (!args[0]) throw new Error(USAGE);
-      return cmdCorrectYouTube(args[0]);
+      return cmdCorrectYouTube(args[0], parseRuleOverride(args.slice(1)));
+    case "videos":
+      if (!args[0]) throw new Error(USAGE);
+      return cmdVideos(args[0], args[1]);
     case "apply-youtube-correction":
       if (!args[0]) throw new Error(USAGE);
       return cmdApplyYouTubeCorrection(args[0]);

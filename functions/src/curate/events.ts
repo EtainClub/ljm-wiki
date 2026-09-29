@@ -896,6 +896,11 @@ export async function validateForPublish(slug: string): Promise<string[]> {
   const problems: string[] = [];
 
   if (!event.summary.trim()) problems.push("요약이 비어 있습니다.");
+  // 없으면 wiki:people·wiki:outlets 가 Firestore 슬러그로 링크를 만들어
+  // 손으로 쓴 사건 페이지가 고아가 되고 발행 workflow 의 wiki:lint 가 실패한다.
+  if (!event.wikiSlug?.trim()) {
+    problems.push("위키 페이지 이름이 없습니다 (set <id> wikiSlug).");
+  }
   if (Object.keys(event.coverage).length === 0) {
     problems.push("보도 여부를 확인하지 않았습니다 (coverage 명령).");
   }

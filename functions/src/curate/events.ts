@@ -468,17 +468,33 @@ function youtubeTerms(title: string): string[] {
   ];
 }
 
-function titleMatchRule(event: EventDoc): YouTubeTitleMatch {
-  const terms = youtubeTerms(event.title);
-  if (terms.length < YOUTUBE_MINIMUM_TERM_MATCHES) {
+/**
+ * 사람이 정한 연결 규칙. 사건 제목의 마지막 낱말이 '주문'·'언급' 처럼 영상 제목에
+ * 나올 리 없는 말이면 자동 규칙은 아무것도 못 찾는다. 규칙은 사건 화면에 그대로
+ * 공개되므로 제목에 실제로 쓰이는 낱말로만 정한다.
+ */
+export interface YouTubeRuleOverride {
+  requiredTerms: string[];
+  terms: string[];
+  minimumMatches: number;
+}
+
+function titleMatchRule(event: EventDoc, override?: YouTubeRuleOverride): YouTubeTitleMatch {
+  const terms = override
+    ? [...new Set([...override.requiredTerms, ...override.terms].map((t) => t.normalize("NFC")))]
+    : youtubeTerms(event.title);
+  const minimumMatches = override?.minimumMatches ?? YOUTUBE_MINIMUM_TERM_MATCHES;
+  if (minimumMatches < YOUTUBE_MINIMUM_TERM_MATCHES || terms.length < minimumMatches) {
     throw new Error(
-      `유튜브 제목 자동 연결에 쓸 사건 핵심어가 부족합니다: ${event.title}`,
+      `유튜브 제목 연결 규칙이 느슨하거나 핵심어가 부족합니다: 핵심어 ${terms.length}개 · 최소 ${minimumMatches}개`,
     );
   }
   return {
     terms,
-    requiredTerms: [terms[terms.length - 1]!],
-    minimumMatches: YOUTUBE_MINIMUM_TERM_MATCHES,
+    requiredTerms: override
+      ? override.requiredTerms.map((t) => t.normalize("NFC"))
+      : [terms[terms.length - 1]!],
+    minimumMatches,
     windowBeforeHours: YOUTUBE_WINDOW_BEFORE_HOURS,
     windowAfterHours: YOUTUBE_WINDOW_AFTER_HOURS,
     matchedAt: Timestamp.now(),
@@ -492,6 +508,52 @@ function matchesYouTubeTitle(title: string, rule: YouTubeTitleMatch): boolean {
   return hits >= rule.minimumMatches;
 }
 
+/** 사건 창(발생 24시간 전~48시간 후)에 게시된, 다른 사건에 붙지 않은 등록 채널 영상. 이른 순. */
+async function loadWindowVideos(
+  slug: string,
+  event: EventDoc,
+): Promise<Array<{ id: string; item: ItemDoc }>> {
+  const occurredAt = event.occurredAt.toDate();
+  const from = new Date(occurredAt.getTime() - YOUTUBE_WINDOW_BEFORE_HOURS * 3_600_000);
+  const until = new Date(occurredAt.getTime() + YOUTUBE_WINDOW_AFTER_HOURS * 3_600_000);
+  const [itemsSnap, sources] = await Promise.all([
+    db.collection(ITEMS)
+      .where("publishedAt", ">=", Timestamp.fromDate(from))
+      .where("publishedAt", "<=", Timestamp.fromDate(until))
+      .get(),
+    loadSources(),
+  ]);
+  const youtubeIds = new Set(sources.filter((source) => source.type === "youtube").map((s) => s.id));
+
+  return itemsSnap.docs
+    .map((doc) => ({ id: doc.id, item: doc.data() as ItemDoc }))
+    .filter(
+      ({ item }) =>
+        item.kind === "video" &&
+        youtubeIds.has(item.sourceId) &&
+        (item.eventId === null || item.eventId === slug),
+    )
+    .sort((a, b) => a.item.publishedAt.toMillis() - b.item.publishedAt.toMillis());
+}
+
+/**
+ * 발행 전 사건에 붙일 만한 영상 후보. `list` 는 최근 500건만 보므로 하루만 지나도
+ * 영상이 풀에서 밀려난다. 사건 창 전체를 직접 훑는다. 키워드 중 하나라도 든 제목을 돌려준다.
+ */
+export async function findYouTubeCandidates(
+  slug: string,
+  keywords?: string[],
+): Promise<Array<{ id: string; item: ItemDoc; hits: string[] }>> {
+  const event = await getEvent(slug);
+  const terms = (keywords && keywords.length > 0 ? keywords : youtubeTerms(event.title)).map((t) =>
+    t.normalize("NFC"),
+  );
+  const videos = await loadWindowVideos(slug, event);
+  return videos
+    .map((row) => ({ ...row, hits: terms.filter((t) => row.item.title.normalize("NFC").includes(t)) }))
+    .filter((row) => row.hits.length > 0);
+}
+
 export interface YouTubeCorrectionPlan {
   eventId: string;
   itemIds: string[];
@@ -502,8 +564,12 @@ export interface YouTubeCorrectionPlan {
 /**
  * 발행 사건은 여기서 직접 바꾸지 않는다. 제목·시각만으로 찾은 영상 목록을
  * eventCorrections 에 고정해 PR 승인 전에는 공개 데이터가 전혀 달라지지 않게 한다.
+ * override 를 주면 기존 계획을 재사용하지 않고 그 규칙으로 다시 만든다.
  */
-export async function prepareYouTubeCorrection(slug: string): Promise<YouTubeCorrectionPlan> {
+export async function prepareYouTubeCorrection(
+  slug: string,
+  override?: YouTubeRuleOverride,
+): Promise<YouTubeCorrectionPlan> {
   const event = await getEvent(slug);
   if (event.status !== "published") {
     throw new Error(`발행된 사건만 유튜브 정정 대상으로 만들 수 있습니다: ${slug}`);
@@ -512,7 +578,7 @@ export async function prepareYouTubeCorrection(slug: string): Promise<YouTubeCor
   const correctionRef = db.collection(EVENT_CORRECTIONS).doc(slug);
   const current = await correctionRef.get();
   const revision = event.revision ?? 1;
-  if (current.exists) {
+  if (current.exists && !override) {
     const previous = current.data() as YouTubeCorrectionDoc;
     if (
       previous.status === "ready" &&
@@ -528,35 +594,10 @@ export async function prepareYouTubeCorrection(slug: string): Promise<YouTubeCor
     }
   }
 
-  const match = titleMatchRule(event);
-  const occurredAt = event.occurredAt.toDate();
-  const from = new Date(occurredAt.getTime() - match.windowBeforeHours * 3_600_000);
-  const until = new Date(occurredAt.getTime() + match.windowAfterHours * 3_600_000);
-  const [itemsSnap, sources] = await Promise.all([
-    db.collection(ITEMS)
-      .where("publishedAt", ">=", Timestamp.fromDate(from))
-      .where("publishedAt", "<=", Timestamp.fromDate(until))
-      .get(),
-    loadSources(),
-  ]);
-  const youtubeIds = new Set(sources.filter((source) => source.type === "youtube").map((s) => s.id));
-
-  const itemIds = itemsSnap.docs
-    .filter((doc) => {
-      const item = doc.data() as ItemDoc;
-      return (
-        item.kind === "video" &&
-        youtubeIds.has(item.sourceId) &&
-        (item.eventId === null || item.eventId === slug) &&
-        matchesYouTubeTitle(item.title, match)
-      );
-    })
-    .sort(
-      (a, b) =>
-        (a.data() as ItemDoc).publishedAt.toMillis() -
-        (b.data() as ItemDoc).publishedAt.toMillis(),
-    )
-    .map((doc) => doc.id);
+  const match = titleMatchRule(event, override);
+  const itemIds = (await loadWindowVideos(slug, event))
+    .filter(({ item }) => matchesYouTubeTitle(item.title, match))
+    .map(({ id }) => id);
 
   const now = Timestamp.now();
   const correction: YouTubeCorrectionDoc = {

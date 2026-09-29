@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 17건 중 14건 보도 · 미보도 3건
-- 평균 보도 지연 +152분 (2시간 32분)
+- 관찰 사건 19건 중 16건 보도 · 미보도 3건
+- 평균 보도 지연 +173분 (2시간 53분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-29-이재명-광주-군공항-이전-일정-재검토]] — '2028년 중순' 일정을 늦다고 표현함 (2026-09-29)
+  17:57 (+177분) [「[속보]李 “광주 군공항 이전, 2028년 중순은 늦다”…속도전 주문」](https://www.edaily.co.kr/News/Read?newsId=04900326645585040&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-09-28-김어준-대통령-SNS-리트윗-중단-주문]] — '사랑의 시기는 끝났다'를 앞세움 (2026-09-28)
+  19:23 (+457분) [「김어준, 李대통령에 "사랑의 시기 끝났다…리트윗 하지 마라" 직격」](https://www.edaily.co.kr/News/Read?newsId=04401766645584712&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-27-이재명-미국-멕시코-순방-귀국길]] — **보도하지 않음** (2026-09-27)
 - [[events/2026-09-27-이재명-개혁-국민-참여-요청]] — **보도하지 않음** (2026-09-27)
 - [[events/2026-09-27-오세훈-농지-전수조사-비판]] — **보도하지 않음** (2026-09-27)
@@ -44,20 +48,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 14건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 16건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 8건 | 12건 |
-| [[outlets/sbs|SBS]] | 7건 | 14건 |
-| [[outlets/seoul|서울신문]] | 7건 | 12건 |
-| [[outlets/yna|연합뉴스]] | 6건 | 14건 |
-| [[outlets/mbc|MBC]] | 6건 | 14건 |
-| [[outlets/mk|매일경제]] | 6건 | 13건 |
-| [[outlets/hankyung|한국경제]] | 6건 | 13건 |
-| [[outlets/kbs|KBS]] | 6건 | 13건 |
-| [[outlets/news1|뉴스1]] | 6건 | 12건 |
-| [[outlets/hani|한겨레]] | 6건 | 12건 |
+| [[outlets/newsis|뉴시스]] | 9건 | 14건 |
+| [[outlets/sbs|SBS]] | 8건 | 15건 |
+| [[outlets/yna|연합뉴스]] | 7건 | 15건 |
+| [[outlets/mbc|MBC]] | 7건 | 15건 |
+| [[outlets/news1|뉴스1]] | 7건 | 13건 |
+| [[outlets/seoul|서울신문]] | 7건 | 13건 |
+| [[outlets/hani|한겨레]] | 7건 | 13건 |
+| [[outlets/joongang|중앙일보]] | 6건 | 16건 |
+| [[outlets/mk|매일경제]] | 6건 | 14건 |
+| [[outlets/hankyung|한국경제]] | 6건 | 14건 |
 
 이 밖에 14곳이 더 있다.
 

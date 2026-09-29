@@ -437,6 +437,7 @@ async function cmdShow(slug: string): Promise<void> {
   console.log(`제목: ${event.title}`);
   console.log(`요약: ${event.summary || "(비어 있음)"}`);
   console.log(`발생: ${kst(event.occurredAt.toDate())} (KST)`);
+  console.log(`위키: ${event.wikiSlug ? `wiki/events/${event.wikiSlug}.md` : "(없음)"}`);
   if (event.coverageQuery) console.log(`질의어: "${event.coverageQuery}"`);
   console.log();
 

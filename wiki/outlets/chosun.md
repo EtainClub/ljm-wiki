@@ -4,12 +4,14 @@
 
 ## 관찰 기록
 
-- 관찰 사건 19건 중 18건 보도 · 미보도 1건
-- 평균 보도 지연 +88분 (1시간 28분)
+- 관찰 사건 20건 중 19건 보도 · 미보도 1건
+- 평균 보도 지연 +83분 (1시간 23분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-09-29-이재명-DMZ-지뢰사고-진상조사-음모론-경계]] — '음모론'을 앞세움 (2026-09-29)
+  10:16 (+3분) [「李대통령 “지뢰 사고 ‘음모론’ 부추겨 국가안보 위태롭게 하는 일 없...」](https://biz.chosun.com/policy/politics/president_office/2026/09/29/SKBMJNI2C5ADZGLZP3TS4ZPOCY/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-09-29-이재명-광주-군공항-이전-일정-재검토]] — '이전 시점'을 앞당기라고 주문함 (2026-09-29)
   18:34 (+214분) [「李대통령 “광주 軍공항 이전 시점, 재검토하라... 최대한 앞당겨야”」](https://biz.chosun.com/policy/politics/president_office/2026/09/29/TLVL4LR5HVHMDP6IEVHEWAJMNY/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-09-28-김어준-대통령-SNS-리트윗-중단-주문]] — **보도하지 않음** (2026-09-28)
@@ -50,20 +52,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 18건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 19건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 8건 | 14건 |
-| [[outlets/newsis|뉴시스]] | 7건 | 16건 |
-| [[outlets/yna|연합뉴스]] | 6건 | 18건 |
-| [[outlets/khan|경향신문]] | 6건 | 17건 |
-| [[outlets/joongang|중앙일보]] | 6건 | 17건 |
-| [[outlets/sbs|SBS]] | 6건 | 17건 |
-| [[outlets/hankyung|한국경제]] | 6건 | 14건 |
-| [[outlets/hankookilbo|한국일보]] | 5건 | 17건 |
-| [[outlets/news1|뉴스1]] | 5건 | 16건 |
-| [[outlets/donga|동아일보]] | 5건 | 16건 |
+| [[outlets/mk|매일경제]] | 8건 | 15건 |
+| [[outlets/newsis|뉴시스]] | 7건 | 17건 |
+| [[outlets/hankyung|한국경제]] | 7건 | 15건 |
+| [[outlets/yna|연합뉴스]] | 6건 | 19건 |
+| [[outlets/khan|경향신문]] | 6건 | 18건 |
+| [[outlets/joongang|중앙일보]] | 6건 | 18건 |
+| [[outlets/sbs|SBS]] | 6건 | 18건 |
+| [[outlets/pressian|프레시안]] | 6건 | 13건 |
+| [[outlets/hankookilbo|한국일보]] | 5건 | 18건 |
+| [[outlets/news1|뉴스1]] | 5건 | 17건 |
 
 이 밖에 14곳이 더 있다.
 

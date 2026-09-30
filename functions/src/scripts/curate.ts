@@ -586,6 +586,10 @@ async function cmdCorrectYouTube(slug: string, override?: YouTubeRuleOverride): 
 
 async function cmdApplyYouTubeCorrection(slug: string): Promise<void> {
   const result = await applyYouTubeCorrection(slug);
+  if (result.alreadyApplied) {
+    console.log(`이미 적용된 유튜브 정정입니다: ${slug} · 제${result.revision}판 — 파생 페이지 생성만 계속합니다.`);
+    return;
+  }
   console.log(`유튜브 정정 적용: ${slug} · 영상 ${result.attached}건 · 제${result.revision}판`);
 }
 

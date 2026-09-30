@@ -629,8 +629,20 @@ export async function getReadyYouTubeCorrection(slug: string): Promise<YouTubeCo
  * 승인 workflow 안에서만 실행한다. 동일한 공개 URL의 published 사건을 원자적으로
  * 갱신하고, 어떤 제목·시간 규칙으로 연결했는지와 정정 시각을 남긴다.
  */
-export async function applyYouTubeCorrection(slug: string): Promise<{ attached: number; revision: number }> {
-  const [event, correction] = await Promise.all([getEvent(slug), getReadyYouTubeCorrection(slug)]);
+export async function applyYouTubeCorrection(
+  slug: string,
+): Promise<{ attached: number; revision: number; alreadyApplied?: true }> {
+  // 앞선 run 이 Firestore 에는 적용했지만 파생 페이지 커밋 전에 실패하면 marker 가 main 에
+  // 남는다. 그 marker 를 다시 만났을 때 멈추면 뒤따르는 발행까지 막히므로 건너뛴다.
+  const [event, currentSnap] = await Promise.all([
+    getEvent(slug),
+    db.collection(EVENT_CORRECTIONS).doc(slug).get(),
+  ]);
+  const current = currentSnap.data() as YouTubeCorrectionDoc | undefined;
+  if (current?.status === "applied") {
+    return { attached: 0, revision: event.revision ?? 1, alreadyApplied: true };
+  }
+  const correction = await getReadyYouTubeCorrection(slug);
   if (event.status !== "published") {
     throw new Error(`발행된 사건만 정정할 수 있습니다: ${slug}`);
   }

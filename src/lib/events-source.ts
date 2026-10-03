@@ -3,6 +3,7 @@ import "server-only";
 import type { EventBundle, Frame, Item, Source, YouTubeTitleMatch } from "./event-types";
 import { firebaseProjectId } from "./firebase-project";
 import { SAMPLE_EVENTS } from "./sample-event";
+import { isRecentLeeVideo, type RecentVideo } from "./youtube-records";
 
 /**
  * 서버 데이터 소스.
@@ -13,11 +14,15 @@ import { SAMPLE_EVENTS } from "./sample-event";
  * 로컬 개발에서 자격증명이 없거나 발행된 사건이 아직 없으면 샘플로 떨어진다.
  */
 
+interface QueryLike {
+  where: (a: string, b: string, c: unknown) => QueryLike;
+  orderBy: (field: string, direction: "desc" | "asc") => QueryLike;
+  limit: (count: number) => QueryLike;
+  get: () => Promise<QuerySnap>;
+}
+
 type FirestoreLike = {
-  collection: (path: string) => {
-    where: (a: string, b: string, c: unknown) => { get: () => Promise<QuerySnap> };
-    get: () => Promise<QuerySnap>;
-  };
+  collection: (path: string) => QueryLike;
   getAll: (...refs: unknown[]) => Promise<DocSnap[]>;
   doc: (path: string) => unknown;
 };
@@ -264,4 +269,55 @@ export async function getPublishedEvents(): Promise<EventBundle[]> {
 export async function getEventBySlug(slug: string): Promise<EventBundle | undefined> {
   const all = await getPublishedEvents();
   return all.find((b) => b.event.slug === slug);
+}
+
+/** 최근 7일 등록 채널의 원제. 미발행 사건에 배정된 항목은 공개하지 않는다. */
+export async function getRecentYouTubeVideos(): Promise<{
+  videos: RecentVideo[];
+  available: boolean;
+  checkedAt: string;
+}> {
+  const now = new Date();
+  const checkedAt = now.toISOString();
+  const db = await connect();
+  if (!db) return { videos: [], available: false, checkedAt };
+  try {
+    const [sourcesSnap, publishedSnap] = await Promise.all([
+      db.collection("sources").where("type", "==", "youtube").get(),
+      db.collection("events").where("status", "==", "published").get(),
+    ]);
+    const published = new Set(publishedSnap.docs.map((doc) => doc.id));
+    const sources = sourcesSnap.docs.filter((doc) => doc.data()?.["active"] === true);
+    const since = new Date(now.getTime() - 7 * 86_400_000);
+    const videos: RecentVideo[] = [];
+    // 기존 sourceId·publishedAt 복합 인덱스로 채널당 읽기 수를 제한한다.
+    for (let i = 0; i < sources.length; i += 6) {
+      const chunk = sources.slice(i, i + 6);
+      const snapshots = await Promise.all(chunk.map((source) =>
+        db.collection("items").where("sourceId", "==", source.id)
+          .where("publishedAt", ">=", since).orderBy("publishedAt", "desc").limit(25).get(),
+      ));
+      snapshots.forEach((snapshot, index) => {
+        const source = chunk[index];
+        const channel: Source = { id: source.id, name: String(source.data()?.["name"] ?? source.id), type: "youtube" };
+        for (const doc of snapshot.docs) {
+          const data = doc.data();
+          const publishedAt = toIso(data?.["publishedAt"]);
+          if (!data || !publishedAt || data["kind"] !== "video") continue;
+          if (!["live", "title_changed"].includes(String(data["status"]))) continue;
+          if (data["eventId"] != null && !published.has(String(data["eventId"]))) continue;
+          if (Date.parse(publishedAt) > now.getTime() + 3_600_000) continue;
+          const title = String(data["title"] ?? "");
+          const url = String(data["url"] ?? "");
+          if (!isRecentLeeVideo(title, url)) continue;
+          videos.push({ channel, item: { id: doc.id, sourceId: channel.id, title, url, publishedAt } });
+        }
+      });
+    }
+    videos.sort((a, b) => Date.parse(b.item.publishedAt) - Date.parse(a.item.publishedAt) || a.item.id.localeCompare(b.item.id));
+    return { videos, available: true, checkedAt };
+  } catch (error) {
+    console.error("[youtube] 최근 영상 제목 조회 실패", error instanceof Error ? error.message : error);
+    return { videos: [], available: false, checkedAt };
+  }
 }

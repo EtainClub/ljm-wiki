@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getPublishedEvents } from "@/lib/events-source";
+import { getPublishedEvents, getRecentYouTubeVideos } from "@/lib/events-source";
 import { formatDateTime } from "@/lib/kst";
 import { filterVideoRecords, getVideoRecords, titleForms } from "@/lib/youtube-records";
 
@@ -20,7 +20,7 @@ export default async function YouTubePage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const [bundles, params] = await Promise.all([getPublishedEvents(), searchParams]);
+  const [bundles, recent, params] = await Promise.all([getPublishedEvents(), getRecentYouTubeVideos(), searchParams]);
   const records = getVideoRecords(bundles);
   const filters = {
     channel: first(params.channel),
@@ -45,6 +45,13 @@ export default async function YouTubePage({
   const channelList = [...channels].sort((a, b) => a[1].name.localeCompare(b[1].name, "ko"));
   const events = [...new Map(records.map((r) => [r.eventSlug, r.eventTitle])).entries()];
   const filtered = filterVideoRecords(records, filters);
+  const eventVideoIds = new Set(records.filter((record) => record.eventSlug === filters.event).map((record) => record.item.id));
+  const recentFiltered = recent.videos.filter(({ item, channel }) =>
+    (!filters.channel || channel.id === filters.channel) &&
+    (!filters.event || eventVideoIds.has(item.id)) &&
+    (!filters.form || titleForms(item.title).includes(filters.form)) &&
+    (!filters.query.trim() || [item.title, channel.name].some((text) => text.toLocaleLowerCase("ko").includes(filters.query.trim().toLocaleLowerCase("ko")))),
+  );
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const requestedPage = Number(first(params.page));
   const page = Number.isSafeInteger(requestedPage) && requestedPage > 0 ? Math.min(requestedPage, pageCount) : 1;
@@ -67,6 +74,7 @@ export default async function YouTubePage({
           이재명 관련 사건을 다룬 등록 채널의 원제와 제목 표현을 모았습니다.
           같은 사건을 고르면 채널마다 앞세운 표현을 비교할 수 있습니다.
         </p>
+        <a href="#recent-videos" className="inline-block text-sm text-indigo-700 underline underline-offset-4 dark:text-indigo-300">최근 이재명 관련 영상 바로 보기 ↓</a>
         <dl className="flex flex-wrap gap-5 rounded-xl bg-indigo-50 p-4 text-sm dark:bg-indigo-950/40">
           <div><dt className="text-zinc-500">등록 채널</dt><dd className="mt-1 text-xl font-semibold">{channels.size}개</dd></div>
           <div><dt className="text-zinc-500">연결 영상</dt><dd className="mt-1 text-xl font-semibold">{new Set(records.map((r) => r.item.id)).size}건</dd></div>
@@ -103,8 +111,35 @@ export default async function YouTubePage({
         </div>
       </form>
 
-      <section aria-label="영상 기록" className="space-y-4">
-        <h2 className="text-base font-semibold">최신 영상 기록 <span className="font-normal text-zinc-500">{filtered.length}건</span></h2>
+      <section id="recent-videos" aria-labelledby="recent-videos-heading" className="scroll-mt-6 space-y-4">
+        <div className="space-y-2">
+          <h2 id="recent-videos-heading" className="text-lg font-semibold">최근 이재명 관련 영상</h2>
+          <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">최근 7일 등록 채널에서 수집한 영상 중 제목에 이재명·이 대통령이 명시된 기록입니다. 원제와 게시 시각을 최신순으로 보여줍니다.</p>
+          <p className="text-xs text-zinc-500">조회 {formatDateTime(recent.checkedAt)} KST · 아래 제목은 영상 내용 요약이 아닙니다.</p>
+        </div>
+        {!recent.available ? (
+          <p className="rounded-xl border border-dashed border-zinc-300 p-5 text-sm dark:border-zinc-700">최근 영상 목록을 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.</p>
+        ) : recentFiltered.length === 0 ? (
+          <p className="rounded-xl border border-dashed border-zinc-300 p-5 text-sm dark:border-zinc-700">조건에 맞는 최근 영상 제목이 없습니다.</p>
+        ) : (
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {recentFiltered.slice(0, 20).map(({ item, channel }) => (
+              <li key={item.id} className="space-y-3 rounded-xl border border-indigo-200 bg-white p-4 dark:border-indigo-900 dark:bg-zinc-900">
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+                  <Link href={"/youtube?channel=" + encodeURIComponent(channel.id) + "#recent-videos"} className="font-semibold underline underline-offset-4">{channel.name}</Link>
+                  <time dateTime={item.publishedAt} className="text-zinc-500">{formatDateTime(item.publishedAt)} KST</time>
+                </div>
+                <h3 className="text-[15px] font-semibold leading-7"><a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{item.title} <span className="text-xs font-normal text-zinc-500">↗</span></a></h3>
+                <p className="text-xs text-zinc-500">{titleForms(item.title).join(" · ")}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+        {recentFiltered.length > 20 && <p className="text-xs text-zinc-500">최신 20건을 표시합니다. 채널이나 검색어를 선택하면 더 좁혀 볼 수 있습니다.</p>}
+      </section>
+
+      <section aria-label="사건에 연결된 영상 기록" className="space-y-4">
+        <h2 className="text-base font-semibold">사건별 비교 기록 <span className="font-normal text-zinc-500">{filtered.length}건</span></h2>
         {visible.length === 0 && <p className="rounded-xl border border-dashed border-zinc-300 p-5 text-sm leading-6 dark:border-zinc-700">조건에 맞는 공개 영상 기록이 없습니다. 사건 연결이 확인된 영상만 표시하므로, 채널에서 다루지 않았다는 뜻은 아닙니다.</p>}
         {visible.map((record) => (
           <article key={record.eventSlug + record.item.id} className="space-y-3 rounded-xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">

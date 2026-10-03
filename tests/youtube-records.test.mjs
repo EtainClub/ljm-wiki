@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { getVideoRecords, filterVideoRecords, titleForms } from "../src/lib/youtube-records.ts";
+import { getVideoRecords, filterVideoRecords, titleForms, isRecentLeeVideo } from "../src/lib/youtube-records.ts";
 
 const video = { id: "v1", sourceId: "yt_a", title: '이재명 "직접 소통" 가능할까?', url: "https://www.youtube.com/watch?v=test", publishedAt: "2026-10-03T10:00:00+09:00" };
 const bundle = (slug = "event1") => ({
@@ -38,4 +38,17 @@ test("원문 링크가 없는 영상은 공개 기록에서 제외한다", () =>
   const missingUrl = bundle();
   missingUrl.items.v1 = { ...video, url: "" };
   assert.equal(getVideoRecords([missingUrl]).length, 0);
+});
+
+test("최근 영상은 명시된 인물명과 유효한 원문 링크로 좁히며 동명이인은 제외한다", () => {
+  const url = "https://www.youtube.com/watch?v=example";
+  assert.equal(isRecentLeeVideo("이재명 대통령 정책 분석", url), true);
+  assert.equal(isRecentLeeVideo("이 대통령 기자회견", url), true);
+  assert.equal(isRecentLeeVideo("李대통령 발언", url), true);
+  assert.equal(isRecentLeeVideo("이재명 정책".normalize("NFD"), url), true);
+  assert.equal(isRecentLeeVideo("트럼프 대통령 발언", url), false);
+  assert.equal(isRecentLeeVideo("이재명 의사는 누구인가", url), false);
+  assert.equal(isRecentLeeVideo("청년 이재명과 이완용", url), false);
+  assert.equal(isRecentLeeVideo("이재명 정책", "https://youtube.com.evil.test/watch?v=example"), false);
+  assert.equal(isRecentLeeVideo("이재명 정책", "javascript:alert(1)"), false);
 });

@@ -10,6 +10,26 @@ export interface VideoRecord {
   isSample: boolean;
 }
 
+export interface RecentVideo {
+  item: Item;
+  channel: Source;
+}
+
+/** 제목에 인물명이 명시된 수집 기록만 고른다. 동명이인 역사 영상은 제외한다. */
+export function isRecentLeeVideo(title: string, url: string): boolean {
+  const normalized = title.normalize("NFKC");
+  if (!/이재명|이\s*대통령|[李李]\s*대통령/u.test(normalized)) return false;
+  if (/이재명\s*의사|청년\s*이재명|이완용/u.test(normalized)) return false;
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "https:" &&
+      ["www.youtube.com", "youtube.com"].includes(parsed.hostname) &&
+      parsed.pathname === "/watch" && Boolean(parsed.searchParams.get("v"));
+  } catch {
+    return false;
+  }
+}
+
 /** 관찰 가능한 제목 표현만 분류한다. 영상 장르나 정치적 태도를 추정하지 않는다. */
 export function titleForms(title: string): string[] {
   const forms: string[] = [];

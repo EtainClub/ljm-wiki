@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 const TABS = [
   { href: "/", label: "오늘", icon: BarsIcon, match: (p: string) => p === "/" || p.startsWith("/e/") },
   { href: "/archive", label: "지난", icon: ClockIcon },
+  { href: "/youtube", label: "유튜브", icon: PlayIcon },
   // 매체 목록은 /w 와 /method 양쪽에서 닿는다. 탭은 위키에 내준다 —
   // 누적되는 기록이 이 제품의 깊이이고, 매체 목록은 참고 문서다.
   { href: "/w", label: "위키", icon: ListIcon },
@@ -85,6 +86,15 @@ function ClockIcon() {
     <svg {...svgProps}>
       <circle cx="12" cy="12" r="8.5" />
       <polyline points="12 7.5 12 12 15 13.5" />
+    </svg>
+  );
+}
+
+function PlayIcon() {
+  return (
+    <svg {...svgProps}>
+      <rect x="3" y="5" width="18" height="14" rx="4" />
+      <path d="m10 9 5 3-5 3Z" />
     </svg>
   );
 }

@@ -29,7 +29,7 @@ export default async function Home() {
         <h1 className="text-[26px] font-bold leading-tight tracking-tight sm:text-3xl">
           이재명 대통령 관련 보도를
           <br />
-          언론사별로 기록합니다
+          언론사와 유튜브 채널별로 기록합니다
         </h1>
         <p className="text-[15px] leading-7 text-zinc-600 dark:text-zinc-400">
           같은 사건에 어느 매체가 <strong className="font-semibold text-zinc-800 dark:text-zinc-200">어떤 제목</strong>을
@@ -60,6 +60,9 @@ export default async function Home() {
         </dl>
 
         <div className="flex flex-wrap gap-2 pt-1">
+          <Link href="/youtube" className="rounded-lg bg-indigo-600 px-3.5 py-2 text-sm font-medium text-white transition hover:bg-indigo-500">
+            유튜브 제목 비교
+          </Link>
           <Link
             href="/w"
             className="rounded-lg bg-zinc-900 px-3.5 py-2 text-sm font-medium text-zinc-50 transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"

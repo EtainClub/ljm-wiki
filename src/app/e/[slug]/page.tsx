@@ -147,7 +147,7 @@ export default async function EventPage({
       />
 
       {videos.length > 0 && (
-        <details className="group rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+        <details open className="group rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
           <AccordionHeading label="연결된 유튜브 영상" count={videos.length} />
           <div className="pt-3">
             <p className="text-xs leading-5 text-zinc-500">
@@ -157,6 +157,9 @@ export default async function EventPage({
             <div className="mt-4">
               <ItemList items={videos} bundle={bundle} />
             </div>
+            <Link href={`/youtube?event=${encodeURIComponent(event.slug)}`} className="mt-4 inline-block text-sm underline underline-offset-4">
+              이 사건의 유튜브 제목·프레임 비교
+            </Link>
           </div>
         </details>
       )}

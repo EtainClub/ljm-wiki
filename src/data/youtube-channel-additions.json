@@ -1,0 +1,194 @@
+[
+  {
+    "id": "yt_UCd4BxCKyMHG2J0X1SerTPaQ",
+    "name": "이동형TV",
+    "type": "youtube",
+    "channelId": "UCd4BxCKyMHG2J0X1SerTPaQ",
+    "displayOrder": 120,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=fqwbUHkUB5M",
+      "https://www.youtube.com/watch?v=xXnWKZFIeQ8"
+    ]
+  },
+  {
+    "id": "yt_UCE-94tymU-LjuglJ_wqzhHA",
+    "name": "최경영TV",
+    "type": "youtube",
+    "channelId": "UCE-94tymU-LjuglJ_wqzhHA",
+    "displayOrder": 121,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=Iako2-6nHiI",
+      "https://www.youtube.com/watch?v=_CE9_Jcrg3k"
+    ]
+  },
+  {
+    "id": "yt_UCFWIofVBqseX6Bmd9Dn7kgg",
+    "name": "성창경TV",
+    "type": "youtube",
+    "channelId": "UCFWIofVBqseX6Bmd9Dn7kgg",
+    "displayOrder": 122,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=mwL2mLqqoHY",
+      "https://www.youtube.com/watch?v=Em3uRznwzSA"
+    ]
+  },
+  {
+    "id": "yt_UCu1FzjrHosuKGvgIx8oBi8w",
+    "name": "새날",
+    "type": "youtube",
+    "channelId": "UCu1FzjrHosuKGvgIx8oBi8w",
+    "displayOrder": 123,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=TlJICTSaWwA",
+      "https://www.youtube.com/watch?v=YK5JB50qH1o"
+    ]
+  },
+  {
+    "id": "yt_UClUlAMZGEGPn8mKemiwOjzg",
+    "name": "GROUND C 그라운드씨",
+    "type": "youtube",
+    "channelId": "UClUlAMZGEGPn8mKemiwOjzg",
+    "displayOrder": 124,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=U-VmOSRPPn8",
+      "https://www.youtube.com/watch?v=YPVTnRMg0LU"
+    ]
+  },
+  {
+    "id": "yt_UCM8BcGB6BWKq3utIMhGKnUA",
+    "name": "고성국TV",
+    "type": "youtube",
+    "channelId": "UCM8BcGB6BWKq3utIMhGKnUA",
+    "displayOrder": 125,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=7uOLwyjvwzY",
+      "https://www.youtube.com/watch?v=lfVkaqzXZsM"
+    ]
+  },
+  {
+    "id": "yt_UC1ihKJ6GH37xoWdtllZqhLw",
+    "name": "팩트TV NEWS",
+    "type": "youtube",
+    "channelId": "UC1ihKJ6GH37xoWdtllZqhLw",
+    "displayOrder": 126,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=ij9tfdmlde8",
+      "https://www.youtube.com/watch?v=UYU4mK4rFU0"
+    ]
+  },
+  {
+    "id": "yt_UC8SZ88GQa9XWwZxLNibO3ug",
+    "name": "배승희 변호사",
+    "type": "youtube",
+    "channelId": "UC8SZ88GQa9XWwZxLNibO3ug",
+    "displayOrder": 127,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=26223rBQS3I",
+      "https://www.youtube.com/watch?v=lcOXSKT0qwA"
+    ]
+  },
+  {
+    "id": "yt_UCzQJmmpZjqzJe96CwlrwlHQ",
+    "name": "시사타파TV",
+    "type": "youtube",
+    "channelId": "UCzQJmmpZjqzJe96CwlrwlHQ",
+    "displayOrder": 128,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=xv7Es7TdnZw",
+      "https://www.youtube.com/watch?v=BgD7n6_ZeCk"
+    ]
+  },
+  {
+    "id": "yt_UCxuf3GXK290vcpFW0lxm0Uw",
+    "name": "이봉규TV",
+    "type": "youtube",
+    "channelId": "UCxuf3GXK290vcpFW0lxm0Uw",
+    "displayOrder": 129,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=gSDbMNauNP8",
+      "https://www.youtube.com/watch?v=kT8WEjN2-Ig"
+    ]
+  },
+  {
+    "id": "yt_UCgeOlLcX6PReHdWImEnUVTg",
+    "name": "스픽스",
+    "type": "youtube",
+    "channelId": "UCgeOlLcX6PReHdWImEnUVTg",
+    "displayOrder": 130,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=9MQ_MZwSxQc",
+      "https://www.youtube.com/watch?v=tY_MjLgbdiE"
+    ]
+  },
+  {
+    "id": "yt_UCOqCunaF9qVN8bXwsK0HT3g",
+    "name": "펜앤마이크TV",
+    "type": "youtube",
+    "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+    "displayOrder": 131,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=W0WrcsW4ayM",
+      "https://www.youtube.com/watch?v=N6zGe7JPyHM"
+    ]
+  },
+  {
+    "id": "yt_UCUxTPRSns--l5BX2537u7Rw",
+    "name": "서울의소리 VoiceOfSeoul",
+    "type": "youtube",
+    "channelId": "UCUxTPRSns--l5BX2537u7Rw",
+    "displayOrder": 132,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=wGbH7sPfA5U",
+      "https://www.youtube.com/watch?v=jTSWM9wAA_k"
+    ]
+  },
+  {
+    "id": "yt_UCTYfJ6IIFID0KOK9B2kHtiw",
+    "name": "장용진TV",
+    "type": "youtube",
+    "channelId": "UCTYfJ6IIFID0KOK9B2kHtiw",
+    "displayOrder": 133,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=6jcUIrMNfiE",
+      "https://www.youtube.com/watch?v=cEoYRRjsKLk"
+    ]
+  },
+  {
+    "id": "yt_UCAVVxLmPDFkSTROPue8ZrRA",
+    "name": "장윤선의 취재편의점",
+    "type": "youtube",
+    "channelId": "UCAVVxLmPDFkSTROPue8ZrRA",
+    "displayOrder": 134,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=6byJ_dMDw3A",
+      "https://www.youtube.com/watch?v=A7scgexgDCI"
+    ]
+  },
+  {
+    "id": "yt_UCgOLQwRv1r2m9mhE1tfsn3Q",
+    "name": "신의한수",
+    "type": "youtube",
+    "channelId": "UCgOLQwRv1r2m9mhE1tfsn3Q",
+    "displayOrder": 135,
+    "addedAt": "2026-10-03",
+    "evidenceUrls": [
+      "https://www.youtube.com/watch?v=sroKY4frMTY",
+      "https://www.youtube.com/watch?v=BoaAOLyDldM"
+    ]
+  }
+]

@@ -14,6 +14,8 @@
     "collect:dry": "tsc && node lib/scripts/collect-dry.js",
     "collect:once": "tsc && node lib/scripts/collect-once.js",
     "youtube:add": "tsc && node lib/scripts/add-youtube-source.js",
+    "youtube:review": "tsc && node lib/scripts/review-youtube.js",
+    "youtube:add-reviewed": "tsc && node lib/scripts/add-reviewed-youtube.js",
     "queue:approval": "tsc && node lib/scripts/queue-approval.js",
     "inspect": "tsc && node lib/scripts/inspect.js",
     "coverage": "tsc && node lib/scripts/coverage-check.js",

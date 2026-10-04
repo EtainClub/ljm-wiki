@@ -4,13 +4,26 @@
 
 ## 관찰 기록
 
-- 관찰 사건 22건 중 20건 보도 · 미보도 2건
-- 평균 보도 지연 +80분 (1시간 20분)
+- 관찰 사건 30건 중 25건 보도 · 미보도 5건
+- 평균 보도 지연 +76분 (1시간 16분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-04-우크라-전직-장교-이재명-대통령-위협-발언-비판]] — **보도하지 않음** (2026-10-04)
+- [[events/2026-10-03-이재명-정청래-동지-언급]] — **보도하지 않음** (2026-10-03)
+- [[events/2026-10-03-이재명-복지급여-신청주의-개선]] — **보도하지 않음** (2026-10-03)
+- [[events/2026-10-02-이재명-우크라이나-공개사과-추가조치]] — ‘거짓말쟁이’를 함께 실음 (2026-10-02)
+  10:57 (+14분) [「李 “우크라 사과 거부하면 추가조치... 날 거짓말쟁이로 만들어”」](https://www.chosun.com/politics/politics_general/2026/10/02/XMW2VOJURVFXRKNPZAFMQBXAFE/)
+- [[events/2026-10-01-이재명-국군의-날-자주국방-강조]] — ‘DMZ 부상·불의의 사고’를 앞세움 (2026-10-01)
+  10:37 (+37분) [「李대통령, 지뢰폭발에 北 언급 없이 “불의의 사고, 마음 아프다”」](https://www.chosun.com/politics/politics_general/2026/10/01/SRBRP3Q3HJCMLJLY7VINS42M2Y/)
+- [[events/2026-10-01-이재명-정청래-청와대-만찬]] — ‘국정·당내 사안·진솔한 대화·공감대’를 함께 실음 (2026-10-01)
+  22:59 (+63분) [「李 대통령, 퇴원한 정청래와 4시간 만찬… “국정·당내 현안 논의”」](https://biz.chosun.com/policy/politics/president_office/2026/10/01/CXL3N7JHVRDZNI3H43VUT7C4AU/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-10-01-이재명-SNS-국정성과-좌아하게-참여-요청]] — ‘좌아하게 함께해달라’를 앞세움 (2026-10-01)
+  09:56 (+1분) [「폭풍 SNS로 돌아온 李대통령 “많이들 함께 해주세요, 좌아하게”」](https://www.chosun.com/politics/blue_house/2026/10/01/ZTVQJ73RVZGGLCAS3HTY3KHCVE/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
 - [[events/2026-09-30-이재명-SNS-국민-직접-소통]] — **보도하지 않음** (2026-09-30)
+- [[events/2026-09-30-이재명-SNS-대외비-문건-공개-논란]] — 청와대의 '사실 아냐' 반박을 앞세움 (2026-09-30)
+  14:07 (+177분) [「‘李 선관위 수사 상황 보고 받아' 주진우 주장에... 靑 “사실과 달라...」](https://biz.chosun.com/policy/politics/president_office/2026/09/30/5N5RBIXTNBFN3MLDJDQJLUS7ZQ/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-09-29-이재명-DMZ-지뢰사고-진상조사-음모론-경계]] — '음모론'을 앞세움 (2026-09-29)
   10:16 (+3분) [「李대통령 “지뢰 사고 ‘음모론’ 부추겨 국가안보 위태롭게 하는 일 없...」](https://biz.chosun.com/policy/politics/president_office/2026/09/29/SKBMJNI2C5ADZGLZP3TS4ZPOCY/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-09-29-이재명-광주-군공항-이전-일정-재검토]] — '이전 시점'을 앞당기라고 주문함 (2026-09-29)
@@ -55,20 +68,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 20건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 25건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 8건 | 18건 |
-| [[outlets/mk|매일경제]] | 8건 | 16건 |
-| [[outlets/sbs|SBS]] | 7건 | 19건 |
-| [[outlets/hankyung|한국경제]] | 7건 | 16건 |
-| [[outlets/yna|연합뉴스]] | 6건 | 20건 |
-| [[outlets/khan|경향신문]] | 6건 | 19건 |
-| [[outlets/joongang|중앙일보]] | 6건 | 19건 |
-| [[outlets/segye|세계일보]] | 6건 | 18건 |
-| [[outlets/kmib|국민일보]] | 6건 | 17건 |
-| [[outlets/pressian|프레시안]] | 6건 | 13건 |
+| [[outlets/newsis|뉴시스]] | 11건 | 23건 |
+| [[outlets/mk|매일경제]] | 9건 | 21건 |
+| [[outlets/joongang|중앙일보]] | 8건 | 24건 |
+| [[outlets/segye|세계일보]] | 8건 | 23건 |
+| [[outlets/kmib|국민일보]] | 8건 | 22건 |
+| [[outlets/donga|동아일보]] | 8건 | 22건 |
+| [[outlets/sbs|SBS]] | 8건 | 22건 |
+| [[outlets/yna|연합뉴스]] | 7건 | 25건 |
+| [[outlets/jtbc|JTBC]] | 7건 | 21건 |
+| [[outlets/hankyung|한국경제]] | 7건 | 20건 |
 
 이 밖에 14곳이 더 있다.
 

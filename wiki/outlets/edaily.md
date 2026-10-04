@@ -4,13 +4,27 @@
 
 ## 관찰 기록
 
-- 관찰 사건 22건 중 18건 보도 · 미보도 4건
+- 관찰 사건 30건 중 24건 보도 · 미보도 6건
 - 평균 보도 지연 +154분 (2시간 34분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-04-우크라-전직-장교-이재명-대통령-위협-발언-비판]] — **보도하지 않음** (2026-10-04)
+- [[events/2026-10-03-이재명-정청래-동지-언급]] — ‘함께 싸운 동지’를 앞세움 (2026-10-03)
+  09:49 (+547분) [「李대통령 “정청래와 ‘내란의 밤’ 함께 싸운 동지…오해 마시길”」](https://www.edaily.co.kr/News/Read?newsId=01836806645609312&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-03-이재명-복지급여-신청주의-개선]] — ‘신청 안 해도 국가가 챙긴다’를 앞세움 (2026-10-03)
+  10:49 (+21분) [「이 대통령 “아동수당·복지급여, 신청 안 해도 국가가 먼저 챙긴다”」](https://www.edaily.co.kr/News/Read?newsId=01892566645609312&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-02-이재명-우크라이나-공개사과-추가조치]] — ‘전쟁 발발·남북 충돌·북한 포로 공개·유감’을 함께 실음 (2026-10-02)
+  11:05 (+22분) [「李 “북한 포로 송환 합의 어기고 남북 충돌 운운…우크라, 사과 없으면...」](https://www.edaily.co.kr/News/Read?newsId=03444006645608984&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-01-이재명-국군의-날-자주국방-강조]] — ‘자주국방·대체불가 국군·전작권 환수’를 앞세움 (2026-10-01)
+  10:39 (+39분) [「[속보] 李 "전작권 환수로 반세기 동안 이어져 온 자주국방 꿈 실현할 것...」](https://www.edaily.co.kr/News/Read?newsId=03260326645608656&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-01-이재명-정청래-청와대-만찬]] — **보도하지 않음** (2026-10-01)
+- [[events/2026-10-01-이재명-SNS-국정성과-좌아하게-참여-요청]] — ‘무슨 뜻·우 대신 좌·오타·표현·댓글’을 앞세움 (2026-10-01)
+  12:09 (+134분) [「“좌아하게” 이 대통령이 쓴 말, 무슨 뜻? …댓글창 ‘떠들썩’」](https://www.edaily.co.kr/News/Read?newsId=03742486645608656&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-30-이재명-SNS-국민-직접-소통]] — **보도하지 않음** (2026-09-30)
+- [[events/2026-09-30-이재명-SNS-대외비-문건-공개-논란]] — 한동훈의 '내가 졌다' 반응을 앞세움 (2026-09-30)
+  13:57 (+167분) [「한동훈, 이 대통령 SNS 공유하며 “내가 졌다”…왜」](https://www.edaily.co.kr/News/Read?newsId=03975366645585368&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-29-이재명-DMZ-지뢰사고-진상조사-음모론-경계]] — '철저·신속 조사'를 앞세움 (2026-09-29)
   10:23 (+10분) [「[속보] 李대통령 “지뢰사고 철저히 조사…진상 따라 필요한 조치 해야...」](https://www.edaily.co.kr/News/Read?newsId=03220966645585040&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-09-29-이재명-광주-군공항-이전-일정-재검토]] — '2028년 중순' 일정을 늦다고 표현함 (2026-09-29)
@@ -53,20 +67,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 18건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 24건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 10건 | 16건 |
-| [[outlets/sbs|SBS]] | 9건 | 17건 |
-| [[outlets/yna|연합뉴스]] | 8건 | 17건 |
-| [[outlets/mbc|MBC]] | 8건 | 17건 |
-| [[outlets/news1|뉴스1]] | 8건 | 15건 |
-| [[outlets/hani|한겨레]] | 8건 | 15건 |
-| [[outlets/seoul|서울신문]] | 7건 | 15건 |
-| [[outlets/munhwa|문화일보]] | 7건 | 13건 |
-| [[outlets/joongang|중앙일보]] | 6건 | 18건 |
-| [[outlets/mk|매일경제]] | 6건 | 16건 |
+| [[outlets/newsis|뉴시스]] | 13건 | 22건 |
+| [[outlets/news1|뉴스1]] | 11건 | 21건 |
+| [[outlets/sbs|SBS]] | 11건 | 21건 |
+| [[outlets/yna|연합뉴스]] | 10건 | 22건 |
+| [[outlets/hani|한겨레]] | 9건 | 19건 |
+| [[outlets/munhwa|문화일보]] | 9건 | 17건 |
+| [[outlets/mk|매일경제]] | 8건 | 21건 |
+| [[outlets/mt|머니투데이]] | 8건 | 20건 |
+| [[outlets/kbs|KBS]] | 8건 | 19건 |
+| [[outlets/mbc|MBC]] | 8건 | 19건 |
 
 이 밖에 14곳이 더 있다.
 

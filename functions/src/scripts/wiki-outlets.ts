@@ -20,6 +20,7 @@ import { join } from "node:path";
 import { EVENTS, ITEMS, db } from "../firebase";
 import type { EventDoc, ItemDoc, SourceDoc } from "../domain";
 import { loadSources } from "../curate/events";
+import { loadLocalEnv } from "../env";
 
 const REPO_ROOT = join(__dirname, "..", "..", "..");
 const OUT_DIR = join(REPO_ROOT, "wiki", "outlets");
@@ -357,12 +358,13 @@ function renderClusters(
 }
 
 async function main(): Promise<void> {
+  loadLocalEnv();
   const [sources, eventsSnap, itemsSnap] = await Promise.all([
     loadSources(),
     // 발행분만 본다. 초안은 아직 사람이 검토하지 않은 판정이라 위키에 나가면 안 된다 —
     // 사이트(src/lib/events-source.ts)도 같은 조건으로 읽는다.
     db.collection(EVENTS).where("status", "==", "published").get(),
-    db.collection(ITEMS).get(),
+    db.collection(ITEMS).where("eventId", "!=", null).get(),
   ]);
 
   const events = eventsSnap.docs.map((d) => d.data() as EventDoc);

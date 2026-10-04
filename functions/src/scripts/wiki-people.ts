@@ -33,6 +33,7 @@ import { join } from "node:path";
 import { EVENTS, ITEMS, db } from "../firebase";
 import type { EventDoc, ItemDoc } from "../domain";
 import { loadSources } from "../curate/events";
+import { loadLocalEnv } from "../env";
 
 const REPO_ROOT = join(__dirname, "..", "..", "..");
 const PEOPLE_DIR = join(REPO_ROOT, "wiki", "people");
@@ -99,6 +100,7 @@ const mentions = (title: string, aliases: string[]): boolean => {
 };
 
 async function main(): Promise<void> {
+  loadLocalEnv();
   const people = readPeople();
   const missing = people.filter((p) => !/<!--\s*generated:events\s*-->/.test(p.text));
   if (missing.length > 0) {
@@ -110,7 +112,7 @@ async function main(): Promise<void> {
   const [sources, eventsSnap, itemsSnap] = await Promise.all([
     loadSources(),
     db.collection(EVENTS).where("status", "==", "published").get(),
-    db.collection(ITEMS).get(),
+    db.collection(ITEMS).where("eventId", "!=", null).get(),
   ]);
 
   const outletNames = new Map(sources.map((s) => [s.id, s.name] as const));

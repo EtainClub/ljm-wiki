@@ -4,13 +4,25 @@
 
 ## 관찰 기록
 
-- 관찰 사건 22건 중 16건 보도 · 미보도 6건
-- 평균 보도 지연 +285분 (4시간 45분)
+- 관찰 사건 30건 중 20건 보도 · 미보도 10건
+- 평균 보도 지연 +287분 (4시간 47분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-04-우크라-전직-장교-이재명-대통령-위협-발언-비판]] — **보도하지 않음** (2026-10-04)
+- [[events/2026-10-03-이재명-정청래-동지-언급]] — ‘괴롭힌 것 아니다·바른 시각’을 앞세움 (2026-10-03)
+  10:01 (+559분) [「'정청래 그만 괴롭히라'는 글에... 이 대통령 "바른 시각으로"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003272365&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-03-이재명-복지급여-신청주의-개선]] — **보도하지 않음** (2026-10-03)
+- [[events/2026-10-02-이재명-우크라이나-공개사과-추가조치]] — ‘공개사과 거부·추가조치’를 앞세움 (2026-10-02)
+  11:24 (+41분) [「이 대통령 "우크라이나, 공개사과 거부하면 추가조치"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003272152)
+- [[events/2026-10-01-이재명-국군의-날-자주국방-강조]] — ‘자주국방·대체불가 국군·전작권 환수’를 앞세움 (2026-10-01)
+  11:21 (+81분) [「박정희의 첫 삽, 노무현의 꿈 말한 이 대통령 "자주국방이 곧 주권"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003271803&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-01-이재명-정청래-청와대-만찬]] — **보도하지 않음** (2026-10-01)
+- [[events/2026-10-01-이재명-SNS-국정성과-좌아하게-참여-요청]] — ‘무슨 뜻·우 대신 좌·오타·표현·댓글’을 앞세움 (2026-10-01)
+  18:11 (+496분) [「"좌아하게 함께해 달라"? 처음 본 대통령의 표현」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003271952&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-09-30-이재명-SNS-국민-직접-소통]] — **보도하지 않음** (2026-09-30)
+- [[events/2026-09-30-이재명-SNS-대외비-문건-공개-논란]] — **보도하지 않음** (2026-09-30)
 - [[events/2026-09-29-이재명-DMZ-지뢰사고-진상조사-음모론-경계]] — '진상'·'필요 조치'를 앞세움 (2026-09-29)
   11:06 (+53분) [「"지뢰사고 진상 따라 조치" 이 대통령, 국힘에도 한마디」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003271162&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-09-29-이재명-광주-군공항-이전-일정-재검토]] — **보도하지 않음** (2026-09-29)
@@ -51,20 +63,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 16건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 20건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 9건 | 15건 |
-| [[outlets/segye|세계일보]] | 8건 | 15건 |
-| [[outlets/sbs|SBS]] | 7건 | 15건 |
-| [[outlets/mediatoday|미디어오늘]] | 7건 | 11건 |
-| [[outlets/joongang|중앙일보]] | 6건 | 16건 |
-| [[outlets/khan|경향신문]] | 6건 | 15건 |
-| [[outlets/kmib|국민일보]] | 6건 | 15건 |
-| [[outlets/edaily|이데일리]] | 5건 | 16건 |
-| [[outlets/chosun|조선일보]] | 5건 | 15건 |
-| [[outlets/hankyung|한국경제]] | 5건 | 15건 |
+| [[outlets/mk|매일경제]] | 12건 | 19건 |
+| [[outlets/segye|세계일보]] | 10건 | 19건 |
+| [[outlets/khan|경향신문]] | 8건 | 18건 |
+| [[outlets/kmib|국민일보]] | 8건 | 18건 |
+| [[outlets/edaily|이데일리]] | 7건 | 20건 |
+| [[outlets/joongang|중앙일보]] | 7건 | 19건 |
+| [[outlets/news1|뉴스1]] | 7건 | 17건 |
+| [[outlets/sbs|SBS]] | 7건 | 17건 |
+| [[outlets/kbs|KBS]] | 7건 | 16건 |
+| [[outlets/ytn|YTN]] | 7건 | 14건 |
 
 이 밖에 13곳이 더 있다.
 

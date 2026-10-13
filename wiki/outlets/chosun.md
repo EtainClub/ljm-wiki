@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 55건 중 39건 보도 · 미보도 16건
-- 평균 보도 지연 +81분 (1시간 21분)
+- 관찰 사건 57건 중 41건 보도 · 미보도 16건
+- 평균 보도 지연 +80분 (1시간 20분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-13-이재명-수사공소-기관장-국무회의-참석-발언]] — '헌법상 당연·옳은 일'을 앞세움 (2026-10-13)
+  11:02 (+62분) [「李, 사정기관장 국무회의 배석 논란에 “헌법상 당연”」](https://www.chosun.com/politics/politics_general/2026/10/13/JLS2ADTKSBBMBJH67GVETE6S3A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
+- [[events/2026-10-13-이재명-북극항로-환영식-해양수도권-지원]] — '귀항·환영식·남부 해양수도권 지원'을 앞세움 (2026-10-13)
+  15:37 (+37분) [「李, 북극항로 띄우며 “부산·울산·경남 연결해 전폭 지원”… 동남권...」](https://biz.chosun.com/policy/politics/president_office/2026/10/13/2LEFV2ZDUFFVTFEWPPSI7NQWJY/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-12-이재명-리얼미터-지지율-발표]] — 민주·국힘 지지도·역전을 함께 앞세움 (2026-10-12)
   08:37 (+37분) [「李 지지율 35.2%, 2주 연속 하락…민주 35.5% 국힘 41.3% [리얼미터]」](https://biz.chosun.com/policy/politics/assembly/2026/10/12/ACJL6DJ4SBCQRAFUU55CJDABBM/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-12-이재명-중금속-주사-엄중대처]] — 엄중 대응·엄중 조치·엄벌을 앞세움 (2026-10-12)
@@ -107,20 +111,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 39건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 41건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 15건 | 37건 |
-| [[outlets/donga|동아일보]] | 14건 | 32건 |
-| [[outlets/yna|연합뉴스]] | 13건 | 39건 |
-| [[outlets/joongang|중앙일보]] | 13건 | 35건 |
-| [[outlets/segye|세계일보]] | 13건 | 33건 |
-| [[outlets/sbs|SBS]] | 12건 | 34건 |
-| [[outlets/news1|뉴스1]] | 11건 | 37건 |
-| [[outlets/mt|머니투데이]] | 11건 | 35건 |
-| [[outlets/khan|경향신문]] | 11건 | 34건 |
-| [[outlets/mk|매일경제]] | 11건 | 34건 |
+| [[outlets/newsis|뉴시스]] | 17건 | 39건 |
+| [[outlets/yna|연합뉴스]] | 15건 | 41건 |
+| [[outlets/donga|동아일보]] | 15건 | 33건 |
+| [[outlets/sbs|SBS]] | 14건 | 36건 |
+| [[outlets/joongang|중앙일보]] | 13건 | 36건 |
+| [[outlets/segye|세계일보]] | 13건 | 35건 |
+| [[outlets/ytn|YTN]] | 13건 | 31건 |
+| [[outlets/news1|뉴스1]] | 12건 | 39건 |
+| [[outlets/pressian|프레시안]] | 12건 | 28건 |
+| [[outlets/mt|머니투데이]] | 11건 | 37건 |
 
 이 밖에 14곳이 더 있다.
 

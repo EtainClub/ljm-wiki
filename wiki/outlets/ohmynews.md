@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 55건 중 31건 보도 · 미보도 24건
-- 평균 보도 지연 +239분 (3시간 59분)
+- 관찰 사건 57건 중 33건 보도 · 미보도 24건
+- 평균 보도 지연 +231분 (3시간 51분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-13-이재명-수사공소-기관장-국무회의-참석-발언]] — '왜 국무회의에·답하다'를 앞세움 (2026-10-13)
+  12:26 (+146분) [「'중수청·공소청이 왜 국무회의에?' 대통령, 답하다」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003274859&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-13-이재명-북극항로-환영식-해양수도권-지원]] — '생명길·위기 때 선택지'를 앞세움 (2026-10-13)
+  16:06 (+66분) [「꽃목걸이 든 이 대통령 "북극항로, 위기 때 기댈 또 하나의 선택지"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003274954&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-10-12-이재명-리얼미터-지지율-발표]] — **보도하지 않음** (2026-10-12)
 - [[events/2026-10-12-이재명-중금속-주사-엄중대처]] — 용납 못해·용납할 수·질타를 앞세움 (2026-10-12)
   15:21 (+101분) [「비타민 주사라더니 납 배출? 이 대통령의 질타」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003274586&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
@@ -99,20 +103,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 31건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 33건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 15건 | 30건 |
-| [[outlets/segye|세계일보]] | 15건 | 27건 |
-| [[outlets/kmib|국민일보]] | 13건 | 28건 |
-| [[outlets/news1|뉴스1]] | 12건 | 28건 |
-| [[outlets/kbs|KBS]] | 12건 | 27건 |
-| [[outlets/sbs|SBS]] | 12건 | 27건 |
-| [[outlets/joongang|중앙일보]] | 11건 | 29건 |
-| [[outlets/khan|경향신문]] | 11건 | 27건 |
-| [[outlets/ytn|YTN]] | 11건 | 25건 |
-| [[outlets/yna|연합뉴스]] | 10건 | 30건 |
+| [[outlets/mk|매일경제]] | 16건 | 31건 |
+| [[outlets/segye|세계일보]] | 16건 | 29건 |
+| [[outlets/kmib|국민일보]] | 13건 | 29건 |
+| [[outlets/news1|뉴스1]] | 12건 | 30건 |
+| [[outlets/kbs|KBS]] | 12건 | 29건 |
+| [[outlets/sbs|SBS]] | 12건 | 29건 |
+| [[outlets/khan|경향신문]] | 12건 | 28건 |
+| [[outlets/joongang|중앙일보]] | 11건 | 30건 |
+| [[outlets/ytn|YTN]] | 11건 | 27건 |
+| [[outlets/yna|연합뉴스]] | 10건 | 32건 |
 
 이 밖에 14곳이 더 있다.
 

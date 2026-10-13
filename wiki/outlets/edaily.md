@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 55건 중 37건 보도 · 미보도 18건
-- 평균 보도 지연 +126분 (2시간 6분)
+- 관찰 사건 57건 중 39건 보도 · 미보도 18건
+- 평균 보도 지연 +123분 (2시간 3분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-13-이재명-수사공소-기관장-국무회의-참석-발언]] — '헌법상 당연·옳은 일'을 앞세움 (2026-10-13)
+  11:24 (+84분) [「李 “수사기관장 국무회의 참석, 헌법·정부조직법상 당연한 일”」](https://www.edaily.co.kr/News/Read?newsId=02827366645612592&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-13-이재명-북극항로-환영식-해양수도권-지원]] — '생명길·위기 때 선택지'를 앞세움 (2026-10-13)
+  15:51 (+51분) [「李 “북극항로는 또 하나의 생명길…부산·동남권 미래 함께 열 것”」](https://www.edaily.co.kr/News/Read?newsId=03693286645612592&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-12-이재명-리얼미터-지지율-발표]] — 민주·국힘 지지도·역전을 함께 앞세움 (2026-10-12)
   08:28 (+28분) [「李 지지율 35.2%로 뚝…민주당 7%p 급락 "국힘에 역전당했다”」](https://www.edaily.co.kr/News/Read?newsId=02112326645612264&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-12-이재명-중금속-주사-엄중대처]] — 중대한 인권침해·인권 침해를 앞세움 (2026-10-12)
@@ -105,20 +109,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 37건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 39건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 18건 | 35건 |
-| [[outlets/news1|뉴스1]] | 17건 | 34건 |
-| [[outlets/mt|머니투데이]] | 16건 | 33건 |
-| [[outlets/sbs|SBS]] | 15건 | 31건 |
-| [[outlets/yna|연합뉴스]] | 14건 | 35건 |
-| [[outlets/hani|한겨레]] | 13건 | 29건 |
-| [[outlets/mbc|MBC]] | 12건 | 31건 |
+| [[outlets/newsis|뉴시스]] | 19건 | 37건 |
+| [[outlets/news1|뉴스1]] | 17건 | 36건 |
+| [[outlets/mt|머니투데이]] | 16건 | 35건 |
+| [[outlets/sbs|SBS]] | 16건 | 33건 |
+| [[outlets/yna|연합뉴스]] | 15건 | 37건 |
+| [[outlets/mbc|MBC]] | 14건 | 33건 |
+| [[outlets/hani|한겨레]] | 13건 | 31건 |
+| [[outlets/mk|매일경제]] | 12건 | 34건 |
 | [[outlets/munhwa|문화일보]] | 12건 | 22건 |
-| [[outlets/mk|매일경제]] | 11건 | 33건 |
-| [[outlets/kbs|KBS]] | 11건 | 29건 |
+| [[outlets/kbs|KBS]] | 11건 | 31건 |
 
 이 밖에 14곳이 더 있다.
 

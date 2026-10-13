@@ -9,11 +9,14 @@ set -euo pipefail
 
 list="$1"
 
+# 대기열 전체에서 같은 TypeScript 빌드를 반복하지 않는다.
+npm --prefix functions run build
+
 while read -r marker event_id; do
   rm -f "$marker"
-  npm --prefix functions run export:sources -- --event "$event_id"
+  node functions/lib/scripts/export-sources.js --event "$event_id"
 done < "$list"
 
-npm --prefix functions run wiki:people
-npm --prefix functions run wiki:outlets
-npm --prefix functions run wiki:lint
+node functions/lib/scripts/wiki-people.js
+node functions/lib/scripts/wiki-outlets.js
+node functions/lib/scripts/wiki-lint.js

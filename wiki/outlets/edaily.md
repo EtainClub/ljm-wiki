@@ -4,12 +4,50 @@
 
 ## 관찰 기록
 
-- 관찰 사건 30건 중 24건 보도 · 미보도 6건
-- 평균 보도 지연 +154분 (2시간 34분)
+- 관찰 사건 55건 중 37건 보도 · 미보도 18건
+- 평균 보도 지연 +126분 (2시간 6분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-12-이재명-리얼미터-지지율-발표]] — 민주·국힘 지지도·역전을 함께 앞세움 (2026-10-12)
+  08:28 (+28분) [「李 지지율 35.2%로 뚝…민주당 7%p 급락 "국힘에 역전당했다”」](https://www.edaily.co.kr/News/Read?newsId=02112326645612264&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-12-이재명-중금속-주사-엄중대처]] — 중대한 인권침해·인권 침해를 앞세움 (2026-10-12)
+  13:46 (+6분) [「비타민이라더니 납 빼는 주사…李대통령 격노 “중대한 인권침해”」](https://www.edaily.co.kr/News/Read?newsId=03191446645612264&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-11-청와대-골프장-대구사고-수습-해명]] — 비공개 일정·정치적 공방 유감을 앞세움 (2026-10-11)
+  14:15 (+22분) [「李대통령, 가족과 태릉 골프장 방문…靑 “정치공방 활용 유감”」](https://www.edaily.co.kr/News/Read?newsId=01918806645611936&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-11-이재명-욕설계정-차단-비판-반박]] — **보도하지 않음** (2026-10-11)
+- [[events/2026-10-10-안철수-북한지뢰-대통령-대응-비판]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-10-이재명-해외-불법사이트-물리적-폐쇄]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-10-이재명-대구-천장붕괴-구조-지시]] — '인명 구조'·'인명구조'·'구조 총력'을 앞세움 (2026-10-10)
+  12:52 (+35분) [「대구서 천장 붕괴 사고에…李 "인명 구조에 총력"」](https://www.edaily.co.kr/News/Read?newsId=01882726645611608&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-10-이재명-비난에도-SNS-소통-지속]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-09-이재명-한글날-100주년-메시지]] — '글은 나라의 얼굴'을 앞세움 (2026-10-09)
+  09:38 (+10분) [「李 “글은 나라의 얼굴, 말은 나라의 심장”…한글날 580돌 경축」](https://www.edaily.co.kr/News/Read?newsId=01761366645611280&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-09-이재명-큰자리-요구-내부공격-발언]] — '내부 공격'·'내부공격'을 앞세움 (2026-10-09)
+  13:48 (+75분) [「“개혁 명분으로 내부공격”…李 대통령, 강경파 작심 비판」](https://www.edaily.co.kr/News/Read?newsId=02164806645611280&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-08-이재명-한이집트-CEPA-협상-개시-관계-격상]] — 'CEPA'·'경제협정 협상 개시'를 앞세움 (2026-10-08)
+  14:56 (+161분) [「韓 기술·이집트 입지 묶는다…CEPA로 중동·아프리카 진출 발판」](https://www.edaily.co.kr/News/Read?newsId=03988486645610952&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-08-김지용-중수청-수사의-정치화-청산]] — '수사의 정치화'·'정치 수사 청산'을 앞세움 (2026-10-08)
+  14:02 (+2분) [「[속보]김지용 중수청장 후보자 “수사의 정치화 청산하겠다”」](https://www.edaily.co.kr/News/Read?newsId=03762166645610952&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-08-이재명-한·이집트-정상회담-예정]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-08-이재명-통일교육-교재-대책-마련-지시]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-08-이재명-한이집트-정상오찬-카이로-발언]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-07-이재명-민단-80주년-초청-간담회]] — 80년 역사·불편 없도록 지원을 앞세움 (2026-10-07)
+  14:27 (+327분) [「李 “민단 80년 역사 잊지 않을 것…동포들 불편 없도록 지원”」](https://www.edaily.co.kr/News/Read?newsId=04070486645610624&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-07-이재명-이집트-대통령-국빈-방한-환영]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-07-이재명-누리호-발사-시청-후속-당부]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-07-이재명-녹색대전환-설계자-선도자-강조]] — 핵심 기술·시장 선점·지역 활용·투자를 앞세움 (2026-10-07)
+  15:12 (+72분) [「李 “녹색시장 판 짜야”…정부 1000조 지원·최태원 “220조 투자”」](https://www.edaily.co.kr/News/Read?newsId=04231206645610624&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-06-이재명-박진영-국감-출석-예우-발언]] — 감사·사과를 앞세움 (2026-10-06)
+  17:10 (+161분) [「"국민 대신해 감사"...李대통령, 박진영에 '사과'한 이유」](https://www.edaily.co.kr/News/Read?newsId=04762566645610296&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-06-이재명-중수청-엄정-철저-수사-당부]] — **보도하지 않음** (2026-10-06)
+- [[events/2026-10-06-이재명-CPTPP-원점-대화-지시]] — CPTPP 재검토를 앞세움 (2026-10-06)
+  17:14 (+63분) [「농지조사에 성난 농심 달래기 나선 李... CPTPP 재검토, 태양광 소득 꺼...」](https://www.edaily.co.kr/News/Read?newsId=04785526645610296&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-05-이재명-부동산-투기공화국-탈출-약속]] — **보도하지 않음** (2026-10-05)
+- [[events/2026-10-04-이재명-무책임한-극단주의-경계]] — **보도하지 않음** (2026-10-04)
+- [[events/2026-10-04-이재명-10·4-남북정상선언-축사]] — '적대와 대결 악순환'과 '평화'를 앞세움 (2026-10-04)
+  16:12 (+0분) [「李대통령 "적대와 대결 악순환 끊어야 평화와 번영 선순환"」](https://www.edaily.co.kr/News/Read?newsId=01659686645609640&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-04-우크라-전직-장교-이재명-대통령-위협-발언-비판]] — **보도하지 않음** (2026-10-04)
 - [[events/2026-10-03-이재명-정청래-동지-언급]] — ‘함께 싸운 동지’를 앞세움 (2026-10-03)
   09:49 (+547분) [「李대통령 “정청래와 ‘내란의 밤’ 함께 싸운 동지…오해 마시길”」](https://www.edaily.co.kr/News/Read?newsId=01836806645609312&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
@@ -67,20 +105,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 24건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 37건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 13건 | 22건 |
-| [[outlets/news1|뉴스1]] | 11건 | 21건 |
-| [[outlets/sbs|SBS]] | 11건 | 21건 |
-| [[outlets/yna|연합뉴스]] | 10건 | 22건 |
-| [[outlets/hani|한겨레]] | 9건 | 19건 |
-| [[outlets/munhwa|문화일보]] | 9건 | 17건 |
-| [[outlets/mk|매일경제]] | 8건 | 21건 |
-| [[outlets/mt|머니투데이]] | 8건 | 20건 |
-| [[outlets/kbs|KBS]] | 8건 | 19건 |
-| [[outlets/mbc|MBC]] | 8건 | 19건 |
+| [[outlets/newsis|뉴시스]] | 18건 | 35건 |
+| [[outlets/news1|뉴스1]] | 17건 | 34건 |
+| [[outlets/mt|머니투데이]] | 16건 | 33건 |
+| [[outlets/sbs|SBS]] | 15건 | 31건 |
+| [[outlets/yna|연합뉴스]] | 14건 | 35건 |
+| [[outlets/hani|한겨레]] | 13건 | 29건 |
+| [[outlets/mbc|MBC]] | 12건 | 31건 |
+| [[outlets/munhwa|문화일보]] | 12건 | 22건 |
+| [[outlets/mk|매일경제]] | 11건 | 33건 |
+| [[outlets/kbs|KBS]] | 11건 | 29건 |
 
 이 밖에 14곳이 더 있다.
 

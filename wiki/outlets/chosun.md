@@ -4,12 +4,51 @@
 
 ## 관찰 기록
 
-- 관찰 사건 30건 중 25건 보도 · 미보도 5건
-- 평균 보도 지연 +76분 (1시간 16분)
+- 관찰 사건 55건 중 39건 보도 · 미보도 16건
+- 평균 보도 지연 +81분 (1시간 21분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-12-이재명-리얼미터-지지율-발표]] — 민주·국힘 지지도·역전을 함께 앞세움 (2026-10-12)
+  08:37 (+37분) [「李 지지율 35.2%, 2주 연속 하락…민주 35.5% 국힘 41.3% [리얼미터]」](https://biz.chosun.com/policy/politics/assembly/2026/10/12/ACJL6DJ4SBCQRAFUU55CJDABBM/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-10-12-이재명-중금속-주사-엄중대처]] — 엄중 대응·엄중 조치·엄벌을 앞세움 (2026-10-12)
+  13:41 (+1분) [「李, 공장 노동자 ‘중금속 배출 주사’ 기업에 “엄중 대응” 지시」](https://www.chosun.com/politics/blue_house/2026/10/12/BFZT2J7L4NHN5P53YXVFYLTMOA/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
+- [[events/2026-10-11-청와대-골프장-대구사고-수습-해명]] — 골프장서 대구 사고 보고·수습 지시를 앞세움 (2026-10-11)
+  14:01 (+8분) [「靑 “李대통령, 가족과 골프... 대구 붕괴사고 보고 받고 지시"」](https://www.chosun.com/politics/politics_general/2026/10/11/CHDQASGW6NCWVGYE2GX22Q6OKE/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
+- [[events/2026-10-11-이재명-욕설계정-차단-비판-반박]] — 폭언·욕설·악성 댓글·차단을 앞세움 (2026-10-11)
+  10:42 (+16분) [「李대통령 “남의집 마당에서 폭언 욕설하는 무뢰배는 내치는 게 당연”」](https://www.chosun.com/politics/politics_general/2026/10/11/Q6PIV4UGKFGRRMIIUJRLW43S2M/)
+- [[events/2026-10-10-안철수-북한지뢰-대통령-대응-비판]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-10-이재명-해외-불법사이트-물리적-폐쇄]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-10-이재명-대구-천장붕괴-구조-지시]] — '인명 구조'·'인명구조'·'구조 총력'을 앞세움 (2026-10-10)
+  12:23 (+6분) [「李대통령, 대구 마트 천장 붕괴에 “인명 구조 총력” 지시」](https://www.chosun.com/politics/blue_house/2026/10/10/4AJ6AZKRJJFVVMIAV2YEI5V4AM/)
+- [[events/2026-10-10-이재명-비난에도-SNS-소통-지속]] — 품격·비난에도 SNS 소통 계속을 앞세움 (2026-10-10)
+  23:27 (+42분) [「李 대통령 “품격 없다 비난해도 SNS 소통 계속할 것”」](https://www.chosun.com/economy/economy_general/2026/10/10/GBTDMZDBHA4GKYJUMU3DQZJTHE/)
+- [[events/2026-10-09-이재명-한글날-100주년-메시지]] — '글은 나라의 얼굴'을 앞세움 (2026-10-09)
+  09:55 (+27분) [「李대통령 “글은 나라의 얼굴, 말은 나라의 심장… 100주년 한글날 경축"」](https://www.chosun.com/economy/economy_general/2026/10/09/MYYDMN3FHBTGMOJTMNRDSN3BMM/)
+- [[events/2026-10-09-이재명-큰자리-요구-내부공격-발언]] — '큰 자리'·'큰자리'를 앞세움 (2026-10-09)
+  12:56 (+23분) [「李대통령, 與강경파 겨냥 “능력도 안 되면서 큰 자리 요구하며 내부 공격”」](https://www.chosun.com/politics/politics_general/2026/10/09/LLZYJHHOUZDNFMA2E3YGNHYKUI/)
+- [[events/2026-10-08-이재명-한이집트-CEPA-협상-개시-관계-격상]] — '무역협정 협상 개시'를 앞세움 (2026-10-08)
+  15:38 (+204분) [「한·이집트, 무역협정 협상 개시 선언… 북아프리카 국가와 처음」](https://www.chosun.com/economy/industry-company/2026/10/08/VHMXFQIVKRE5RGDFGRIDFMF4UE/)
+- [[events/2026-10-08-김지용-중수청-수사의-정치화-청산]] — '내란 범죄 척결'을 앞세움 (2026-10-08)
+  14:05 (+5분) [「김지용 중수청장 후보자 “내란 범죄 척결… 국가 기강 확립”」](https://www.chosun.com/national/national_general/2026/10/08/C4VPC5JEGREYFO63GTSIGRB3KQ/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
+- [[events/2026-10-08-이재명-한·이집트-정상회담-예정]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-08-이재명-통일교육-교재-대책-마련-지시]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-08-이재명-한이집트-정상오찬-카이로-발언]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-07-이재명-민단-80주년-초청-간담회]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-07-이재명-이집트-대통령-국빈-방한-환영]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-07-이재명-누리호-발사-시청-후속-당부]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-07-이재명-녹색대전환-설계자-선도자-강조]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-06-이재명-박진영-국감-출석-예우-발언]] — 더 뛰어 달라를 함께 실음 (2026-10-06)
+  18:56 (+267분) [「李대통령, 박진영 국감 출석에 “염치없지만 섭섭하더라도 조금 더 뛰어...」](https://www.chosun.com/politics/blue_house/2026/10/06/6E6JQ2K22VBFDGRLA3FQMQSMAI/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
+- [[events/2026-10-06-이재명-중수청-엄정-철저-수사-당부]] — **보도하지 않음** (2026-10-06)
+- [[events/2026-10-06-이재명-CPTPP-원점-대화-지시]] — **보도하지 않음** (2026-10-06)
+- [[events/2026-10-05-이재명-부동산-투기공화국-탈출-약속]] — 집값·부동산 정책을 앞세움 (2026-10-05)
+  16:27 (+39분) [「李 “집값 반드시 잡겠다”... 책임은 尹정부에 돌려」](https://www.chosun.com/politics/blue_house/2026/10/05/VF4CMCGIW5EIPMH3QTCNCSUBGI/)
+- [[events/2026-10-04-이재명-무책임한-극단주의-경계]] — 이기심을 앞세움 (2026-10-04)
+  09:51 (+593분) [「李 “좌든 우든 극단주의 경계해야... 과격 주장, 이기심서 비롯돼”」](https://www.chosun.com/politics/blue_house/2026/10/05/6GCGPPP25BCS3DBZ7UL3HYVJSY/)
+- [[events/2026-10-04-이재명-10·4-남북정상선언-축사]] — '10·4' 선언으로 '돌아가야'를 앞세움 (2026-10-04)
+  16:14 (+2분) [「李 “10·4 남북정상선언 정신으로 돌아가자”」](https://www.chosun.com/politics/north_korea/2026/10/04/UXTOCXSVLNGKTKSZGRNUNFRSQE/)
 - [[events/2026-10-04-우크라-전직-장교-이재명-대통령-위협-발언-비판]] — **보도하지 않음** (2026-10-04)
 - [[events/2026-10-03-이재명-정청래-동지-언급]] — **보도하지 않음** (2026-10-03)
 - [[events/2026-10-03-이재명-복지급여-신청주의-개선]] — **보도하지 않음** (2026-10-03)
@@ -68,20 +107,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 25건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 39건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 11건 | 23건 |
-| [[outlets/mk|매일경제]] | 9건 | 21건 |
-| [[outlets/joongang|중앙일보]] | 8건 | 24건 |
-| [[outlets/segye|세계일보]] | 8건 | 23건 |
-| [[outlets/kmib|국민일보]] | 8건 | 22건 |
-| [[outlets/donga|동아일보]] | 8건 | 22건 |
-| [[outlets/sbs|SBS]] | 8건 | 22건 |
-| [[outlets/yna|연합뉴스]] | 7건 | 25건 |
-| [[outlets/jtbc|JTBC]] | 7건 | 21건 |
-| [[outlets/hankyung|한국경제]] | 7건 | 20건 |
+| [[outlets/newsis|뉴시스]] | 15건 | 37건 |
+| [[outlets/donga|동아일보]] | 14건 | 32건 |
+| [[outlets/yna|연합뉴스]] | 13건 | 39건 |
+| [[outlets/joongang|중앙일보]] | 13건 | 35건 |
+| [[outlets/segye|세계일보]] | 13건 | 33건 |
+| [[outlets/sbs|SBS]] | 12건 | 34건 |
+| [[outlets/news1|뉴스1]] | 11건 | 37건 |
+| [[outlets/mt|머니투데이]] | 11건 | 35건 |
+| [[outlets/khan|경향신문]] | 11건 | 34건 |
+| [[outlets/mk|매일경제]] | 11건 | 34건 |
 
 이 밖에 14곳이 더 있다.
 

@@ -4,12 +4,48 @@
 
 ## 관찰 기록
 
-- 관찰 사건 30건 중 20건 보도 · 미보도 10건
-- 평균 보도 지연 +287분 (4시간 47분)
+- 관찰 사건 55건 중 31건 보도 · 미보도 24건
+- 평균 보도 지연 +239분 (3시간 59분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-12-이재명-리얼미터-지지율-발표]] — **보도하지 않음** (2026-10-12)
+- [[events/2026-10-12-이재명-중금속-주사-엄중대처]] — 용납 못해·용납할 수·질타를 앞세움 (2026-10-12)
+  15:21 (+101분) [「비타민 주사라더니 납 배출? 이 대통령의 질타」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003274586&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-11-청와대-골프장-대구사고-수습-해명]] — 주진우 공방을 함께 앞세움 (2026-10-11)
+  15:21 (+88분) [「청와대 "정치적 공방 유감"... 주진우 "내로남불"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003274318&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-11-이재명-욕설계정-차단-비판-반박]] — **보도하지 않음** (2026-10-11)
+- [[events/2026-10-10-안철수-북한지뢰-대통령-대응-비판]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-10-이재명-해외-불법사이트-물리적-폐쇄]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-10-이재명-대구-천장붕괴-구조-지시]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-10-이재명-비난에도-SNS-소통-지속]] — **보도하지 않음** (2026-10-10)
+- [[events/2026-10-09-이재명-한글날-100주년-메시지]] — '주시경 선생'을 앞세움 (2026-10-09)
+  11:06 (+98분) [「이재명 대통령이 인용한 주시경 선생의 이 말씀」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003273930&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-09-이재명-큰자리-요구-내부공격-발언]] — '큰 자리'·'큰자리'를 앞세움 (2026-10-09)
+  14:16 (+103분) [「이 대통령 작심비판 "능력 안 되면서 큰 자리 요구하고 내부 공격"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003273966&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-08-이재명-한이집트-CEPA-협상-개시-관계-격상]] — 'CEPA'·'경제협정 협상 개시'를 앞세움 (2026-10-08)
+  14:56 (+161분) [「한-이집트, 포괄적 동반자 관계로... 경제협정 협상 개시」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003273723&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-08-김지용-중수청-수사의-정치화-청산]] — '수사의 정치화'·'정치 수사 청산'을 앞세움 (2026-10-08)
+  14:46 (+46분) [「김지용 후보자 "수사 정치화 청산... 여야 막론 공정한 수사"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003273736&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-08-이재명-한·이집트-정상회담-예정]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-08-이재명-통일교육-교재-대책-마련-지시]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-08-이재명-한이집트-정상오찬-카이로-발언]] — **보도하지 않음** (2026-10-08)
+- [[events/2026-10-07-이재명-민단-80주년-초청-간담회]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-07-이재명-이집트-대통령-국빈-방한-환영]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-07-이재명-누리호-발사-시청-후속-당부]] — **보도하지 않음** (2026-10-07)
+- [[events/2026-10-07-이재명-녹색대전환-설계자-선도자-강조]] — 녹색시장 설계자·선도자·판 짜야를 앞세움 (2026-10-07)
+  16:56 (+176분) [「이 대통령 "기후위기 대응도 대전환... 우리가 판 짜야"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003273450&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-06-이재명-박진영-국감-출석-예우-발언]] — 예우·미안·안타까워를 앞세움 (2026-10-06)
+  16:41 (+132분) [「국감 증인 자청한 박진영, "미안하다"는 이 대통령」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003273120&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-06-이재명-중수청-엄정-철저-수사-당부]] — '억울한 피의자'·'피해자'·'악용'을 앞세움 (2026-10-06)
+  11:31 (+64분) [「이 대통령 "다시는 정치권력에 수사·공소 악용되지 말아야"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003272997&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-06-이재명-CPTPP-원점-대화-지시]] — **보도하지 않음** (2026-10-06)
+- [[events/2026-10-05-이재명-부동산-투기공화국-탈출-약속]] — 집값·부동산 정책을 앞세움 (2026-10-05)
+  17:21 (+93분) [「"부동산 정책 실력없고 무능" 비난 글에 직접 응답한 이 대통령」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003272817&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-04-이재명-무책임한-극단주의-경계]] — 유행처럼·번지고를 앞세움 (2026-10-04)
+  10:21 (+623분) [「이 대통령 "무책임 극단주의 선동이 유행처럼"... 누굴 겨냥했나」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003272741&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-04-이재명-10·4-남북정상선언-축사]] — **보도하지 않음** (2026-10-04)
 - [[events/2026-10-04-우크라-전직-장교-이재명-대통령-위협-발언-비판]] — **보도하지 않음** (2026-10-04)
 - [[events/2026-10-03-이재명-정청래-동지-언급]] — ‘괴롭힌 것 아니다·바른 시각’을 앞세움 (2026-10-03)
   10:01 (+559분) [「'정청래 그만 괴롭히라'는 글에... 이 대통령 "바른 시각으로"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003272365&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
@@ -63,22 +99,22 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 20건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 31건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 12건 | 19건 |
-| [[outlets/segye|세계일보]] | 10건 | 19건 |
-| [[outlets/khan|경향신문]] | 8건 | 18건 |
-| [[outlets/kmib|국민일보]] | 8건 | 18건 |
-| [[outlets/edaily|이데일리]] | 7건 | 20건 |
-| [[outlets/joongang|중앙일보]] | 7건 | 19건 |
-| [[outlets/news1|뉴스1]] | 7건 | 17건 |
-| [[outlets/sbs|SBS]] | 7건 | 17건 |
-| [[outlets/kbs|KBS]] | 7건 | 16건 |
-| [[outlets/ytn|YTN]] | 7건 | 14건 |
+| [[outlets/mk|매일경제]] | 15건 | 30건 |
+| [[outlets/segye|세계일보]] | 15건 | 27건 |
+| [[outlets/kmib|국민일보]] | 13건 | 28건 |
+| [[outlets/news1|뉴스1]] | 12건 | 28건 |
+| [[outlets/kbs|KBS]] | 12건 | 27건 |
+| [[outlets/sbs|SBS]] | 12건 | 27건 |
+| [[outlets/joongang|중앙일보]] | 11건 | 29건 |
+| [[outlets/khan|경향신문]] | 11건 | 27건 |
+| [[outlets/ytn|YTN]] | 11건 | 25건 |
+| [[outlets/yna|연합뉴스]] | 10건 | 30건 |
 
-이 밖에 13곳이 더 있다.
+이 밖에 14곳이 더 있다.
 
 제목이 같은 축을 골랐다는 사실만 뜻한다. 두 매체 사이에 어떤 관계가 있다는 근거가 아니다 — 같은 사건을 같은 방식으로 요약할 이유는 여럿이다.
 

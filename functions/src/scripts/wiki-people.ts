@@ -12,6 +12,10 @@
  *
  *   <!-- generated:events -->  …여기만 스크립트가 쓴다…  <!-- /generated -->
  *
+ * 함께 언급 집계는 events 구간 유무와 독립적으로 갱신한다. 새 인물에 links
+ * 구간이 없으면 관측된 동시 언급이 있을 때만 추가해 양쪽 집계를 맞춘다.
+ * 기존 본문과 수동 사건 목록은 그대로 보존한다.
+ *
  * **별칭은 사람이 정한다.** 「李」가 누구를 가리키는지는 기계가 판단할 수 없다.
  * 각 인물 페이지 맨 위에 이렇게 적는다:
  *
@@ -105,7 +109,7 @@ async function main(): Promise<void> {
   const missing = people.filter((p) => !/<!--\s*generated:events\s*-->/.test(p.text));
   if (missing.length > 0) {
     console.log(
-      `표시 구간이 없어 건너뛴 페이지 ${missing.length}건: ${missing.map((p) => p.id).join(", ")}`,
+      `사건 집계 표시 구간이 없는 페이지 ${missing.length}건 (본문 보존): ${missing.map((p) => p.id).join(", ")}`,
     );
   }
 
@@ -195,10 +199,14 @@ async function main(): Promise<void> {
       })(),
     ].join("\n");
 
-    let next = replaceBlock(person.text, "events", eventsBody);
-    if (next === null) continue;
+    let next = replaceBlock(person.text, "events", eventsBody) ?? person.text;
     const withLinks = replaceBlock(next, "links", linksBody);
-    if (withLinks !== null) next = withLinks;
+    if (withLinks !== null) {
+      next = withLinks;
+    } else if (linkRows.length > 0) {
+      // events 구간이 없어도 반대편 인물이 생성한 동시 언급을 누락하지 않는다.
+      next = `${next.trimEnd()}\n\n## 관측 집계\n\n<!-- generated:links -->\n${linksBody}\n<!-- /generated -->\n`;
+    }
 
     if (next !== person.text) {
       writeFileSync(person.file, next, "utf8");

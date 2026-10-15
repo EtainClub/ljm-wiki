@@ -4,12 +4,15 @@
 
 ## 관찰 기록
 
-- 관찰 사건 59건 중 41건 보도 · 미보도 18건
-- 평균 보도 지연 +117분 (1시간 57분)
+- 관찰 사건 61건 중 42건 보도 · 미보도 19건
+- 평균 보도 지연 +115분 (1시간 55분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-15-이재명-김지용-중수청장-임명]] — 임명·임명안 재가를 앞세움 (2026-10-15)
+  19:35 (+12분) [「李대통령, 김지용 중수청장 임명안 재가」](https://www.edaily.co.kr/News/Read?newsId=05759686645613248&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-15-이재명-미한재계회의-양방향투자]] — **보도하지 않음** (2026-10-15)
 - [[events/2026-10-13-이재명-수사공소-기관장-국무회의-참석-발언]] — '헌법상 당연·옳은 일'을 앞세움 (2026-10-13)
   11:24 (+84분) [「李 “수사기관장 국무회의 참석, 헌법·정부조직법상 당연한 일”」](https://www.edaily.co.kr/News/Read?newsId=02827366645612592&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-13-이재명-북극항로-환영식-해양수도권-지원]] — '생명길·위기 때 선택지'를 앞세움 (2026-10-13)
@@ -113,20 +116,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 41건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 42건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 21건 | 39건 |
-| [[outlets/news1|뉴스1]] | 18건 | 38건 |
-| [[outlets/mt|머니투데이]] | 17건 | 37건 |
-| [[outlets/yna|연합뉴스]] | 16건 | 39건 |
-| [[outlets/sbs|SBS]] | 16건 | 35건 |
-| [[outlets/mbc|MBC]] | 14건 | 35건 |
-| [[outlets/hani|한겨레]] | 13건 | 33건 |
-| [[outlets/munhwa|문화일보]] | 13건 | 23건 |
-| [[outlets/mk|매일경제]] | 12건 | 35건 |
-| [[outlets/kbs|KBS]] | 11건 | 33건 |
+| [[outlets/newsis|뉴시스]] | 22건 | 40건 |
+| [[outlets/news1|뉴스1]] | 18건 | 39건 |
+| [[outlets/mt|머니투데이]] | 18건 | 38건 |
+| [[outlets/yna|연합뉴스]] | 17건 | 40건 |
+| [[outlets/sbs|SBS]] | 17건 | 36건 |
+| [[outlets/mbc|MBC]] | 14건 | 36건 |
+| [[outlets/hani|한겨레]] | 14건 | 34건 |
+| [[outlets/munhwa|문화일보]] | 14건 | 24건 |
+| [[outlets/mk|매일경제]] | 13건 | 36건 |
+| [[outlets/kbs|KBS]] | 12건 | 34건 |
 
 이 밖에 14곳이 더 있다.
 

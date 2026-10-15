@@ -1,0 +1,90 @@
+{
+  "scope": {
+    "fromKst": "2026-10-09T00:00:00+09:00",
+    "untilKst": "2026-10-15T22:47:10+09:00",
+    "latestPerChannel": 50,
+    "totalUploads": 150,
+    "inWindow": 84,
+    "contentVerified": 0
+  },
+  "checkedAt": "2026-10-15T13:47:10.392Z",
+  "api": [
+    "channels.list",
+    "playlistItems.list",
+    "videos.list"
+  ],
+  "channels": [
+    {
+      "channelId": "UCAAvO0ehWox1bbym3rXKBZw",
+      "uploadsPlaylistId": "UUAAvO0ehWox1bbym3rXKBZw",
+      "officialTitle": "김어준의 겸손은힘들다 뉴스공장",
+      "displayName": "김어준 뉴스공장",
+      "alias": "겸공",
+      "alreadyRegistered": true,
+      "inWindow": 32
+    },
+    {
+      "channelId": "UCMYhq9OyGI5UEz_NTAoHY7A",
+      "uploadsPlaylistId": "UUMYhq9OyGI5UEz_NTAoHY7A",
+      "officialTitle": "[팟빵] 최욱의 매불쇼",
+      "displayName": "최욱의 매불쇼",
+      "alias": "매불쇼",
+      "alreadyRegistered": true,
+      "inWindow": 14
+    },
+    {
+      "channelId": "UCd4BxCKyMHG2J0X1SerTPaQ",
+      "uploadsPlaylistId": "UUd4BxCKyMHG2J0X1SerTPaQ",
+      "officialTitle": "이동형TV",
+      "displayName": "이동형TV",
+      "alias": "이동형TV",
+      "alreadyRegistered": true,
+      "inWindow": 38
+    }
+  ],
+  "videos": [
+    {
+      "id": "YURSBl6w2zs",
+      "channelId": "UCAAvO0ehWox1bbym3rXKBZw",
+      "title": "[주기자라이브] l [나노분석] 김지용 중수청장 후보자 인사청문회 뜯어보기 (노지민 / 김필성, 신유진) l 2026년 10월 14일 (수)",
+      "publishedAt": "2026-10-14T11:07:26Z",
+      "duration": "PT1H8M19S",
+      "liveStreamingDetails": {
+        "actualStartTime": "2026-10-14T09:55:04Z",
+        "actualEndTime": "2026-10-14T11:03:30Z"
+      },
+      "url": "https://www.youtube.com/watch?v=YURSBl6w2zs",
+      "source": "../sources/2026-10-14/yt_UCAAvO0ehWox1bbym3rXKBZw-196a40ce.md",
+      "contentVerification": "unverified",
+      "eventId": null
+    },
+    {
+      "id": "sE4D5poCmjo",
+      "channelId": "UCMYhq9OyGI5UEz_NTAoHY7A",
+      "title": "김지용 청문회 정리! (인천흉기사건의 심각한 문제) (10.14)",
+      "publishedAt": "2026-10-14T07:27:59Z",
+      "duration": "PT2H34M",
+      "liveStreamingDetails": {
+        "actualStartTime": "2026-10-14T04:46:50Z",
+        "actualEndTime": "2026-10-14T07:20:40Z",
+        "scheduledStartTime": "2026-10-14T05:15:00Z"
+      },
+      "url": "https://www.youtube.com/watch?v=sE4D5poCmjo",
+      "source": "../sources/2026-10-14/yt_UCMYhq9OyGI5UEz_NTAoHY7A-82005e42.md",
+      "contentVerification": "unverified",
+      "eventId": null
+    },
+    {
+      "id": "500q729ppYk",
+      "channelId": "UCd4BxCKyMHG2J0X1SerTPaQ",
+      "title": "이재명 싫어했던 가짜들은 결국 본색을 드러낸다",
+      "publishedAt": "2026-10-13T14:05:20Z",
+      "duration": "PT53S",
+      "liveStreamingDetails": null,
+      "url": "https://www.youtube.com/watch?v=500q729ppYk",
+      "source": "../sources/2026-10-13/yt_UCd4BxCKyMHG2J0X1SerTPaQ-08354fc5.md",
+      "contentVerification": "unverified",
+      "eventId": null
+    }
+  ]
+}

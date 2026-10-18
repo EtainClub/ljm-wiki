@@ -14,7 +14,7 @@
  *
  * 함께 언급 집계는 events 구간 유무와 독립적으로 갱신한다. 새 인물에 links
  * 구간이 없으면 관측된 동시 언급이 있을 때만 추가해 양쪽 집계를 맞춘다.
- * 기존 본문과 수동 사건 목록은 그대로 보존한다.
+ * 기존 본문은 보존한다. 수동 사건 목록은 생성 구간으로 전환한다.
  *
  * **별칭은 사람이 정한다.** 「李」가 누구를 가리키는지는 기계가 판단할 수 없다.
  * 각 인물 페이지 맨 위에 이렇게 적는다:
@@ -38,6 +38,7 @@ import { EVENTS, ITEMS, db } from "../firebase";
 import type { EventDoc, ItemDoc } from "../domain";
 import { loadSources } from "../curate/events";
 import { loadLocalEnv } from "../env";
+import { replaceEventSection } from "../wiki/people-block";
 
 const REPO_ROOT = join(__dirname, "..", "..", "..");
 const PEOPLE_DIR = join(REPO_ROOT, "wiki", "people");
@@ -109,7 +110,7 @@ async function main(): Promise<void> {
   const missing = people.filter((p) => !/<!--\s*generated:events\s*-->/.test(p.text));
   if (missing.length > 0) {
     console.log(
-      `사건 집계 표시 구간이 없는 페이지 ${missing.length}건 (본문 보존): ${missing.map((p) => p.id).join(", ")}`,
+      `수동 사건 목록을 생성 구간으로 전환 ${missing.length}건 (관찰 본문 보존): ${missing.map((p) => p.id).join(", ")}`,
     );
   }
 
@@ -199,7 +200,7 @@ async function main(): Promise<void> {
       })(),
     ].join("\n");
 
-    let next = replaceBlock(person.text, "events", eventsBody) ?? person.text;
+    let next = replaceEventSection(person.text, eventsBody);
     const withLinks = replaceBlock(next, "links", linksBody);
     if (withLinks !== null) {
       next = withLinks;

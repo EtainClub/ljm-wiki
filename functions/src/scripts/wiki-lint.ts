@@ -12,6 +12,8 @@
 
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
+import { readRecords } from "../wiki/catalog";
+import { existsSync } from "node:fs";
 
 const WIKI = join(__dirname, "..", "..", "..", "wiki");
 
@@ -63,6 +65,12 @@ function parseMentions(text: string): Map<string, number | null> {
 }
 
 function main(): void {
+  // 독립 승인 PR은 인물 페이지와 역방향 목록을 아직 만들지 않는다.
+  // 실제 marker와 검증된 사건별 record가 있는 동안만 이 지연 생성을 허용한다.
+  const root = join(WIKI, "..");
+  const pending = readRecords(root).filter((record) => existsSync(join(root, ".automation/ready-events", `${record.eventId}.json`)));
+  const pendingEvents = new Set(pending.map((record) => `events/${record.wikiSlug}`));
+  const pendingPeople = new Set(pending.flatMap((record) => record.people.map((name) => `people/${name}`)));
   const files = walk(WIKI);
   const pages = new Set(files.map(pageId));
   const text = new Map(files.map((f) => [pageId(f), readFileSync(f, "utf8")] as const));
@@ -80,7 +88,7 @@ function main(): void {
       const target = m[1]!.trim();
       if (!linkedFrom.has(target)) linkedFrom.set(target, []);
       linkedFrom.get(target)!.push(id);
-      if (!pages.has(target) && !isVirtualEventPage(target)) {
+      if (!pages.has(target) && !isVirtualEventPage(target) && !pendingPeople.has(target)) {
         broken.push(`${id} → [[${target}]]`);
       }
     }
@@ -110,7 +118,7 @@ function main(): void {
   }
 
   const orphan = [...pages].filter(
-    (p) => !META_PAGES.has(p) && !isExpectedOrphan(p) && !linkedFrom.has(p),
+    (p) => !META_PAGES.has(p) && !isExpectedOrphan(p) && !pendingEvents.has(p) && !linkedFrom.has(p),
   );
 
   // '함께 언급' 은 대칭이어야 한다. 존재뿐 아니라 건수까지 맞아야 한다 —

@@ -23,6 +23,8 @@
     "export:sources": "tsc && node lib/scripts/export-sources.js",
     "wiki:outlets": "tsc && node lib/scripts/wiki-outlets.js",
     "wiki:people": "tsc && node lib/scripts/wiki-people.js",
+    "wiki:catalog": "tsc && node lib/scripts/wiki-catalog.js",
+    "test:curation": "tsc && node --test lib/wiki/catalog.test.js && node --test ../scripts/check-curation-pr.test.mjs",
     "wiki:lint": "tsc && node lib/scripts/wiki-lint.js",
     "frames:dry": "tsc && node lib/scripts/draft-frames-dry.js",
     "serve": "npm run build && firebase emulators:start --only functions",

@@ -79,13 +79,22 @@ export default function RootLayout({
           className="sticky top-0 z-10 border-b border-zinc-200 bg-white/85 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/85"
           style={{ paddingTop: "env(safe-area-inset-top)" }}
         >
-          <div className="mx-auto flex w-full max-w-2xl items-baseline gap-3 px-5 py-3.5">
-            <Link href="/" className="text-[15px] font-semibold tracking-tight">
+          <div className="mx-auto flex w-full max-w-2xl items-center gap-3 px-5 py-3.5">
+            <Link href="/" className="shrink-0 text-[15px] font-semibold tracking-tight">
               {BRAND.name}
             </Link>
-            <span className="hidden text-xs text-zinc-400 sm:inline">
-              {BRAND.tagline}
-            </span>
+            {/* '속통' 만으로는 무엇에 대한 사이트인지 드러나지 않아 모바일에서도 부제를 보인다. */}
+            <span className="min-w-0 truncate text-xs text-zinc-400">{BRAND.tagline}</span>
+            <Link
+              href="/search"
+              aria-label="검색"
+              className="ml-auto shrink-0 rounded-md p-1 text-zinc-500 transition hover:text-zinc-900 dark:hover:text-zinc-100"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="6.5" />
+                <line x1="16" y1="16" x2="20" y2="20" />
+              </svg>
+            </Link>
           </div>
         </header>
 

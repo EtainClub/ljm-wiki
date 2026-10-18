@@ -4,6 +4,8 @@
 하루 한 번 승인 대기 PR을 만드는 절차다. 이 작업은 `ready`까지만 만들며,
 `publish`, `deploy`, `main` push는 절대 하지 않는다.
 
+동시 PR의 파일 소유권·검증 순서는 [CURATION-PRS.md](CURATION-PRS.md)가 우선한다.
+
 ## 먼저 한 번 설정할 것
 
 1. ChatGPT 데스크톱 앱에서 이 저장소를 프로젝트로 연다.
@@ -28,8 +30,9 @@
 5. 기사와 유튜브 영상의 제목을 제목에 실제로 있는 표현만으로 2~4개 프레임에 배정한다.
    채널 또는 제작자의 정치 성향·의도·신뢰도를 추측하거나 쓰지 않는다.
 6. curate draft(ANTHROPIC_API_KEY 필요)는 호출하지 않는다. curate frame을 사용한다.
-7. show, ready, export:sources, wiki lint, typecheck, lint, build가 모두 통과한 경우에만
-   queue:approval을 실행하고 허용된 sources/, wiki/, .automation/ 경로만 담은 PR을 만든다.
+7. show, export:sources, ready, queue:approval, wiki lint, typecheck, lint, build를 순서대로
+   확인한다. PR에는 사건별 sources/, wiki/events/, ready-events marker, ingest-record만
+   넣는다. 공통 index/log/people/outlets는 수정하지 않는다. CURATION-PRS.md를 따른다.
 8. publish, deploy, main push, force push, 임의 파일 삭제는 절대 하지 않는다.
 
 발행된 사건에서 뒤늦게 유튜브 영상이 발견되면 새 사건을 만들지 말고 다음만 실행한다.

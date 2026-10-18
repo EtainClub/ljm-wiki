@@ -5,6 +5,7 @@ import ShareBar from "@/components/ShareBar";
 import type { EventBundle, Frame, Item } from "@/lib/event-types";
 import { getEventBySlug } from "@/lib/events-source";
 import { formatDelay, formatLongDate, formatTime } from "@/lib/kst";
+import { getWikiForEvent, type WikiPage } from "@/lib/wiki";
 
 // 승인 후 생성된 새 slug도 재배포 대기 없이 요청 시점에 제공한다.
 export const dynamic = "force-dynamic";
@@ -99,6 +100,10 @@ export default async function EventPage({
     (it) => (it.titleHistory?.length ?? 0) > 1,
   );
   const checkedAt = entries[0]?.[1].checkedAt ?? event.publishedAt;
+  const droppedIds = new Set(
+    entries.filter(([, c]) => c.status === "none" && c.reason === "dropped").map(([id]) => id),
+  );
+  const wiki = getWikiForEvent(event);
 
   return (
     <article className="space-y-8">
@@ -180,6 +185,7 @@ export default async function EventPage({
 
       <SilentBlock
         sourceIds={silentIds}
+        droppedIds={droppedIds}
         sources={sources}
         checkedAt={checkedAt}
         {...(event.coverageQuery ? { query: event.coverageQuery } : {})}
@@ -188,6 +194,8 @@ export default async function EventPage({
       {changed.length > 0 && (
         <TitleChangeBlock items={changed} bundle={bundle} />
       )}
+
+      {wiki.page && <RelatedBlock page={wiki.page} people={wiki.people} />}
 
       <ShareBar
         title={event.title}
@@ -374,16 +382,29 @@ function ItemRow({ item, bundle }: { item: Item; bundle: EventBundle }) {
 
 function SilentBlock({
   sourceIds,
+  droppedIds,
   sources,
   checkedAt,
   query,
 }: {
   sourceIds: string[];
+  /** 기사는 찾았지만 검토 후 이 사건이 아니라고 뺀 곳. 나머지는 검색 미발견이다. */
+  droppedIds: Set<string>;
   sources: EventBundle["sources"];
   checkedAt: string;
   /** 이 판정에 쓴 검색어. 판정이 여기 달려 있으므로 감추지 않는다. */
   query?: string;
 }) {
+  // 두 주장은 다르다 — '검색이 못 찾음' 은 검색어에 달린 값이고, '검토 후 제외'
+  // 는 사람의 판단이다. 한 덩어리로 보이면 어느 쪽을 따져야 할지 알 수 없다.
+  const groups = [
+    { label: "검색에서 찾지 못함", ids: sourceIds.filter((id) => !droppedIds.has(id)) },
+    {
+      label: "기사는 있었지만 검토 후 이 사건 보도가 아니라고 제외",
+      ids: sourceIds.filter((id) => droppedIds.has(id)),
+    },
+  ].filter((group) => group.ids.length > 0);
+
   return (
     <section className="rounded-xl border border-dashed border-zinc-300 p-5 dark:border-zinc-700">
       <h2 className="flex items-baseline gap-2">
@@ -392,16 +413,25 @@ function SilentBlock({
           {sourceIds.length}
         </span>
       </h2>
-      <ul className="mt-4 flex flex-wrap gap-1.5">
-        {sourceIds.map((id) => (
-          <li
-            key={id}
-            className="rounded-md bg-zinc-200/70 px-2 py-1 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-          >
-            {sources[id].name}
-          </li>
-        ))}
-      </ul>
+      {groups.map((group) => (
+        <div key={group.label} className="mt-4">
+          {groups.length > 1 && (
+            <h3 className="mb-2 text-xs font-semibold text-zinc-500">
+              {group.label} <span className="tabular-nums">{group.ids.length}</span>
+            </h3>
+          )}
+          <ul className="flex flex-wrap gap-1.5">
+            {group.ids.map((id) => (
+              <li
+                key={id}
+                className="rounded-md bg-zinc-200/70 px-2 py-1 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+              >
+                {sources[id].name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
       <p className="mt-4 text-xs leading-5 text-zinc-500">
         {formatLongDate(checkedAt)} {formatTime(checkedAt)} 기준입니다. 이후
         보도되면 이 목록에서 빠지고 보도 지연 시간으로 바뀝니다.
@@ -414,6 +444,45 @@ function SilentBlock({
             자세히
           </Link>
         </p>
+      )}
+      <p className="mt-2 text-xs leading-5 text-zinc-500">
+        보도한 기사가 있는데 여기 들어갔다면{" "}
+        <Link href="/method#correction" className="underline underline-offset-2">
+          정정 요청
+        </Link>
+        해 주세요.
+      </p>
+    </section>
+  );
+}
+
+/** 위키 사건 기록과, 그 기록이 연결한 인물 페이지. */
+function RelatedBlock({ page, people }: { page: WikiPage; people: WikiPage[] }) {
+  const href = (p: WikiPage) => `/w/${p.slug.map(encodeURIComponent).join("/")}`;
+  return (
+    <section className="space-y-3">
+      <h2 className="border-b border-zinc-200 pb-2 text-sm font-semibold dark:border-zinc-800">
+        관련 기록
+      </h2>
+      <p className="text-sm">
+        <Link href={href(page)} className="underline underline-offset-4">
+          위키 사건 기록
+        </Link>
+        <span className="text-zinc-500"> — 집계 기준·질의어 변경 이력·판단 근거</span>
+      </p>
+      {people.length > 0 && (
+        <ul className="flex flex-wrap gap-1.5" aria-label="제목에 등장한 인물">
+          {people.map((p) => (
+            <li key={p.id}>
+              <Link
+                href={href(p)}
+                className="inline-block rounded-md border border-zinc-200 px-2 py-1 text-xs transition hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
+              >
+                {p.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       )}
     </section>
   );

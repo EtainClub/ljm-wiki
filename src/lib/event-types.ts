@@ -45,6 +45,13 @@ export interface CoverageEntry {
   status: CoverageStatus;
   /** 이 판단이 유효한 시각. 화면에 반드시 노출한다. */
   checkedAt: string;
+  /**
+   * status 가 "none" 인 이유. 둘은 다른 주장이라 화면에서도 나눈다.
+   *  - `not_found` : 질의어로 검색했는데 이 매체의 기사가 없었다
+   *  - `dropped`   : 기사는 찾았지만 사람이 검토해 이 사건 기사가 아니라고 뺐다
+   * 이 필드가 생기기 전 판정은 값이 없다 — 검색 미발견으로 본다.
+   */
+  reason?: "not_found" | "dropped";
   itemId?: string;
   /** occurredAt 대비 보도 지연(분). covered 일 때만. */
   delayMinutes?: number;

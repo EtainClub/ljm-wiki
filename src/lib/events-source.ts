@@ -122,6 +122,9 @@ function buildBundle(
     coverage[sourceId] = {
       status: entry["status"] === "covered" ? "covered" : "none",
       checkedAt,
+      ...(entry["reason"] === "not_found" || entry["reason"] === "dropped"
+        ? { reason: entry["reason"] }
+        : {}),
       ...(typeof entry["itemId"] === "string" ? { itemId: entry["itemId"] } : {}),
       ...(typeof entry["delayMinutes"] === "number"
         ? { delayMinutes: entry["delayMinutes"] }

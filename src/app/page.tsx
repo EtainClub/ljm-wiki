@@ -80,6 +80,12 @@ export default async function Home() {
             인물·매체 위키 보기
           </Link>
           <Link
+            href="/changes"
+            className="rounded-lg border border-zinc-300 px-3.5 py-2 text-sm font-medium transition hover:border-zinc-500 dark:border-zinc-700 dark:hover:border-zinc-500"
+          >
+            제목 변경 기록
+          </Link>
+          <Link
             href="/method"
             className="rounded-lg border border-zinc-300 px-3.5 py-2 text-sm font-medium transition hover:border-zinc-500 dark:border-zinc-700 dark:hover:border-zinc-500"
           >

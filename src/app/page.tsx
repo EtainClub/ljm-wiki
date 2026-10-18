@@ -41,6 +41,11 @@ export default async function Home() {
           원문 그대로 모읍니다. 정부를 옹호하는 듯한 제목이 탄핵·지지율 하락 같은 말을 함께
           싣고 있지 않은지, 제목의 겉과 속을 나란히 놓습니다 — 판단은 보시는 분이 합니다.
         </p>
+        <p className="text-sm">
+          <Link href="/guide" className="underline underline-offset-4">
+            처음 오셨나요 · 사건 페이지 읽는 법과 겉과 속을 보는 법 →
+          </Link>
+        </p>
 
         <dl className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-500">
           <div className="flex items-baseline gap-1.5">
@@ -78,6 +83,12 @@ export default async function Home() {
             className="rounded-lg bg-zinc-900 px-3.5 py-2 text-sm font-medium text-zinc-50 transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
           >
             인물·매체 위키 보기
+          </Link>
+          <Link
+            href="/analysis"
+            className="rounded-lg border border-zinc-300 px-3.5 py-2 text-sm font-medium transition hover:border-zinc-500 dark:border-zinc-700 dark:hover:border-zinc-500"
+          >
+            보도 태도 분석
           </Link>
           <Link
             href="/changes"

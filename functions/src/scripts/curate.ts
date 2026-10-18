@@ -14,8 +14,19 @@
  */
 
 import { loadLocalEnv, requireEnv } from "../env";
-import { EVENTS, ITEMS, db } from "../firebase";
-import type { EventDoc, ItemDoc } from "../domain";
+import { readFileSync } from "node:fs";
+import { EVENTS, ITEMS, TONE_CORRECTIONS, db } from "../firebase";
+import type { EventDoc, ItemDoc, ToneCorrectionDoc, ToneEntry } from "../domain";
+import {
+  TONE_KEYS,
+  TONE_LABELS,
+  applyToneCorrection,
+  fetchLead,
+  framedItemIds,
+  missingTones,
+  setTones,
+  type ToneInput,
+} from "../curate/tone";
 import {
   applyYouTubeCorrection,
   applyCoverage,
@@ -441,6 +452,11 @@ async function cmdShow(slug: string): Promise<void> {
   console.log(`발생: ${kst(event.occurredAt.toDate())} (KST)`);
   console.log(`위키: ${event.wikiSlug ? `wiki/events/${event.wikiSlug}.md` : "(없음)"}`);
   if (event.coverageQuery) console.log(`질의어: "${event.coverageQuery}"`);
+  {
+    const framed = framedItemIds(event);
+    const done = framed.length - missingTones(event, event.tones).length;
+    console.log(`보도 태도: ${done}/${framed.length} 분류${done < framed.length ? " (leads → tones)" : ""}`);
+  }
   console.log();
 
   for (const frame of event.frames) {
@@ -621,6 +637,172 @@ async function resolvePoolItem(prefix: string): Promise<{ id: string; item: Item
   return { id: snap.docs[0]!.id, item: snap.docs[0]!.data() as ItemDoc };
 }
 
+/* ── 보도 태도 분류 ──────────────────────────────────────────── */
+
+/** 발행 사건이면 승인 대기 중인 분류까지 합친다 — 화면에 나갈 값을 보여야 한다. */
+async function currentTones(slug: string, event: EventDoc): Promise<Record<string, ToneEntry>> {
+  if (event.status !== "published") return event.tones ?? {};
+  const pending = (await db.collection(TONE_CORRECTIONS).doc(slug).get()).data() as
+    | ToneCorrectionDoc
+    | undefined;
+  return { ...event.tones, ...(pending?.status === "ready" ? pending.tones : {}) };
+}
+
+/**
+ * 요약문이 기사 내용이 아닌 경우를 알린다. 실측에서 사이트 소개 문구(「사실 앞에 겸손한…」),
+ * 기자 이메일(「hysup@yna.co.kr (끝)」), 제목 반복이 요약문 자리에 들어 있었다.
+ */
+function describeLead(lead: string | null, title: string): string {
+  if (!lead) return "(읽지 못함 — 원문을 열어 첫 문단을 확인)";
+  const squash = (s: string) => s.normalize("NFC").replace(/[\s"“”'‘’…·.,]/g, "");
+  const useless = lead.length < 40 || squash(lead).startsWith(squash(title).slice(0, 20));
+  return useless ? `${lead}  ⚠ 기사 내용이 아닐 수 있음 — 원문 첫 문단 확인` : lead;
+}
+
+/** 프레임 항목을 제목·리드와 함께 보여준다. 리드는 읽기만 하고 저장하지 않는다. */
+async function cmdLeads(slug: string): Promise<void> {
+  const event = await getEvent(slug);
+  const tones = await currentTones(slug, event);
+  const byId = new Map((await loadEventItems(slug)).map((i) => [i.itemId, i] as const));
+  const rows = framedItemIds(event)
+    .map((id) => byId.get(id))
+    .filter((row): row is NonNullable<typeof row> => Boolean(row))
+    .sort((a, b) => a.item.publishedAt.toMillis() - b.item.publishedAt.toMillis());
+
+  // 매체 서버에 한꺼번에 수십 건을 보내지 않는다.
+  const leads = new Map<string, string | null>();
+  for (let i = 0; i < rows.length; i += 6) {
+    const batch = rows.slice(i, i + 6);
+    const read = await Promise.all(batch.map((row) => fetchLead(row.item.url)));
+    batch.forEach((row, j) => leads.set(row.itemId, read[j] ?? null));
+  }
+
+  const done = rows.filter((row) => tones[row.itemId]).length;
+  console.log(`${slug}  ${event.title}\n분류 ${done}/${rows.length}\n`);
+  for (const row of rows) {
+    const tone = tones[row.itemId];
+    console.log(
+      `${row.itemId.slice(0, 8)}  ${hhmm(row.item.publishedAt.toDate())}  ${row.sourceName}` +
+        (row.item.kind === "video" ? " [영상]" : "") +
+        (tone ? `  [${TONE_LABELS[tone.tone]}] ${tone.basis}` : ""),
+    );
+    console.log(`  제목: ${row.item.title}`);
+    console.log(`  리드: ${describeLead(leads.get(row.itemId) ?? null, row.item.title)}`);
+  }
+  console.log(
+    `\n유형: ${TONE_KEYS.map((key) => `${key}=${TONE_LABELS[key]}`).join(" · ")}\n` +
+      `기록: curate -- tones ${slug} <json>  또는  curate -- tone ${slug} <항목> <유형> "<근거>"`,
+  );
+}
+
+function reportTones(slug: string, r: Awaited<ReturnType<typeof setTones>>): void {
+  const where = r.target === "event" ? "사건 초안" : "승인 대기 분류 계획(발행 사건)";
+  console.log(`${where}에 ${r.written}건 기록 · 남은 미분류 ${r.missing}건`);
+  if (r.missing > 0) return;
+  console.log(
+    r.target === "event"
+      ? `다음: curate -- tone-table ${slug} → 위키 사건 페이지에 붙이기 → ready`
+      : `다음: curate -- tone-table ${slug} → 위키 사건 페이지에 붙이기 → queue:approval -- tones ${slug}`,
+  );
+}
+
+/** `[{"item":"a1b2c3d4","tone":"report","basis":"..."}, ...]` */
+async function cmdTones(slug: string, file: string): Promise<void> {
+  const parsed: unknown = JSON.parse(readFileSync(file, "utf8"));
+  if (!Array.isArray(parsed)) throw new Error("JSON 배열이어야 합니다: [{item, tone, basis}, ...]");
+  const inputs = parsed.map((row, i) => {
+    const r = row as Partial<ToneInput>;
+    if (typeof r.item !== "string" || typeof r.tone !== "string" || typeof r.basis !== "string") {
+      throw new Error(`${i}번째 항목에 item·tone·basis 문자열이 필요합니다.`);
+    }
+    return { item: r.item, tone: r.tone, basis: r.basis };
+  });
+  reportTones(slug, await setTones(slug, inputs));
+}
+
+const cell = (s: string) => s.replace(/\|/g, "\\|").replace(/\s+/g, " ");
+
+/** 승인 PR 검토자가 분류를 읽을 수 있게 위키 사건 페이지에 붙일 표를 찍는다. */
+async function cmdToneTable(slug: string): Promise<void> {
+  const event = await getEvent(slug);
+  const tones = await currentTones(slug, event);
+  const byId = new Map((await loadEventItems(slug)).map((i) => [i.itemId, i] as const));
+  const rows = framedItemIds(event)
+    .map((id) => byId.get(id))
+    .filter((row): row is NonNullable<typeof row> => Boolean(row))
+    .sort((a, b) => a.item.publishedAt.toMillis() - b.item.publishedAt.toMillis());
+  const missing = rows.filter((row) => !tones[row.itemId]);
+  if (missing.length > 0) {
+    throw new Error(`미분류 ${missing.length}건이 있습니다: ${missing.map((r) => r.itemId.slice(0, 8)).join(" ")}`);
+  }
+
+  const counts = TONE_KEYS.map((key) => [key, rows.filter((r) => tones[r.itemId]!.tone === key).length] as const)
+    .filter(([, n]) => n > 0);
+  const lines = [
+    "## 보도 태도 분류",
+    "",
+    "AI 분류 · 운영자 승인 대기. 제목과 기사 리드를 읽고 나눴다. 리드·본문은 저장하지 않는다.",
+    `${counts.map(([key, n]) => `${TONE_LABELS[key]} ${n}`).join(" · ")}`,
+    "",
+    "| 시각 (KST) | 매체·채널 | 원제 | 태도 | 근거 |",
+    "|---|---|---|---|---|",
+    ...rows.map((row) => {
+      const tone = tones[row.itemId]!;
+      return (
+        `| ${kst(row.item.publishedAt.toDate())} | [[outlets/${row.item.sourceId}|${cell(row.sourceName)}]] | ` +
+        `[「${cell(row.item.title)}」](${row.item.url}) | ${TONE_LABELS[tone.tone]} | ${cell(tone.basis)} |`
+      );
+    }),
+  ];
+  console.log(lines.join("\n"));
+}
+
+/**
+ * 보도 태도가 비어 있는 발행 사건. 예약 작업이 다음에 채울 사건을 고를 때 쓴다.
+ * 모든 항목이 분류돼 승인만 기다리는 사건은 '승인 대기' 로 따로 세고 고르지 않는다 —
+ * PR 이 병합되기 전에 같은 사건을 다시 분류하면 PR 이 겹친다.
+ */
+async function cmdUntoned(): Promise<void> {
+  const [eventsSnap, correctionsSnap] = await Promise.all([
+    db.collection(EVENTS).where("status", "==", "published").get(),
+    db.collection(TONE_CORRECTIONS).where("status", "==", "ready").get(),
+  ]);
+  const pending = new Map(
+    correctionsSnap.docs.map((d) => [d.id, (d.data() as ToneCorrectionDoc).tones] as const),
+  );
+
+  const rows = eventsSnap.docs
+    .map((d) => d.data() as EventDoc)
+    .map((event) => {
+      const queued = pending.get(event.slug);
+      const missing = missingTones(event, { ...event.tones, ...queued }).length;
+      return { event, total: framedItemIds(event).length, missing, queued: Boolean(queued) };
+    })
+    .sort((a, b) => b.event.occurredAt.toMillis() - a.event.occurredAt.toMillis());
+
+  const waiting = rows.filter((r) => r.queued && r.missing === 0);
+  const todo = rows.filter((r) => r.missing > 0);
+  console.log(
+    `발행 사건 ${rows.length}건 · 분류 완료 ${rows.length - todo.length - waiting.length} · ` +
+      `승인 대기 ${waiting.length} · 채울 것 ${todo.length}\n`,
+  );
+  for (const { event, total, missing, queued } of todo) {
+    console.log(
+      `${event.slug}  미분류 ${missing}/${total}${queued ? "  [이어서]" : ""}  ${event.title}` +
+        (event.wikiSlug ? `\n          wiki/events/${event.wikiSlug}.md` : "  (wikiSlug 없음)"),
+    );
+  }
+}
+
+async function cmdApplyToneCorrection(slug: string): Promise<void> {
+  const result = await applyToneCorrection(slug);
+  if (result.alreadyApplied) {
+    console.log(`이미 적용된 태도 분류입니다: ${slug} — 파생 페이지 생성만 계속합니다.`);
+    return;
+  }
+  console.log(`태도 분류 적용: ${slug} · ${result.applied}건`);
+}
+
 /* ── dispatch ────────────────────────────────────────────── */
 
 const USAGE = `사용법:
@@ -642,6 +824,14 @@ const USAGE = `사용법:
                                              발행 사건의 제목 일치 영상 정정 계획 만들기
                                              (규칙을 주면 제목 마지막 낱말 대신 그 규칙을 쓴다)
   curate -- apply-youtube-correction <id>     승인 workflow 전용: 정정 계획 적용
+  curate -- leads <id>                       프레임 항목의 제목·리드·현재 분류 보기 (리드는 저장 안 함)
+  curate -- tone <id> <항목> <유형> "<근거>"  보도 태도 한 건 기록
+  curate -- tones <id> <json 파일>            보도 태도 여러 건 기록 [{item, tone, basis}]
+                                             유형: support|report|critique|allegation|attack|other
+                                             발행 사건이면 승인 대기 계획에만 쓴다
+  curate -- tone-table <id>                  위키 사건 페이지에 붙일 분류 표
+  curate -- untoned                          보도 태도가 비어 있는 발행 사건 (최신순)
+  curate -- apply-tone-correction <id>        승인 workflow 전용: 발행 사건 분류 적용
   curate -- show <id>
   curate -- ready <id>                       자동 검증 통과 → 승인 대기
   curate -- publish <id>
@@ -745,6 +935,23 @@ async function main(): Promise<void> {
     case "apply-youtube-correction":
       if (!args[0]) throw new Error(USAGE);
       return cmdApplyYouTubeCorrection(args[0]);
+    case "leads":
+      if (!args[0]) throw new Error(USAGE);
+      return cmdLeads(args[0]);
+    case "tone":
+      if (!args[0] || !args[1] || !args[2] || !args[3]) throw new Error(USAGE);
+      return reportTones(args[0], await setTones(args[0], [{ item: args[1], tone: args[2], basis: args[3] }]));
+    case "tones":
+      if (!args[0] || !args[1]) throw new Error(USAGE);
+      return cmdTones(args[0], args[1]);
+    case "tone-table":
+      if (!args[0]) throw new Error(USAGE);
+      return cmdToneTable(args[0]);
+    case "untoned":
+      return cmdUntoned();
+    case "apply-tone-correction":
+      if (!args[0]) throw new Error(USAGE);
+      return cmdApplyToneCorrection(args[0]);
     case "delete":
       if (!args[0]) throw new Error(USAGE);
       await deleteDraft(args[0]);

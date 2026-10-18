@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BRAND } from "@/lib/brand";
 import { REPO_URL } from "@/lib/site";
+import { CUE_TERMS, TONES } from "@/lib/tone";
 
 export const metadata: Metadata = {
   title: "방법론과 한계",
@@ -58,17 +59,19 @@ export default function MethodPage() {
             <strong className="font-semibold">매체별 성향·등급 라벨.</strong>{" "}
             어느 매체가 어느 편이라는 표시를 데이터에 저장하지 않습니다. 고정
             라벨은 그 자체로 낙인이 되고, 한 번 붙으면 개별 보도를 보지 않게
-            만듭니다. 분류는 <em>사건 단위로만</em>{" "}존재합니다.
+            만듭니다. 프레임은 <em>사건 단위</em>로, 보도 태도는 <em>기사·영상 하나</em>에만
+            붙습니다.
           </li>
           <li>
             <strong className="font-semibold">신뢰도 점수·순위.</strong>{" "}매체를
-            숫자로 줄 세우지 않습니다. 집계는 조회 시점에 사실로만 계산하고
-            (예: &ldquo;이 사건을 다루지 않은 곳 15&rdquo;), 어디에도 누적
-            점수를 저장하지 않습니다.
+            숫자로 줄 세우지 않습니다. 매체·채널별 보도 태도는 건수와 비율만 이름순으로
+            보이고, 합산 점수나 순위는 만들지 않습니다. 집계는 조회 시점에 기록에서
+            계산합니다.
           </li>
           <li>
-            <strong className="font-semibold">보도 내용에 대한 판정.</strong>{" "}
-            어떤 제목이 옳은지 그른지 말하지 않습니다. 나란히 놓을 뿐이고, 판단은
+            <strong className="font-semibold">사실 여부와 의도에 대한 판정.</strong>{" "}
+            기사 내용이 사실인지, 매체가 무엇을 노렸는지 판정하지 않습니다. 보도
+            태도 분류는 기사가 정부를 <em>어떤 방식으로</em> 다뤘는지를 나눌 뿐이고, 판단은
             보시는 분이 합니다.
           </li>
         </ul>
@@ -111,7 +114,7 @@ export default function MethodPage() {
           통과한 결과만 승인 대기열에 넣고, 사람의 병합·승인 뒤에만 게시합니다.
         </p>
         <ul className="list-disc space-y-2 pl-5">
-          <li>판단 근거는 <strong className="font-semibold">제목뿐</strong>입니다. 본문은 읽지도 저장하지도 않습니다</li>
+          <li>프레임의 판단 근거는 <strong className="font-semibold">제목뿐</strong>입니다. 본문은 저장하지 않습니다</li>
           <li>
             묶음 이름은 서술형으로 씁니다 (&ldquo;&lsquo;재원·실효성 우려&rsquo;를
             앞세움&rdquo;). &lsquo;왜곡&rsquo;, &lsquo;악의적&rsquo; 같은 평가어를
@@ -119,6 +122,37 @@ export default function MethodPage() {
           </li>
           <li>어느 묶음에도 맞지 않으면 억지로 배정하지 않고 &lsquo;기타&rsquo;로 둡니다</li>
         </ul>
+      </Section>
+
+      <Section title="보도 태도는 어떻게 나누나" id="tone">
+        <p>
+          제목만으로는 비판인지 비난인지 가리기 어렵습니다. 그래서 기사·영상마다
+          <strong className="font-semibold"> 제목과 리드(페이지 요약문)</strong>를 읽고 아래 여섯 유형 중
+          하나로 나눕니다. AI가 유형과 근거 한 줄을 적고, 운영자가 승인 PR에서 읽고
+          병합해야 공개됩니다. 리드와 본문은 저장하지 않습니다.
+        </p>
+        <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5">
+          {TONES.map((def) => (
+            <div key={def.key} className="contents">
+              <dt className="flex items-center gap-1.5 font-semibold">
+                <span className={`size-2 rounded-full ${def.bar}`} />
+                {def.label}
+              </dt>
+              <dd>{def.description}</dd>
+            </div>
+          ))}
+        </dl>
+        <p>
+          <strong className="font-semibold">겉과 속 주의</strong>는 사람이 고르지 않고 규칙으로
+          붙입니다. 지지·호평이나 사실 전달로 분류된 제목에, 사건 제목·요약에 없는 아래
+          말이 함께 있으면 표시합니다. 사건 자체가 탄핵·지지율에 관한 것이면 그 말은
+          덧붙인 말이 아니므로 제외합니다.
+        </p>
+        <p className="text-sm text-zinc-600 dark:text-zinc-400">{CUE_TERMS.join(" · ")}</p>
+        <p className="text-zinc-600 dark:text-zinc-400">
+          AI 분류는 틀릴 수 있고, 리드는 기사의 앞부분일 뿐입니다. 분류가 틀렸다면
+          아래 정정 요청으로 알려 주세요.
+        </p>
       </Section>
 
       <Section title="&lsquo;보도하지 않음&rsquo;은 무슨 뜻인가">
@@ -156,7 +190,8 @@ export default function MethodPage() {
 
       <Section title="한계">
         <ul className="list-disc space-y-2 pl-5">
-          <li>제목만 봅니다. 영상의 발언·자막·썸네일 또는 기사 본문의 논조는 아직 분석하지 않습니다</li>
+          <li>프레임은 제목만, 보도 태도는 제목과 리드까지만 봅니다. 기사 전체의 논조, 영상의 발언·자막·썸네일은 분석하지 않습니다</li>
+          <li>보도 태도는 AI가 나누고 운영자가 승인합니다. 틀릴 수 있고, 지난 사건은 차례로 채워집니다</li>
           <li>고정된 목록만 관찰합니다. 전체 언론을 대표하지 않습니다</li>
           <li>사건 선정과 프레임 분류에는 사람의 판단이 들어갑니다</li>
           <li>수집 시점 사이에 올라왔다가 내려간 것은 놓칠 수 있습니다</li>

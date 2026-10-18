@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const events = (await getPublishedEvents()).filter(({ event }) => !event.isSample);
 
-  const fixed = ["", "archive", "youtube", "changes", "w", "method", "sources"].map((path) => ({
+  const fixed = ["", "archive", "youtube", "analysis", "changes", "guide", "w", "method", "sources"].map((path) => ({
     url: `${SITE_URL}/${path ? `${path}/` : ""}`,
   }));
 

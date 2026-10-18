@@ -115,6 +115,7 @@ export async function updateEvent(slug: string, patch: Partial<EventDoc>): Promi
     "coverage",
     "coverageQuery",
     "wikiSlug",
+    "tones",
   ].some((key) => key in patch);
   const resetReady = event.status === "ready" && changesDraft && patch.status !== "published";
 
@@ -1012,6 +1013,14 @@ export async function markEventReady(slug: string): Promise<void> {
   }
 
   const problems = await validateForPublish(slug);
+  // 태도 분류는 ready 에서만 요구한다. validateForPublish 에 넣으면 이 규칙 전에
+  // 승인된 표식이 publish 단계에서 막힌다.
+  const untoned = [...new Set(event.frames.flatMap((f) => f.itemIds))].filter(
+    (id) => !event.tones?.[id],
+  );
+  if (untoned.length > 0) {
+    problems.push(`보도 태도를 분류하지 않은 항목이 ${untoned.length}건 있습니다 (leads → tones).`);
+  }
   if (problems.length > 0) {
     throw new Error(`승인 대기열에 넣을 수 없습니다:\n${problems.map((p) => `- ${p}`).join("\n")}`);
   }

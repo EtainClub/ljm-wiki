@@ -6,7 +6,7 @@
  * 제목 길이·보도 시각 분포는 실제와 비슷하게 맞춰 밀도를 확인할 수 있게 했다.
  */
 
-import type { EventBundle, Item, Source } from "./event-types";
+import type { EventBundle, EventDoc, Item, Source } from "./event-types";
 
 const press = (id: string, name: string): Source => ({ id, name, type: "press" });
 const tube = (id: string, name: string): Source => ({ id, name, type: "youtube" });
@@ -57,7 +57,8 @@ const RAW_ITEMS: Array<Omit<Item, "id">> = [
   },
   {
     sourceId: "pureun",
-    title: "청년 주거비 부담 던다… 월 최대 30만원 지원 확대",
+    // '겉과 속 주의' 표시 확인용 — 사실 전달 분류 + 사건에 없는 '지지율 하락'
+    title: "청년 주거비 부담 던다… 월 최대 30만원, 지지율 하락 막을까",
     url: "https://example.com/sample/2",
     publishedAt: "2026-07-26T10:41:00+09:00",
   },
@@ -189,6 +190,15 @@ for (const source of SOURCES) {
     : { status: "none", checkedAt: CHECKED_AT };
 }
 
+/** 보도 태도 화면 확인용 가상 분류. 항목 순서대로 유형을 돌려 가며 붙인다. */
+const SAMPLE_TONE_ORDER = ["support", "report", "critique", "report", "allegation", "attack"] as const;
+const SAMPLE_TONES: EventDoc["tones"] = Object.fromEntries(
+  ITEMS.map((it, i) => [
+    it.id,
+    { tone: SAMPLE_TONE_ORDER[i % SAMPLE_TONE_ORDER.length]!, basis: "샘플 근거 — 가상 분류입니다." },
+  ]),
+);
+
 export const SAMPLE_EVENT: EventBundle = {
   sources: byId(SOURCES),
   items: byId(ITEMS),
@@ -236,6 +246,7 @@ export const SAMPLE_EVENT: EventBundle = {
       },
     ],
     coverage,
+    tones: SAMPLE_TONES,
   },
 };
 

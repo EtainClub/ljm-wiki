@@ -90,6 +90,17 @@ export interface EventDoc {
   coverageQuery?: string;
   /** 개발 중 샘플 데이터 표시. 실제 발행분은 false. */
   isSample?: boolean;
+  /** 항목별 보도 태도. 키는 항목 id. 분류 전 사건은 비어 있다. */
+  tones?: Record<string, ToneEntry>;
+}
+
+/** functions/src/domain.ts 의 ToneKey 와 같다. 정의는 src/lib/tone.ts 에 있다. */
+export type ToneKey = "support" | "report" | "critique" | "allegation" | "attack" | "other";
+
+export interface ToneEntry {
+  tone: ToneKey;
+  /** 분류 근거 한 줄 */
+  basis: string;
 }
 
 /** 페이지 렌더에 필요한 것을 한 번에 담은 뷰모델. */

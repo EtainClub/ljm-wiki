@@ -179,6 +179,40 @@ export interface EventDoc {
   /** 마지막 보도 확인에 쓴 질의어 — 재확인할 때 같은 걸 써야 한다 */
   coverageQuery?: string;
   editorNote?: string;
+
+  /**
+   * 항목별 보도 태도. 키는 항목 id. 제목과 기사 리드를 읽고 에이전트가 분류하며,
+   * 승인 PR 을 사람이 병합해야 공개된다. 본문은 저장하지 않는다 — 근거 한 줄만 남긴다.
+   */
+  tones?: Record<string, ToneEntry>;
+}
+
+/**
+ * 보도 태도 유형. 매체가 아니라 기사·영상 하나에 붙는다.
+ *  - support    지지·호평 : 정부의 결정·발언을 긍정적으로 평가하거나 성과로 내세움
+ *  - report     사실 전달 : 발언·결정을 평가 없이 전함
+ *  - critique   정책 비판 : 근거를 들어 정책·결정의 문제를 지적함
+ *  - allegation 의혹 제기 : 확인되지 않은 의혹·주장을 앞세움
+ *  - attack     비난·조롱 : 근거 없는 인신공격·조롱·비하 표현을 씀
+ *  - other      기타       : 위 어느 것에도 맞지 않음
+ */
+export type ToneKey = "support" | "report" | "critique" | "allegation" | "attack" | "other";
+
+export interface ToneEntry {
+  tone: ToneKey;
+  /** 분류 근거 한 줄. 제목·리드에 실제로 있는 표현을 든다. */
+  basis: string;
+  classifiedAt: Timestamp;
+}
+
+/** 발행 사건의 태도 분류를 승인 전에 묶어 두는 계획. 공개 데이터는 승인 뒤에만 바뀐다. */
+export interface ToneCorrectionDoc {
+  eventId: string;
+  status: "ready" | "applied";
+  tones: Record<string, ToneEntry>;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
+  appliedAt?: Timestamp | null;
 }
 
 /** 수집기가 만들어 내는 정규화된 결과. Firestore 쓰기 직전 형태. */

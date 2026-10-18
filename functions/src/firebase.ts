@@ -10,3 +10,5 @@ export const ITEMS = "items";
 export const EVENTS = "events";
 /** 발행 사건을 바꾸기 전, 승인 PR에 묶어 두는 정정 계획. */
 export const EVENT_CORRECTIONS = "eventCorrections";
+/** 발행 사건의 보도 태도 분류를 승인 PR 전까지 묶어 두는 곳. */
+export const TONE_CORRECTIONS = "toneCorrections";

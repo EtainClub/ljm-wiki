@@ -3,6 +3,7 @@
  *
  *   npm --prefix functions run queue:approval -- <event-slug>
  *   npm --prefix functions run queue:approval -- correction <event-slug>
+ *   npm --prefix functions run queue:approval -- tones <event-slug>
  *
  * 이 명령은 Firestore 상태를 바꾸지 않는다. 생성된 파일을 PR로 올리고 사람이
  * 병합하면 publish-ready workflow가 검증·발행·정적 배포를 처리한다.
@@ -12,6 +13,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { loadLocalEnv } from "../env";
 import { getEvent, getReadyYouTubeCorrection } from "../curate/events";
+import { getReadyToneCorrection, missingTones } from "../curate/tone";
 import { RECORD_DIR, type IngestRecord } from "../wiki/catalog";
 
 loadLocalEnv();
@@ -19,11 +21,38 @@ loadLocalEnv();
 const REPO_ROOT = join(__dirname, "..", "..", "..");
 const QUEUE_DIR = join(REPO_ROOT, ".automation", "ready-events");
 
+/** 발행 사건의 보도 태도 분류 승인 표식. 사건 위키 페이지의 분류 표와 함께 PR 에 올린다. */
+async function queueTones(slug: string): Promise<void> {
+  const [plan, event] = await Promise.all([getReadyToneCorrection(slug), getEvent(slug)]);
+  const missing = missingTones(event, { ...event.tones, ...plan.tones });
+  if (missing.length > 0) {
+    throw new Error(`분류하지 않은 항목이 ${missing.length}건 남았습니다: ${slug}`);
+  }
+  mkdirSync(QUEUE_DIR, { recursive: true });
+  const path = join(QUEUE_DIR, `${slug}.tone-correction.json`);
+  writeFileSync(
+    path,
+    JSON.stringify(
+      { version: 2, action: "tone-correction", eventId: slug, queuedAt: new Date().toISOString() },
+      null,
+      2,
+    ) + "\n",
+    "utf8",
+  );
+  console.log(`태도 분류 승인 표식 생성: ${path}`);
+  console.log("이 파일과 분류 표를 붙인 사건 위키 페이지를 PR에 올리세요. 병합 시 공개 사건에 적용됩니다.");
+}
+
 async function main(): Promise<void> {
+  if (process.argv[2] === "tones") {
+    const slug = process.argv[3]?.trim();
+    if (!slug) throw new Error("사용법: queue:approval -- tones <event-slug>");
+    return queueTones(slug);
+  }
   const correction = process.argv[2] === "correction";
   const slug = process.argv[correction ? 3 : 2]?.trim();
   if (!slug) {
-    throw new Error("사용법: queue:approval -- <event-slug> | correction <event-slug>");
+    throw new Error("사용법: queue:approval -- <event-slug> | correction <event-slug> | tones <event-slug>");
   }
 
   if (correction) {

@@ -17,6 +17,7 @@ while read -r marker event_id; do
   node functions/lib/scripts/export-sources.js --event "$event_id"
 done < "$list"
 
+node functions/lib/scripts/wiki-catalog.js
 node functions/lib/scripts/wiki-people.js
 node functions/lib/scripts/wiki-outlets.js
 node functions/lib/scripts/wiki-lint.js

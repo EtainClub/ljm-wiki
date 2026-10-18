@@ -1,6 +1,7 @@
 import "server-only";
 
-import type { EventBundle, Frame, Item, Source, YouTubeTitleMatch } from "./event-types";
+import type { EventBundle, Frame, Item, Source, ToneEntry, YouTubeTitleMatch } from "./event-types";
+import { isToneKey } from "./tone";
 import { firebaseProjectId } from "./firebase-project";
 import { SAMPLE_EVENTS } from "./sample-event";
 import { isRecentLeeVideo, type RecentVideo } from "./youtube-records";
@@ -122,11 +123,22 @@ function buildBundle(
     coverage[sourceId] = {
       status: entry["status"] === "covered" ? "covered" : "none",
       checkedAt,
+      ...(entry["reason"] === "not_found" || entry["reason"] === "dropped"
+        ? { reason: entry["reason"] }
+        : {}),
       ...(typeof entry["itemId"] === "string" ? { itemId: entry["itemId"] } : {}),
       ...(typeof entry["delayMinutes"] === "number"
         ? { delayMinutes: entry["delayMinutes"] }
         : {}),
     };
+  }
+
+  // 화면에 나가는 항목의 분류만 넘긴다. 알 수 없는 유형은 버린다 — 정의 없는 라벨을 그릴 수 없다.
+  const rawTones = (eventDoc["tones"] ?? {}) as Record<string, Record<string, unknown>>;
+  const tones: Record<string, ToneEntry> = {};
+  for (const [itemId, entry] of Object.entries(rawTones)) {
+    if (!eventItems[itemId] || !isToneKey(entry["tone"]) || typeof entry["basis"] !== "string") continue;
+    tones[itemId] = { tone: entry["tone"], basis: entry["basis"] };
   }
 
   const rawYouTubeMatch = eventDoc["youtubeTitleMatch"] as Record<string, unknown> | undefined;
@@ -169,6 +181,7 @@ function buildBundle(
       ...(typeof eventDoc["coverageQuery"] === "string"
         ? { coverageQuery: eventDoc["coverageQuery"] }
         : {}),
+      ...(Object.keys(tones).length > 0 ? { tones } : {}),
     },
     sources,
     items: eventItems,

@@ -18,3 +18,9 @@ export const SITE_URL = RAW.replace(/\/+$/, "");
 
 /** 카드 워터마크에 쓰는 표시용 호스트 (프로토콜 없이). */
 export const SITE_LABEL = SITE_URL.replace(/^https?:\/\//, "");
+
+/**
+ * 공개 저장소. 위키가 가리키는 조사 기록(docs/)과 불변 원본(sources/)은 사이트에
+ * 빌드되지 않으므로 여기서 연다. 정정 요청 이슈도 이곳에 남는다.
+ */
+export const REPO_URL = "https://github.com/EtainClub/ljm-wiki";

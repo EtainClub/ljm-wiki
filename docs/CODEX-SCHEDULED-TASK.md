@@ -48,3 +48,47 @@ PR 제목에는 [승인 대기]와 event slug를 포함한다. PR 설명에는 �
 사용자는 이 PR의 **Merge 버튼 한 번**으로 발행을 허락한다. 병합 뒤 workflow가 `ready`
 상태를 다시 검증해 `published`로 바꾸고 파생 위키를 생성한다. 이어 `main` push를 감지한
 `ljm-wiki` App Hosting 백엔드가 자동 롤아웃한다.
+
+## 지난 사건 보도 태도 채우기 (임시 예약 작업)
+
+보도 태도 분류가 생기기 전에 발행된 사건(2026-10-18 기준 67건, 기사·영상 1,220건)을 채운다.
+`curate untoned` 가 0건을 보고하면 이 예약 작업을 끈다.
+
+- **시각** 하루 3회 KST 10:00 · 14:00 · 18:00. 22:30 일일 뉴스 작업과 겹치지 않게 한다
+  (같은 작업 트리를 쓰므로 동시에 돌면 서로 중단한다).
+- **양** 한 번에 사건 최대 3건, PR 1개. 열린 태도 분류 PR이 3개 이상이면 쉰다 — 병합이 밀릴 때
+  분류가 쌓여 검토 부담이 커지는 것을 막는다.
+- **전제** 보도 태도 기능(`curate leads`·`tones`·`untoned`, `apply-tone-correction`)이 `main`에
+  병합돼 있어야 한다.
+
+```text
+이 저장소의 .claude/skills/lee-news/SKILL.md 중 "4-1. 보도 태도 분류"와 "발행된 사건에 보도
+태도를 채우는 경우", docs/CURATION-PRS.md, wiki/schema.md를 먼저 읽어라.
+추가 AI API를 사용하지 말고 현재 Codex 구독으로만 작업하라.
+
+1. 작업 트리가 깨끗하지 않거나 `git pull --ff-only`로 main 최신화가 안 되면 중단하고 보고한다.
+2. `gh pr list --state open --search "태도 분류 승인 대기 in:title"`의 결과가 3개 이상이면 아무것도
+   하지 않고 "병합 대기 PR이 많아 쉼"이라고 보고한다.
+3. `npm --prefix functions run -s curate -- untoned`를 실행한다. "채울 것 0"이면
+   "지난 사건 채우기 완료 — 예약 작업을 꺼도 됨"이라고 보고하고 끝낸다.
+4. 목록 위에서부터 최대 3건을 고른다. [이어서] 표시가 있는 사건을 먼저 고른다.
+5. 사건마다:
+   a. `curate -- leads <ID>`로 제목과 리드를 읽는다. ⚠ 표시나 "(읽지 못함)"은 원문을 열어 첫
+      문단까지 읽는다.
+   b. SKILL.md 4-1의 표와 기준으로 모든 항목을 분류해 저장소 밖의 임시 JSON 파일에 쓰고
+      `curate -- tones <ID> <파일>`을 실행한다. 미분류가 0건이 될 때까지 반복한다.
+   c. 위키 사건 페이지를 정하고(untoned 출력의 경로, 없으면 SKILL.md 규칙대로 찾기)
+      `curate -- tone-table <ID>` 출력을 SKILL.md 규칙대로 붙인다.
+   d. `npm --prefix functions run -s queue:approval -- tones <ID>`
+   어느 단계든 확실하지 않으면 그 사건의 위키 변경과 표식을 되돌리고 다음 사건으로 넘어간다.
+6. `npm --prefix functions run -s wiki:lint`(모두 0건), `npm --prefix functions run -s typecheck`,
+   `npx tsc --noEmit`, `npm run -s lint`, `npm run -s build`를 통과해야 한다.
+7. 브랜치 `codex/lee-tones-YYYY-MM-DD-HHMM`. 커밋에는 `wiki/events/*.md`와
+   `.automation/ready-events/*.tone-correction.json`만 넣는다. 커밋 후
+   `node scripts/check-curation-pr.mjs origin/main HEAD`를 통과해야 한다.
+8. push 후 PR을 만든다. 제목 `[태도 분류 승인 대기] N건: <wikiSlug, ...>`.
+   본문: 사건별 유형 건수, 겉과 속 주의에 걸릴 항목(지지·호평/사실 전달 + 사건에 없는 부정
+   연상어), 리드 대신 원문을 직접 읽은 항목 수, 판단이 애매했던 항목과 이유, 건너뛴 사건과 이유,
+   "병합이 곧 분류 공개 승인".
+9. publish, deploy, main push, force push, 다른 사건·공통 위키 파일 수정은 절대 하지 않는다.
+```

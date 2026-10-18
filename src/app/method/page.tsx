@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BRAND } from "@/lib/brand";
+import { REPO_URL } from "@/lib/site";
+import { CUE_TERMS, TONES } from "@/lib/tone";
 
 export const metadata: Metadata = {
   title: "방법론과 한계",
   description:
-    "무엇을 어떻게 모으고, 무엇을 하지 않는지. 사건·매체 선정 기준과 프레임 분류 규칙, 그리고 이 자료의 한계.",
+    "왜 지켜보는지, 무엇을 어떻게 모으고 무엇을 하지 않는지. 사건·매체 선정 기준과 프레임 분류 규칙, 자료의 한계와 정정 요청 방법.",
 };
 
 /**
@@ -21,11 +24,24 @@ export default function MethodPage() {
           이 사이트가 무엇을 어떻게 모으는지, 그리고 무엇을 하지 않는지 적어
           둡니다. 기준을 공개하지 않으면 어떤 분류도 신뢰받을 수 없다고 봅니다.
         </p>
-        <p className="rounded-lg border border-dashed border-zinc-400 px-4 py-3 text-xs leading-5 text-zinc-600 dark:border-zinc-600 dark:text-zinc-400">
-          현재 공개된 내용은 <strong className="font-semibold">초안</strong>이며,
-          실제 데이터 수집을 시작하기 전에 확정합니다.
-        </p>
       </header>
+
+      <Section title="왜 지켜보나">
+        <p>
+          언론과 정치 유튜브는 정부에 대한 인식이 만들어지는 가장 큰 통로입니다.
+          {BRAND.name}은 이재명 정부를 다루는 보도를 지켜보고, 특히{" "}
+          <strong className="font-semibold">겉으로는 정부를 옹호하는 듯하면서 제목에 탄핵·지지율
+          하락·위기 같은 말을 함께 실어</strong>, 정부가 잘못하고 있다는 인상을 남기는
+          보도와 채널을 주의 깊게 봅니다. 이름의 &lsquo;속&rsquo;은 제목의 겉이 아니라 그
+          제목이 남기는 인식을 본다는 뜻입니다.
+        </p>
+        <p>
+          이런 보도는 한 건만 보면 드러나지 않습니다. 같은 사건에 다른 매체가 단 제목과
+          나란히 놓고, 같은 매체·채널이 사건마다 어떤 말을 되풀이하는지 쌓아 볼 때
+          보입니다. 그래서 의도를 짐작해 이름 붙이지 않고, 누구나 원문으로 확인할 수
+          있는 제목과 관측 시각만 기록합니다.
+        </p>
+      </Section>
 
       <Section title="하는 일">
         <p>
@@ -43,17 +59,19 @@ export default function MethodPage() {
             <strong className="font-semibold">매체별 성향·등급 라벨.</strong>{" "}
             어느 매체가 어느 편이라는 표시를 데이터에 저장하지 않습니다. 고정
             라벨은 그 자체로 낙인이 되고, 한 번 붙으면 개별 보도를 보지 않게
-            만듭니다. 분류는 <em>사건 단위로만</em>{" "}존재합니다.
+            만듭니다. 프레임은 <em>사건 단위</em>로, 보도 태도는 <em>기사·영상 하나</em>에만
+            붙습니다.
           </li>
           <li>
             <strong className="font-semibold">신뢰도 점수·순위.</strong>{" "}매체를
-            숫자로 줄 세우지 않습니다. 집계는 조회 시점에 사실로만 계산하고
-            (예: &ldquo;이 사건을 다루지 않은 곳 15&rdquo;), 어디에도 누적
-            점수를 저장하지 않습니다.
+            숫자로 줄 세우지 않습니다. 매체·채널별 보도 태도는 건수와 비율만 이름순으로
+            보이고, 합산 점수나 순위는 만들지 않습니다. 집계는 조회 시점에 기록에서
+            계산합니다.
           </li>
           <li>
-            <strong className="font-semibold">보도 내용에 대한 판정.</strong>{" "}
-            어떤 제목이 옳은지 그른지 말하지 않습니다. 나란히 놓을 뿐이고, 판단은
+            <strong className="font-semibold">사실 여부와 의도에 대한 판정.</strong>{" "}
+            기사 내용이 사실인지, 매체가 무엇을 노렸는지 판정하지 않습니다. 보도
+            태도 분류는 기사가 정부를 <em>어떤 방식으로</em> 다뤘는지를 나눌 뿐이고, 판단은
             보시는 분이 합니다.
           </li>
         </ul>
@@ -96,7 +114,7 @@ export default function MethodPage() {
           통과한 결과만 승인 대기열에 넣고, 사람의 병합·승인 뒤에만 게시합니다.
         </p>
         <ul className="list-disc space-y-2 pl-5">
-          <li>판단 근거는 <strong className="font-semibold">제목뿐</strong>입니다. 본문은 읽지도 저장하지도 않습니다</li>
+          <li>프레임의 판단 근거는 <strong className="font-semibold">제목뿐</strong>입니다. 본문은 저장하지 않습니다</li>
           <li>
             묶음 이름은 서술형으로 씁니다 (&ldquo;&lsquo;재원·실효성 우려&rsquo;를
             앞세움&rdquo;). &lsquo;왜곡&rsquo;, &lsquo;악의적&rsquo; 같은 평가어를
@@ -104,6 +122,37 @@ export default function MethodPage() {
           </li>
           <li>어느 묶음에도 맞지 않으면 억지로 배정하지 않고 &lsquo;기타&rsquo;로 둡니다</li>
         </ul>
+      </Section>
+
+      <Section title="보도 태도는 어떻게 나누나" id="tone">
+        <p>
+          제목만으로는 비판인지 비난인지 가리기 어렵습니다. 그래서 기사·영상마다
+          <strong className="font-semibold"> 제목과 리드(페이지 요약문)</strong>를 읽고 아래 여섯 유형 중
+          하나로 나눕니다. AI가 유형과 근거 한 줄을 적고, 운영자가 승인 PR에서 읽고
+          병합해야 공개됩니다. 리드와 본문은 저장하지 않습니다.
+        </p>
+        <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5">
+          {TONES.map((def) => (
+            <div key={def.key} className="contents">
+              <dt className="flex items-center gap-1.5 font-semibold">
+                <span className={`size-2 rounded-full ${def.bar}`} />
+                {def.label}
+              </dt>
+              <dd>{def.description}</dd>
+            </div>
+          ))}
+        </dl>
+        <p>
+          <strong className="font-semibold">겉과 속 주의</strong>는 사람이 고르지 않고 규칙으로
+          붙입니다. 지지·호평이나 사실 전달로 분류된 제목에, 사건 제목·요약에 없는 아래
+          말이 함께 있으면 표시합니다. 사건 자체가 탄핵·지지율에 관한 것이면 그 말은
+          덧붙인 말이 아니므로 제외합니다.
+        </p>
+        <p className="text-sm text-zinc-600 dark:text-zinc-400">{CUE_TERMS.join(" · ")}</p>
+        <p className="text-zinc-600 dark:text-zinc-400">
+          AI 분류는 틀릴 수 있고, 리드는 기사의 앞부분일 뿐입니다. 분류가 틀렸다면
+          아래 정정 요청으로 알려 주세요.
+        </p>
       </Section>
 
       <Section title="&lsquo;보도하지 않음&rsquo;은 무슨 뜻인가">
@@ -141,7 +190,8 @@ export default function MethodPage() {
 
       <Section title="한계">
         <ul className="list-disc space-y-2 pl-5">
-          <li>제목만 봅니다. 영상의 발언·자막·썸네일 또는 기사 본문의 논조는 아직 분석하지 않습니다</li>
+          <li>프레임은 제목만, 보도 태도는 제목과 리드까지만 봅니다. 기사 전체의 논조, 영상의 발언·자막·썸네일은 분석하지 않습니다</li>
+          <li>보도 태도는 AI가 나누고 운영자가 승인합니다. 틀릴 수 있고, 지난 사건은 차례로 채워집니다</li>
           <li>고정된 목록만 관찰합니다. 전체 언론을 대표하지 않습니다</li>
           <li>사건 선정과 프레임 분류에는 사람의 판단이 들어갑니다</li>
           <li>수집 시점 사이에 올라왔다가 내려간 것은 놓칠 수 있습니다</li>
@@ -153,13 +203,52 @@ export default function MethodPage() {
         </ul>
       </Section>
 
-      <Section title="정정 요청">
+      <Section title="정정 요청" id="correction">
         <p>
           분류가 잘못됐거나, 다뤘는데 &lsquo;보도하지 않음&rsquo;에 들어갔거나,
-          목록에서 빠지길 원하시면 알려 주세요. 확인 후 정정하고, 해당 사건
-          페이지에 정정 이력을 남깁니다.
+          목록에서 빠지길 원하시면 알려 주세요. 해당 사건 페이지 주소와 기사·영상 원문
+          링크를 함께 보내 주시면 빨리 확인할 수 있습니다. 확인 후 정정하고, 해당 사건
+          페이지에 정정 이력을 남깁니다. 기록된 매체·채널 본인의 요청은 먼저 확인합니다.
         </p>
-        <p className="text-zinc-600 dark:text-zinc-400">연락처: (준비 중)</p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            이메일:{" "}
+            <a
+              href={`mailto:${BRAND.contactEmail}?subject=${encodeURIComponent(`[${BRAND.name} 정정 요청]`)}`}
+              className="underline underline-offset-4"
+            >
+              {BRAND.contactEmail}
+            </a>{" "}
+            <span className="text-zinc-600 dark:text-zinc-400">— 공개되지 않습니다</span>
+          </li>
+          <li>
+            <a
+              href={`${REPO_URL}/issues/new?title=${encodeURIComponent("[정정 요청] ")}`}
+              className="underline underline-offset-4"
+            >
+              GitHub 이슈
+            </a>{" "}
+            <span className="text-zinc-600 dark:text-zinc-400">— 요청과 처리 과정이 공개됩니다</span>
+          </li>
+        </ul>
+      </Section>
+
+      <Section title="운영">
+        <p>
+          {BRAND.name}은 잼통(<a href="https://jamtong.kr" className="underline underline-offset-4">jamtong.kr</a>)을
+          만든 운영자가 함께 만들고 운영합니다. 수집·분류 코드와 모든 기록의 변경
+          이력은{" "}
+          <a href={REPO_URL} className="underline underline-offset-4">공개 저장소</a>에 있습니다.
+        </p>
+      </Section>
+
+      <Section title="개인정보">
+        <p>
+          회원 가입과 로그인이 없고, 쿠키나 방문 분석 도구를 쓰지 않습니다. 화면을
+          빨리 열기 위해 페이지 사본을 브라우저에 저장(서비스 워커)할 뿐 서버로 보내지
+          않습니다. 호스팅(Google Firebase)은 보안·운영을 위한 접속 기록을 남길 수
+          있습니다. 정정 요청 메일은 처리에만 쓰고 공개하지 않습니다.
+        </p>
       </Section>
     </article>
   );
@@ -167,13 +256,16 @@ export default function MethodPage() {
 
 function Section({
   title,
+  id,
   children,
 }: {
   title: string;
+  /** 푸터의 정정 요청 링크처럼 바로 내려오는 자리 */
+  id?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="space-y-3">
+    <section id={id} className="scroll-mt-20 space-y-3">
       <h2 className="border-b border-zinc-200 pb-2 text-base font-semibold dark:border-zinc-800">
         {title}
       </h2>

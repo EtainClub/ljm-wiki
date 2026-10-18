@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ShareBar from "@/components/ShareBar";
+import ToneBar from "@/components/ToneBar";
 import type { EventBundle, Frame, Item } from "@/lib/event-types";
 import { getEventBySlug } from "@/lib/events-source";
 import { formatDelay, formatLongDate, formatTime } from "@/lib/kst";
+import { missingArticleLinks } from "@/lib/report";
+import { surfaceCues, toneDef } from "@/lib/tone";
+import { topicsOf } from "@/lib/topics";
+import { getWikiForEvent, type WikiPage } from "@/lib/wiki";
 
 // 승인 후 생성된 새 slug도 재배포 대기 없이 요청 시점에 제공한다.
 export const dynamic = "force-dynamic";
@@ -99,6 +104,11 @@ export default async function EventPage({
     (it) => (it.titleHistory?.length ?? 0) > 1,
   );
   const checkedAt = entries[0]?.[1].checkedAt ?? event.publishedAt;
+  const droppedIds = new Set(
+    entries.filter(([, c]) => c.status === "none" && c.reason === "dropped").map(([id]) => id),
+  );
+  const wiki = getWikiForEvent(event);
+  const topics = topicsOf(event.title);
 
   return (
     <article className="space-y-8">
@@ -110,7 +120,18 @@ export default async function EventPage({
       )}
 
       <header className="space-y-3">
-        <p className="text-xs text-zinc-500">{formatLongDate(event.occurredAt)}</p>
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-zinc-500">
+          <span>{formatLongDate(event.occurredAt)}</span>
+          {topics.map((topic) => (
+            <Link
+              key={topic.key}
+              href={`/archive?topic=${topic.key}`}
+              className="rounded-full border border-zinc-300 px-2 py-0.5 transition hover:border-zinc-500 dark:border-zinc-700 dark:hover:border-zinc-500"
+            >
+              {topic.label}
+            </Link>
+          ))}
+        </p>
         <h1 className="text-2xl font-bold leading-snug tracking-tight sm:text-3xl">
           {event.title}
         </h1>
@@ -146,6 +167,8 @@ export default async function EventPage({
         bundle={bundle}
       />
 
+      <ToneSection bundle={bundle} />
+
       {videos.length > 0 && (
         <details open className="group rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
           <AccordionHeading label="연결된 유튜브 영상" count={videos.length} />
@@ -180,14 +203,18 @@ export default async function EventPage({
 
       <SilentBlock
         sourceIds={silentIds}
+        droppedIds={droppedIds}
         sources={sources}
         checkedAt={checkedAt}
         {...(event.coverageQuery ? { query: event.coverageQuery } : {})}
+        report={missingArticleLinks(event)}
       />
 
       {changed.length > 0 && (
         <TitleChangeBlock items={changed} bundle={bundle} />
       )}
+
+      {wiki.page && <RelatedBlock page={wiki.page} people={wiki.people} />}
 
       <ShareBar
         title={event.title}
@@ -199,6 +226,83 @@ export default async function EventPage({
 }
 
 /* ────────────────────────────────────────────────────────── */
+
+/** '겉과 속' 판단의 기준 — 사건 자체에 이미 있는 말은 덧붙인 말이 아니다. */
+function eventContext(bundle: EventBundle): string {
+  return `${bundle.event.title} ${bundle.event.summary}`;
+}
+
+/**
+ * 보도 태도 분포. 제목만으로는 비판인지 비난인지 가리기 어려워, 제목과 기사 리드를
+ * 읽고 나눈 결과를 프레임(제목의 말) 옆에 따로 둔다. 둘은 다른 축이다.
+ */
+function ToneSection({ bundle }: { bundle: EventBundle }) {
+  const tones = bundle.event.tones ?? {};
+  const framed = [...new Set(bundle.event.frames.flatMap((f) => f.itemIds))].filter(
+    (id) => bundle.items[id],
+  );
+  const classified = framed.filter((id) => tones[id]);
+  if (classified.length === 0) return null;
+
+  const typeOf = (id: string) => bundle.sources[bundle.items[id]!.sourceId]?.type;
+  const groups = [
+    { label: "언론 기사", ids: classified.filter((id) => typeOf(id) === "press") },
+    { label: "유튜브 영상", ids: classified.filter((id) => typeOf(id) === "youtube") },
+  ].filter((group) => group.ids.length > 0);
+  const flagged = classified
+    .map((id) => {
+      const item = bundle.items[id]!;
+      return { item, tone: tones[id]!, cues: surfaceCues(item.title, tones[id]!.tone, eventContext(bundle)) };
+    })
+    .filter((row) => row.cues.length > 0);
+
+  return (
+    <section aria-label="보도 태도" className="space-y-4 rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+      <h2 className="flex items-baseline gap-2">
+        <span className="text-sm font-semibold">보도 태도</span>
+        <span className="text-sm tabular-nums text-zinc-500">
+          {classified.length < framed.length ? `${classified.length}/${framed.length}건 분류` : `${classified.length}건`}
+        </span>
+      </h2>
+
+      {groups.map((group) => (
+        <ToneBar key={group.label} label={group.label} tones={group.ids.map((id) => tones[id]!.tone)} />
+      ))}
+
+      {flagged.length > 0 && (
+        <div className="space-y-2 rounded-lg bg-rose-50 p-4 dark:bg-rose-950/40">
+          <p className="text-sm font-semibold text-rose-900 dark:text-rose-200">
+            겉과 속 주의 <span className="tabular-nums">{flagged.length}</span>
+          </p>
+          <p className="text-xs leading-5 text-rose-900/80 dark:text-rose-200/80">
+            지지·호평이나 사실 전달로 분류됐지만, 사건 제목·요약에 없는 부정 연상어를 제목에
+            함께 실었습니다. 의도를 판정한 것은 아닙니다.
+          </p>
+          <ul className="space-y-2">
+            {flagged.map(({ item, tone, cues }) => (
+              <li key={item.id} className="text-sm leading-6">
+                <span className="mr-2 text-xs font-medium text-zinc-600 dark:text-zinc-400">
+                  {bundle.sources[item.sourceId]?.name} · {toneDef(tone.tone).label} · ‘{cues.join("’, ‘")}’
+                </span>
+                <a href={item.url} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <p className="text-xs leading-5 text-zinc-500">
+        AI가 제목과 기사 리드를 읽고 나눈 뒤 운영자가 승인한 분류입니다. 리드·본문은 저장하지
+        않고 근거 한 줄만 남깁니다. 기사마다 아래 목록에 근거가 있습니다.{" "}
+        <Link href="/method#tone" className="underline underline-offset-2">
+          분류 기준
+        </Link>
+      </p>
+    </section>
+  );
+}
 
 function AccordionHeading({ label, count }: { label: string; count: number }) {
   return (
@@ -336,6 +440,8 @@ function ItemRow({ item, bundle }: { item: Item; bundle: EventBundle }) {
     ? Math.round((Date.parse(item.publishedAt) - Date.parse(bundle.event.occurredAt)) / 60_000)
     : bundle.event.coverage[item.sourceId]?.delayMinutes;
   const wasChanged = (item.titleHistory?.length ?? 0) > 1;
+  const tone = bundle.event.tones?.[item.id];
+  const cues = tone ? surfaceCues(item.title, tone.tone, eventContext(bundle)) : [];
 
   return (
     <li>
@@ -359,6 +465,17 @@ function ItemRow({ item, bundle }: { item: Item; bundle: EventBundle }) {
             제목 수정됨
           </span>
         )}
+        {tone && (
+          <span className="inline-flex items-center gap-1 rounded border border-zinc-300 px-1.5 py-0.5 text-[10px] font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-300">
+            <span className={`size-1.5 rounded-full ${toneDef(tone.tone).bar}`} />
+            {toneDef(tone.tone).label}
+          </span>
+        )}
+        {cues.length > 0 && (
+          <span className="rounded bg-rose-100 px-1.5 py-0.5 text-[10px] font-medium text-rose-800 dark:bg-rose-950 dark:text-rose-200">
+            겉과 속 주의: {cues.join("·")}
+          </span>
+        )}
       </div>
       <a
         href={item.url}
@@ -368,22 +485,38 @@ function ItemRow({ item, bundle }: { item: Item; bundle: EventBundle }) {
       >
         {item.title}
       </a>
+      {tone && <p className="mt-0.5 text-xs leading-5 text-zinc-500">{tone.basis}</p>}
     </li>
   );
 }
 
 function SilentBlock({
   sourceIds,
+  droppedIds,
   sources,
   checkedAt,
   query,
+  report,
 }: {
   sourceIds: string[];
+  /** 기사는 찾았지만 검토 후 이 사건이 아니라고 뺀 곳. 나머지는 검색 미발견이다. */
+  droppedIds: Set<string>;
   sources: EventBundle["sources"];
   checkedAt: string;
   /** 이 판정에 쓴 검색어. 판정이 여기 달려 있으므로 감추지 않는다. */
   query?: string;
+  report: ReturnType<typeof missingArticleLinks>;
 }) {
+  // 두 주장은 다르다 — '검색이 못 찾음' 은 검색어에 달린 값이고, '검토 후 제외'
+  // 는 사람의 판단이다. 한 덩어리로 보이면 어느 쪽을 따져야 할지 알 수 없다.
+  const groups = [
+    { label: "검색에서 찾지 못함", ids: sourceIds.filter((id) => !droppedIds.has(id)) },
+    {
+      label: "기사는 있었지만 검토 후 이 사건 보도가 아니라고 제외",
+      ids: sourceIds.filter((id) => droppedIds.has(id)),
+    },
+  ].filter((group) => group.ids.length > 0);
+
   return (
     <section className="rounded-xl border border-dashed border-zinc-300 p-5 dark:border-zinc-700">
       <h2 className="flex items-baseline gap-2">
@@ -392,16 +525,25 @@ function SilentBlock({
           {sourceIds.length}
         </span>
       </h2>
-      <ul className="mt-4 flex flex-wrap gap-1.5">
-        {sourceIds.map((id) => (
-          <li
-            key={id}
-            className="rounded-md bg-zinc-200/70 px-2 py-1 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-          >
-            {sources[id].name}
-          </li>
-        ))}
-      </ul>
+      {groups.map((group) => (
+        <div key={group.label} className="mt-4">
+          {groups.length > 1 && (
+            <h3 className="mb-2 text-xs font-semibold text-zinc-500">
+              {group.label} <span className="tabular-nums">{group.ids.length}</span>
+            </h3>
+          )}
+          <ul className="flex flex-wrap gap-1.5">
+            {group.ids.map((id) => (
+              <li
+                key={id}
+                className="rounded-md bg-zinc-200/70 px-2 py-1 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+              >
+                {sources[id].name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
       <p className="mt-4 text-xs leading-5 text-zinc-500">
         {formatLongDate(checkedAt)} {formatTime(checkedAt)} 기준입니다. 이후
         보도되면 이 목록에서 빠지고 보도 지연 시간으로 바뀝니다.
@@ -414,6 +556,59 @@ function SilentBlock({
             자세히
           </Link>
         </p>
+      )}
+      <div className="mt-4 border-t border-dashed border-zinc-300 pt-4 dark:border-zinc-700">
+        <p className="text-sm font-medium">빠진 기사를 찾으셨나요?</p>
+        <p className="mt-1 text-xs leading-5 text-zinc-500">
+          관찰 매체의 이 사건 기사·영상이 빠져 있다면 원문 링크를 보내 주세요. 확인해
+          보도로 옮기고 정정 이력을 남깁니다.
+        </p>
+        <p className="mt-3 flex flex-wrap gap-2 text-sm">
+          <a
+            href={report.issue}
+            className="rounded-lg border border-zinc-300 px-3 py-1.5 transition hover:border-zinc-500 dark:border-zinc-700 dark:hover:border-zinc-500"
+          >
+            빠진 기사 제보 (GitHub, 공개)
+          </a>
+          <a
+            href={report.mail}
+            className="rounded-lg border border-zinc-300 px-3 py-1.5 transition hover:border-zinc-500 dark:border-zinc-700 dark:hover:border-zinc-500"
+          >
+            메일로 제보
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/** 위키 사건 기록과, 그 기록이 연결한 인물 페이지. */
+function RelatedBlock({ page, people }: { page: WikiPage; people: WikiPage[] }) {
+  const href = (p: WikiPage) => `/w/${p.slug.map(encodeURIComponent).join("/")}`;
+  return (
+    <section className="space-y-3">
+      <h2 className="border-b border-zinc-200 pb-2 text-sm font-semibold dark:border-zinc-800">
+        관련 기록
+      </h2>
+      <p className="text-sm">
+        <Link href={href(page)} className="underline underline-offset-4">
+          위키 사건 기록
+        </Link>
+        <span className="text-zinc-500"> — 집계 기준·질의어 변경 이력·판단 근거</span>
+      </p>
+      {people.length > 0 && (
+        <ul className="flex flex-wrap gap-1.5" aria-label="제목에 등장한 인물">
+          {people.map((p) => (
+            <li key={p.id}>
+              <Link
+                href={href(p)}
+                className="inline-block rounded-md border border-zinc-200 px-2 py-1 text-xs transition hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
+              >
+                {p.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       )}
     </section>
   );

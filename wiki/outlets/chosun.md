@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 61건 중 44건 보도 · 미보도 17건
-- 평균 보도 지연 +77분 (1시간 17분)
+- 관찰 사건 63건 중 46건 보도 · 미보도 17건
+- 평균 보도 지연 +78분 (1시간 18분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-16-이재명-부상소방관-장병-쾌유-예우]] — 추미애 재정 빨대 논란·발언을 함께 적음 (2026-10-16)
+  22:23 (+198분) [「추미애 ‘소방 재정 빨대’ 논란 속... 李대통령 “소방관에 천금을 준들 아깝겠나”」](https://www.chosun.com/politics/blue_house/2026/10/16/DKLSOD4TOZEQDLW5ELAILXSG5U/)
+- [[events/2026-10-16-이재명-부마항쟁-518-헌법수록-개헌논의]] — 헌법 수록·개헌 논의를 앞세움 (2026-10-16)
+  14:50 (+18분) [「李“부마민주항쟁, 헌법전문 담아야... 국회, 개헌 의견수렴·토론 나서...」](https://biz.chosun.com/policy/politics/president_office/2026/10/16/JIBMUF3SMFCY3HWBYMTVOFUU4U/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-15-이재명-김지용-중수청장-임명]] — 임명·임명안 재가를 앞세움 (2026-10-15)
   19:39 (+16분) [「李 대통령, 김지용 중수청장 임명안 재가」](https://biz.chosun.com/policy/politics/president_office/2026/10/15/R6QF5KDY35A5ZN5MQOSLV6ONE4/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-15-이재명-미한재계회의-양방향투자]] — **보도하지 않음** (2026-10-15)
@@ -118,20 +122,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 44건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 46건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 18건 | 42건 |
-| [[outlets/yna|연합뉴스]] | 17건 | 44건 |
-| [[outlets/sbs|SBS]] | 16건 | 39건 |
-| [[outlets/joongang|중앙일보]] | 15건 | 39건 |
-| [[outlets/donga|동아일보]] | 15건 | 36건 |
-| [[outlets/segye|세계일보]] | 14건 | 37건 |
-| [[outlets/ytn|YTN]] | 14건 | 34건 |
-| [[outlets/news1|뉴스1]] | 13건 | 42건 |
-| [[outlets/mt|머니투데이]] | 13건 | 40건 |
-| [[outlets/kmib|국민일보]] | 13건 | 36건 |
+| [[outlets/yna|연합뉴스]] | 18건 | 46건 |
+| [[outlets/newsis|뉴시스]] | 18건 | 44건 |
+| [[outlets/sbs|SBS]] | 17건 | 41건 |
+| [[outlets/donga|동아일보]] | 17건 | 38건 |
+| [[outlets/joongang|중앙일보]] | 15건 | 41건 |
+| [[outlets/segye|세계일보]] | 15건 | 39건 |
+| [[outlets/news1|뉴스1]] | 14건 | 44건 |
+| [[outlets/mt|머니투데이]] | 14건 | 42건 |
+| [[outlets/hani|한겨레]] | 14건 | 38건 |
+| [[outlets/ytn|YTN]] | 14건 | 35건 |
 
 이 밖에 14곳이 더 있다.
 

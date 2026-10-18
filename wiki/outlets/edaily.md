@@ -4,12 +4,19 @@
 
 ## 관찰 기록
 
-- 관찰 사건 63건 중 43건 보도 · 미보도 20건
-- 평균 보도 지연 +112분 (1시간 52분)
+- 관찰 사건 67건 중 46건 보도 · 미보도 21건
+- 평균 보도 지연 +106분 (1시간 46분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-18-이재명-국무회의-비공개압박-반박]] — 반대의견 존중·공개 방침 재확인을 앞세움 (2026-10-18)
+  10:47 (+10분) [「李대통령 "언제나 토론 좋아해, 반대의견 내는 사람 존중"」](https://www.edaily.co.kr/News/Read?newsId=01374326645614232&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-18-오세훈-부동산정책-실패인정-요구]] — 정책 실패 인정·참담한 성적표를 앞세움 (2026-10-18)
+  10:02 (+24분) [「오세훈 “李정부 10·15 대책 1년 성적표, 괴로울 만큼 참담”」](https://www.edaily.co.kr/News/Read?newsId=01312006645614232&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-17-한동훈-브라질계란-정상회담-의혹공방]] — **보도하지 않음** (2026-10-17)
+- [[events/2026-10-17-이재명-부천-순직소방관-애도-예우]] — 국가 책무·안전대책·예우·처우를 앞세움 (2026-10-17)
+  10:07 (+1분) [「李, 부천 소방관 순직에 “안전은 국가 책무”…처우 개선 약속」](https://www.edaily.co.kr/News/Read?newsId=02027046645613904&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-16-이재명-부상소방관-장병-쾌유-예우]] — **보도하지 않음** (2026-10-16)
 - [[events/2026-10-16-이재명-부마항쟁-518-헌법수록-개헌논의]] — 헌법 수록·개헌 논의를 앞세움 (2026-10-16)
   14:34 (+2분) [「[속보] 李 “부마항쟁·광주민주화운동 헌법 전문 수록…개헌에 국회 나...」](https://www.edaily.co.kr/News/Read?newsId=03827766645613576&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
@@ -119,20 +126,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 43건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 46건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 22건 | 41건 |
-| [[outlets/news1|뉴스1]] | 19건 | 40건 |
-| [[outlets/mt|머니투데이]] | 19건 | 39건 |
-| [[outlets/yna|연합뉴스]] | 18건 | 41건 |
-| [[outlets/sbs|SBS]] | 18건 | 37건 |
-| [[outlets/hani|한겨레]] | 15건 | 35건 |
-| [[outlets/mk|매일경제]] | 14건 | 37건 |
-| [[outlets/mbc|MBC]] | 14건 | 36건 |
-| [[outlets/munhwa|문화일보]] | 14건 | 24건 |
-| [[outlets/kbs|KBS]] | 13건 | 35건 |
+| [[outlets/newsis|뉴시스]] | 23건 | 44건 |
+| [[outlets/mt|머니투데이]] | 20건 | 42건 |
+| [[outlets/news1|뉴스1]] | 19건 | 43건 |
+| [[outlets/yna|연합뉴스]] | 19건 | 43건 |
+| [[outlets/sbs|SBS]] | 19건 | 39건 |
+| [[outlets/mk|매일경제]] | 15건 | 39건 |
+| [[outlets/mbc|MBC]] | 15건 | 38건 |
+| [[outlets/hani|한겨레]] | 15건 | 37건 |
+| [[outlets/segye|세계일보]] | 14건 | 37건 |
+| [[outlets/kbs|KBS]] | 14건 | 37건 |
 
 이 밖에 14곳이 더 있다.
 

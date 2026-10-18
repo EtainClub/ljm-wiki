@@ -4,12 +4,18 @@
 
 ## 관찰 기록
 
-- 관찰 사건 63건 중 36건 보도 · 미보도 27건
-- 평균 보도 지연 +218분 (3시간 38분)
+- 관찰 사건 67건 중 38건 보도 · 미보도 29건
+- 평균 보도 지연 +210분 (3시간 30분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-18-이재명-국무회의-비공개압박-반박]] — 반대의견 존중·공개 방침 재확인을 앞세움 (2026-10-18)
+  11:46 (+69분) [「이 대통령 "반대의견 존중"... '공개회의 우려'에 또 반박」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003276261&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-18-오세훈-부동산정책-실패인정-요구]] — 저를 공격할 시간·국민 삶을 앞세움 (2026-10-18)
+  10:36 (+58분) [「오세훈 "나 공격할 시간에 집값 짓눌린 국민 삶 들여다 보라"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003276245&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-17-한동훈-브라질계란-정상회담-의혹공방]] — **보도하지 않음** (2026-10-17)
+- [[events/2026-10-17-이재명-부천-순직소방관-애도-예우]] — **보도하지 않음** (2026-10-17)
 - [[events/2026-10-16-이재명-부상소방관-장병-쾌유-예우]] — **보도하지 않음** (2026-10-16)
 - [[events/2026-10-16-이재명-부마항쟁-518-헌법수록-개헌논의]] — 울먹·울컥·눈물을 앞세움 (2026-10-16)
   15:31 (+59분) [「울컥한 대통령 "5.18-부마항쟁 헌법수록, 실천해야"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003275932&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
@@ -112,20 +118,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 36건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 38건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 16건 | 33건 |
-| [[outlets/segye|세계일보]] | 16건 | 32건 |
-| [[outlets/kmib|국민일보]] | 15건 | 32건 |
-| [[outlets/joongang|중앙일보]] | 13건 | 33건 |
-| [[outlets/sbs|SBS]] | 13건 | 32건 |
-| [[outlets/hankookilbo|한국일보]] | 12건 | 34건 |
-| [[outlets/news1|뉴스1]] | 12건 | 33건 |
-| [[outlets/kbs|KBS]] | 12건 | 32건 |
-| [[outlets/khan|경향신문]] | 12건 | 30건 |
-| [[outlets/mbc|MBC]] | 11건 | 32건 |
+| [[outlets/mk|매일경제]] | 16건 | 34건 |
+| [[outlets/segye|세계일보]] | 16건 | 34건 |
+| [[outlets/kmib|국민일보]] | 15건 | 33건 |
+| [[outlets/joongang|중앙일보]] | 14건 | 35건 |
+| [[outlets/news1|뉴스1]] | 13건 | 35건 |
+| [[outlets/sbs|SBS]] | 13건 | 33건 |
+| [[outlets/hankookilbo|한국일보]] | 12건 | 35건 |
+| [[outlets/kbs|KBS]] | 12건 | 33건 |
+| [[outlets/mbc|MBC]] | 12건 | 33건 |
+| [[outlets/khan|경향신문]] | 12건 | 31건 |
 
 이 밖에 14곳이 더 있다.
 

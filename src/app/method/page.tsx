@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BRAND } from "@/lib/brand";
+import { REPO_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "방법론과 한계",
   description:
-    "무엇을 어떻게 모으고, 무엇을 하지 않는지. 사건·매체 선정 기준과 프레임 분류 규칙, 그리고 이 자료의 한계.",
+    "왜 지켜보는지, 무엇을 어떻게 모으고 무엇을 하지 않는지. 사건·매체 선정 기준과 프레임 분류 규칙, 자료의 한계와 정정 요청 방법.",
 };
 
 /**
@@ -21,11 +23,24 @@ export default function MethodPage() {
           이 사이트가 무엇을 어떻게 모으는지, 그리고 무엇을 하지 않는지 적어
           둡니다. 기준을 공개하지 않으면 어떤 분류도 신뢰받을 수 없다고 봅니다.
         </p>
-        <p className="rounded-lg border border-dashed border-zinc-400 px-4 py-3 text-xs leading-5 text-zinc-600 dark:border-zinc-600 dark:text-zinc-400">
-          현재 공개된 내용은 <strong className="font-semibold">초안</strong>이며,
-          실제 데이터 수집을 시작하기 전에 확정합니다.
-        </p>
       </header>
+
+      <Section title="왜 지켜보나">
+        <p>
+          언론과 정치 유튜브는 정부에 대한 인식이 만들어지는 가장 큰 통로입니다.
+          {BRAND.name}은 이재명 정부를 다루는 보도를 지켜보고, 특히{" "}
+          <strong className="font-semibold">겉으로는 정부를 옹호하는 듯하면서 제목에 탄핵·지지율
+          하락·위기 같은 말을 함께 실어</strong>, 정부가 잘못하고 있다는 인상을 남기는
+          보도와 채널을 주의 깊게 봅니다. 이름의 &lsquo;속&rsquo;은 제목의 겉이 아니라 그
+          제목이 남기는 인식을 본다는 뜻입니다.
+        </p>
+        <p>
+          이런 보도는 한 건만 보면 드러나지 않습니다. 같은 사건에 다른 매체가 단 제목과
+          나란히 놓고, 같은 매체·채널이 사건마다 어떤 말을 되풀이하는지 쌓아 볼 때
+          보입니다. 그래서 의도를 짐작해 이름 붙이지 않고, 누구나 원문으로 확인할 수
+          있는 제목과 관측 시각만 기록합니다.
+        </p>
+      </Section>
 
       <Section title="하는 일">
         <p>
@@ -153,13 +168,52 @@ export default function MethodPage() {
         </ul>
       </Section>
 
-      <Section title="정정 요청">
+      <Section title="정정 요청" id="correction">
         <p>
           분류가 잘못됐거나, 다뤘는데 &lsquo;보도하지 않음&rsquo;에 들어갔거나,
-          목록에서 빠지길 원하시면 알려 주세요. 확인 후 정정하고, 해당 사건
-          페이지에 정정 이력을 남깁니다.
+          목록에서 빠지길 원하시면 알려 주세요. 해당 사건 페이지 주소와 기사·영상 원문
+          링크를 함께 보내 주시면 빨리 확인할 수 있습니다. 확인 후 정정하고, 해당 사건
+          페이지에 정정 이력을 남깁니다. 기록된 매체·채널 본인의 요청은 먼저 확인합니다.
         </p>
-        <p className="text-zinc-600 dark:text-zinc-400">연락처: (준비 중)</p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            이메일:{" "}
+            <a
+              href={`mailto:${BRAND.contactEmail}?subject=${encodeURIComponent(`[${BRAND.name} 정정 요청]`)}`}
+              className="underline underline-offset-4"
+            >
+              {BRAND.contactEmail}
+            </a>{" "}
+            <span className="text-zinc-600 dark:text-zinc-400">— 공개되지 않습니다</span>
+          </li>
+          <li>
+            <a
+              href={`${REPO_URL}/issues/new?title=${encodeURIComponent("[정정 요청] ")}`}
+              className="underline underline-offset-4"
+            >
+              GitHub 이슈
+            </a>{" "}
+            <span className="text-zinc-600 dark:text-zinc-400">— 요청과 처리 과정이 공개됩니다</span>
+          </li>
+        </ul>
+      </Section>
+
+      <Section title="운영">
+        <p>
+          {BRAND.name}은 잼통(<a href="https://jamtong.kr" className="underline underline-offset-4">jamtong.kr</a>)을
+          만든 운영자가 함께 만들고 운영합니다. 수집·분류 코드와 모든 기록의 변경
+          이력은{" "}
+          <a href={REPO_URL} className="underline underline-offset-4">공개 저장소</a>에 있습니다.
+        </p>
+      </Section>
+
+      <Section title="개인정보">
+        <p>
+          회원 가입과 로그인이 없고, 쿠키나 방문 분석 도구를 쓰지 않습니다. 화면을
+          빨리 열기 위해 페이지 사본을 브라우저에 저장(서비스 워커)할 뿐 서버로 보내지
+          않습니다. 호스팅(Google Firebase)은 보안·운영을 위한 접속 기록을 남길 수
+          있습니다. 정정 요청 메일은 처리에만 쓰고 공개하지 않습니다.
+        </p>
       </Section>
     </article>
   );
@@ -167,13 +221,16 @@ export default function MethodPage() {
 
 function Section({
   title,
+  id,
   children,
 }: {
   title: string;
+  /** 푸터의 정정 요청 링크처럼 바로 내려오는 자리 */
+  id?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="space-y-3">
+    <section id={id} className="scroll-mt-20 space-y-3">
       <h2 className="border-b border-zinc-200 pb-2 text-base font-semibold dark:border-zinc-800">
         {title}
       </h2>

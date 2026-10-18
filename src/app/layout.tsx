@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import SiteFooter from "@/components/SiteFooter";
 import { BRAND } from "@/lib/brand";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -92,9 +93,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        <p className="mx-auto w-full max-w-2xl px-5 pb-6 text-xs text-zinc-500">
-          모든 제목은 원문 링크가 걸린 인용입니다.
-        </p>
+        <SiteFooter />
 
         <BottomNav />
       </body>

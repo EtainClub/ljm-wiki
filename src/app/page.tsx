@@ -21,21 +21,25 @@ export default async function Home() {
   const all = await getPublishedEvents();
   const events = all.slice(0, HOME_LIMIT);
   const people = getWikiPagesByKind("people");
+  // 매체 위키에는 언론사와 유튜브 채널(outlets/yt_*)이 함께 있다. 합쳐 세면 사건마다
+  // 보이는 '수집 25곳' 과 어긋나 보이므로 나눠 센다.
   const outlets = getWikiPagesByKind("outlets");
+  const channels = outlets.filter((p) => p.id.startsWith("outlets/yt_")).length;
+  const press = outlets.length - channels;
 
   return (
     <div className="space-y-10">
       <section className="space-y-4">
         <h1 className="text-[26px] font-bold leading-tight tracking-tight sm:text-3xl">
-          이재명 대통령 관련 보도를
+          이재명 정부를 다루는
           <br />
-          언론사와 유튜브 채널별로 기록합니다
+          언론과 정치 유튜브를 지켜봅니다
         </h1>
         <p className="text-[15px] leading-7 text-zinc-600 dark:text-zinc-400">
           같은 사건에 어느 매체가 <strong className="font-semibold text-zinc-800 dark:text-zinc-200">어떤 제목</strong>을
           달았는지, 그리고 <strong className="font-semibold text-zinc-800 dark:text-zinc-200">어디가 다루지 않았는지</strong>{" "}
-          그대로 모읍니다. 인물의 성향이나 의도를 서술하지 않습니다 — 판단은
-          보시는 분이 합니다.
+          원문 그대로 모읍니다. 정부를 옹호하는 듯한 제목이 탄핵·지지율 하락 같은 말을 함께
+          싣고 있지 않은지, 제목의 겉과 속을 나란히 놓습니다 — 판단은 보시는 분이 합니다.
         </p>
 
         <dl className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-500">
@@ -52,9 +56,15 @@ export default async function Home() {
             </dd>
           </div>
           <div className="flex items-baseline gap-1.5">
-            <dt>관찰 매체</dt>
+            <dt>관찰 언론</dt>
             <dd className="font-semibold tabular-nums text-zinc-800 dark:text-zinc-200">
-              {outlets.length}곳
+              {press}곳
+            </dd>
+          </div>
+          <div className="flex items-baseline gap-1.5">
+            <dt>유튜브 채널</dt>
+            <dd className="font-semibold tabular-nums text-zinc-800 dark:text-zinc-200">
+              {channels}개
             </dd>
           </div>
         </dl>

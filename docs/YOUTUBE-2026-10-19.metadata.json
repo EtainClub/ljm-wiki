@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-19",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-19T00:00:00+09:00",
+    "through": "2026-10-19T22:52:38+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "activeChannelCount": 27,
+  "reviewedChannelCount": 2,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 12,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "videos": [
+    {
+      "channelId": "UClAfLVQYZSLrMAQQ_SXPVZw",
+      "channelTitle": "오마이TV",
+      "uploadsPlaylistId": "UUlAfLVQYZSLrMAQQ_SXPVZw",
+      "checkedAt": "2026-10-19T13:52:37.668Z",
+      "videoId": "ngQpEKpN7Fg",
+      "title": "이재명 대통령에 호소하는 소방관들",
+      "url": "https://www.youtube.com/watch?v=ngQpEKpN7Fg",
+      "publishedAt": "2026-10-19T11:02:03.000Z",
+      "sourceId": "e0979baa9de6341a3f7d",
+      "source": "sources/2026-10-19/yt_UClAfLVQYZSLrMAQQ_SXPVZw-e0979baa.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만",
+      "officialPageFetch": "Cache miss"
+    },
+    {
+      "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "channelTitle": "펜앤마이크TV",
+      "uploadsPlaylistId": "UUOqCunaF9qVN8bXwsK0HT3g",
+      "checkedAt": "2026-10-19T13:52:37.064Z",
+      "videoId": "HwMB5_Z0jRc",
+      "title": "국민연금 182조나 잃었다...근데 이재명은 일언반구도 없다 / 박상규 시사평론가 [굿모닝 대한민국]",
+      "url": "https://www.youtube.com/watch?v=HwMB5_Z0jRc",
+      "publishedAt": "2026-10-19T12:00:04.000Z",
+      "sourceId": "de665955d63e14281111",
+      "source": "sources/2026-10-19/yt_UCOqCunaF9qVN8bXwsK0HT3g-de665955.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만",
+      "officialPageFetch": "Cache miss"
+    }
+  ]
+}

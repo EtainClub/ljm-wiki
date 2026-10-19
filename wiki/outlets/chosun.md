@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 67건 중 49건 보도 · 미보도 18건
-- 평균 보도 지연 +75분 (1시간 15분)
+- 관찰 사건 69건 중 51건 보도 · 미보도 18건
+- 평균 보도 지연 +74분 (1시간 14분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-19-이재명-전작권-신속환수-발언]] — 조기·신속 환수를 앞세움 (2026-10-19)
+  18:00 (+60분) [「李대통령 “전작권, 반드시 조기환수해야... 핵무기로 실전 치르나”」](https://www.chosun.com/politics/blue_house/2026/10/19/LEO7JAZ5GREKDEDBTKQ5ODUV5A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
+- [[events/2026-10-19-이재명-CPTPP-가입일정-소통-발언]] — 무리할 필요 없어·농민단체 소통을 앞세움 (2026-10-19)
+  17:32 (+32분) [「李 “CPTPP 연내 가입, 무리할 필요 없어... 조만간 농민단체 만나 소통...」](https://biz.chosun.com/policy/politics/president_office/2026/10/19/U7QPOLOO3VFLRKMTWMFR2PCXGA/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-18-이재명-국무회의-비공개압박-반박]] — 비공개 압박·이해 어렵다는 표현을 앞세움 (2026-10-18)
   11:17 (+40분) [「李대통령 “거짓말까지 하며 ‘비공개 국무회의’ 압박… 이해 어려워”」](https://biz.chosun.com/policy/politics/president_office/2026/10/18/PGX4JHXT65CC3ABHUJTJKZW6DA/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-18-오세훈-부동산정책-실패인정-요구]] — 박원순 시절 정비구역 해제·공급 기회를 앞세움 (2026-10-18)
@@ -129,20 +133,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 49건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 51건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 19건 | 47건 |
-| [[outlets/yna|연합뉴스]] | 18건 | 48건 |
-| [[outlets/sbs|SBS]] | 18건 | 43건 |
-| [[outlets/segye|세계일보]] | 17건 | 42건 |
-| [[outlets/donga|동아일보]] | 17건 | 39건 |
-| [[outlets/mt|머니투데이]] | 16건 | 45건 |
-| [[outlets/joongang|중앙일보]] | 16건 | 44건 |
+| [[outlets/newsis|뉴시스]] | 20건 | 48건 |
+| [[outlets/yna|연합뉴스]] | 19건 | 49건 |
+| [[outlets/sbs|SBS]] | 19건 | 44건 |
+| [[outlets/segye|세계일보]] | 18건 | 43건 |
+| [[outlets/donga|동아일보]] | 18건 | 40건 |
+| [[outlets/mt|머니투데이]] | 17건 | 47건 |
+| [[outlets/joongang|중앙일보]] | 17건 | 45건 |
+| [[outlets/news1|뉴스1]] | 16건 | 49건 |
 | [[outlets/ytn|YTN]] | 16건 | 37건 |
-| [[outlets/news1|뉴스1]] | 15건 | 47건 |
-| [[outlets/mk|매일경제]] | 14건 | 41건 |
+| [[outlets/mk|매일경제]] | 15건 | 42건 |
 
 이 밖에 14곳이 더 있다.
 

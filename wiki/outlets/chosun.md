@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 70건 중 52건 보도 · 미보도 18건
-- 평균 보도 지연 +76분 (1시간 16분)
+- 관찰 사건 72건 중 54건 보도 · 미보도 18건
+- 평균 보도 지연 +74분 (1시간 14분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-20-이재명-계양-신도시-주택공급-속도]] — 입주·규제·절차를 앞세움 (2026-10-20)
+  17:14 (+36분) [「李대통령, 3기 신도시 계양 방문 “결국 입주가 중요… 불필요한 규제는 과감히 개선”」](https://www.chosun.com/politics/politics_general/2026/10/20/VQMRTCLAQNAKTEKTX65EZOUH3I/)
+- [[events/2026-10-20-이재명-국무회의-중대범죄-엄단]] — 성역 없이·편 가리지 말고 수사·중대범죄 엄단을 앞세움 (2026-10-20)
+  10:18 (+18분) [「李대통령 “중수청, 성역 없이 수사력 총동원해 범죄 엄단해야”」](https://biz.chosun.com/policy/politics/president_office/2026/10/20/O6DLGATEPRCBZGMRX2NIOFGRRM/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-19-이재명-전작권-신속환수-발언]] — 조기·신속 환수를 앞세움 (2026-10-19)
   18:00 (+60분) [「李대통령 “전작권, 반드시 조기환수해야... 핵무기로 실전 치르나”」](https://www.chosun.com/politics/blue_house/2026/10/19/LEO7JAZ5GREKDEDBTKQ5ODUV5A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
 - [[events/2026-10-19-이재명-CPTPP-가입일정-소통-발언]] — 무리할 필요 없어·농민단체 소통을 앞세움 (2026-10-19)
@@ -135,20 +139,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 52건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 54건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 20건 | 49건 |
-| [[outlets/yna|연합뉴스]] | 19건 | 50건 |
-| [[outlets/sbs|SBS]] | 19건 | 44건 |
-| [[outlets/segye|세계일보]] | 18건 | 44건 |
-| [[outlets/donga|동아일보]] | 18건 | 41건 |
-| [[outlets/mt|머니투데이]] | 17건 | 48건 |
-| [[outlets/joongang|중앙일보]] | 17건 | 46건 |
-| [[outlets/news1|뉴스1]] | 16건 | 50건 |
-| [[outlets/mk|매일경제]] | 16건 | 43건 |
-| [[outlets/ytn|YTN]] | 16건 | 38건 |
+| [[outlets/yna|연합뉴스]] | 20건 | 52건 |
+| [[outlets/newsis|뉴시스]] | 20건 | 51건 |
+| [[outlets/sbs|SBS]] | 20건 | 46건 |
+| [[outlets/mt|머니투데이]] | 18건 | 49건 |
+| [[outlets/segye|세계일보]] | 18건 | 46건 |
+| [[outlets/donga|동아일보]] | 18건 | 43건 |
+| [[outlets/news1|뉴스1]] | 17건 | 52건 |
+| [[outlets/joongang|중앙일보]] | 17건 | 47건 |
+| [[outlets/mk|매일경제]] | 17건 | 45건 |
+| [[outlets/ytn|YTN]] | 16건 | 39건 |
 
 이 밖에 14곳이 더 있다.
 

@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 70건 중 48건 보도 · 미보도 22건
-- 평균 보도 지연 +106분 (1시간 46분)
+- 관찰 사건 72건 중 50건 보도 · 미보도 22건
+- 평균 보도 지연 +103분 (1시간 43분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-20-이재명-계양-신도시-주택공급-속도]] — 입주·규제·절차를 앞세움 (2026-10-20)
+  17:33 (+55분) [「李 “지금은 공급 비상시기”…땅 보상부터 입주까지 절차 손본다」](https://www.edaily.co.kr/News/Read?newsId=04693686645614888&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-20-이재명-국무회의-중대범죄-엄단]] — 존재 의의·존재 이유·존재 의미 증명을 앞세움 (2026-10-20)
+  10:25 (+25분) [「김지용 중수청장 국무회의 첫 참석…李 “수사력 총동원, 존재 의미 증...」](https://www.edaily.co.kr/News/Read?newsId=03207846645614888&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-19-이재명-전작권-신속환수-발언]] — 전환보다 환수·한미 협의를 앞세움 (2026-10-19)
   17:38 (+38분) [「李 “전작권은 ‘전환’보다 ‘환수’…반드시 조기에 돌려받아야”」](https://www.edaily.co.kr/News/Read?newsId=04346006645614560&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-19-이재명-CPTPP-가입일정-소통-발언]] — **보도하지 않음** (2026-10-19)
@@ -131,20 +135,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 48건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 50건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 23건 | 46건 |
-| [[outlets/mt|머니투데이]] | 21건 | 44건 |
-| [[outlets/news1|뉴스1]] | 19건 | 45건 |
-| [[outlets/yna|연합뉴스]] | 19건 | 45건 |
-| [[outlets/sbs|SBS]] | 19건 | 40건 |
-| [[outlets/mk|매일경제]] | 16건 | 41건 |
-| [[outlets/hani|한겨레]] | 16건 | 38건 |
-| [[outlets/kbs|KBS]] | 15건 | 39건 |
-| [[outlets/mbc|MBC]] | 15건 | 39건 |
-| [[outlets/segye|세계일보]] | 14건 | 39건 |
+| [[outlets/newsis|뉴시스]] | 24건 | 48건 |
+| [[outlets/mt|머니투데이]] | 22건 | 45건 |
+| [[outlets/news1|뉴스1]] | 19건 | 47건 |
+| [[outlets/yna|연합뉴스]] | 19건 | 47건 |
+| [[outlets/sbs|SBS]] | 19건 | 42건 |
+| [[outlets/mk|매일경제]] | 16건 | 43건 |
+| [[outlets/hani|한겨레]] | 16건 | 40건 |
+| [[outlets/segye|세계일보]] | 15건 | 41건 |
+| [[outlets/kbs|KBS]] | 15건 | 41건 |
+| [[outlets/mbc|MBC]] | 15건 | 41건 |
 
 이 밖에 14곳이 더 있다.
 

@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-22",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-22T00:00:00+09:00",
+    "through": "2026-10-22T23:28:17+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "activeChannelCount": 27,
+  "reviewedChannelCount": 2,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 11,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "channelReviews": [
+    {
+      "channelId": "UCpr8CBjls1XYoSd98d6aT1w",
+      "checkedAt": "2026-10-22T14:28:15.054Z",
+      "recentCount": 50,
+      "relatedCount": 5,
+      "displayedExamples": 5
+    },
+    {
+      "channelId": "UCX7-K_PSdtAiUDLEMQwrRoQ",
+      "checkedAt": "2026-10-22T14:28:16.481Z",
+      "recentCount": 50,
+      "relatedCount": 16,
+      "displayedExamples": 6
+    }
+  ],
+  "videos": [
+    {
+      "channelId": "UCpr8CBjls1XYoSd98d6aT1w",
+      "channelTitle": "뉴탐사 NewTamsa",
+      "uploadsPlaylistId": "UUpr8CBjls1XYoSd98d6aT1w",
+      "checkedAt": "2026-10-22T14:28:15.054Z",
+      "videoId": "-IVceREBn_M",
+      "title": "【261022】[숏탐사] 이재명 대통령, 유시민 명예훼손 고발 사건 '처벌불원'... 10월 31일 행사 나서는 유시민, 다시 입 열까",
+      "url": "https://www.youtube.com/watch?v=-IVceREBn_M",
+      "publishedAt": "2026-10-22T10:04:39.000Z",
+      "sourceId": "58c6888e8f9c4dd446ab",
+      "source": "sources/2026-10-22/yt_UCpr8CBjls1XYoSd98d6aT1w-58c6888e.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만",
+      "officialPageFetch": "Cache miss"
+    },
+    {
+      "channelId": "UCX7-K_PSdtAiUDLEMQwrRoQ",
+      "channelTitle": "고발뉴스TV",
+      "uploadsPlaylistId": "UUX7-K_PSdtAiUDLEMQwrRoQ",
+      "checkedAt": "2026-10-22T14:28:16.481Z",
+      "videoId": "volr2Qtsoto",
+      "title": "이재명 대통령 운동회 방문 진짜 의미?..대통령 탄핵 협박 유튜버들..이상호의 뉴스비평 2026년 10월 22일 1,520회 [ft. 박태훈, 정은혜, 하헌기, 김지형]",
+      "url": "https://www.youtube.com/watch?v=volr2Qtsoto",
+      "publishedAt": "2026-10-22T10:25:56.000Z",
+      "sourceId": "edab70834353bfc18bd7",
+      "source": "sources/2026-10-22/yt_UCX7-K_PSdtAiUDLEMQwrRoQ-edab7083.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만",
+      "officialPageFetch": "Cache miss"
+    }
+  ]
+}

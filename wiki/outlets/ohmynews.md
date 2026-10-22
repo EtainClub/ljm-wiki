@@ -4,12 +4,15 @@
 
 ## 관찰 기록
 
-- 관찰 사건 72건 중 41건 보도 · 미보도 31건
-- 평균 보도 지연 +201분 (3시간 21분)
+- 관찰 사건 74건 중 42건 보도 · 미보도 32건
+- 평균 보도 지연 +197분 (3시간 17분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-22-이재명-중수청-지휘감독-탄핵사유]] — 지휘·감독 포기는 탄핵 사유를 앞세움 (2026-10-22)
+  13:51 (+36분) [「이 대통령 "중수청 지휘감독 포기는 탄핵사유이자 직무유기"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003277704&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-22-이재명-공공노인-일자리-적정임금]] — **보도하지 않음** (2026-10-22)
 - [[events/2026-10-20-이재명-계양-신도시-주택공급-속도]] — 입주·규제·절차를 앞세움 (2026-10-20)
   17:31 (+53분) [「3기 신도시 현장 찾은 이 대통령 "공급 방해 규제 과감히 개선"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003277043&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-10-20-이재명-국무회의-중대범죄-엄단]] — 검찰 개혁 우려와 불안 해소·신신당부를 앞세움 (2026-10-20)
@@ -126,20 +129,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 41건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 42건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 17건 | 37건 |
-| [[outlets/segye|세계일보]] | 17건 | 37건 |
-| [[outlets/joongang|중앙일보]] | 15건 | 37건 |
-| [[outlets/kmib|국민일보]] | 15건 | 35건 |
-| [[outlets/news1|뉴스1]] | 14건 | 38건 |
-| [[outlets/sbs|SBS]] | 14건 | 36건 |
-| [[outlets/kbs|KBS]] | 13건 | 36건 |
-| [[outlets/mbc|MBC]] | 13건 | 36건 |
-| [[outlets/khan|경향신문]] | 13건 | 33건 |
-| [[outlets/edaily|이데일리]] | 12건 | 38건 |
+| [[outlets/mk|매일경제]] | 18건 | 38건 |
+| [[outlets/segye|세계일보]] | 17건 | 38건 |
+| [[outlets/joongang|중앙일보]] | 16건 | 38건 |
+| [[outlets/sbs|SBS]] | 15건 | 37건 |
+| [[outlets/kmib|국민일보]] | 15건 | 36건 |
+| [[outlets/news1|뉴스1]] | 14건 | 39건 |
+| [[outlets/kbs|KBS]] | 14건 | 37건 |
+| [[outlets/mbc|MBC]] | 14건 | 37건 |
+| [[outlets/khan|경향신문]] | 14건 | 34건 |
+| [[outlets/hankookilbo|한국일보]] | 13건 | 39건 |
 
 이 밖에 14곳이 더 있다.
 

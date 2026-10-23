@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-23",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-23T00:00:00+09:00",
+    "through": "2026-10-23T22:22:44+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "activeChannelCount": 27,
+  "reviewedChannelCount": 4,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 24,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "channelReviews": [
+    {
+      "channelId": "UCugbqfMO94F9guLEb6Olb2A",
+      "checkedAt": "2026-10-23T13:22:41.178Z",
+      "recentCount": 50,
+      "relatedCount": 21,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCM8BcGB6BWKq3utIMhGKnUA",
+      "checkedAt": "2026-10-23T13:22:43.391Z",
+      "recentCount": 50,
+      "relatedCount": 15,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCgOLQwRv1r2m9mhE1tfsn3Q",
+      "checkedAt": "2026-10-23T13:22:43.999Z",
+      "recentCount": 50,
+      "relatedCount": 15,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "checkedAt": "2026-10-23T13:22:44.559Z",
+      "recentCount": 50,
+      "relatedCount": 27,
+      "displayedExamples": 6
+    }
+  ],
+  "videos": [
+    {
+      "channelId": "UCM8BcGB6BWKq3utIMhGKnUA",
+      "channelTitle": "고성국TV",
+      "uploadsPlaylistId": "UUM8BcGB6BWKq3utIMhGKnUA",
+      "checkedAt": "2026-10-23T13:22:43.391Z",
+      "videoId": "VI0Q6jnhc0c",
+      "title": "제미나이랑 놀 때냐, 닥치고 재판이나 받아라 #이재명 #제미나이 #재판",
+      "url": "https://www.youtube.com/watch?v=VI0Q6jnhc0c",
+      "publishedAt": "2026-10-23T03:00:24.000Z",
+      "sourceId": "927a7235d23e2a4e7d17",
+      "source": "sources/2026-10-23/yt_UCM8BcGB6BWKq3utIMhGKnUA-927a7235.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    },
+    {
+      "channelId": "UCugbqfMO94F9guLEb6Olb2A",
+      "channelTitle": "한겨레TV",
+      "uploadsPlaylistId": "UUugbqfMO94F9guLEb6Olb2A",
+      "checkedAt": "2026-10-23T13:22:41.178Z",
+      "videoId": "B1iXRCBv9nk",
+      "title": "외롭고 답답한 이재명 대통령 #이재명 #김민석 #한성숙 #공덕포차 #송채경화 #장성철 #하헌기 #장형철",
+      "url": "https://www.youtube.com/watch?v=B1iXRCBv9nk",
+      "publishedAt": "2026-10-23T08:00:39.000Z",
+      "sourceId": "4fb6e95473d49780a9db",
+      "source": "sources/2026-10-23/yt_UCugbqfMO94F9guLEb6Olb2A-4fb6e954.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    }
+  ]
+}

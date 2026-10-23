@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 74건 중 50건 보도 · 미보도 24건
-- 평균 보도 지연 +103분 (1시간 43분)
+- 관찰 사건 76건 중 52건 보도 · 미보도 24건
+- 평균 보도 지연 +101분 (1시간 41분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-23-이재명-한일재계회의-대표단-접견]] — '첨단산업 협력'을 앞세움 (2026-10-23)
+  19:03 (+63분) [「李 대통령, 일본 재계 대표단 접견…"첨단산업 한일 협력"」](https://www.edaily.co.kr/News/Read?newsId=06090966645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-23-이재명-메르츠-독일총리-정상회담-예고]] — '경제·방산 협력 논의'를 앞세움 (2026-10-23)
+  20:52 (+12분) [「李대통령, 29일 메르츠 독일 총리와 정상회담…경제·방산 협력 논의」](https://www.edaily.co.kr/News/Read?newsId=06510806645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-22-이재명-중수청-지휘감독-탄핵사유]] — **보도하지 않음** (2026-10-22)
 - [[events/2026-10-22-이재명-공공노인-일자리-적정임금]] — **보도하지 않음** (2026-10-22)
 - [[events/2026-10-20-이재명-계양-신도시-주택공급-속도]] — 입주·규제·절차를 앞세움 (2026-10-20)
@@ -137,20 +141,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 50건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 52건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 24건 | 48건 |
-| [[outlets/mt|머니투데이]] | 22건 | 45건 |
-| [[outlets/news1|뉴스1]] | 19건 | 47건 |
-| [[outlets/yna|연합뉴스]] | 19건 | 47건 |
+| [[outlets/newsis|뉴시스]] | 25건 | 50건 |
+| [[outlets/mt|머니투데이]] | 22건 | 47건 |
+| [[outlets/news1|뉴스1]] | 19건 | 49건 |
+| [[outlets/yna|연합뉴스]] | 19건 | 49건 |
 | [[outlets/sbs|SBS]] | 19건 | 42건 |
 | [[outlets/mk|매일경제]] | 16건 | 43건 |
 | [[outlets/hani|한겨레]] | 16건 | 40건 |
+| [[outlets/kbs|KBS]] | 15건 | 43건 |
+| [[outlets/mbc|MBC]] | 15건 | 43건 |
 | [[outlets/segye|세계일보]] | 15건 | 41건 |
-| [[outlets/kbs|KBS]] | 15건 | 41건 |
-| [[outlets/mbc|MBC]] | 15건 | 41건 |
 
 이 밖에 14곳이 더 있다.
 

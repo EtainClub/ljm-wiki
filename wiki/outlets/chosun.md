@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 74건 중 55건 보도 · 미보도 19건
-- 평균 보도 지연 +73분 (1시간 13분)
+- 관찰 사건 76건 중 57건 보도 · 미보도 19건
+- 평균 보도 지연 +75분 (1시간 15분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-23-이재명-한일재계회의-대표단-접견]] — '첨단산업 공급망 협력 필수'를 앞세움 (2026-10-23)
+  20:25 (+145분) [「李대통령, 日 재계 대표단에 “첨단산업 공급망 협력 필수”」](https://biz.chosun.com/policy/politics/president_office/2026/10/23/ETF6DGRVHRAK3DAXNPCNO65RBY/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-10-23-이재명-메르츠-독일총리-정상회담-예고]] — '29일 방한'·'정상회담' 일정을 앞세움 (2026-10-23)
+  21:48 (+68분) [「메르츠 독일 총리 29일 방한…李대통령과 정상회담」](https://biz.chosun.com/policy/politics/president_office/2026/10/23/CPNXFAQ6MBGNLEPFXMMYVXLR6I/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-22-이재명-중수청-지휘감독-탄핵사유]] — 지휘·감독 포기는 탄핵 사유를 앞세움 (2026-10-22)
   13:42 (+27분) [「李대통령 “중수청 지휘감독 포기하는 건 탄핵 사유”」](https://www.chosun.com/politics/politics_general/2026/10/22/SJL6MWABZRDB5J7KUNVXM2FXI4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
 - [[events/2026-10-22-이재명-공공노인-일자리-적정임금]] — **보도하지 않음** (2026-10-22)
@@ -142,20 +146,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 55건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 57건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/yna|연합뉴스]] | 21건 | 53건 |
+| [[outlets/yna|연합뉴스]] | 22건 | 55건 |
 | [[outlets/sbs|SBS]] | 21건 | 47건 |
-| [[outlets/newsis|뉴시스]] | 20건 | 52건 |
-| [[outlets/mt|머니투데이]] | 19건 | 50건 |
+| [[outlets/newsis|뉴시스]] | 20건 | 54건 |
+| [[outlets/mt|머니투데이]] | 20건 | 52건 |
+| [[outlets/joongang|중앙일보]] | 19건 | 49건 |
 | [[outlets/donga|동아일보]] | 19건 | 44건 |
-| [[outlets/joongang|중앙일보]] | 18건 | 48건 |
+| [[outlets/news1|뉴스1]] | 18건 | 55건 |
 | [[outlets/segye|세계일보]] | 18건 | 47건 |
 | [[outlets/mk|매일경제]] | 18건 | 46건 |
-| [[outlets/news1|뉴스1]] | 17건 | 53건 |
-| [[outlets/ytn|YTN]] | 17건 | 40건 |
+| [[outlets/ytn|YTN]] | 18건 | 42건 |
 
 이 밖에 14곳이 더 있다.
 

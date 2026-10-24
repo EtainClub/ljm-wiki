@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-25",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-25T00:00:00+09:00",
+    "through": "2026-10-25T08:42:33+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "reviewedChannelCount": 3,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 18,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "channelReviews": [
+    {
+      "channelId": "UCzQJmmpZjqzJe96CwlrwlHQ",
+      "checkedAt": "2026-10-24T23:42:30.749Z",
+      "recentCount": 50,
+      "relatedCount": 22,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCTYfJ6IIFID0KOK9B2kHtiw",
+      "checkedAt": "2026-10-24T23:42:31.982Z",
+      "recentCount": 50,
+      "relatedCount": 8,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "checkedAt": "2026-10-24T23:42:32.496Z",
+      "recentCount": 50,
+      "relatedCount": 25,
+      "displayedExamples": 6
+    }
+  ],
+  "videos": [
+    {
+      "channelId": "UCTYfJ6IIFID0KOK9B2kHtiw",
+      "channelTitle": "장용진TV",
+      "uploadsPlaylistId": "UUTYfJ6IIFID0KOK9B2kHtiw",
+      "checkedAt": "2026-10-24T23:42:31.982Z",
+      "videoId": "KspuEiPBkRg",
+      "title": "이재명은 왜 정청래를 내쳤을까? 이제야 드러나는 뒷이야기",
+      "url": "https://www.youtube.com/watch?v=KspuEiPBkRg",
+      "publishedAt": "2026-10-24T16:29:37.000Z",
+      "sourceId": "807178140764b130b721",
+      "source": "sources/2026-10-25/yt_UCTYfJ6IIFID0KOK9B2kHtiw-80717814.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    },
+    {
+      "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "channelTitle": "펜앤마이크TV",
+      "uploadsPlaylistId": "UUOqCunaF9qVN8bXwsK0HT3g",
+      "checkedAt": "2026-10-24T23:42:32.496Z",
+      "videoId": "Q-07CivkX4M",
+      "title": "이재명 정부 부동산 진짜 큰일났다...\"분노한 민심 보면 지지율 폭락 보여\" [선우윤호의 MZ레지스탕스ㅣ출연: 장동란TV 목격자K]",
+      "url": "https://www.youtube.com/watch?v=Q-07CivkX4M",
+      "publishedAt": "2026-10-24T22:00:06.000Z",
+      "sourceId": "13828836d79c9288c847",
+      "source": "sources/2026-10-25/yt_UCOqCunaF9qVN8bXwsK0HT3g-13828836.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-24",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-24T09:42:27+09:00",
+    "through": "2026-10-24T21:49:35+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "reviewedChannelCount": 3,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 18,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "channelReviews": [
+    {
+      "channelId": "UCgeOlLcX6PReHdWImEnUVTg",
+      "checkedAt": "2026-10-24T12:49:33.581Z",
+      "recentCount": 50,
+      "relatedCount": 9,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "checkedAt": "2026-10-24T12:49:34.160Z",
+      "recentCount": 50,
+      "relatedCount": 26,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCFWIofVBqseX6Bmd9Dn7kgg",
+      "checkedAt": "2026-10-24T12:49:34.650Z",
+      "recentCount": 50,
+      "relatedCount": 14,
+      "displayedExamples": 6
+    }
+  ],
+  "videos": [
+    {
+      "channelId": "UCgeOlLcX6PReHdWImEnUVTg",
+      "channelTitle": "스픽스",
+      "uploadsPlaylistId": "UUgeOlLcX6PReHdWImEnUVTg",
+      "checkedAt": "2026-10-24T12:49:33.581Z",
+      "videoId": "AUheDJmtIfM",
+      "title": "김어준의 바람과 달리 이재명 지지율은 견고!",
+      "url": "https://www.youtube.com/watch?v=AUheDJmtIfM",
+      "publishedAt": "2026-10-24T12:17:24.000Z",
+      "sourceId": "9a21ed28b9158b0788f5",
+      "source": "sources/2026-10-24/yt_UCgeOlLcX6PReHdWImEnUVTg-9a21ed28.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    },
+    {
+      "channelId": "UCFWIofVBqseX6Bmd9Dn7kgg",
+      "channelTitle": "성창경TV",
+      "uploadsPlaylistId": "UUFWIofVBqseX6Bmd9Dn7kgg",
+      "checkedAt": "2026-10-24T12:49:34.650Z",
+      "videoId": "EVjEWpuptY4",
+      "title": "이재명, 제주 두루치기 식당 주변 47시간 비행금지 충격 이유 (2026.10.24)",
+      "url": "https://www.youtube.com/watch?v=EVjEWpuptY4",
+      "publishedAt": "2026-10-24T08:15:03.000Z",
+      "sourceId": "21532a11d971d8c57d52",
+      "source": "sources/2026-10-24/yt_UCFWIofVBqseX6Bmd9Dn7kgg-21532a11.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    }
+  ]
+}

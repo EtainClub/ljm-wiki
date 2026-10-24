@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-24",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-24T00:00:00+09:00",
+    "through": "2026-10-24T09:42:27+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "reviewedChannelCount": 4,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 24,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "channelReviews": [
+    {
+      "channelId": "UC8SZ88GQa9XWwZxLNibO3ug",
+      "checkedAt": "2026-10-24T00:42:25.464Z",
+      "recentCount": 50,
+      "relatedCount": 30,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UClUlAMZGEGPn8mKemiwOjzg",
+      "checkedAt": "2026-10-24T00:42:26.046Z",
+      "recentCount": 50,
+      "relatedCount": 26,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCgeOlLcX6PReHdWImEnUVTg",
+      "checkedAt": "2026-10-24T00:42:26.602Z",
+      "recentCount": 50,
+      "relatedCount": 6,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "checkedAt": "2026-10-24T00:42:27.250Z",
+      "recentCount": 50,
+      "relatedCount": 28,
+      "displayedExamples": 6
+    }
+  ],
+  "videos": [
+    {
+      "channelId": "UC8SZ88GQa9XWwZxLNibO3ug",
+      "channelTitle": "배승희 변호사",
+      "uploadsPlaylistId": "UU8SZ88GQa9XWwZxLNibO3ug",
+      "checkedAt": "2026-10-24T00:42:25.464Z",
+      "videoId": "LWFiSG95mk8",
+      "title": "이재명 재판중지법에 불같이 격분한 이유는?",
+      "url": "https://www.youtube.com/watch?v=LWFiSG95mk8",
+      "publishedAt": "2026-10-23T23:00:38.000Z",
+      "sourceId": "7ca084c506f18604340d",
+      "source": "sources/2026-10-24/yt_UC8SZ88GQa9XWwZxLNibO3ug-7ca084c5.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    },
+    {
+      "channelId": "UClUlAMZGEGPn8mKemiwOjzg",
+      "channelTitle": "GROUND C 그라운드씨",
+      "uploadsPlaylistId": "UUlUlAMZGEGPn8mKemiwOjzg",
+      "checkedAt": "2026-10-24T00:42:26.046Z",
+      "videoId": "_EpPDMLnnaM",
+      "title": "‘이재명 탈당!‘ 좌파들 난리난 이유",
+      "collectedTitle": "‘이재명 탈당!‘ 좌피들 난리난 이유",
+      "url": "https://www.youtube.com/watch?v=_EpPDMLnnaM",
+      "publishedAt": "2026-10-23T23:31:33.000Z",
+      "sourceId": "b00b06c66cba68fe1d9c",
+      "source": "sources/2026-10-24/yt_UClUlAMZGEGPn8mKemiwOjzg-b00b06c6.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    }
+  ]
+}

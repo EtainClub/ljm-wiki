@@ -4,7 +4,7 @@
 
 ## 관찰 기록
 
-- 관찰 사건 80건 중 55건 보도 · 미보도 25건
+- 관찰 사건 82건 중 55건 보도 · 미보도 27건
 - 평균 보도 지연 +97분 (1시간 37분)
 - 수집 방식 RSS
 
@@ -13,6 +13,7 @@
 - [[events/2026-10-24-이재명-아시안패러게임-선수단-격려]] — **보도하지 않음** (2026-10-24)
 - [[events/2026-10-23-이재명-한일재계회의-대표단-접견]] — '첨단산업 협력'을 앞세움 (2026-10-23)
   19:03 (+63분) [「李 대통령, 일본 재계 대표단 접견…"첨단산업 한일 협력"」](https://www.edaily.co.kr/News/Read?newsId=06090966645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-23-이재명-초과세수-고금리-취약계층-지원-요청]] — **보도하지 않음** (2026-10-23)
 - [[events/2026-10-23-이재명-최길수-특별감찰관-임명-재가]] — '최길수 특별감찰관 임명안 재가'를 앞세움 (2026-10-23)
   13:52 (+12분) [「[속보] 이재명 대통령, 최길수 특별감찰관 임명안 재가」](https://www.edaily.co.kr/News/Read?newsId=04080326645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-23-이재명-메르츠-독일총리-정상회담-예고]] — '경제·방산 협력 논의'를 앞세움 (2026-10-23)
@@ -21,6 +22,7 @@
   15:59 (+29분) [「반도체업계 “연내 주52시간 특례”…李 “기존 제도로 보완 못하나”」](https://www.edaily.co.kr/News/Read?newsId=05002006645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-23-이재명-강력범죄-전쟁선포-초안전사회-회의]] — '강력범죄에 전쟁 선포 각오'를 앞세움 (2026-10-23)
   10:38 (+38분) [「李대통령 “강력범죄에 전쟁 선포하는 각오로 임해야”」](https://www.edaily.co.kr/News/Read?newsId=03529286645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-23-이재명-경상북도민의날-축사]] — **보도하지 않음** (2026-10-23)
 - [[events/2026-10-22-이재명-중수청-지휘감독-탄핵사유]] — **보도하지 않음** (2026-10-22)
 - [[events/2026-10-22-이재명-공공노인-일자리-적정임금]] — **보도하지 않음** (2026-10-22)
 - [[events/2026-10-20-이재명-계양-신도시-주택공급-속도]] — 입주·규제·절차를 앞세움 (2026-10-20)

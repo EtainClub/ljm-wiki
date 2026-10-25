@@ -4,7 +4,7 @@
 
 ## 관찰 기록
 
-- 관찰 사건 80건 중 61건 보도 · 미보도 19건
+- 관찰 사건 82건 중 62건 보도 · 미보도 20건
 - 평균 보도 지연 +72분 (1시간 12분)
 - 수집 방식 RSS
 
@@ -14,6 +14,8 @@
   19:23 (+38분) [「李 대통령 “아시안패러게임 선수들, 한계 넘어선 승리의 주인공”」](https://biz.chosun.com/policy/politics/president_office/2026/10/24/ZBD6V2XBYRGC5BJYICYUDSW34Q/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-23-이재명-한일재계회의-대표단-접견]] — '첨단산업 공급망 협력 필수'를 앞세움 (2026-10-23)
   20:25 (+145분) [「李대통령, 日 재계 대표단에 “첨단산업 공급망 협력 필수”」](https://biz.chosun.com/policy/politics/president_office/2026/10/23/ETF6DGRVHRAK3DAXNPCNO65RBY/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-10-23-이재명-초과세수-고금리-취약계층-지원-요청]] — '초과세수로'·'초과세수 활용'을 앞세움 (2026-10-23)
+  17:30 (+75분) [「박홍근 기획처 장관 “李 대통령, 초과세수 활용한 고금리 취약계층 지...」](https://biz.chosun.com/policy/policy_sub/2026/10/23/NGJV2P66TRHEVJAZKRELMOCCZM/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-23-이재명-최길수-특별감찰관-임명-재가]] — '최길수 특별감찰관 임명안 재가'를 앞세움 (2026-10-23)
   13:51 (+11분) [「李, 최길수 특별감찰관 임명안 재가」](https://biz.chosun.com/policy/politics/president_office/2026/10/23/3HZAPGFIHVDHFL4G6XKTSYYI5U/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-23-이재명-메르츠-독일총리-정상회담-예고]] — '29일 방한'·'정상회담' 일정을 앞세움 (2026-10-23)
@@ -22,6 +24,7 @@
   16:52 (+82분) [「李 “산업계-노동계, 메가특구법 극한 대립할만큼 심각한 차이 모르겠다...」](https://biz.chosun.com/policy/politics/president_office/2026/10/23/HMDSIHZH4JBPDJFFJQNCQGZB7M/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-23-이재명-강력범죄-전쟁선포-초안전사회-회의]] — '사전예방 체제로 전환'·'대응 체계 전환'을 앞세움 (2026-10-23)
   10:22 (+22분) [「李 “위험 신호 ‘조기 포착’... 국가 범죄 대응 체계 전면 전환해야”」](https://biz.chosun.com/policy/politics/president_office/2026/10/23/GKBM65NPFJBDLKBNG36VEYVVWQ/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-10-23-이재명-경상북도민의날-축사]] — **보도하지 않음** (2026-10-23)
 - [[events/2026-10-22-이재명-중수청-지휘감독-탄핵사유]] — 지휘·감독 포기는 탄핵 사유를 앞세움 (2026-10-22)
   13:42 (+27분) [「李대통령 “중수청 지휘감독 포기하는 건 탄핵 사유”」](https://www.chosun.com/politics/politics_general/2026/10/22/SJL6MWABZRDB5J7KUNVXM2FXI4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
 - [[events/2026-10-22-이재명-공공노인-일자리-적정임금]] — **보도하지 않음** (2026-10-22)
@@ -154,20 +157,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 61건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 62건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/yna|연합뉴스]] | 25건 | 59건 |
-| [[outlets/newsis|뉴시스]] | 22건 | 58건 |
-| [[outlets/sbs|SBS]] | 22건 | 51건 |
-| [[outlets/mt|머니투데이]] | 21건 | 55건 |
+| [[outlets/yna|연합뉴스]] | 25건 | 60건 |
+| [[outlets/newsis|뉴시스]] | 22건 | 59건 |
+| [[outlets/mt|머니투데이]] | 22건 | 56건 |
+| [[outlets/sbs|SBS]] | 22건 | 52건 |
+| [[outlets/segye|세계일보]] | 21건 | 51건 |
 | [[outlets/joongang|중앙일보]] | 20건 | 52건 |
-| [[outlets/segye|세계일보]] | 20건 | 50건 |
 | [[outlets/mk|매일경제]] | 20건 | 49건 |
 | [[outlets/donga|동아일보]] | 20건 | 47건 |
 | [[outlets/news1|뉴스1]] | 19건 | 59건 |
-| [[outlets/khan|경향신문]] | 19건 | 47건 |
+| [[outlets/khan|경향신문]] | 19건 | 48건 |
 
 이 밖에 14곳이 더 있다.
 

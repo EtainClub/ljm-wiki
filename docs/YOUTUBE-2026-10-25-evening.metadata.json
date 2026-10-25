@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-25",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-25T08:42:33+09:00",
+    "through": "2026-10-25T21:37:03+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "reviewedChannelCount": 3,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 18,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "channelReviews": [
+    {
+      "channelId": "UC8SZ88GQa9XWwZxLNibO3ug",
+      "checkedAt": "2026-10-25T12:37:01.709Z",
+      "recentCount": 50,
+      "relatedCount": 29,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCgeOlLcX6PReHdWImEnUVTg",
+      "checkedAt": "2026-10-25T12:37:02.241Z",
+      "recentCount": 50,
+      "relatedCount": 10,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UClUlAMZGEGPn8mKemiwOjzg",
+      "checkedAt": "2026-10-25T12:37:02.772Z",
+      "recentCount": 50,
+      "relatedCount": 26,
+      "displayedExamples": 6
+    }
+  ],
+  "videos": [
+    {
+      "channelId": "UC8SZ88GQa9XWwZxLNibO3ug",
+      "channelTitle": "배승희 변호사",
+      "uploadsPlaylistId": "UU8SZ88GQa9XWwZxLNibO3ug",
+      "checkedAt": "2026-10-25T12:37:01.709Z",
+      "videoId": "ooezrYfUYPM",
+      "title": "소년공 언급한 李 왜? [따따부따]",
+      "url": "https://www.youtube.com/watch?v=ooezrYfUYPM",
+      "publishedAt": "2026-10-25T06:57:00.000Z",
+      "sourceId": "587232f4ca9eacd6723a",
+      "source": "sources/2026-10-25/yt_UC8SZ88GQa9XWwZxLNibO3ug-587232f4.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    },
+    {
+      "channelId": "UCgeOlLcX6PReHdWImEnUVTg",
+      "channelTitle": "스픽스",
+      "uploadsPlaylistId": "UUgeOlLcX6PReHdWImEnUVTg",
+      "checkedAt": "2026-10-25T12:37:02.241Z",
+      "videoId": "DZ2taddIV2M",
+      "title": "[특집인터뷰] “전화 여론조사는 싹 다!” 청년 965명 1:1 심층 대면 조사로 드러난 충격적 반전… 이재명 대통령 진짜 지지율의 실체_전계완 박태훈 김예은(1025)",
+      "url": "https://www.youtube.com/watch?v=DZ2taddIV2M",
+      "publishedAt": "2026-10-25T10:10:12.000Z",
+      "sourceId": "7f0d33eb1c8fb395e82d",
+      "source": "sources/2026-10-25/yt_UCgeOlLcX6PReHdWImEnUVTg-7f0d33eb.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    }
+  ]
+}

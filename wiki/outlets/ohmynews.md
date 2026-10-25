@@ -4,16 +4,19 @@
 
 ## 관찰 기록
 
-- 관찰 사건 78건 중 43건 보도 · 미보도 35건
+- 관찰 사건 80건 중 44건 보도 · 미보도 36건
 - 평균 보도 지연 +194분 (3시간 14분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-24-이재명-아시안패러게임-선수단-격려]] — **보도하지 않음** (2026-10-24)
 - [[events/2026-10-23-이재명-한일재계회의-대표단-접견]] — **보도하지 않음** (2026-10-23)
 - [[events/2026-10-23-이재명-최길수-특별감찰관-임명-재가]] — '10년 공백'·'10년 만' 특별감찰관 재가동을 앞세움 (2026-10-23)
   14:31 (+51분) [「이 대통령, 최길수 특별감찰관 임명... 박근혜 이후 10년만」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003278020&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-10-23-이재명-메르츠-독일총리-정상회담-예고]] — **보도하지 않음** (2026-10-23)
+- [[events/2026-10-23-이재명-주52시간-특례-초과임금-전제]] — '건강권'·'사람 살겠나'를 앞세움 (2026-10-23)
+  19:21 (+231분) [「주52시간제 특례 갈등에 "그러면 사람 살겠나" 물은 대통령」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003278111&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-10-23-이재명-강력범죄-전쟁선포-초안전사회-회의]] — **보도하지 않음** (2026-10-23)
 - [[events/2026-10-22-이재명-중수청-지휘감독-탄핵사유]] — 지휘·감독 포기는 탄핵 사유를 앞세움 (2026-10-22)
   13:51 (+36분) [「이 대통령 "중수청 지휘감독 포기는 탄핵사유이자 직무유기"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003277704&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
@@ -134,20 +137,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 43건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 44건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 18건 | 39건 |
-| [[outlets/segye|세계일보]] | 17건 | 39건 |
-| [[outlets/joongang|중앙일보]] | 16건 | 39건 |
-| [[outlets/sbs|SBS]] | 16건 | 38건 |
-| [[outlets/kbs|KBS]] | 15건 | 38건 |
-| [[outlets/kmib|국민일보]] | 15건 | 37건 |
-| [[outlets/news1|뉴스1]] | 14건 | 40건 |
-| [[outlets/hankookilbo|한국일보]] | 14건 | 40건 |
-| [[outlets/mbc|MBC]] | 14건 | 38건 |
-| [[outlets/khan|경향신문]] | 14건 | 35건 |
+| [[outlets/mk|매일경제]] | 18건 | 40건 |
+| [[outlets/segye|세계일보]] | 17건 | 40건 |
+| [[outlets/joongang|중앙일보]] | 16건 | 40건 |
+| [[outlets/sbs|SBS]] | 16건 | 39건 |
+| [[outlets/kbs|KBS]] | 15건 | 39건 |
+| [[outlets/kmib|국민일보]] | 15건 | 38건 |
+| [[outlets/news1|뉴스1]] | 14건 | 41건 |
+| [[outlets/hankookilbo|한국일보]] | 14건 | 41건 |
+| [[outlets/mbc|MBC]] | 14건 | 39건 |
+| [[outlets/khan|경향신문]] | 14건 | 36건 |
 
 이 밖에 14곳이 더 있다.
 

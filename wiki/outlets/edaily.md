@@ -4,18 +4,21 @@
 
 ## 관찰 기록
 
-- 관찰 사건 78건 중 54건 보도 · 미보도 24건
-- 평균 보도 지연 +98분 (1시간 38분)
+- 관찰 사건 80건 중 55건 보도 · 미보도 25건
+- 평균 보도 지연 +97분 (1시간 37분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-24-이재명-아시안패러게임-선수단-격려]] — **보도하지 않음** (2026-10-24)
 - [[events/2026-10-23-이재명-한일재계회의-대표단-접견]] — '첨단산업 협력'을 앞세움 (2026-10-23)
   19:03 (+63분) [「李 대통령, 일본 재계 대표단 접견…"첨단산업 한일 협력"」](https://www.edaily.co.kr/News/Read?newsId=06090966645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-23-이재명-최길수-특별감찰관-임명-재가]] — '최길수 특별감찰관 임명안 재가'를 앞세움 (2026-10-23)
   13:52 (+12분) [「[속보] 이재명 대통령, 최길수 특별감찰관 임명안 재가」](https://www.edaily.co.kr/News/Read?newsId=04080326645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-23-이재명-메르츠-독일총리-정상회담-예고]] — '경제·방산 협력 논의'를 앞세움 (2026-10-23)
   20:52 (+12분) [「李대통령, 29일 메르츠 독일 총리와 정상회담…경제·방산 협력 논의」](https://www.edaily.co.kr/News/Read?newsId=06510806645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-23-이재명-주52시간-특례-초과임금-전제]] — '새 제도 필요 있나'·'기존 제도 보완'을 앞세움 (2026-10-23)
+  15:59 (+29분) [「반도체업계 “연내 주52시간 특례”…李 “기존 제도로 보완 못하나”」](https://www.edaily.co.kr/News/Read?newsId=05002006645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-23-이재명-강력범죄-전쟁선포-초안전사회-회의]] — '강력범죄에 전쟁 선포 각오'를 앞세움 (2026-10-23)
   10:38 (+38분) [「李대통령 “강력범죄에 전쟁 선포하는 각오로 임해야”」](https://www.edaily.co.kr/News/Read?newsId=03529286645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-22-이재명-중수청-지휘감독-탄핵사유]] — **보도하지 않음** (2026-10-22)
@@ -145,20 +148,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 54건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 55건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 25건 | 52건 |
-| [[outlets/mt|머니투데이]] | 24건 | 49건 |
-| [[outlets/news1|뉴스1]] | 21건 | 51건 |
-| [[outlets/yna|연합뉴스]] | 20건 | 51건 |
-| [[outlets/sbs|SBS]] | 19건 | 44건 |
+| [[outlets/newsis|뉴시스]] | 25건 | 53건 |
+| [[outlets/mt|머니투데이]] | 24건 | 50건 |
+| [[outlets/news1|뉴스1]] | 22건 | 52건 |
+| [[outlets/yna|연합뉴스]] | 20건 | 52건 |
+| [[outlets/sbs|SBS]] | 19건 | 45건 |
 | [[outlets/hani|한겨레]] | 18건 | 42건 |
-| [[outlets/mk|매일경제]] | 17건 | 45건 |
-| [[outlets/kbs|KBS]] | 16건 | 45건 |
-| [[outlets/mbc|MBC]] | 16건 | 45건 |
-| [[outlets/segye|세계일보]] | 16건 | 43건 |
+| [[outlets/mk|매일경제]] | 17건 | 46건 |
+| [[outlets/kbs|KBS]] | 16건 | 46건 |
+| [[outlets/mbc|MBC]] | 16건 | 46건 |
+| [[outlets/segye|세계일보]] | 16건 | 44건 |
 
 이 밖에 14곳이 더 있다.
 

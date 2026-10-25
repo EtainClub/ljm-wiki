@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 82건 중 55건 보도 · 미보도 27건
-- 평균 보도 지연 +97분 (1시간 37분)
+- 관찰 사건 84건 중 57건 보도 · 미보도 27건
+- 평균 보도 지연 +98분 (1시간 38분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-25-이재명-경상수지-흑자-기회의-물결]] — '세계경제 선도국가'·'세계 경제 선도국가'를 앞세움 (2026-10-25)
+  18:35 (+70분) [「이 대통령 “韓, 세계경제 선도국가로 도약…성장 성과 국민 삶으로 이...」](https://www.edaily.co.kr/News/Read?newsId=02269766645616528&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-25-이재명-취임1년-연설문집-발간]] — 'SNS 메시지도 수록'·'SNS까지'·'SNS 묶은'·'폭풍 SNS'를 앞세움 (2026-10-25)
+  18:10 (+220분) [「취임 첫날 약속부터 SNS 메시지까지…'이재명 대통령 연설문집' 발간」](https://www.edaily.co.kr/News/Read?newsId=02243526645616528&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-24-이재명-아시안패러게임-선수단-격려]] — **보도하지 않음** (2026-10-24)
 - [[events/2026-10-23-이재명-한일재계회의-대표단-접견]] — '첨단산업 협력'을 앞세움 (2026-10-23)
   19:03 (+63분) [「李 대통령, 일본 재계 대표단 접견…"첨단산업 한일 협력"」](https://www.edaily.co.kr/News/Read?newsId=06090966645615872&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
@@ -150,20 +154,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 55건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 57건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 25건 | 53건 |
-| [[outlets/mt|머니투데이]] | 24건 | 50건 |
-| [[outlets/news1|뉴스1]] | 22건 | 52건 |
-| [[outlets/yna|연합뉴스]] | 20건 | 52건 |
-| [[outlets/sbs|SBS]] | 19건 | 45건 |
+| [[outlets/newsis|뉴시스]] | 25건 | 55건 |
+| [[outlets/mt|머니투데이]] | 24건 | 52건 |
+| [[outlets/news1|뉴스1]] | 22건 | 54건 |
+| [[outlets/yna|연합뉴스]] | 21건 | 54건 |
+| [[outlets/sbs|SBS]] | 19건 | 47건 |
+| [[outlets/mk|매일경제]] | 18건 | 48건 |
+| [[outlets/kbs|KBS]] | 18건 | 48건 |
 | [[outlets/hani|한겨레]] | 18건 | 42건 |
-| [[outlets/mk|매일경제]] | 17건 | 46건 |
-| [[outlets/kbs|KBS]] | 16건 | 46건 |
-| [[outlets/mbc|MBC]] | 16건 | 46건 |
-| [[outlets/segye|세계일보]] | 16건 | 44건 |
+| [[outlets/seoul|서울신문]] | 17건 | 43건 |
+| [[outlets/mbc|MBC]] | 16건 | 47건 |
 
 이 밖에 14곳이 더 있다.
 

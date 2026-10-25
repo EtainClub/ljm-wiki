@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 82건 중 62건 보도 · 미보도 20건
-- 평균 보도 지연 +72분 (1시간 12분)
+- 관찰 사건 84건 중 64건 보도 · 미보도 20건
+- 평균 보도 지연 +71분 (1시간 11분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-25-이재명-경상수지-흑자-기회의-물결]] — '세계경제 선도국가'·'세계 경제 선도국가'를 앞세움 (2026-10-25)
+  17:51 (+26분) [「李대통령 “韓 경상수지 흑자, 獨·日 합계 추월…세계 경제 선도국가”」](https://biz.chosun.com/policy/politics/president_office/2026/10/25/UBFEXKRZIVBHJK3WU2NMPJRQVA/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-10-25-이재명-취임1년-연설문집-발간]] — '연설문집 발간'을 앞세움 (2026-10-25)
+  15:06 (+36분) [「靑, 李대통령 연설문집 발간…취임 이후 1년간 연설·메시지 담겨」](https://biz.chosun.com/policy/politics/president_office/2026/10/25/6GKO23UNTVDZNM76ZEGSSIVTPU/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-24-이재명-아시안패러게임-선수단-격려]] — '불가능 넘어선'·'한계 넘어선'·'한계를 넘은'을 앞세움 (2026-10-24)
   19:23 (+38분) [「李 대통령 “아시안패러게임 선수들, 한계 넘어선 승리의 주인공”」](https://biz.chosun.com/policy/politics/president_office/2026/10/24/ZBD6V2XBYRGC5BJYICYUDSW34Q/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-23-이재명-한일재계회의-대표단-접견]] — '첨단산업 공급망 협력 필수'를 앞세움 (2026-10-23)
@@ -157,20 +161,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 62건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 64건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/yna|연합뉴스]] | 25건 | 60건 |
-| [[outlets/newsis|뉴시스]] | 22건 | 59건 |
-| [[outlets/mt|머니투데이]] | 22건 | 56건 |
-| [[outlets/sbs|SBS]] | 22건 | 52건 |
-| [[outlets/segye|세계일보]] | 21건 | 51건 |
+| [[outlets/yna|연합뉴스]] | 27건 | 62건 |
+| [[outlets/mt|머니투데이]] | 23건 | 58건 |
+| [[outlets/sbs|SBS]] | 23건 | 54건 |
+| [[outlets/newsis|뉴시스]] | 22건 | 61건 |
+| [[outlets/segye|세계일보]] | 21건 | 52건 |
+| [[outlets/news1|뉴스1]] | 20건 | 61건 |
 | [[outlets/joongang|중앙일보]] | 20건 | 52건 |
-| [[outlets/mk|매일경제]] | 20건 | 49건 |
-| [[outlets/donga|동아일보]] | 20건 | 47건 |
-| [[outlets/news1|뉴스1]] | 19건 | 59건 |
-| [[outlets/khan|경향신문]] | 19건 | 48건 |
+| [[outlets/mk|매일경제]] | 20건 | 51건 |
+| [[outlets/donga|동아일보]] | 20건 | 48건 |
+| [[outlets/kbs|KBS]] | 19건 | 55건 |
 
 이 밖에 14곳이 더 있다.
 

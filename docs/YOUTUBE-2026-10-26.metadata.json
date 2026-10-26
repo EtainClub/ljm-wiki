@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-26",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-25T21:37:03+09:00",
+    "through": "2026-10-26T22:23:45+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "reviewedChannelCount": 4,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 18,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "channelReviews": [
+    {
+      "channelId": "UCX7-K_PSdtAiUDLEMQwrRoQ",
+      "checkedAt": "2026-10-26T13:23:23.659Z",
+      "recentCount": 50,
+      "relatedCount": 20,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCxuf3GXK290vcpFW0lxm0Uw",
+      "checkedAt": "2026-10-26T13:23:24.135Z",
+      "recentCount": 50,
+      "relatedCount": 1,
+      "displayedExamples": 1
+    },
+    {
+      "channelId": "UCM8BcGB6BWKq3utIMhGKnUA",
+      "checkedAt": "2026-10-26T13:23:44.197Z",
+      "recentCount": 50,
+      "relatedCount": 12,
+      "displayedExamples": 6
+    },
+    {
+      "channelId": "UCu1FzjrHosuKGvgIx8oBi8w",
+      "checkedAt": "2026-10-26T13:23:44.732Z",
+      "recentCount": 50,
+      "relatedCount": 5,
+      "displayedExamples": 5
+    }
+  ],
+  "videos": [
+    {
+      "channelId": "UCM8BcGB6BWKq3utIMhGKnUA",
+      "channelTitle": "고성국TV",
+      "uploadsPlaylistId": "UUM8BcGB6BWKq3utIMhGKnUA",
+      "checkedAt": "2026-10-26T13:23:44.197Z",
+      "videoId": "drikawo-9t0",
+      "title": "좌파 약한 고리는 이재명 재판재개 [횡성 정치특강]",
+      "url": "https://www.youtube.com/watch?v=drikawo-9t0",
+      "publishedAt": "2026-10-26T02:30:12.000Z",
+      "sourceId": "3df5beec753e5eb65f52",
+      "source": "sources/2026-10-26/yt_UCM8BcGB6BWKq3utIMhGKnUA-3df5beec.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    },
+    {
+      "channelId": "UCX7-K_PSdtAiUDLEMQwrRoQ",
+      "channelTitle": "고발뉴스TV",
+      "uploadsPlaylistId": "UUX7-K_PSdtAiUDLEMQwrRoQ",
+      "checkedAt": "2026-10-26T13:23:23.659Z",
+      "videoId": "VvAJRGFNSQU",
+      "title": "이재명 대통령 지지율 반등, 김어준 반응?..룰라 승리, 이 대통령 날개 달았다",
+      "url": "https://www.youtube.com/watch?v=VvAJRGFNSQU",
+      "publishedAt": "2026-10-26T11:25:29.000Z",
+      "sourceId": "48b80a0334f91c364e6a",
+      "source": "sources/2026-10-26/yt_UCX7-K_PSdtAiUDLEMQwrRoQ-48b80a03.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    }
+  ]
+}

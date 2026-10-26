@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 84건 중 44건 보도 · 미보도 40건
-- 평균 보도 지연 +194분 (3시간 14분)
+- 관찰 사건 86건 중 46건 보도 · 미보도 40건
+- 평균 보도 지연 +192분 (3시간 12분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-26-청와대-김혜경-여사-골프-주장-반박]] — 여당 '황당무계 소설'·'사이버레커'를 앞세움 (2026-10-26)
+  11:41 (+151분) [「주진우 이번엔 '김혜경 여사 황제 골프' 주장... 여당 "사이버레커냐"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003278762&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-26-이재명-농어민과의-대화-CPTPP-농지조사]] — '농어업은 생존 위한 산업'·'우려 잘 알고 있어'를 앞세움 (2026-10-26)
+  15:46 (+106분) [「농지 조사·CPTPP 놓고 농어민 만난 대통령 "방법 같이 찾자"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003278872&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-10-25-이재명-경상수지-흑자-기회의-물결]] — **보도하지 않음** (2026-10-25)
 - [[events/2026-10-25-이재명-취임1년-연설문집-발간]] — **보도하지 않음** (2026-10-25)
 - [[events/2026-10-24-이재명-아시안패러게임-선수단-격려]] — **보도하지 않음** (2026-10-24)
@@ -141,20 +145,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 44건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 46건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 18건 | 40건 |
-| [[outlets/segye|세계일보]] | 17건 | 40건 |
-| [[outlets/joongang|중앙일보]] | 16건 | 40건 |
-| [[outlets/sbs|SBS]] | 16건 | 39건 |
-| [[outlets/kbs|KBS]] | 15건 | 39건 |
-| [[outlets/kmib|국민일보]] | 15건 | 38건 |
-| [[outlets/news1|뉴스1]] | 14건 | 41건 |
-| [[outlets/hankookilbo|한국일보]] | 14건 | 41건 |
-| [[outlets/mbc|MBC]] | 14건 | 39건 |
-| [[outlets/khan|경향신문]] | 14건 | 36건 |
+| [[outlets/mk|매일경제]] | 18건 | 42건 |
+| [[outlets/segye|세계일보]] | 17건 | 42건 |
+| [[outlets/joongang|중앙일보]] | 17건 | 42건 |
+| [[outlets/kbs|KBS]] | 16건 | 41건 |
+| [[outlets/sbs|SBS]] | 16건 | 41건 |
+| [[outlets/mbc|MBC]] | 15건 | 41건 |
+| [[outlets/kmib|국민일보]] | 15건 | 40건 |
+| [[outlets/khan|경향신문]] | 15건 | 38건 |
+| [[outlets/news1|뉴스1]] | 14건 | 43건 |
+| [[outlets/hankookilbo|한국일보]] | 14건 | 43건 |
 
 이 밖에 14곳이 더 있다.
 

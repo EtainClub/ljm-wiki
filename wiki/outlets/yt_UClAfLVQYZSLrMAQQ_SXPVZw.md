@@ -4,11 +4,26 @@
 
 ## 관찰 기록
 
-- 관찰 사건 17건 · 연결 영상 29건
+- 관찰 사건 19건 · 연결 영상 42건
 - 수집 방식 유튜브
 
 ## 사건별 연결 영상
 
+- [[events/2026-10-26-청와대-김혜경-여사-골프-주장-반박]] (2026-10-26)
+  '김혜경 골프'·'주진우'를 내세움 · 16:59 [「"리디아고, '저 아닌데요' 해" 서영교가 입장문 꺼내자 주진우 반응은」](https://www.youtube.com/watch?v=l-84vzdM43k)
+  '김혜경 골프'·'주진우'를 내세움 · 17:33 [「김기표, 리다아 고 '골프 레슨 부인' 두고 "주진우 사죄하라" #Shorts」](https://www.youtube.com/watch?v=9YzZEmaAk1c)
+  '김혜경 골프'·'주진우'를 내세움 · 18:10 [「리디아 고 SNS 해명 공개한 서영교... 주진우 향해  "막 던지면 되겠냐"」](https://www.youtube.com/watch?v=RB16qDE07xw)
+  '김혜경 골프'·'주진우'를 내세움 · 18:40 [「리디아 고 SNS 해명 공개한 서영교... 주진우 향해  "막 던지면 되겠냐" #shorts」](https://www.youtube.com/watch?v=tN1GaDSkAkw)
+  '김혜경 골프'·'주진우'를 내세움 · 18:11 [「"골프 쳤어, 안 쳤어?!" VS "스토커야!" 주진우 '이성 잃자' 아수라장된 법사위」](https://www.youtube.com/watch?v=Fhzrn1ZPeP4)
+  '김혜경 골프'·'주진우'를 내세움 · 21:06 [「[박정호의 핫스팟 10월 27일] 또진우? 김혜경 황제골프 주장! 리디아 고 반박! 조국은 또 왜? (최혁진-강수영-김용민-이석현-이경태)」](https://www.youtube.com/watch?v=N1iSte0HKbY)
+- [[events/2026-10-26-이재명-농어민과의-대화-CPTPP-농지조사]] (2026-10-26)
+  '농지 전수조사'·'CPTPP 연내 가입 없다'를 내세움 · 15:08 [「"CPTPP 연내 가입 없다, 충분히 소통 뒤 결정" #shorts」](https://www.youtube.com/watch?v=FYJ5Y1GougY)
+  '농지 전수조사'·'CPTPP 연내 가입 없다'를 내세움 · 15:11 [「"본래 의지와는 달리 농지 전수조사 오해 있어" #shorts」](https://www.youtube.com/watch?v=ak4FlxEkA4s)
+  '농지 전수조사'·'CPTPP 연내 가입 없다'를 내세움 · 15:41 [「농지 전수조사하는 이유? 잼통이 직접 알려드립니다~」](https://www.youtube.com/watch?v=qBffgTyZOcM)
+  '농지 전수조사'·'CPTPP 연내 가입 없다'를 내세움 · 15:44 [「농지 전수조사 왜 하나? 잼통이 직접 알려드림~ #shorts」](https://www.youtube.com/watch?v=VHmsXuBRoX0)
+  '농지 전수조사'·'CPTPP 연내 가입 없다'를 내세움 · 16:29 [「"땅 다 뺏고 공산당 만든다?" 농지 전수조사 괴담에 황당한 잼통」](https://www.youtube.com/watch?v=hRTXmHFRxPQ)
+  '농지 전수조사'·'CPTPP 연내 가입 없다'를 내세움 · 16:35 [「"땅 뺏고 공산당 만든다?" 농지 전수조사 괴담에 황당한 잼통 #shorts」](https://www.youtube.com/watch?v=53YAbX8i9g8)
+  '농지 전수조사'·'CPTPP 연내 가입 없다'를 내세움 · 16:49 [「[생중계] 농지조사 의견 청취한다! 이재명 대통령, 농어민과의 대화 (2026. 10. 26. 오후)」](https://www.youtube.com/watch?v=HdGuk8I37yo)
 - [[events/2026-10-23-이재명-강력범죄-전쟁선포-초안전사회-회의]] (2026-10-23)
   '강력 범죄에 전쟁 선포 각오'·'초안전사회 범정부 대응 회의' 생중계를 내세움 · 10:06 [「[생중계] 이재명 대통령 주재 초안전사회 범정부 대응 회의 (2026. 10. 23. 오전)」](https://www.youtube.com/watch?v=kssBMZInY4s)
   '강력 범죄에 전쟁 선포 각오'·'초안전사회 범정부 대응 회의' 생중계를 내세움 · 10:15 [「"강력 범죄에 전쟁 선포 각오" '작심 의지' 이재명 대통령, 범정부 액션 플랜 시동」](https://www.youtube.com/watch?v=OD8239CUKbM)

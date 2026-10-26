@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 84건 중 64건 보도 · 미보도 20건
+- 관찰 사건 86건 중 66건 보도 · 미보도 20건
 - 평균 보도 지연 +71분 (1시간 11분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-26-청와대-김혜경-여사-골프-주장-반박]] — 여당 '황당무계 소설'·'사이버레커'를 앞세움 (2026-10-26)
+  11:05 (+115분) [「주진우 “김혜경 여사, 태릉CC서 황제 골프” 與 “황당무계한 소설…스...」](https://biz.chosun.com/policy/politics/assembly/2026/10/26/TLWLOS3EEVCJHADG3DFS76B5VU/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-10-26-이재명-농어민과의-대화-CPTPP-농지조사]] — '비난 있어도 해야'·'대국적으로 판단'을 앞세움 (2026-10-26)
+  14:25 (+25분) [「李 “CPTPP 가입, 비난 있어도 대통령 임기 내 해 놔야”」](https://biz.chosun.com/policy/politics/president_office/2026/10/26/N3IRF7USPFFJVHADPJR6R2QBXE/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-25-이재명-경상수지-흑자-기회의-물결]] — '세계경제 선도국가'·'세계 경제 선도국가'를 앞세움 (2026-10-25)
   17:51 (+26분) [「李대통령 “韓 경상수지 흑자, 獨·日 합계 추월…세계 경제 선도국가”」](https://biz.chosun.com/policy/politics/president_office/2026/10/25/UBFEXKRZIVBHJK3WU2NMPJRQVA/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-25-이재명-취임1년-연설문집-발간]] — '연설문집 발간'을 앞세움 (2026-10-25)
@@ -161,20 +165,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 64건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 66건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/yna|연합뉴스]] | 27건 | 62건 |
-| [[outlets/mt|머니투데이]] | 23건 | 58건 |
-| [[outlets/sbs|SBS]] | 23건 | 54건 |
-| [[outlets/newsis|뉴시스]] | 22건 | 61건 |
-| [[outlets/segye|세계일보]] | 21건 | 52건 |
-| [[outlets/news1|뉴스1]] | 20건 | 61건 |
-| [[outlets/joongang|중앙일보]] | 20건 | 52건 |
-| [[outlets/mk|매일경제]] | 20건 | 51건 |
-| [[outlets/donga|동아일보]] | 20건 | 48건 |
-| [[outlets/kbs|KBS]] | 19건 | 55건 |
+| [[outlets/yna|연합뉴스]] | 27건 | 64건 |
+| [[outlets/mt|머니투데이]] | 23건 | 60건 |
+| [[outlets/sbs|SBS]] | 23건 | 56건 |
+| [[outlets/newsis|뉴시스]] | 22건 | 63건 |
+| [[outlets/segye|세계일보]] | 21건 | 54건 |
+| [[outlets/khan|경향신문]] | 21건 | 51건 |
+| [[outlets/donga|동아일보]] | 21건 | 50건 |
+| [[outlets/news1|뉴스1]] | 20건 | 63건 |
+| [[outlets/kbs|KBS]] | 20건 | 57건 |
+| [[outlets/joongang|중앙일보]] | 20건 | 54건 |
 
 이 밖에 14곳이 더 있다.
 

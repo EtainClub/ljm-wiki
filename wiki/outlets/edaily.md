@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 84건 중 57건 보도 · 미보도 27건
+- 관찰 사건 86건 중 59건 보도 · 미보도 27건
 - 평균 보도 지연 +98분 (1시간 38분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-26-청와대-김혜경-여사-골프-주장-반박]] — 청와대 '허위'·'엄중 책임'을 앞세움 (2026-10-26)
+  10:48 (+98분) [「'김혜경 여사 골프 의혹' 주진우에 與 "사이버래커"...靑 "엄중 책임"」](https://www.edaily.co.kr/News/Read?newsId=02591206645616856&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-26-이재명-농어민과의-대화-CPTPP-농지조사]] — '연내 가입 신청 안 해'·'승인까지 몇 년'을 앞세움 (2026-10-26)
+  15:10 (+70분) [「李 “CPTPP 가입 신청해도 승인까지 몇 년 걸릴지 몰라…충분히 소통”」](https://www.edaily.co.kr/News/Read?newsId=03371846645616856&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-25-이재명-경상수지-흑자-기회의-물결]] — '세계경제 선도국가'·'세계 경제 선도국가'를 앞세움 (2026-10-25)
   18:35 (+70분) [「이 대통령 “韓, 세계경제 선도국가로 도약…성장 성과 국민 삶으로 이...」](https://www.edaily.co.kr/News/Read?newsId=02269766645616528&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-25-이재명-취임1년-연설문집-발간]] — 'SNS 메시지도 수록'·'SNS까지'·'SNS 묶은'·'폭풍 SNS'를 앞세움 (2026-10-25)
@@ -154,20 +158,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 57건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 59건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 25건 | 55건 |
-| [[outlets/mt|머니투데이]] | 24건 | 52건 |
-| [[outlets/news1|뉴스1]] | 22건 | 54건 |
-| [[outlets/yna|연합뉴스]] | 21건 | 54건 |
-| [[outlets/sbs|SBS]] | 19건 | 47건 |
-| [[outlets/mk|매일경제]] | 18건 | 48건 |
-| [[outlets/kbs|KBS]] | 18건 | 48건 |
-| [[outlets/hani|한겨레]] | 18건 | 42건 |
-| [[outlets/seoul|서울신문]] | 17건 | 43건 |
-| [[outlets/mbc|MBC]] | 16건 | 47건 |
+| [[outlets/newsis|뉴시스]] | 25건 | 57건 |
+| [[outlets/mt|머니투데이]] | 24건 | 54건 |
+| [[outlets/news1|뉴스1]] | 22건 | 56건 |
+| [[outlets/yna|연합뉴스]] | 21건 | 56건 |
+| [[outlets/sbs|SBS]] | 20건 | 49건 |
+| [[outlets/mk|매일경제]] | 19건 | 50건 |
+| [[outlets/hani|한겨레]] | 19건 | 44건 |
+| [[outlets/kbs|KBS]] | 18건 | 50건 |
+| [[outlets/segye|세계일보]] | 18건 | 47건 |
+| [[outlets/seoul|서울신문]] | 18건 | 44건 |
 
 이 밖에 14곳이 더 있다.
 

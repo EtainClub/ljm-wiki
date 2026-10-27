@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-27",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "from": "2026-10-26T22:23:45+09:00",
+    "through": "2026-10-27T21:34:48+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "reviewedChannelCount": 12,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 50,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "channelReviews": [
+    { "channelId": "UCgOLQwRv1r2m9mhE1tfsn3Q", "checkedAt": "2026-10-27T12:34:17.926Z", "recentCount": 50, "relatedCount": 14, "displayedExamples": 6 },
+    { "channelId": "UCd4BxCKyMHG2J0X1SerTPaQ", "checkedAt": "2026-10-27T12:34:18.422Z", "recentCount": 50, "relatedCount": 2, "displayedExamples": 2 },
+    { "channelId": "UCIMv9bOOGWGIfg6wPcRLItQ", "checkedAt": "2026-10-27T12:34:20.053Z", "recentCount": 50, "relatedCount": 12, "displayedExamples": 6 },
+    { "channelId": "UCE-94tymU-LjuglJ_wqzhHA", "checkedAt": "2026-10-27T12:34:20.713Z", "recentCount": 50, "relatedCount": 5, "displayedExamples": 5 },
+    { "channelId": "UClUlAMZGEGPn8mKemiwOjzg", "checkedAt": "2026-10-27T12:34:32.635Z", "recentCount": 50, "relatedCount": 27, "displayedExamples": 6 },
+    { "channelId": "UCAAvO0ehWox1bbym3rXKBZw", "checkedAt": "2026-10-27T12:34:33.180Z", "recentCount": 50, "relatedCount": 0, "displayedExamples": 0 },
+    { "channelId": "UCMYhq9OyGI5UEz_NTAoHY7A", "checkedAt": "2026-10-27T12:34:33.801Z", "recentCount": 50, "relatedCount": 1, "displayedExamples": 1 },
+    { "channelId": "UCzQJmmpZjqzJe96CwlrwlHQ", "checkedAt": "2026-10-27T12:34:34.991Z", "recentCount": 50, "relatedCount": 22, "displayedExamples": 6 },
+    { "channelId": "UC4y2Jx26qCb7CrSt_i5bf1A", "checkedAt": "2026-10-27T12:34:45.651Z", "recentCount": 50, "relatedCount": 4, "displayedExamples": 4 },
+    { "channelId": "UCugbqfMO94F9guLEb6Olb2A", "checkedAt": "2026-10-27T12:34:46.205Z", "recentCount": 50, "relatedCount": 10, "displayedExamples": 6 },
+    { "channelId": "UCHXvjavEtkPFJCfGlm0wTXw", "checkedAt": "2026-10-27T12:34:46.787Z", "recentCount": 50, "relatedCount": 2, "displayedExamples": 2 },
+    { "channelId": "UC8Hl-XsjNw9PM2oeYlrg_yQ", "checkedAt": "2026-10-27T12:34:47.787Z", "recentCount": 50, "relatedCount": 10, "displayedExamples": 6 }
+  ],
+  "videos": [
+    {
+      "channelId": "UC8Hl-XsjNw9PM2oeYlrg_yQ",
+      "channelTitle": "조하나의 아일랜드",
+      "uploadsPlaylistId": "UU8Hl-XsjNw9PM2oeYlrg_yQ",
+      "checkedAt": "2026-10-27T12:34:47.787Z",
+      "videoId": "pvlkgLvRMro",
+      "title": "비주류 대통령 이재명의 증명 모드｜그가 믿을 건 국민밖에 없다",
+      "url": "https://www.youtube.com/watch?v=pvlkgLvRMro",
+      "publishedAt": "2026-10-27T04:20:05.000Z",
+      "sourceId": "8a5f29498f5ef290cdae",
+      "source": "sources/2026-10-27/yt_UC8Hl-XsjNw9PM2oeYlrg_yQ-8a5f2949.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    },
+    {
+      "channelId": "UClUlAMZGEGPn8mKemiwOjzg",
+      "channelTitle": "GROUND C 그라운드씨",
+      "uploadsPlaylistId": "UUlUlAMZGEGPn8mKemiwOjzg",
+      "checkedAt": "2026-10-27T12:34:32.635Z",
+      "videoId": "tcny3NFMgks",
+      "title": "‘李 재판 재개’ 조희대 결단만 남았다",
+      "url": "https://www.youtube.com/watch?v=tcny3NFMgks",
+      "publishedAt": "2026-10-27T07:53:19.000Z",
+      "sourceId": "8b4aa9ec683e57dd68fd",
+      "source": "sources/2026-10-27/yt_UClUlAMZGEGPn8mKemiwOjzg-8b4aa9ec.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    }
+  ]
+}

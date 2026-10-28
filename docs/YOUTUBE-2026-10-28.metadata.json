@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-28",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "through": "2026-10-28T21:55:23+09:00",
+    "from": "2026-10-28T00:00:00+09:00"
+  },
+  "method": "youtube:review; official YouTube Data API",
+  "reviewedChannelCount": 2,
+  "uploadsPerChannel": 50,
+  "displayedTitleExamplesReviewed": 12,
+  "registeredVideoCount": 2,
+  "contentVerifiedCount": 0,
+  "eventLinksAdded": 0,
+  "videos": [
+    {
+      "channelId": "UCX7-K_PSdtAiUDLEMQwrRoQ",
+      "channelTitle": "고발뉴스TV",
+      "checkedAt": "2026-10-28T12:55:22.238Z",
+      "videoId": "Anwk7FCxru4",
+      "title": "‘알고리즘 감옥’ 김어준 망했다..이재명 대통령 펨코에 남긴 글 뭐길래",
+      "url": "https://www.youtube.com/watch?v=Anwk7FCxru4",
+      "publishedAt": "2026-10-28T11:37:29.000Z",
+      "sourceId": "5800924342cac9022b74",
+      "source": "sources/2026-10-28/yt_UCX7-K_PSdtAiUDLEMQwrRoQ-58009243.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    },
+    {
+      "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "channelTitle": "펜앤마이크TV",
+      "checkedAt": "2026-10-28T12:55:22.926Z",
+      "videoId": "z6KPk4EePk4",
+      "title": "”김어준이 이재명 숨통을 끊는구나!“",
+      "url": "https://www.youtube.com/watch?v=z6KPk4EePk4",
+      "publishedAt": "2026-10-28T09:33:07.000Z",
+      "sourceId": "364ff7c82f3d4883b479",
+      "source": "sources/2026-10-28/yt_UCOqCunaF9qVN8bXwsK0HT3g-364ff7c8.md",
+      "contentStatus": "내용 미확인 — 제목 관찰만"
+    }
+  ]
+}

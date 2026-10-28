@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ToneBar from "@/components/ToneBar";
-import type { Item, Source, ToneEntry } from "@/lib/event-types";
+import type { ToneEntry } from "@/lib/event-types";
 import { getPublishedEvents } from "@/lib/events-source";
 import { formatLongDate } from "@/lib/kst";
-import { TONES, surfaceCues, toneDef } from "@/lib/tone";
+import { TONES, toneDef } from "@/lib/tone";
+import { type ToneRow, outletHref, toneRows } from "@/lib/tone-rows";
 
 export const metadata: Metadata = {
   title: "보도 태도 분석",
@@ -18,13 +19,6 @@ export const dynamic = "force-dynamic";
 const MIN_FOR_RATIO = 5;
 const FLAGGED_LIMIT = 30;
 
-interface Row {
-  item: Item;
-  source: Source | undefined;
-  tone: ToneEntry;
-  cues: string[];
-  event: { slug: string; title: string; occurredAt: string };
-}
 
 /**
  * 잼통 Voice 의 분석 화면과 같은 자리다. 다만 단위가 답글이 아니라 보도다.
@@ -33,25 +27,7 @@ interface Row {
 export default async function AnalysisPage() {
   const bundles = await getPublishedEvents();
 
-  const rows: Row[] = [];
-  let framedTotal = 0;
-  for (const { event, sources, items } of bundles) {
-    const framed = [...new Set(event.frames.flatMap((f) => f.itemIds))].filter((id) => items[id]);
-    framedTotal += framed.length;
-    const context = `${event.title} ${event.summary}`;
-    for (const id of framed) {
-      const tone = event.tones?.[id];
-      if (!tone) continue;
-      const item = items[id]!;
-      rows.push({
-        item,
-        source: sources[item.sourceId],
-        tone,
-        cues: surfaceCues(item.title, tone.tone, context),
-        event: { slug: event.slug, title: event.title, occurredAt: event.occurredAt },
-      });
-    }
-  }
+  const { rows, framedTotal } = toneRows(bundles);
   const classifiedEvents = new Set(rows.map((r) => r.event.slug)).size;
   const press = rows.filter((r) => r.source?.type === "press");
   const videos = rows.filter((r) => r.source?.type === "youtube");
@@ -154,11 +130,15 @@ export default async function AnalysisPage() {
   );
 }
 
-function OutletTable({ title, rows }: { title: string; rows: Row[] }) {
+function OutletTable({ title, rows }: { title: string; rows: ToneRow[] }) {
   if (rows.length === 0) return null;
-  const byOutlet = new Map<string, { name: string; tones: ToneEntry["tone"][] }>();
+  const byOutlet = new Map<string, { id: string; name: string; tones: ToneEntry["tone"][] }>();
   for (const r of rows) {
-    const entry = byOutlet.get(r.item.sourceId) ?? { name: r.source?.name ?? r.item.sourceId, tones: [] };
+    const entry = byOutlet.get(r.item.sourceId) ?? {
+      id: r.item.sourceId,
+      name: r.source?.name ?? r.item.sourceId,
+      tones: [],
+    };
     entry.tones.push(r.tone.tone);
     byOutlet.set(r.item.sourceId, entry);
   }
@@ -172,7 +152,8 @@ function OutletTable({ title, rows }: { title: string; rows: Row[] }) {
         <span className="text-sm tabular-nums text-zinc-500">{outlets.length}</span>
       </h2>
       <p className="text-xs leading-5 text-zinc-500">
-        이름순입니다. 분류 {MIN_FOR_RATIO}건 미만은 비율을 내지 않습니다.
+        이름순입니다. 분류 {MIN_FOR_RATIO}건 미만은 비율을 내지 않습니다. 이름이나 건수를
+        누르면 해당 기사·영상과 분류 근거를 볼 수 있습니다.
       </p>
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm tabular-nums">
@@ -188,15 +169,28 @@ function OutletTable({ title, rows }: { title: string; rows: Row[] }) {
             </tr>
           </thead>
           <tbody>
-            {outlets.map(({ name, tones }) => (
-              <tr key={name} className="border-b border-zinc-100 dark:border-zinc-900">
-                <td className="whitespace-nowrap py-2 pr-3">{name}</td>
+            {outlets.map(({ id, name, tones }) => (
+              <tr key={id} className="border-b border-zinc-100 dark:border-zinc-900">
+                <td className="whitespace-nowrap py-2 pr-3">
+                  <Link href={outletHref(id)} className="underline underline-offset-4">
+                    {name}
+                  </Link>
+                </td>
                 <td className="py-2 pr-3">{tones.length}</td>
                 {TONES.map((def) => {
                   const n = tones.filter((t) => t === def.key).length;
                   return (
                     <td key={def.key} className="whitespace-nowrap py-2 pr-3 text-zinc-600 dark:text-zinc-400">
-                      {n === 0 ? "·" : tones.length >= MIN_FOR_RATIO ? `${n} (${Math.round((n / tones.length) * 100)}%)` : n}
+                      {n === 0 ? (
+                        "·"
+                      ) : (
+                        <Link
+                          href={outletHref(id, def.key)}
+                          className="underline decoration-zinc-300 underline-offset-4 hover:decoration-current dark:decoration-zinc-700"
+                        >
+                          {tones.length >= MIN_FOR_RATIO ? `${n} (${Math.round((n / tones.length) * 100)}%)` : n}
+                        </Link>
+                      )}
                     </td>
                   );
                 })}

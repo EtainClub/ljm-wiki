@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 88건 중 61건 보도 · 미보도 27건
-- 평균 보도 지연 +95분 (1시간 35분)
+- 관찰 사건 90건 중 63건 보도 · 미보도 27건
+- 평균 보도 지연 +93분 (1시간 33분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-28-이재명-다문화가족-우대제도-검토]] — ‘우대’·‘필요성’·‘폐지 검토’를 앞세움 (2026-10-28)
+  16:40 (+7분) [「'펨코' 공유한 李대통령 "다문화에 우대까지 할 필요성 큰지"」](https://www.edaily.co.kr/News/Read?newsId=05346406645617512&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-28-이재명-민주당-중진-만찬-집권여당-역할]] — ‘국민 눈높이’·‘책임 있는 모습’을 앞세움 (2026-10-28)
+  21:28 (+30분) [「李대통령, 與중진 만찬서 "당 말과 행동도 국민 눈높이에 맞아야"」](https://www.edaily.co.kr/News/Read?newsId=06819126645617512&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-27-이재명-중수청장-국무회의-참석-비정상의-정상화]] — '비정상의 정상화'를 앞세움 (2026-10-27)
   10:36 (+36분) [「李대통령 “중수청장 국무회의 참석, 비정상의 정상화”」](https://www.edaily.co.kr/News/Read?newsId=03365286645617184&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-27-이재명-국무회의-유럽-반면교사-주택착공]] — '주택 착공'·'재정 지원'을 앞세움 (2026-10-27)
@@ -162,20 +166,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 61건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 63건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 25건 | 59건 |
-| [[outlets/mt|머니투데이]] | 25건 | 56건 |
-| [[outlets/news1|뉴스1]] | 23건 | 58건 |
-| [[outlets/yna|연합뉴스]] | 23건 | 58건 |
-| [[outlets/sbs|SBS]] | 22건 | 51건 |
-| [[outlets/mk|매일경제]] | 20건 | 52건 |
+| [[outlets/newsis|뉴시스]] | 26건 | 61건 |
+| [[outlets/mt|머니투데이]] | 25건 | 58건 |
+| [[outlets/yna|연합뉴스]] | 24건 | 60건 |
+| [[outlets/news1|뉴스1]] | 23건 | 59건 |
+| [[outlets/sbs|SBS]] | 23건 | 52건 |
+| [[outlets/hani|한겨레]] | 21건 | 47건 |
+| [[outlets/mk|매일경제]] | 20건 | 53건 |
 | [[outlets/segye|세계일보]] | 20건 | 49건 |
-| [[outlets/hani|한겨레]] | 20건 | 46건 |
-| [[outlets/kbs|KBS]] | 18건 | 52건 |
-| [[outlets/seoul|서울신문]] | 18건 | 46건 |
+| [[outlets/donga|동아일보]] | 19건 | 49건 |
+| [[outlets/seoul|서울신문]] | 19건 | 47건 |
 
 이 밖에 14곳이 더 있다.
 

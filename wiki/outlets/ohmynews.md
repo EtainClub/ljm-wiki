@@ -4,12 +4,15 @@
 
 ## 관찰 기록
 
-- 관찰 사건 88건 중 48건 보도 · 미보도 40건
-- 평균 보도 지연 +187분 (3시간 7분)
+- 관찰 사건 90건 중 49건 보도 · 미보도 41건
+- 평균 보도 지연 +185분 (3시간 5분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-28-이재명-다문화가족-우대제도-검토]] — ‘우대’·‘필요성’·‘폐지 검토’를 앞세움 (2026-10-28)
+  17:31 (+58분) [「이 대통령 "다문화가족 우대제도 필요성 큰지 깊이 검토"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003279656&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-10-28-이재명-민주당-중진-만찬-집권여당-역할]] — **보도하지 않음** (2026-10-28)
 - [[events/2026-10-27-이재명-중수청장-국무회의-참석-비정상의-정상화]] — '정치적 중립과 무슨 상관'을 앞세움 (2026-10-27)
   11:51 (+111분) [「이 대통령 "중수청장 공개회의 참석이 정치적 중립과 무슨 상관"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003279183&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-10-27-이재명-국무회의-유럽-반면교사-주택착공]] — '유럽 반면교사'를 앞세움 (2026-10-27)
@@ -149,20 +152,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 48건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 49건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 18건 | 44건 |
-| [[outlets/kbs|KBS]] | 18건 | 43건 |
+| [[outlets/mk|매일경제]] | 18건 | 45건 |
+| [[outlets/joongang|중앙일보]] | 18건 | 44건 |
+| [[outlets/kbs|KBS]] | 18건 | 44건 |
 | [[outlets/segye|세계일보]] | 17건 | 44건 |
-| [[outlets/joongang|중앙일보]] | 17건 | 43건 |
-| [[outlets/sbs|SBS]] | 16건 | 43건 |
+| [[outlets/sbs|SBS]] | 17건 | 44건 |
+| [[outlets/hankookilbo|한국일보]] | 16건 | 46건 |
 | [[outlets/kmib|국민일보]] | 16건 | 42건 |
+| [[outlets/ytn|YTN]] | 16건 | 39건 |
 | [[outlets/news1|뉴스1]] | 15건 | 45건 |
-| [[outlets/hankookilbo|한국일보]] | 15건 | 45건 |
 | [[outlets/mbc|MBC]] | 15건 | 42건 |
-| [[outlets/khan|경향신문]] | 15건 | 40건 |
 
 이 밖에 14곳이 더 있다.
 

@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 88건 중 68건 보도 · 미보도 20건
-- 평균 보도 지연 +69분 (1시간 9분)
+- 관찰 사건 90건 중 70건 보도 · 미보도 20건
+- 평균 보도 지연 +68분 (1시간 8분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-28-이재명-다문화가족-우대제도-검토]] — ‘우대’·‘필요성’·‘폐지 검토’를 앞세움 (2026-10-28)
+  16:51 (+18분) [「李대통령 “다문화가족 우대, 필요성 따져 폐지 검토해야”」](https://www.chosun.com/politics/politics_general/2026/10/28/CJMLQ4KHOFE6BFBUOUHBU4R2YI/)
+- [[events/2026-10-28-이재명-민주당-중진-만찬-집권여당-역할]] — ‘국민 눈높이’·‘책임 있는 모습’을 앞세움 (2026-10-28)
+  21:22 (+24분) [「李대통령, 與 중진에 “국민 눈높이 맞는 책임 있는 모습 보여야”」](https://biz.chosun.com/policy/politics/president_office/2026/10/28/HF7U5PI7CVHCZHZAVNLPKDAAG4/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-27-이재명-중수청장-국무회의-참석-비정상의-정상화]] — '비정상의 정상화'를 앞세움 (2026-10-27)
   10:25 (+25분) [「李 “중수청장의 국무회의 참석, 비정상의 정상화”」](https://biz.chosun.com/policy/politics/president_office/2026/10/27/NJ5XF36QVNEAJCLCP3RJJPO3CI/?utm_source=naver&utm_medium=original&utm_campaign=biz)
 - [[events/2026-10-27-이재명-국무회의-유럽-반면교사-주택착공]] — '유럽 반면교사'를 앞세움 (2026-10-27)
@@ -169,20 +173,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 68건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 70건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/yna|연합뉴스]] | 28건 | 66건 |
-| [[outlets/mt|머니투데이]] | 24건 | 62건 |
-| [[outlets/sbs|SBS]] | 24건 | 58건 |
-| [[outlets/news1|뉴스1]] | 22건 | 65건 |
-| [[outlets/newsis|뉴시스]] | 22건 | 65건 |
+| [[outlets/yna|연합뉴스]] | 29건 | 68건 |
+| [[outlets/sbs|SBS]] | 25건 | 59건 |
+| [[outlets/mt|머니투데이]] | 24건 | 64건 |
+| [[outlets/donga|동아일보]] | 24건 | 54건 |
+| [[outlets/newsis|뉴시스]] | 23건 | 67건 |
+| [[outlets/khan|경향신문]] | 23건 | 55건 |
+| [[outlets/news1|뉴스1]] | 22건 | 66건 |
+| [[outlets/joongang|중앙일보]] | 22건 | 57건 |
 | [[outlets/segye|세계일보]] | 22건 | 56건 |
-| [[outlets/khan|경향신문]] | 22건 | 53건 |
-| [[outlets/donga|동아일보]] | 22건 | 52건 |
-| [[outlets/kbs|KBS]] | 21건 | 59건 |
-| [[outlets/mk|매일경제]] | 21건 | 55건 |
+| [[outlets/kbs|KBS]] | 21건 | 61건 |
 
 이 밖에 14곳이 더 있다.
 

@@ -4,12 +4,15 @@
 
 ## 관찰 기록
 
-- 관찰 사건 90건 중 63건 보도 · 미보도 27건
-- 평균 보도 지연 +93분 (1시간 33분)
+- 관찰 사건 92건 중 64건 보도 · 미보도 28건
+- 평균 보도 지연 +92분 (1시간 32분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-29-이재명-국민-직접소통-중요한-책무]] — **보도하지 않음** (2026-10-29)
+- [[events/2026-10-29-이재명-한독-강화된-전략적-동반자-관계]] — '방산'·'산업가속화법'·'경제안보'·'군사비밀보호'를 앞세움 (2026-10-29)
+  19:03 (+63분) [「李-메르츠, 한독 관계 격상…반도체·AI·방산까지 경제안보 협력 강화」](https://www.edaily.co.kr/News/Read?newsId=06507526645617840&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-28-이재명-다문화가족-우대제도-검토]] — ‘우대’·‘필요성’·‘폐지 검토’를 앞세움 (2026-10-28)
   16:40 (+7분) [「'펨코' 공유한 李대통령 "다문화에 우대까지 할 필요성 큰지"」](https://www.edaily.co.kr/News/Read?newsId=05346406645617512&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-28-이재명-민주당-중진-만찬-집권여당-역할]] — ‘국민 눈높이’·‘책임 있는 모습’을 앞세움 (2026-10-28)
@@ -166,20 +169,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 63건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 64건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 26건 | 61건 |
-| [[outlets/mt|머니투데이]] | 25건 | 58건 |
-| [[outlets/yna|연합뉴스]] | 24건 | 60건 |
-| [[outlets/news1|뉴스1]] | 23건 | 59건 |
-| [[outlets/sbs|SBS]] | 23건 | 52건 |
-| [[outlets/hani|한겨레]] | 21건 | 47건 |
-| [[outlets/mk|매일경제]] | 20건 | 53건 |
-| [[outlets/segye|세계일보]] | 20건 | 49건 |
+| [[outlets/newsis|뉴시스]] | 26건 | 62건 |
+| [[outlets/mt|머니투데이]] | 26건 | 59건 |
+| [[outlets/yna|연합뉴스]] | 24건 | 61건 |
+| [[outlets/news1|뉴스1]] | 23건 | 60건 |
+| [[outlets/sbs|SBS]] | 23건 | 53건 |
+| [[outlets/segye|세계일보]] | 21건 | 50건 |
+| [[outlets/hani|한겨레]] | 21건 | 48건 |
+| [[outlets/mk|매일경제]] | 20건 | 54건 |
 | [[outlets/donga|동아일보]] | 19건 | 49건 |
-| [[outlets/seoul|서울신문]] | 19건 | 47건 |
+| [[outlets/seoul|서울신문]] | 19건 | 48건 |
 
 이 밖에 14곳이 더 있다.
 

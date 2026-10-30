@@ -1,0 +1,39 @@
+{
+  "periodKST": "2026-10-31 00:00~07:45",
+  "channels": [
+    {
+      "reference": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "channelId": "UCOqCunaF9qVN8bXwsK0HT3g",
+      "uploadsPlaylistId": "UUOqCunaF9qVN8bXwsK0HT3g",
+      "title": "펜앤마이크TV",
+      "checkedAt": "2026-10-30T22:44:54.749Z",
+      "recentCount": 50,
+      "relatedCount": 22,
+      "selected": {
+        "title": "착각 속에 살던 이재명, 비참한 현실에 까무러칠 판 / 김기흥 국민의힘 미디어대변인 [굿모닝 대한민국]",
+        "url": "https://www.youtube.com/watch?v=JHrZ64C9uH8",
+        "publishedAt": "2026-10-30T21:00:21.000Z"
+      },
+      "verification": "내용 미확인 — 제목 관찰만",
+      "eventLink": "직접 일치 사건을 확정하지 못해 연결 보류"
+    },
+    {
+      "reference": "UCTYfJ6IIFID0KOK9B2kHtiw",
+      "channelId": "UCTYfJ6IIFID0KOK9B2kHtiw",
+      "uploadsPlaylistId": "UUTYfJ6IIFID0KOK9B2kHtiw",
+      "title": "장용진TV",
+      "checkedAt": "2026-10-30T22:44:55.361Z",
+      "recentCount": 50,
+      "relatedCount": 5,
+      "selected": {
+        "title": "자칭 '뉴이재명' 세력들의 특징... 쌍욕과 조롱이 아니면 말을 못한다??",
+        "url": "https://www.youtube.com/watch?v=gCBj9cbQnzw",
+        "publishedAt": "2026-10-30T16:17:36.000Z"
+      },
+      "verification": "내용 미확인 — 제목 관찰만",
+      "eventLink": "직접 일치 사건을 확정하지 못해 연결 보류"
+    }
+  ],
+  "reviewedExamples": 11,
+  "contentVerified": 0
+}

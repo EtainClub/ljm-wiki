@@ -4,15 +4,18 @@
 
 ## 관찰 기록
 
-- 관찰 사건 94건 중 65건 보도 · 미보도 29건
+- 관찰 사건 96건 중 66건 보도 · 미보도 30건
 - 평균 보도 지연 +95분 (1시간 35분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-30-이재명-최불암-별세-추모]] — '먼저 사람이 돼야'를 앞세움 (2026-10-30)
+  09:20 (+80분) [「"먼저 사람이 돼야"...李대통령, 최불암 추모하며 되새긴 말」](https://www.edaily.co.kr/News/Read?newsId=03358726645618168&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-10-30-이재명-토착비리-단속성과-공유]] — **보도하지 않음** (2026-10-30)
 - [[events/2026-10-30-이재명-한국갤럽-직무평가-39퍼센트]] — '30%대'·'40%선 붕괴'·'하락'을 앞세움 (2026-10-30)
   14:18 (+258분) [「“SNS 활동 늘린 李대통령”…지지율은 하락해 39%[한국갤럽]」](https://www.edaily.co.kr/News/Read?newsId=04267286645618168&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-10-30-이재명-특보-특별감찰관-임명장-수여]] — **보도하지 않음** (2026-10-30)
 - [[events/2026-10-29-이재명-국민-직접소통-중요한-책무]] — **보도하지 않음** (2026-10-29)
 - [[events/2026-10-29-이재명-한독-강화된-전략적-동반자-관계]] — '방산'·'산업가속화법'·'경제안보'·'군사비밀보호'를 앞세움 (2026-10-29)
   19:03 (+63분) [「李-메르츠, 한독 관계 격상…반도체·AI·방산까지 경제안보 협력 강화」](https://www.edaily.co.kr/News/Read?newsId=06507526645617840&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
@@ -172,20 +175,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 65건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 66건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 26건 | 63건 |
-| [[outlets/mt|머니투데이]] | 26건 | 60건 |
-| [[outlets/yna|연합뉴스]] | 24건 | 62건 |
-| [[outlets/news1|뉴스1]] | 23건 | 61건 |
-| [[outlets/sbs|SBS]] | 23건 | 54건 |
-| [[outlets/segye|세계일보]] | 21건 | 51건 |
-| [[outlets/hani|한겨레]] | 21건 | 49건 |
-| [[outlets/mk|매일경제]] | 20건 | 55건 |
-| [[outlets/joongang|중앙일보]] | 19건 | 53건 |
-| [[outlets/donga|동아일보]] | 19건 | 50건 |
+| [[outlets/newsis|뉴시스]] | 26건 | 64건 |
+| [[outlets/mt|머니투데이]] | 26건 | 61건 |
+| [[outlets/yna|연합뉴스]] | 24건 | 63건 |
+| [[outlets/news1|뉴스1]] | 23건 | 62건 |
+| [[outlets/sbs|SBS]] | 23건 | 55건 |
+| [[outlets/segye|세계일보]] | 21건 | 52건 |
+| [[outlets/hani|한겨레]] | 21건 | 50건 |
+| [[outlets/mk|매일경제]] | 20건 | 56건 |
+| [[outlets/joongang|중앙일보]] | 19건 | 54건 |
+| [[outlets/donga|동아일보]] | 19건 | 51건 |
 
 이 밖에 14곳이 더 있다.
 

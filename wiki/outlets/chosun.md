@@ -4,15 +4,19 @@
 
 ## 관찰 기록
 
-- 관찰 사건 94건 중 73건 보도 · 미보도 21건
-- 평균 보도 지연 +68분 (1시간 8분)
+- 관찰 사건 96건 중 75건 보도 · 미보도 21건
+- 평균 보도 지연 +79분 (1시간 19분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-10-30-이재명-최불암-별세-추모]] — '우리 시대의 아버지'·'국민배우'를 앞세움 (2026-10-30)
+  09:16 (+76분) [「李대통령, 故 최불암 애도 “우리 시대의 아버지… 뜻 깊이 새길 것”」](https://www.chosun.com/politics/politics_general/2026/10/30/OVV6VXZL7BG7ZLTUZAR63QQFKU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
 - [[events/2026-10-30-이재명-토착비리-단속성과-공유]] — **보도하지 않음** (2026-10-30)
 - [[events/2026-10-30-이재명-한국갤럽-직무평가-39퍼센트]] — '격차'·'오차범위'를 앞세움 (2026-10-30)
   10:35 (+35분) [「민주 35%, 국힘 30%...현 정부 출범 후 최소 격차 [한국갤럽]」](https://www.chosun.com/politics/assembly/2026/10/30/C6EGAELP25EJHHKPKKMHDRHPDE/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
+- [[events/2026-10-30-이재명-특보-특별감찰관-임명장-수여]] — '특보 언행'·'입조심'을 앞세움 (2026-10-30)
+  00:50 (+890분) [「李대통령, 특보 송영길·김병주에 ‘입조심’ 경고」](https://www.chosun.com/politics/politics_general/2026/10/31/N5KU3WTYDBFR7OFDRKNUOURAWA/)
 - [[events/2026-10-29-이재명-국민-직접소통-중요한-책무]] — '논란'·'자제론'·'만기친람형 SNS'를 앞세움 (2026-10-29)
   15:45 (+135분) [「SNS 자제론에 李대통령 정면돌파…"국민과 직접 소통, 포기 못할 책무"」](http://weekly.chosun.com/news/articleView.html?idxno=56660)
 - [[events/2026-10-29-이재명-한독-강화된-전략적-동반자-관계]] — '전략적 동반자'를 앞세움 (2026-10-29)
@@ -180,20 +184,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 73건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 75건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/yna|연합뉴스]] | 29건 | 71건 |
-| [[outlets/sbs|SBS]] | 26건 | 62건 |
-| [[outlets/mt|머니투데이]] | 25건 | 67건 |
-| [[outlets/donga|동아일보]] | 25건 | 56건 |
-| [[outlets/newsis|뉴시스]] | 24건 | 70건 |
-| [[outlets/news1|뉴스1]] | 23건 | 69건 |
-| [[outlets/segye|세계일보]] | 23건 | 59건 |
-| [[outlets/khan|경향신문]] | 23건 | 57건 |
-| [[outlets/hankyung|한국경제]] | 23건 | 55건 |
-| [[outlets/joongang|중앙일보]] | 22건 | 59건 |
+| [[outlets/yna|연합뉴스]] | 30건 | 73건 |
+| [[outlets/sbs|SBS]] | 27건 | 64건 |
+| [[outlets/mt|머니투데이]] | 26건 | 69건 |
+| [[outlets/newsis|뉴시스]] | 25건 | 72건 |
+| [[outlets/donga|동아일보]] | 25건 | 58건 |
+| [[outlets/news1|뉴스1]] | 24건 | 71건 |
+| [[outlets/segye|세계일보]] | 24건 | 61건 |
+| [[outlets/hankyung|한국경제]] | 24건 | 56건 |
+| [[outlets/joongang|중앙일보]] | 23건 | 60건 |
+| [[outlets/khan|경향신문]] | 23건 | 59건 |
 
 이 밖에 14곳이 더 있다.
 

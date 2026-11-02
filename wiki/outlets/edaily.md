@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 100건 중 68건 보도 · 미보도 32건
-- 평균 보도 지연 +93분 (1시간 33분)
+- 관찰 사건 102건 중 70건 보도 · 미보도 32건
+- 평균 보도 지연 +92분 (1시간 32분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-11-02-전한길-혼외자설-518-북한개입설-송치]] — '5·18 북한 개입설'·'개입 주장'을 앞세움 (2026-11-02)
+  21:30 (+90분) [「'5·18 북한 개입설' 퍼뜨린 전한길, 공소청 송치」](https://www.edaily.co.kr/News/Read?newsId=05280806645641784&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-11-02-이재명-2027예산안-국회-시정연설]] — '예산'·'투자'·'재정지원'을 앞세움 (2026-11-02)
+  11:10 (+70분) [「李대통령 “내년 예산 820.9조원…미래 성장동력·민생 지원 집중 투자...」](https://www.edaily.co.kr/News/Read?newsId=02801126645641784&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-11-01-이재명-수출9천억-국익외교-경제영토]] — '경제영토 확장'을 앞세움 (2026-11-01)
   11:32 (+32분) [「李, 수출 9000억 달러 돌파에 "경제영토 확장에 더 노력"」](https://www.edaily.co.kr/News/Read?newsId=01476006645641456&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-11-01-이재명-예산안-시정연설-예고]] — **보도하지 않음** (2026-11-01)
@@ -181,20 +185,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 68건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 70건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/newsis|뉴시스]] | 28건 | 66건 |
-| [[outlets/mt|머니투데이]] | 28건 | 63건 |
-| [[outlets/yna|연합뉴스]] | 25건 | 64건 |
-| [[outlets/news1|뉴스1]] | 24건 | 64건 |
-| [[outlets/sbs|SBS]] | 23건 | 55건 |
-| [[outlets/segye|세계일보]] | 21건 | 52건 |
-| [[outlets/hani|한겨레]] | 21건 | 51건 |
-| [[outlets/mk|매일경제]] | 20건 | 56건 |
-| [[outlets/chosun|조선일보]] | 19건 | 62건 |
-| [[outlets/kbs|KBS]] | 19건 | 58건 |
+| [[outlets/mt|머니투데이]] | 29건 | 64건 |
+| [[outlets/newsis|뉴시스]] | 28건 | 68건 |
+| [[outlets/yna|연합뉴스]] | 26건 | 66건 |
+| [[outlets/sbs|SBS]] | 25건 | 57건 |
+| [[outlets/news1|뉴스1]] | 24건 | 66건 |
+| [[outlets/segye|세계일보]] | 22건 | 53건 |
+| [[outlets/donga|동아일보]] | 21건 | 54건 |
+| [[outlets/hani|한겨레]] | 21건 | 52건 |
+| [[outlets/seoul|서울신문]] | 21건 | 51건 |
+| [[outlets/chosun|조선일보]] | 20건 | 63건 |
 
 이 밖에 14곳이 더 있다.
 

@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 102건 중 78건 보도 · 미보도 24건
+- 관찰 사건 104건 중 80건 보도 · 미보도 24건
 - 평균 보도 지연 +78분 (1시간 18분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-11-03-이재명-에르도안-정상회담-협력확대]] — '양해각서'·'MOU'·'금융 협력'을 앞세움 (2026-11-03)
+  18:08 (+8분) [「금융 협력까지 물꼬 튼 韓·튀르키예… 시노프 원전 수주 기대감」](https://www.chosun.com/politics/politics_general/2026/11/03/2VB2IQ2F4FBOJIB33BL2OPDCVU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
+- [[events/2026-11-03-이재명-사이버보안-컨트롤타워-검토]] — '차르'·'범정부 기구'를 앞세움 (2026-11-03)
+  11:25 (+85분) [「李대통령 “보안 기능 총괄 ‘차르’ 기구 구성, 적극 검토하라”」](https://www.chosun.com/politics/politics_general/2026/11/03/4NC4WANTXJF7BE6FUGJSBG2KSU/)
 - [[events/2026-11-02-전한길-혼외자설-518-북한개입설-송치]] — '5·18 북한 개입설'·'개입 주장'을 앞세움 (2026-11-02)
   21:53 (+113분) [「‘5·18 북한 개입설’ 유포 혐의 전한길, 공소청 송치」](https://www.chosun.com/national/national_general/2026/11/02/F2XPLMGK4NE3RPUVMA7WPXB5JI/)
 - [[events/2026-11-02-이재명-2027예산안-국회-시정연설]] — **보도하지 않음** (2026-11-02)
@@ -193,20 +197,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 78건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 80건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/yna|연합뉴스]] | 32건 | 75건 |
-| [[outlets/sbs|SBS]] | 28건 | 65건 |
-| [[outlets/mt|머니투데이]] | 27건 | 71건 |
-| [[outlets/newsis|뉴시스]] | 26건 | 75건 |
-| [[outlets/donga|동아일보]] | 26건 | 60건 |
-| [[outlets/hankyung|한국경제]] | 26건 | 59건 |
-| [[outlets/news1|뉴스1]] | 24건 | 74건 |
-| [[outlets/kbs|KBS]] | 24건 | 68건 |
-| [[outlets/joongang|중앙일보]] | 24건 | 62건 |
-| [[outlets/segye|세계일보]] | 24건 | 61건 |
+| [[outlets/yna|연합뉴스]] | 34건 | 77건 |
+| [[outlets/mt|머니투데이]] | 28건 | 72건 |
+| [[outlets/sbs|SBS]] | 28건 | 67건 |
+| [[outlets/newsis|뉴시스]] | 27건 | 76건 |
+| [[outlets/donga|동아일보]] | 27건 | 61건 |
+| [[outlets/news1|뉴스1]] | 26건 | 76건 |
+| [[outlets/hankyung|한국경제]] | 26건 | 61건 |
+| [[outlets/kbs|KBS]] | 24건 | 69건 |
+| [[outlets/segye|세계일보]] | 24건 | 63건 |
+| [[outlets/joongang|중앙일보]] | 24건 | 63건 |
 
 이 밖에 14곳이 더 있다.
 

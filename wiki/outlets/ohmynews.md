@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 102건 중 52건 보도 · 미보도 50건
-- 평균 보도 지연 +179분 (2시간 59분)
+- 관찰 사건 104건 중 54건 보도 · 미보도 50건
+- 평균 보도 지연 +176분 (2시간 56분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-11-03-이재명-에르도안-정상회담-협력확대]] — '원전'·'방산' 협력을 앞세움 (2026-11-03)
+  19:11 (+71분) [「한국, 튀르키예 신규 원전 선제적 지원... '전략적 동반관계' 심화」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003281416&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-11-03-이재명-사이버보안-컨트롤타워-검토]] — '해킹'·'보안' 대응을 앞세움 (2026-11-03)
+  12:11 (+131분) [「이 대통령 "해킹 공격 잇따라, '사이버 보안 차르' 적극 검토"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003281242&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-11-02-전한길-혼외자설-518-북한개입설-송치]] — **보도하지 않음** (2026-11-02)
 - [[events/2026-11-02-이재명-2027예산안-국회-시정연설]] — '예산'·'투자'·'재정지원'을 앞세움 (2026-11-02)
   10:51 (+51분) [「이 대통령, 821조 내년 예산안에 "미래선점 예산이자 성장확장 예산"」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003280828&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
@@ -167,20 +171,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 52건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 54건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mk|매일경제]] | 20건 | 48건 |
-| [[outlets/segye|세계일보]] | 20건 | 47건 |
-| [[outlets/sbs|SBS]] | 20건 | 47건 |
-| [[outlets/joongang|중앙일보]] | 19건 | 47건 |
-| [[outlets/kbs|KBS]] | 19건 | 46건 |
-| [[outlets/hankookilbo|한국일보]] | 17건 | 49건 |
-| [[outlets/news1|뉴스1]] | 17건 | 48건 |
-| [[outlets/kmib|국민일보]] | 17건 | 44건 |
-| [[outlets/mbc|MBC]] | 16건 | 45건 |
-| [[outlets/khan|경향신문]] | 16건 | 44건 |
+| [[outlets/sbs|SBS]] | 22건 | 49건 |
+| [[outlets/mk|매일경제]] | 21건 | 50건 |
+| [[outlets/segye|세계일보]] | 21건 | 49건 |
+| [[outlets/joongang|중앙일보]] | 20건 | 48건 |
+| [[outlets/kbs|KBS]] | 20건 | 47건 |
+| [[outlets/hankookilbo|한국일보]] | 18건 | 50건 |
+| [[outlets/kmib|국민일보]] | 18건 | 45건 |
+| [[outlets/news1|뉴스1]] | 17건 | 50건 |
+| [[outlets/mbc|MBC]] | 17건 | 46건 |
+| [[outlets/khan|경향신문]] | 17건 | 45건 |
 
 이 밖에 14곳이 더 있다.
 

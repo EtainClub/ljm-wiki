@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 104건 중 54건 보도 · 미보도 50건
-- 평균 보도 지연 +176분 (2시간 56분)
+- 관찰 사건 106건 중 56건 보도 · 미보도 50건
+- 평균 보도 지연 +172분 (2시간 52분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-11-04-이재명-대통령의Y-유튜브-방송예고]] — '직접 소통'·'소통'을 앞세움 (2026-11-04)
+  17:01 (+119분) [「X에서 하나 더 늘렸다, 대통령 유튜브로 '직접 소통' 강화」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003281756&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+- [[events/2026-11-04-이재명-사랑제일교회-강제집행-발언]] — '법 어겨도 버티면'·'철저 집행'을 앞세움 (2026-11-04)
+  17:51 (+52분) [「'전광훈 교회 알박기' 논란에 대통령 "법 어겨도 버티면 된다는 건 없다...」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003281782&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-11-03-이재명-에르도안-정상회담-협력확대]] — '원전'·'방산' 협력을 앞세움 (2026-11-03)
   19:11 (+71분) [「한국, 튀르키예 신규 원전 선제적 지원... '전략적 동반관계' 심화」](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003281416&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
 - [[events/2026-11-03-이재명-사이버보안-컨트롤타워-검토]] — '해킹'·'보안' 대응을 앞세움 (2026-11-03)
@@ -171,20 +175,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 54건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 56건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/sbs|SBS]] | 22건 | 49건 |
-| [[outlets/mk|매일경제]] | 21건 | 50건 |
-| [[outlets/segye|세계일보]] | 21건 | 49건 |
-| [[outlets/joongang|중앙일보]] | 20건 | 48건 |
-| [[outlets/kbs|KBS]] | 20건 | 47건 |
-| [[outlets/hankookilbo|한국일보]] | 18건 | 50건 |
-| [[outlets/kmib|국민일보]] | 18건 | 45건 |
-| [[outlets/news1|뉴스1]] | 17건 | 50건 |
-| [[outlets/mbc|MBC]] | 17건 | 46건 |
-| [[outlets/khan|경향신문]] | 17건 | 45건 |
+| [[outlets/sbs|SBS]] | 23건 | 50건 |
+| [[outlets/mk|매일경제]] | 21건 | 51건 |
+| [[outlets/segye|세계일보]] | 21건 | 50건 |
+| [[outlets/joongang|중앙일보]] | 21건 | 50건 |
+| [[outlets/kbs|KBS]] | 20건 | 48건 |
+| [[outlets/hankookilbo|한국일보]] | 19건 | 52건 |
+| [[outlets/kmib|국민일보]] | 18건 | 46건 |
+| [[outlets/pressian|프레시안]] | 18건 | 45건 |
+| [[outlets/ytn|YTN]] | 18건 | 43건 |
+| [[outlets/news1|뉴스1]] | 17건 | 51건 |
 
 이 밖에 14곳이 더 있다.
 

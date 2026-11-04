@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 104건 중 80건 보도 · 미보도 24건
-- 평균 보도 지연 +78분 (1시간 18분)
+- 관찰 사건 106건 중 82건 보도 · 미보도 24건
+- 평균 보도 지연 +77분 (1시간 17분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-11-04-이재명-대통령의Y-유튜브-방송예고]] — '내일'·'5일'·'첫 방송'을 앞세움 (2026-11-04)
+  15:21 (+19분) [「李대통령, 엑스 이어 유튜브 프로그램도... “대통령의 Y, 내일 첫 방송...」](https://biz.chosun.com/policy/politics/president_office/2026/11/04/5Q46MVRBKVGXDO5NQFXZQGNANQ/?utm_source=naver&utm_medium=original&utm_campaign=biz)
+- [[events/2026-11-04-이재명-사랑제일교회-강제집행-발언]] — '법 어겨도 버티면'·'철저 집행'을 앞세움 (2026-11-04)
+  17:43 (+44분) [「李, 사랑제일교회 제척에 “법 어기고 버티면 되나… 철저 집행”」](https://www.chosun.com/politics/politics_general/2026/11/04/AGIURFMNMNADDFCKA3V3IJAOJE/)
 - [[events/2026-11-03-이재명-에르도안-정상회담-협력확대]] — '양해각서'·'MOU'·'금융 협력'을 앞세움 (2026-11-03)
   18:08 (+8분) [「금융 협력까지 물꼬 튼 韓·튀르키예… 시노프 원전 수주 기대감」](https://www.chosun.com/politics/politics_general/2026/11/03/2VB2IQ2F4FBOJIB33BL2OPDCVU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news)
 - [[events/2026-11-03-이재명-사이버보안-컨트롤타워-검토]] — '차르'·'범정부 기구'를 앞세움 (2026-11-03)
@@ -197,20 +201,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 80건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 82건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/yna|연합뉴스]] | 34건 | 77건 |
-| [[outlets/mt|머니투데이]] | 28건 | 72건 |
-| [[outlets/sbs|SBS]] | 28건 | 67건 |
-| [[outlets/newsis|뉴시스]] | 27건 | 76건 |
-| [[outlets/donga|동아일보]] | 27건 | 61건 |
-| [[outlets/news1|뉴스1]] | 26건 | 76건 |
-| [[outlets/hankyung|한국경제]] | 26건 | 61건 |
-| [[outlets/kbs|KBS]] | 24건 | 69건 |
-| [[outlets/segye|세계일보]] | 24건 | 63건 |
-| [[outlets/joongang|중앙일보]] | 24건 | 63건 |
+| [[outlets/yna|연합뉴스]] | 34건 | 79건 |
+| [[outlets/newsis|뉴시스]] | 28건 | 78건 |
+| [[outlets/mt|머니투데이]] | 28건 | 73건 |
+| [[outlets/sbs|SBS]] | 28건 | 68건 |
+| [[outlets/donga|동아일보]] | 28건 | 63건 |
+| [[outlets/news1|뉴스1]] | 27건 | 77건 |
+| [[outlets/hankyung|한국경제]] | 26건 | 62건 |
+| [[outlets/kbs|KBS]] | 25건 | 70건 |
+| [[outlets/segye|세계일보]] | 25건 | 64건 |
+| [[outlets/joongang|중앙일보]] | 24건 | 65건 |
 
 이 밖에 14곳이 더 있다.
 

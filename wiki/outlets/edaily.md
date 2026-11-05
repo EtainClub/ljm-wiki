@@ -4,12 +4,16 @@
 
 ## 관찰 기록
 
-- 관찰 사건 106건 중 74건 보도 · 미보도 32건
+- 관찰 사건 108건 중 76건 보도 · 미보도 32건
 - 평균 보도 지연 +91분 (1시간 31분)
 - 수집 방식 RSS
 
 ## 사건별 프레임
 
+- [[events/2026-11-05-이재명-장남-주진우-명예훼손-고소]] — '골프장 간 적 없다'·'특혜 골프는 사실 아냐'를 앞세움 (2026-11-05)
+  20:58 (+175분) [「이 대통령 장남, 주진우 명예훼손 혐의 고소.."골프장 간적 없다"」](https://www.edaily.co.kr/News/Read?newsId=07616166645642768&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
+- [[events/2026-11-05-이재명-부동산투기-3차-단속-예고]] — '불법 있으면 시정'·'이제라도 시정'을 앞세움 (2026-11-05)
+  18:10 (+75분) [「李 "부동산 투기 3차 단속 시작…불법 있으면 시정하길"」](https://www.edaily.co.kr/News/Read?newsId=06694486645642768&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-11-04-이재명-대통령의Y-유튜브-방송예고]] — '진행자 손정은'·'대통령의 Y'를 앞세움 (2026-11-04)
   15:09 (+7분) [「[속보] 靑 “유튜브 소통 채널 ‘대통령의 Y’ 선봬…진행자는 손정은”」](https://www.edaily.co.kr/News/Read?newsId=04739606645642440&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article)
 - [[events/2026-11-04-이재명-사랑제일교회-강제집행-발언]] — '알박기 논란'을 앞세움 (2026-11-04)
@@ -193,20 +197,20 @@
 
 ## 같은 프레임을 공유한 매체
 
-프레임을 견줄 수 있는 사건 74건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
+프레임을 견줄 수 있는 사건 76건 기준이다. 같은 사건에서 같은 제목 축에 묶인 횟수를 셌다.
 
 | 매체 | 같은 프레임 | 함께 관찰 |
 | --- | ---: | ---: |
-| [[outlets/mt|머니투데이]] | 29건 | 66건 |
-| [[outlets/newsis|뉴시스]] | 28건 | 71건 |
-| [[outlets/yna|연합뉴스]] | 27건 | 70건 |
+| [[outlets/mt|머니투데이]] | 30건 | 67건 |
+| [[outlets/newsis|뉴시스]] | 28건 | 73건 |
+| [[outlets/yna|연합뉴스]] | 28건 | 72건 |
 | [[outlets/sbs|SBS]] | 26건 | 60건 |
-| [[outlets/news1|뉴스1]] | 25건 | 69건 |
-| [[outlets/mk|매일경제]] | 22건 | 60건 |
-| [[outlets/joongang|중앙일보]] | 22건 | 60건 |
-| [[outlets/donga|동아일보]] | 22건 | 57건 |
-| [[outlets/segye|세계일보]] | 22건 | 56건 |
-| [[outlets/hani|한겨레]] | 22건 | 56건 |
+| [[outlets/news1|뉴스1]] | 25건 | 71건 |
+| [[outlets/mk|매일경제]] | 24건 | 62건 |
+| [[outlets/joongang|중앙일보]] | 23건 | 61건 |
+| [[outlets/segye|세계일보]] | 23건 | 57건 |
+| [[outlets/seoul|서울신문]] | 23건 | 54건 |
+| [[outlets/donga|동아일보]] | 22건 | 58건 |
 
 이 밖에 14곳이 더 있다.
 

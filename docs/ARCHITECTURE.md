@@ -334,8 +334,9 @@ npm --prefix functions run deploy
 | `firestore.rules` 를 고쳤다 | `npm run deploy:rules` |
 | 큐레이션 스크립트만 고쳤다 | **아무것도 안 해도 된다** (로컬에서만 돈다) |
 
-**사건 화면은 동적 SSR이다.** `published` 상태는 App Hosting 서버가 다음 요청에서 Firestore로
-읽는다. 승인 workflow가 원본·위키 이력을 commit한 뒤 `main`을 push하므로 배포 이력도 남는다.
+**사건 화면은 동적 SSR이다.** `published` 상태는 App Hosting 서버가 Firestore로 읽되,
+읽기 비용을 줄이려고 인스턴스 메모리에 5분 캐시한다(`src/lib/events-source.ts`의 `CACHE_TTL_MS`).
+발행 후 화면 반영까지 최대 5분 걸린다. 승인 workflow가 원본·위키 이력을 commit한 뒤 `main`을 push하므로 배포 이력도 남는다.
 
 ---
 
